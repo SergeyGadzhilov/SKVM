@@ -23,13 +23,13 @@
 #include <QtNetwork>
 
 #if defined(Q_OS_WIN)
-const char AppConfig::server_name_[] = "input-leaps.exe";
-const char AppConfig::client_name_[] = "input-leapc.exe";
+const char AppConfig::server_name_[] = "skvms.exe";
+const char AppConfig::client_name_[] = "skvmc.exe";
 const char AppConfig::log_dir_[] = "log/";
 #define DEFAULT_PROCESS_MODE Service
 #else
-const char AppConfig::server_name_[] = "input-leaps";
-const char AppConfig::client_name_[] = "input-leapc";
+const char AppConfig::server_name_[] = "skvms";
+const char AppConfig::client_name_[] = "skvmc";
 const char AppConfig::log_dir_[] = "/var/log/";
 #define DEFAULT_PROCESS_MODE Desktop
 #endif

@@ -20,7 +20,7 @@
 #define INPUTLEAP_TEST_ENV
 
 #include "base/EventTarget.h"
-#include "inputleap/Screen.h"
+#include "skvm/Screen.h"
 
 #include <gmock/gmock.h>
 

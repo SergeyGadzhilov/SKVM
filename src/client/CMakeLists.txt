@@ -1,4 +1,5 @@
-# InputLeap -- mouse and keyboard sharing utility
+# SKVM -- mouse and keyboard sharing utility
+# Copyright (C) 2023 Hadzhilov Serhii
 # Copyright (C) 2012-2016 Symless Ltd.
 # Copyright (C) 2009 Nick Bolton
 #
@@ -15,17 +16,17 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 set(sources
-    input-leapc.cpp
+    skvmc.cpp
 )
 
 if (BUILD_MSWINDOWS)
     file(GLOB mswin_headers "MSWindows*.h")
     file(GLOB mswin_sources "MSWindows*.cpp")
     list(APPEND sources
-        input-leapc.exe.manifest
-        input-leapc.rc
+        skvmc.exe.manifest
+        skvmc.rc
     )
-    set_property(SOURCE input-leapc.rc PROPERTY COMPILE_FLAGS /nologo)
+    set_property(SOURCE skvmc.rc PROPERTY COMPILE_FLAGS /nologo)
 endif()
 if (BUILD_CARBON)
     file(GLOB carbon_headers "OSX*.h")
@@ -43,16 +44,16 @@ endif()
 list(APPEND sources ${mswin_sources} ${carbon_sources} ${xwin_sources} ${ei_sources})
 list(APPEND headers ${mswin_headers} ${carbon_headers} ${xwin_headers} ${ei_headers})
 
-if(INPUTLEAP_ADD_HEADERS)
+if(SKVM_ADD_HEADERS)
     list(APPEND sources ${headers})
 endif()
 
-add_executable(input-leapc ${sources})
-target_link_libraries(input-leapc
+add_executable(skvmc ${sources})
+target_link_libraries(skvmc
     arch base client common io mt net ipc platform server synlib ${libs} ${OPENSSL_LIBS})
 
 if (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
-    install(TARGETS input-leapc DESTINATION ${INPUTLEAP_BUNDLE_BINARY_DIR})
+    install(TARGETS skvmc DESTINATION ${SKVM_BUNDLE_BINARY_DIR})
 elseif (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
-    install (TARGETS input-leapc DESTINATION bin)
+    install (TARGETS skvmc DESTINATION bin)
 endif()

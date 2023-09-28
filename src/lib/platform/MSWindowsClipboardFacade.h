@@ -20,7 +20,7 @@
 
 #include "platform/IMSWindowsClipboardFacade.h"
 
-#include "inputleap/IClipboard.h"
+#include "skvm/IClipboard.h"
 
 namespace inputleap {
 

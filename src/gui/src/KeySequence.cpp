@@ -194,7 +194,7 @@ QString KeySequence::keyToString(int key)
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
             case Qt::MiddleButton: return "3";
 #else
-            case Qt::MidButton: return "3";
+            case Qt::MiddleButton: return "3";
 #endif
         default:
             break;

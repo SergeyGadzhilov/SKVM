@@ -19,8 +19,8 @@
 #pragma once
 
 #include "server/BaseClientProxy.h"
-#include "inputleap/Fwd.h"
-#include "inputleap/protocol_types.h"
+#include "skvm/Fwd.h"
+#include "skvm/protocol_types.h"
 
 namespace inputleap {
 

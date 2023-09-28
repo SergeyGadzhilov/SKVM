@@ -20,10 +20,10 @@
 
 #include "base/Fwd.h"
 #include "base/EventTarget.h"
-#include "inputleap/key_types.h"
-#include "inputleap/mouse_types.h"
-#include "inputleap/protocol_types.h"
-#include "inputleap/IPlatformScreen.h"
+#include "skvm/key_types.h"
+#include "skvm/mouse_types.h"
+#include "skvm/protocol_types.h"
+#include "skvm/IPlatformScreen.h"
 
 #include <map>
 #include <set>

@@ -19,7 +19,7 @@
 #pragma once
 
 #include "base/Fwd.h"
-#include "inputleap/KeyState.h"
+#include "skvm/KeyState.h"
 
 #define WIN32_LEAN_AND_MEAN
 #include <Windows.h>

@@ -5,25 +5,24 @@
     <key>CFBundleDevelopmentRegion</key>
     <string>English</string>
     <key>CFBundleDisplayName</key>
-    <string>InputLeap</string>
+    <string>SKVM</string>
     <key>CFBundleExecutable</key>
-    <string>InputLeap</string>
+    <string>SKVM</string>
     <key>CFBundleIconFile</key>
-    <string>InputLeap.icns</string>
+    <string>SKVM.icns</string>
     <key>CFBundleIdentifier</key>
-    <string>inputleap</string>
-    <!-- TODO: Fix this in v2.0 //-->
+    <string>SKVM</string>
     <key>CFBundleInfoDictionaryVersion</key>
     <string>6.0</string>
     <key>CFBundleName</key>
-    <string>InputLeap</string>
+    <string>SKVM</string>
     <key>CFBundlePackageType</key>
     <string>APPL</string>
     <key>CFBundleShortVersionString</key>
-    <string>1.8.8</string>
+    <string>0.0.1</string>
     <key>CFBundleVersion</key>
-    <string>1.8.8</string>
+    <string>0.0.1</string>
     <key>NSHumanReadableCopyright</key>
-    <string>© 2012-2016, Symless Ltd</string>
+    <string>© 2023 Serhii Hadzhilov</string>
   </dict>
 </plist>

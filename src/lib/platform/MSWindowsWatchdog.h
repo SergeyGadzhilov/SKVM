@@ -20,7 +20,7 @@
 
 #include "platform/MSWindowsSession.h"
 #include "base/Fwd.h"
-#include "inputleap/Exceptions.h"
+#include "skvm/Exceptions.h"
 #include "arch/IArchMultithread.h"
 
 #define WIN32_LEAN_AND_MEAN

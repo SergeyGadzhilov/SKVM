@@ -19,7 +19,7 @@
 #include "SettingsDialog.h"
 
 #include "AppLocale.h"
-#include "QInputLeapApplication.h"
+#include "QSKVMApplication.h"
 #include "QUtility.h"
 #include "AppConfig.h"
 #include "SslCertificate.h"

@@ -18,7 +18,7 @@
 
 #pragma once
 
-#include "inputleap/KeyMap.h"
+#include "skvm/KeyMap.h"
 
 #include <gmock/gmock.h>
 

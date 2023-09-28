@@ -19,8 +19,8 @@
 #pragma once
 
 #include "base/EventTarget.h"
-#include "inputleap/Fwd.h"
-#include "inputleap/IClient.h"
+#include "skvm/Fwd.h"
+#include "skvm/IClient.h"
 
 namespace inputleap {
 

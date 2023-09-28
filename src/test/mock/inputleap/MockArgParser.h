@@ -19,7 +19,7 @@
 
 #define INPUTLEAP_TEST_ENV
 
-#include "inputleap/ArgParser.h"
+#include "skvm/ArgParser.h"
 
 #include <gmock/gmock.h>
 

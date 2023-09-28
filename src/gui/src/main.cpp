@@ -19,7 +19,7 @@
 #define TRAY_RETRY_COUNT 5
 #define TRAY_RETRY_WAIT 2000
 
-#include "QInputLeapApplication.h"
+#include "QSKVMApplication.h"
 #include "MainWindow.h"
 #include "AppConfig.h"
 #include "SetupWizard.h"

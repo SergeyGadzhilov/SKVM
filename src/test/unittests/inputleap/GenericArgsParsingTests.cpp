@@ -15,8 +15,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "inputleap/ArgParser.h"
-#include "inputleap/ArgsBase.h"
+#include "skvm/ArgParser.h"
+#include "skvm/ArgsBase.h"
 #include "test/mock/inputleap/MockApp.h"
 
 #include <gtest/gtest.h>

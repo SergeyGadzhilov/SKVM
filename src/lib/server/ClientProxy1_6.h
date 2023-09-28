@@ -20,8 +20,8 @@
 
 #include "server/ClientProxy.h"
 #include "base/Fwd.h"
-#include "inputleap/Clipboard.h"
-#include "inputleap/protocol_types.h"
+#include "skvm/Clipboard.h"
+#include "skvm/protocol_types.h"
 
 namespace inputleap {
 

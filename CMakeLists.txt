@@ -1,4 +1,5 @@
-# InputLeap -- mouse and keyboard sharing utility
+# SKVM -- mouse and keyboard sharing utility
+# Copyright (C) 2023 Hadzhilov Serhii
 # Copyright (C) 2018 Debauchee Open Source Group
 # Copyright (C) 2012-2016 Symless Ltd.
 # Copyright (C) 2009 Nick Bolton
@@ -16,14 +17,14 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 cmake_minimum_required(VERSION 3.12)
-project(InputLeap C CXX)
+project(SKVM C CXX)
 
-option(INPUTLEAP_BUILD_GUI "Build the GUI" ON)
-option(INPUTLEAP_BUILD_INSTALLER "Build the installer" ON)
-option(INPUTLEAP_BUILD_TESTS "Build the tests" ON)
-option(INPUTLEAP_USE_EXTERNAL_GTEST "Use external installation of Google Test framework" OFF)
-option(INPUTLEAP_BUILD_X11 "Build with XWindows support" ON)
-option(INPUTLEAP_BUILD_LIBEI "Build with libei support" OFF)
+option(SKVM_BUILD_GUI "Build the GUI" ON)
+option(SKVM_BUILD_INSTALLER "Build the installer" ON)
+option(SKVM_BUILD_TESTS "Build the tests" ON)
+option(SKVM_USE_EXTERNAL_GTEST "Use external installation of Google Test framework" OFF)
+option(SKVM_BUILD_X11 "Build with XWindows support" ON)
+option(SKVM_BUILD_LIBEI "Build with libei support" OFF)
 
 set (CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set (CMAKE_CXX_STANDARD 14)
@@ -47,9 +48,9 @@ endif()
 
 # Add headers to source list
 if (${CMAKE_GENERATOR} STREQUAL "Unix Makefiles")
-    set(INPUTLEAP_ADD_HEADERS FALSE)
+    set(SKVM_ADD_HEADERS FALSE)
 else()
-    set(INPUTLEAP_ADD_HEADERS TRUE)
+    set(SKVM_ADD_HEADERS TRUE)
 endif()
 
 set (libs)
@@ -129,13 +130,13 @@ if (UNIX)
             link_directories("/usr/X11R6/lib")
         endif()
 
-        if(INPUTLEAP_BUILD_GUI AND ${PKG_CONFIG_FOUND})
+        if(SKVM_BUILD_GUI AND ${PKG_CONFIG_FOUND})
             pkg_check_modules (AVAHI_COMPAT REQUIRED avahi-compat-libdns_sd)
             include_directories (BEFORE SYSTEM ${AVAHI_COMPAT_INCLUDE_DIRS})
             set (CMAKE_REQUIRED_INCLUDES "${CMAKE_REQUIRED_INCLUDES};${AVAHI_COMPAT_INCLUDE_DIRS}")
         endif ()
 
-        if (INPUTLEAP_BUILD_X11)
+        if (SKVM_BUILD_X11)
             pkg_check_modules (XLIB REQUIRED x11 xext xrandr xinerama xtst xi)
             pkg_check_modules (ICE REQUIRED ice sm)
             include_directories (${XLIB_INCLUDE_DIRS} ${ICE_INCLUDE_DIRS})
@@ -145,7 +146,7 @@ if (UNIX)
             set (HAVE_X11 1)
         endif()
 
-        if (INPUTLEAP_BUILD_LIBEI)
+        if (SKVM_BUILD_LIBEI)
             pkg_check_modules(LIBEI REQUIRED "libei-1.0 >= 0.99.1")
             pkg_check_modules(LIBXKBCOMMON REQUIRED xkbcommon)
             pkg_check_modules(GLIB2 REQUIRED glib-2.0 gio-2.0)
@@ -169,13 +170,13 @@ if (UNIX)
             cmake_pop_check_state()
 
             # Flatpak bits
-            install(FILES "dist/flatpak/input-leap-flatpak"
+            install(FILES "dist/flatpak/skvm-flatpak"
                     DESTINATION bin
                     PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE)
         endif()
 
         check_include_files ("dns_sd.h" HAVE_DNSSD)
-        if(INPUTLEAP_BUILD_GUI AND NOT HAVE_DNSSD)
+        if(SKVM_BUILD_GUI AND NOT HAVE_DNSSD)
             message (FATAL_ERROR "Missing header: dns_sd.h")
         endif()
     endif()
@@ -193,15 +194,15 @@ if (UNIX)
         add_definitions (-DWINAPI_CARBON=1 -D_THREAD_SAFE)
         set (BUILD_CARBON 1)
     else()
-        if(INPUTLEAP_BUILD_X11)
+        if(SKVM_BUILD_X11)
             add_definitions (-DWINAPI_XWINDOWS=1)
             set (BUILD_XWINDOWS 1)
         endif()
-        if(INPUTLEAP_BUILD_LIBEI)
+        if(SKVM_BUILD_LIBEI)
             add_definitions(-DWINAPI_LIBEI=1)
             set(BUILD_LIBEI 1)
         endif()
-        if(NOT INPUTLEAP_BUILD_X11 AND NOT INPUTLEAP_BUILD_LIBEI)
+        if(NOT SKVM_BUILD_X11 AND NOT SKVM_BUILD_LIBEI)
             message(FATAL_ERROR "One of X11 or libei is required")
         endif()
     endif()
@@ -219,7 +220,7 @@ elseif (${CMAKE_SYSTEM_NAME} MATCHES "Windows")
         /DWIN32
         /D_WINDOWS
         /D_CRT_SECURE_NO_WARNINGS
-        /DINPUTLEAP_VERSION=\"${INPUTLEAP_VERSION}\"
+        /DSKVM_VERSION=\"${SKVM_VERSION}\"
         /D_XKEYCHECK_H
     )
     set (BUILD_MSWINDOWS 1)
@@ -335,30 +336,30 @@ macro (configure_files srcDir destDir)
     endforeach (templateFile)
 endmacro (configure_files)
 
-if (${INPUTLEAP_BUILD_INSTALLER})
+if (${SKVM_BUILD_INSTALLER})
 #
 # macOS app Bundle
 #
 if (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
     set (CMAKE_INSTALL_RPATH "@loader_path/../Libraries;@loader_path/../Frameworks")
-    set(INPUTLEAP_BUNDLE_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/dist/macos/bundle)
-    set(INPUTLEAP_BUNDLE_DIR ${CMAKE_BINARY_DIR}/bundle)
-    set(INPUTLEAP_BUNDLE_APP_DIR ${INPUTLEAP_BUNDLE_DIR}/InputLeap.app)
-    set(INPUTLEAP_BUNDLE_BINARY_DIR ${INPUTLEAP_BUNDLE_APP_DIR}/Contents/MacOS)
+    set(SKVM_BUNDLE_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/dist/macos/bundle)
+    set(SKVM_BUNDLE_DIR ${CMAKE_BINARY_DIR}/bundle)
+    set(SKVM_BUNDLE_APP_DIR ${SKVM_BUNDLE_DIR}/SKVM.app)
+    set(SKVM_BUNDLE_BINARY_DIR ${SKVM_BUNDLE_APP_DIR}/Contents/MacOS)
 
-    configure_files(${INPUTLEAP_BUNDLE_SOURCE_DIR} ${INPUTLEAP_BUNDLE_DIR})
+    configure_files(${SKVM_BUNDLE_SOURCE_DIR} ${SKVM_BUNDLE_DIR})
 
-    add_custom_target(InputLeap_MacOS ALL
+    add_custom_target(SKVM_MacOS ALL
                       bash build_dist.sh
-                      DEPENDS input-leap input-leaps input-leapc
-                      WORKING_DIRECTORY ${INPUTLEAP_BUNDLE_DIR})
+                      DEPENDS skvm skvms skvmc
+                      WORKING_DIRECTORY ${SKVM_BUNDLE_DIR})
 endif()
 
 #
 # Windows installer
 #
 if (${CMAKE_SYSTEM_NAME} MATCHES "Windows")
-        set(INPUTLEAP_WIX_VERSION "${INPUTLEAP_VERSION_MAJOR}.${INPUTLEAP_VERSION_MINOR}.${INPUTLEAP_VERSION_PATCH}")
+        set(SKVM_WIX_VERSION "${SKVM_VERSION_MAJOR}.${SKVM_VERSION_MINOR}.${SKVM_VERSION_PATCH}")
         message (STATUS "Configuring the wix installer")
         configure_files (${CMAKE_CURRENT_SOURCE_DIR}/dist/wix ${CMAKE_BINARY_DIR}/installer-wix)
         message (STATUS "Configuring the inno installer")
@@ -369,18 +370,18 @@ endif()
 # Linux installation
 #
 if (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
-    install(FILES doc/input-leapc.1 doc/input-leaps.1 DESTINATION share/man/man1)
+    install(FILES doc/skvmc.1 doc/skvms.1 DESTINATION share/man/man1)
 
-    configure_file(res/input-leap.appdata.xml.in
-                   ${CMAKE_CURRENT_BINARY_DIR}/res/input-leap.appdata.xml)
-    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/res/input-leap.appdata.xml DESTINATION share/metainfo)
+    configure_file(res/skvm.appdata.xml.in
+                   ${CMAKE_CURRENT_BINARY_DIR}/res/skvm.appdata.xml)
+    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/res/skvm.appdata.xml DESTINATION share/metainfo)
 
     configure_files (${CMAKE_CURRENT_SOURCE_DIR}/dist/rpm ${CMAKE_BINARY_DIR}/rpm)
-    install(FILES res/input-leap.svg DESTINATION share/icons/hicolor/scalable/apps)
+    install(FILES res/skvm.svg DESTINATION share/icons/hicolor/scalable/apps)
     if("${VERSION_MAJOR}" STREQUAL "2")
-        install(FILES res/input-leap2.desktop DESTINATION share/applications)
+        install(FILES res/skvm2.desktop DESTINATION share/applications)
     else()
-        install(FILES res/input-leap.desktop DESTINATION share/applications)
+        install(FILES res/skvm.desktop DESTINATION share/applications)
     endif()
 endif()
 

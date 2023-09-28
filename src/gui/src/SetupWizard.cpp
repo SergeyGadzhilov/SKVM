@@ -17,7 +17,7 @@
 
 #include "SetupWizard.h"
 #include "MainWindow.h"
-#include "QInputLeapApplication.h"
+#include "QSKVMApplication.h"
 #include "QUtility.h"
 
 #include <QMessageBox>

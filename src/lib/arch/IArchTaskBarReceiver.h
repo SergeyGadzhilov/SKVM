@@ -18,7 +18,7 @@
 
 #pragma once
 
-#include "inputleap/Fwd.h"
+#include "skvm/Fwd.h"
 #include <string>
 
 namespace inputleap {

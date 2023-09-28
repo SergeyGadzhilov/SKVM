@@ -29,10 +29,10 @@ AboutDialog::AboutDialog(QWidget* parent, const QString& app_name) :
 	setupUi(this);
 
     QString version = kVersion;
-	version = version + '-' + INPUTLEAP_VERSION_STAGE;
+    version = version + '-' + SKVM_VERSION_STAGE;
 #ifdef INPUTLEAP_REVISION
     version +=  '-';
-    version += INPUTLEAP_REVISION;
+    version += SKVM_REVISION;
 #endif
     m_pLabelAppVersion->setText(version);
 

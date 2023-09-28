@@ -199,7 +199,7 @@ MSWindowsServerTaskBarReceiver::runMenu(int x, int y)
         m_events->add_event(EventType::SERVER_APP_FORCE_RECONNECT, m_events->getSystemTarget());
         break;
 
-    case ID_INPUTLEAP_RESETSERVER:
+    case ID_SKVM_RESETSERVER:
         m_events->add_event(EventType::SERVER_APP_RESET_SERVER, m_events->getSystemTarget());
         break;
 
@@ -388,11 +388,11 @@ createTaskBarReceiver(const BufferedLogOutputter* logBuffer, IEventQueue* events
 {
     ArchMiscWindows::setIcons(
         (HICON)LoadImage(ArchMiscWindows::instanceWin32(),
-        MAKEINTRESOURCE(IDI_INPUTLEAP),
+        MAKEINTRESOURCE(IDI_SKVM),
         IMAGE_ICON,
         32, 32, LR_SHARED),
         (HICON)LoadImage(ArchMiscWindows::instanceWin32(),
-        MAKEINTRESOURCE(IDI_INPUTLEAP),
+        MAKEINTRESOURCE(IDI_SKVM),
         IMAGE_ICON,
         16, 16, LR_SHARED));
 

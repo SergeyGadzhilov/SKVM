@@ -20,7 +20,7 @@
 
 #include "ipc/IpcMessage.h"
 #include "ipc/Ipc.h"
-#include "inputleap/ProtocolUtil.h"
+#include "skvm/ProtocolUtil.h"
 #include "io/IStream.h"
 #include "base/Log.h"
 

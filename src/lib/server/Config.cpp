@@ -19,8 +19,8 @@
 #include "server/Config.h"
 
 #include "server/Server.h"
-#include "inputleap/KeyMap.h"
-#include "inputleap/key_types.h"
+#include "skvm/KeyMap.h"
+#include "skvm/key_types.h"
 #include "net/XSocket.h"
 #include "base/IEventQueue.h"
 
