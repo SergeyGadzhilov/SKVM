@@ -81,7 +81,7 @@
 #define PBT_APMRESUMEAUTOMATIC    0x0012
 #endif
 
-namespace inputleap {
+namespace skvm {
 
 HINSTANCE MSWindowsScreen::s_windowInstance = nullptr;
 MSWindowsScreen* MSWindowsScreen::s_screen  = nullptr;
@@ -606,11 +606,11 @@ std::uint32_t MSWindowsScreen::registerHotKey(KeyID key, KeyModifierMask mask)
     else {
         m_oldHotKeyIDs.push_back(id);
         m_hotKeys.erase(id);
-        LOG((CLOG_WARN "failed to register hotkey %s (id=%04x mask=%04x)", inputleap::KeyMap::formatKey(key, mask).c_str(), key, mask));
+        LOG((CLOG_WARN "failed to register hotkey %s (id=%04x mask=%04x)", skvm::KeyMap::formatKey(key, mask).c_str(), key, mask));
         return 0;
     }
 
-    LOG((CLOG_DEBUG "registered hotkey %s (id=%04x mask=%04x) as id=%d", inputleap::KeyMap::formatKey(key, mask).c_str(), key, mask, id));
+    LOG((CLOG_DEBUG "registered hotkey %s (id=%04x mask=%04x) as id=%d", skvm::KeyMap::formatKey(key, mask).c_str(), key, mask, id));
     return id;
 }
 
@@ -1505,7 +1505,7 @@ void MSWindowsScreen::warpCursorNoFlush(std::int32_t x, std::int32_t y)
     // chance of undesired behavior.  we'll also check for very
     // large motions that look suspiciously like about half width
     // or height of the screen.
-    inputleap::this_thread_sleep(0.0);
+    skvm::this_thread_sleep(0.0);
 
     // send an event that we can recognize after the mouse warp
     PostThreadMessage(GetCurrentThreadId(), INPUTLEAP_MSG_POST_WARP, 0, 0);
@@ -1836,15 +1836,15 @@ std::string& MSWindowsScreen::getDraggingFilename()
             SWP_SHOWWINDOW);
 
         // TODO: fake these keys properly
-        inputleap::this_thread_sleep(.05f); // A tiny sleep here makes the DragEnter event on m_dropWindow trigger much more consistently
+        skvm::this_thread_sleep(.05f); // A tiny sleep here makes the DragEnter event on m_dropWindow trigger much more consistently
         fakeKeyDown(kKeyEscape, 8192, 1);
         fakeKeyUp(1);
         fakeMouseButton(kButtonLeft, false);
 
         std::string filename;
-        DOUBLE timeout = inputleap::current_time_seconds() + .5f;
-        while (inputleap::current_time_seconds() < timeout) {
-            inputleap::this_thread_sleep(.05f);
+        DOUBLE timeout = skvm::current_time_seconds() + .5f;
+        while (skvm::current_time_seconds() < timeout) {
+            skvm::this_thread_sleep(.05f);
             filename = m_dropTarget->getDraggingFilename();
             if (!filename.empty()) {
                 break;
@@ -1921,4 +1921,4 @@ MSWindowsScreen::isModifierRepeat(KeyModifierMask oldState, KeyModifierMask stat
     return result;
 }
 
-} // namespace inputleap
+} // namespace skvm

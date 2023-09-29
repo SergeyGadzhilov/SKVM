@@ -22,7 +22,7 @@
 #include <sstream>
 #include <stdexcept>
 
-namespace inputleap {
+namespace skvm {
 
 DragInformation::DragInformation() :
     m_filename(),
@@ -151,4 +151,4 @@ std::string DragInformation::getFileSize(std::string& filename)
     return ss.str();
 }
 
-} // namespace inputleap
+} // namespace skvm

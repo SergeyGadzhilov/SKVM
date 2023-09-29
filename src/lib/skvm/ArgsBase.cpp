@@ -18,7 +18,7 @@
 
 #include "skvm/ArgsBase.h"
 
-namespace inputleap {
+namespace skvm {
 
 ArgsBase::ArgsBase() :
 #if SYSAPI_WIN32
@@ -51,4 +51,4 @@ ArgsBase::~ArgsBase()
 {
 }
 
-} // namespace inputleap
+} // namespace skvm

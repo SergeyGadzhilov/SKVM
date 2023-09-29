@@ -30,9 +30,9 @@
 #include "base/Log.h"
 #include "base/IEventQueue.h"
 
-namespace inputleap {
+namespace skvm {
 
-ClientProxyUnknown::ClientProxyUnknown(std::unique_ptr<inputleap::IStream> stream,
+ClientProxyUnknown::ClientProxyUnknown(std::unique_ptr<skvm::IStream> stream,
                                        double timeout, Server* server, IEventQueue* events) :
     stream_(std::move(stream)),
     m_proxy(nullptr),
@@ -243,4 +243,4 @@ void ClientProxyUnknown::handle_ready()
     sendSuccess();
 }
 
-} // namespace inputleap
+} // namespace skvm

@@ -20,7 +20,7 @@
 
 #include <string>
 
-namespace inputleap {
+namespace skvm {
 
 class ArchThreadImpl;
 typedef ArchThreadImpl* ArchThread;
@@ -283,4 +283,4 @@ public:
     virtual void init() = 0;
 };
 
-} // namespace inputleap
+} // namespace skvm

@@ -27,7 +27,7 @@
 #include <set>
 #include <string>
 
-namespace inputleap {
+namespace skvm {
 
 //! Miscellaneous win32 functions.
 class ArchMiscWindows {
@@ -203,4 +203,4 @@ private:
     static HINSTANCE    s_instanceWin32;
 };
 
-} // namespace inputleap
+} // namespace skvm

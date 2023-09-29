@@ -19,7 +19,7 @@
 
 #include "platform/XWindowsClipboardTIFConverter.h"
 
-namespace inputleap {
+namespace skvm {
 
 //
 // XWindowsClipboardTIFConverter
@@ -82,4 +82,4 @@ std::string XWindowsClipboardTIFConverter::toIClipboard(const std::string& tiffd
     return {};
 }
 
-} // namespace inputleap
+} // namespace skvm

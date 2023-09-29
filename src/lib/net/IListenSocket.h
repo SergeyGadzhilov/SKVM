@@ -22,7 +22,7 @@
 #include "base/EventTypes.h"
 #include <memory>
 
-namespace inputleap {
+namespace skvm {
 
 //! Listen socket interface
 /*!
@@ -40,4 +40,4 @@ public:
     virtual std::unique_ptr<IDataSocket> accept() = 0;
 };
 
-} // namespace inputleap
+} // namespace skvm

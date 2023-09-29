@@ -34,7 +34,7 @@
 #include "skvm/unix/AppUtilUnix.h"
 #endif
 
-namespace inputleap {
+namespace skvm {
 
 class IArchTaskBarReceiver;
 
@@ -199,4 +199,4 @@ private:
     "                             reading error messages that occur on exit.\n"
 #endif
 
-} // namespace inputleap
+} // namespace skvm

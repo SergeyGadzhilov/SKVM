@@ -21,7 +21,7 @@
 #include "base/Log.h"
 #include "base/ELevel.h"
 
-namespace inputleap {
+namespace skvm {
 
 //! Outputter interface
 /*!
@@ -71,4 +71,4 @@ public:
     //@}
 };
 
-} // namespace inputleap
+} // namespace skvm

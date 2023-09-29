@@ -27,7 +27,7 @@
 
 #include <mutex>
 
-namespace inputleap {
+namespace skvm {
 
 class IpcMessage;
 class IpcCommandMessage;
@@ -38,7 +38,7 @@ class IpcClientProxy : public EventTarget {
     friend class IpcServer;
 
 public:
-    IpcClientProxy(std::unique_ptr<inputleap::IStream>&& stream, IEventQueue* events);
+    IpcClientProxy(std::unique_ptr<skvm::IStream>&& stream, IEventQueue* events);
     virtual ~IpcClientProxy();
 
 private:
@@ -51,7 +51,7 @@ private:
     void disconnect();
 
 private:
-    std::unique_ptr<inputleap::IStream> stream_;
+    std::unique_ptr<skvm::IStream> stream_;
     EIpcClientType m_clientType;
     bool m_disconnecting;
     std::mutex m_readMutex;
@@ -59,4 +59,4 @@ private:
     IEventQueue* m_events;
 };
 
-} // namespace inputleap
+} // namespace skvm

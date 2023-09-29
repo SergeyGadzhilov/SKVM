@@ -19,7 +19,7 @@
 #include "skvm/AppUtil.h"
 #include <cassert>
 
-namespace inputleap {
+namespace skvm {
 
 AppUtil* AppUtil::s_instance = nullptr;
 
@@ -54,4 +54,4 @@ AppUtil::instance()
     return *s_instance;
 }
 
-} // namespace inputleap
+} // namespace skvm

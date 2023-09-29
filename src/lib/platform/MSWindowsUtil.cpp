@@ -21,7 +21,7 @@
 #include <stdio.h>
 #include "base/String.h"
 
-namespace inputleap {
+namespace skvm {
 
 std::string MSWindowsUtil::getString(HINSTANCE instance, DWORD id)
 {
@@ -47,8 +47,8 @@ std::string MSWindowsUtil::getErrorString(HINSTANCE hinstance, DWORD error, DWOR
                                 (LPTSTR)&buffer,
                                 0,
                                 nullptr) == 0) {
-        std::string errorString = inputleap::string::sprintf("%d", error);
-        return inputleap::string::format(getString(hinstance, id).c_str(),
+        std::string errorString = skvm::string::sprintf("%d", error);
+        return skvm::string::format(getString(hinstance, id).c_str(),
                             errorString.c_str());
     }
     else {
@@ -78,4 +78,4 @@ MSWindowsUtil::createDirectory(const std::string& path, bool stripLast)
         CreateDirectory(path.c_str(), nullptr);
 }
 
-} // namespace inputleap
+} // namespace skvm

@@ -18,7 +18,7 @@
 
 #include "platform/MSWindowsClipboardAnyTextConverter.h"
 
-namespace inputleap {
+namespace skvm {
 
 MSWindowsClipboardAnyTextConverter::MSWindowsClipboardAnyTextConverter()
 {
@@ -140,4 +140,4 @@ std::string MSWindowsClipboardAnyTextConverter::convertLinefeedToUnix(const std:
     return dst;
 }
 
-} // namespace inputleap
+} // namespace skvm

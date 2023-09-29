@@ -22,7 +22,7 @@
 
 #include <fstream>
 
-namespace inputleap {
+namespace skvm {
 
 void
 DropHelper::writeToDir(const std::string& destination, DragFileList& fileList, std::string& data)
@@ -55,4 +55,4 @@ DropHelper::writeToDir(const std::string& destination, DragFileList& fileList, s
     }
 }
 
-} // namespace inputleap
+} // namespace skvm

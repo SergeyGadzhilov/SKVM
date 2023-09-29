@@ -20,7 +20,7 @@
 
 #include "base/Event.h"
 
-namespace inputleap {
+namespace skvm {
 
 //! Screen saver interface
 /*!
@@ -77,4 +77,4 @@ public:
     //@}
 };
 
-} // namespace inputleap
+} // namespace skvm

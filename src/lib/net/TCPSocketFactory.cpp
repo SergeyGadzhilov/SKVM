@@ -24,7 +24,7 @@
 #include "arch/Arch.h"
 #include "base/Log.h"
 
-namespace inputleap {
+namespace skvm {
 
 TCPSocketFactory::TCPSocketFactory(IEventQueue* events, SocketMultiplexer* socketMultiplexer) :
     m_events(events),
@@ -64,4 +64,4 @@ std::unique_ptr<IListenSocket>
     }
 }
 
-} // namespace inputleap
+} // namespace skvm

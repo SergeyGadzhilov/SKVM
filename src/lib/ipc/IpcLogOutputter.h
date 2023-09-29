@@ -27,7 +27,7 @@
 #include <condition_variable>
 #include <mutex>
 
-namespace inputleap {
+namespace skvm {
 
 class IpcServer;
 class Event;
@@ -122,4 +122,4 @@ private:
     std::mutex m_runningMutex;
 };
 
-} // namespace inputleap
+} // namespace skvm

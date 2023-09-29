@@ -17,7 +17,7 @@
 #include "PlatformScreenLoggingWrapper.h"
 #include "base/Log.h"
 
-namespace inputleap {
+namespace skvm {
 
 PlatformScreenLoggingWrapper::PlatformScreenLoggingWrapper(std::unique_ptr<IPlatformScreen> screen) :
     screen_{std::move(screen)}
@@ -368,4 +368,4 @@ void PlatformScreenLoggingWrapper::handle_system_event(const Event& event)
     screen_->handle_system_event(event);
 }
 
-} // namespace inputleap
+} // namespace skvm

@@ -19,7 +19,7 @@
 
 #include <gtest/gtest.h>
 
-using namespace inputleap;
+using namespace skvm;
 
 TEST(StringTests, format_formatWithArguments_formatedString)
 {

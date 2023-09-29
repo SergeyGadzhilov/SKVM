@@ -27,7 +27,7 @@
 
 #include <mutex>
 
-namespace inputleap {
+namespace skvm {
 
 class SocketMultiplexer;
 
@@ -61,4 +61,4 @@ protected:
     SocketMultiplexer* m_socketMultiplexer;
 };
 
-} // namespace inputleap
+} // namespace skvm

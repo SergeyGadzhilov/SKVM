@@ -21,7 +21,7 @@
 #include "base/Stopwatch.h"
 #include "arch/Arch.h"
 
-namespace inputleap {
+namespace skvm {
 
 SimpleEventQueueBuffer::SimpleEventQueueBuffer()
 {
@@ -79,4 +79,4 @@ SimpleEventQueueBuffer::isEmpty() const
     return !m_queueReady;
 }
 
-} // namespace inputleap
+} // namespace skvm

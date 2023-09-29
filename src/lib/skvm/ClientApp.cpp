@@ -64,7 +64,7 @@
 
 #define RETRY_TIME 1.0
 
-namespace inputleap {
+namespace skvm {
 
 ClientApp::ClientApp(IEventQueue* events, CreateTaskBarReceiverFunc createTaskBarReceiver) :
     App(events, createTaskBarReceiver, new ClientArgs()),
@@ -310,7 +310,7 @@ void ClientApp::handle_client_disconnected()
 }
 
 Client* ClientApp::openClient(const std::string& name, const NetworkAddress& address,
-                              inputleap::Screen* screen)
+                              skvm::Screen* screen)
 {
     Client* client = new Client(
         m_events,
@@ -553,4 +553,4 @@ std::unique_ptr<IPlatformScreen> ClientApp::create_platform_screen()
     throw std::runtime_error("Failed to create screen, this shouldn't happen");
 }
 
-} // namespace inputleap
+} // namespace skvm

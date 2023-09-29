@@ -19,7 +19,7 @@
 #include "base/BitUtilities.h"
 #include "platform/XWindowsClipboardBMPConverter.h"
 
-namespace inputleap {
+namespace skvm {
 
 // BMP file header structure
 struct CBMPHeader {
@@ -108,4 +108,4 @@ std::string XWindowsClipboardBMPConverter::toIClipboard(const std::string& bmp) 
     }
 }
 
-} // namespace inputleap
+} // namespace skvm

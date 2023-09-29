@@ -23,7 +23,7 @@
 #include <Windows.h>
 #include <Tlhelp32.h>
 
-namespace inputleap {
+namespace skvm {
 
 class MSWindowsSession {
 public:
@@ -53,4 +53,4 @@ private:
     DWORD m_activeSessionId;
 };
 
-} // namespace inputleap
+} // namespace skvm

@@ -26,7 +26,7 @@
 
 #define ARCH_APP_UTIL AppUtilWindows
 
-namespace inputleap {
+namespace skvm {
 
 enum AppExitMode {
     kExitModeNormal,
@@ -61,4 +61,4 @@ private:
     static BOOL WINAPI consoleHandler(DWORD Event);
 };
 
-} // namespace inputleap
+} // namespace skvm

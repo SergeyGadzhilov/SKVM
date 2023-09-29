@@ -22,7 +22,7 @@
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
 
-namespace inputleap {
+namespace skvm {
 
 class MSWindowsClipboardTests : public ::testing::Test
 {
@@ -230,4 +230,4 @@ TEST_F(MSWindowsClipboardTests, is_owned_by_us_defaultState_noError)
     EXPECT_EQ(true, actual);
 }
 
-} // namespace inputleap
+} // namespace skvm

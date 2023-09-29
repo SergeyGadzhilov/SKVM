@@ -16,7 +16,7 @@
 #import <Cocoa/Cocoa.h>
 #import <IOKit/hidsystem/ev_keymap.h>
 
-namespace inputleap {
+namespace skvm {
 
 int convertKeyIDToNXKeyType(KeyID id)
 {
@@ -155,4 +155,4 @@ fakeNativeMediaKey(KeyID id)
 	return true;
 }
 
-} // namespace inputleap
+} // namespace skvm

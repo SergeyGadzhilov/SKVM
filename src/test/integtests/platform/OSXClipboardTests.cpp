@@ -21,7 +21,7 @@
 #include <gtest/gtest.h>
 #include <iostream>
 
-namespace inputleap {
+namespace skvm {
 
 TEST(OSXClipboardTests, empty_openCalled_returnsTrue)
 {
@@ -165,4 +165,4 @@ TEST(OSXClipboardTests, get_withFormatAdded_returnsExpected)
     EXPECT_EQ("test string!", actual);
 }
 
-} // namespace inputleap
+} // namespace skvm

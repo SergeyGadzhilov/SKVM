@@ -32,7 +32,7 @@
 
 #include <cstring>
 
-namespace inputleap {
+namespace skvm {
 
 ClientProxy1_6::ClientProxy1_6(const std::string& name,
                                std::unique_ptr<IClientConnection> backend,
@@ -545,4 +545,4 @@ ClientProxy1_6::ClientClipboard::ClientClipboard() :
     // do nothing
 }
 
-} // namespace inputleap
+} // namespace skvm

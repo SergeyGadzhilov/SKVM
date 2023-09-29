@@ -19,7 +19,7 @@
 
 #include "platform/XWindowsClipboardPNGConverter.h"
 
-namespace inputleap {
+namespace skvm {
 
 //
 // XWindowsClipboardPNGConverter
@@ -76,4 +76,4 @@ std::string XWindowsClipboardPNGConverter::toIClipboard(const std::string& pngda
     return {};
 }
 
-} // namespace inputleap
+} // namespace skvm

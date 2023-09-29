@@ -27,7 +27,7 @@
 #include <fstream>
 #include <string>
 
-namespace inputleap {
+namespace skvm {
 
 //! Stop traversing log chain outputter
 /*!
@@ -173,4 +173,4 @@ public:
     bool write(ELevel level, const char* message) override;
 };
 
-} // namespace inputleap
+} // namespace skvm

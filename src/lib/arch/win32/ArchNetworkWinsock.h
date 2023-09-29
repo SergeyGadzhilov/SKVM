@@ -39,7 +39,7 @@
 
 #define ARCH_NETWORK ArchNetworkWinsock
 
-namespace inputleap {
+namespace skvm {
 
 class ArchSocketImpl {
 public:
@@ -114,4 +114,4 @@ private:
     EventList m_unblockEvents;
 };
 
-} // namespace inputleap
+} // namespace skvm

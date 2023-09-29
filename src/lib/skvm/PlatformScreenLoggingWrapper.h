@@ -20,7 +20,7 @@
 #include "IPlatformScreen.h"
 #include <memory>
 
-namespace inputleap {
+namespace skvm {
 
 class PlatformScreenLoggingWrapper : public IPlatformScreen
 {
@@ -102,6 +102,6 @@ private:
     std::unique_ptr<IPlatformScreen> screen_;
 };
 
-} // namespace inputleap
+} // namespace skvm
 
 #endif // INPUTLEAP_LIB_INPUTLEAP_PLATFORM_SCREEN_LOGGING_WRAPPER_H

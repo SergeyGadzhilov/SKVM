@@ -20,7 +20,7 @@
 
 #include "platform/XWindowsClipboard.h"
 
-namespace inputleap {
+namespace skvm {
 
 //! Convert to/from UCS-2 encoding
 class XWindowsClipboardUCS2Converter : public IXWindowsClipboardConverter {
@@ -42,4 +42,4 @@ private:
     Atom m_atom;
 };
 
-} // namespace inputleap
+} // namespace skvm

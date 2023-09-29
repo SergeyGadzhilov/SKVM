@@ -19,7 +19,7 @@
 
 #include "skvm/ArgsBase.h"
 
-namespace inputleap {
+namespace skvm {
 
 class Config;
 
@@ -34,4 +34,4 @@ public:
     bool check_client_certificates = true;
 };
 
-} // namespace inputleap
+} // namespace skvm

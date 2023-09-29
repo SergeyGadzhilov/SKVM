@@ -19,7 +19,7 @@
 
 #include "base/EventQueue.h"
 
-namespace inputleap {
+namespace skvm {
 
 class TestEventQueue : public EventQueue {
 public:
@@ -38,4 +38,4 @@ private:
     EventQueueTimer* m_quitTimeoutTimer;
 };
 
-} // namespace inputleap
+} // namespace skvm

@@ -21,11 +21,11 @@
 
 #import <CoreFoundation/CoreFoundation.h>
 
-namespace inputleap {
+namespace skvm {
 
 void runCocoaApp();
 void stopCocoaLoop();
 void fakeDragging(const char* str, int cursorX, int cursorY);
 CFStringRef getCocoaDropTarget();
 
-} // namespace inputleap
+} // namespace skvm

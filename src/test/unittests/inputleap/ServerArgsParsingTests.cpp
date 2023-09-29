@@ -21,7 +21,7 @@
 
 #include <gtest/gtest.h>
 
-namespace inputleap {
+namespace skvm {
 
 using ::testing::_;
 using ::testing::Invoke;
@@ -67,4 +67,4 @@ TEST(ServerArgsParsingTests, parseServerArgs_configArg_setConfigFile)
     EXPECT_EQ("mock_configFile", serverArgs.m_configFile);
 }
 
-} // namespace inputleap
+} // namespace skvm

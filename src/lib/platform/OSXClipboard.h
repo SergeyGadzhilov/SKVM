@@ -24,7 +24,7 @@
 #include <string>
 #include <vector>
 
-namespace inputleap {
+namespace skvm {
 
 class IOSXClipboardConverter;
 
@@ -94,4 +94,4 @@ public:
     //@}
 };
 
-} // namespace inputleap
+} // namespace skvm

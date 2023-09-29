@@ -24,7 +24,7 @@
 #include "base/log_outputters.h"
 #include "client/Client.h"
 
-namespace inputleap {
+namespace skvm {
 
 /// Implementation of IArchTaskBarReceiver for the InputLeap server
 class ClientTaskBarReceiver : public IArchTaskBarReceiver {
@@ -89,6 +89,6 @@ private:
 
 IArchTaskBarReceiver* createTaskBarReceiver(const BufferedLogOutputter* logBuffer, IEventQueue* events);
 
-} // namespace inputleap
+} // namespace skvm
 
 #endif

@@ -24,7 +24,7 @@
 
 #include <gmock/gmock.h>
 
-namespace inputleap {
+namespace skvm {
 
 class MockApp : public App
 {
@@ -46,4 +46,4 @@ public:
     MOCK_METHOD0(create_screen, std::unique_ptr<Screen>());
 };
 
-} // namespace inputleap
+} // namespace skvm

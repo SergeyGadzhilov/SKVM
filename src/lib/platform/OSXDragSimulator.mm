@@ -20,7 +20,7 @@
 #import <CoreData/CoreData.h>
 #import <Cocoa/Cocoa.h>
 
-namespace inputleap {
+namespace skvm {
 
 #if defined(MAC_OS_X_VERSION_10_7)
 
@@ -103,4 +103,4 @@ getCocoaDropTarget()
 
 #endif
 
-} // namespace inputleap
+} // namespace skvm

@@ -17,7 +17,7 @@
 
 #include "skvm/ServerArgs.h"
 
-namespace inputleap {
+namespace skvm {
 
 ServerArgs::ServerArgs() :
     m_configFile(),
@@ -26,4 +26,4 @@ ServerArgs::ServerArgs() :
 {
 }
 
-} // namespace inputleap
+} // namespace skvm

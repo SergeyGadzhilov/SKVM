@@ -17,11 +17,11 @@
 
 #include "skvm/ClientArgs.h"
 
-namespace inputleap {
+namespace skvm {
 
 ClientArgs::ClientArgs() :
     m_yscroll(0)
 {
 }
 
-} // namespace inputleap
+} // namespace skvm

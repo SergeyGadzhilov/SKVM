@@ -23,7 +23,7 @@
 #define WIN32_LEAN_AND_MEAN
 #include <Windows.h>
 
-namespace inputleap {
+namespace skvm {
 
 class Thread;
 
@@ -89,4 +89,4 @@ private:
     bool m_active;
 };
 
-} // namespace inputleap
+} // namespace skvm

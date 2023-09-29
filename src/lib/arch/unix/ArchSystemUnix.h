@@ -24,7 +24,7 @@
 
 #define ARCH_SYSTEM ArchSystemUnix
 
-namespace inputleap {
+namespace skvm {
 
 //! Unix implementation of IArchSystem
 class ArchSystemUnix : public IArchSystem {
@@ -38,4 +38,4 @@ public:
 
 };
 
-} // namespace inputleap
+} // namespace skvm

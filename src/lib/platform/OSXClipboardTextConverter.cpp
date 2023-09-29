@@ -20,7 +20,7 @@
 
 #include "base/Unicode.h"
 
-namespace inputleap {
+namespace skvm {
 
 OSXClipboardTextConverter::OSXClipboardTextConverter()
 {
@@ -85,4 +85,4 @@ std::string OSXClipboardTextConverter::doToIClipboard(const std::string& data) c
                             kCFStringEncodingUTF8);
 }
 
-} // namespace inputleap
+} // namespace skvm

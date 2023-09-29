@@ -31,7 +31,7 @@
 #include <malloc.h>
 #include <VersionHelpers.h>
 
-namespace inputleap {
+namespace skvm {
 
 // these are only defined when WINVER >= 0x0500
 #if !defined(SPI_GETMOUSESPEED)
@@ -907,4 +907,4 @@ MSWindowsDesks::getForegroundWindow() const
     return GetForegroundWindow();
 }
 
-} // namespace inputleap
+} // namespace skvm

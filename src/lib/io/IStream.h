@@ -23,7 +23,7 @@
 #include "base/EventTypes.h"
 #include "base/Fwd.h"
 
-namespace inputleap {
+namespace skvm {
 
 //! Bidirectional stream interface
 /*!

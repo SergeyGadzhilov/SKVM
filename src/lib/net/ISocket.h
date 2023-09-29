@@ -22,7 +22,7 @@
 #include "base/Event.h"
 #include "base/EventTypes.h"
 
-namespace inputleap {
+namespace skvm {
 
 //! Generic socket interface
 /*!
@@ -61,4 +61,4 @@ public:
     //@}
 };
 
-} // namespace inputleap
+} // namespace skvm

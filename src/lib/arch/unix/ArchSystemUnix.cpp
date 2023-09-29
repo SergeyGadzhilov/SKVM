@@ -20,7 +20,7 @@
 
 #include <sys/utsname.h>
 
-namespace inputleap {
+namespace skvm {
 
 ArchSystemUnix::ArchSystemUnix()
 {
@@ -43,4 +43,4 @@ ArchSystemUnix::setting(const std::string&, const std::string&) const
 {
 }
 
-} // namespace inputleap
+} // namespace skvm

@@ -29,7 +29,7 @@
 
 #include <map>
 
-namespace inputleap {
+namespace skvm {
 
 //! X11 screen saver implementation
 class XWindowsScreenSaver : public IScreenSaver, public EventTarget {
@@ -171,4 +171,4 @@ private:
     IEventQueue* m_events;
 };
 
-} // namespace inputleap
+} // namespace skvm

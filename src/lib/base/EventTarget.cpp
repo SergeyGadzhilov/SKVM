@@ -17,7 +17,7 @@
 #include "EventTarget.h"
 #include "IEventQueue.h"
 
-namespace inputleap {
+namespace skvm {
 
 EventTarget::EventTarget() = default;
 
@@ -28,4 +28,4 @@ EventTarget::~EventTarget()
     }
 }
 
-} // namespace inputleap
+} // namespace skvm

@@ -31,7 +31,7 @@
 #include <cstdlib>
 #include <memory>
 
-namespace inputleap {
+namespace skvm {
 
 static const std::size_t MAX_INPUT_BUFFER_SIZE = 1024 * 1024;
 
@@ -607,4 +607,4 @@ MultiplexerJobStatus TCPSocket::serviceConnected(ISocketMultiplexerJob* job,
     }
 }
 
-} // namespace inputleap
+} // namespace skvm

@@ -20,7 +20,7 @@
 
 #include "platform/XWindowsClipboard.h"
 
-namespace inputleap {
+namespace skvm {
 
 //! Convert to/from HTML encoding
 class XWindowsClipboardHTMLConverter : public IXWindowsClipboardConverter {
@@ -42,4 +42,4 @@ private:
     Atom m_atom;
 };
 
-} // namespace inputleap
+} // namespace skvm

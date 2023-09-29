@@ -27,7 +27,7 @@
 #include <iostream>
 #include <ctime>
 
-namespace inputleap {
+namespace skvm {
 
 // names of priorities
 static const char*        g_priority[] = {
@@ -305,4 +305,4 @@ Log::output(ELevel priority, char* msg)
     }
 }
 
-} // namespace inputleap
+} // namespace skvm

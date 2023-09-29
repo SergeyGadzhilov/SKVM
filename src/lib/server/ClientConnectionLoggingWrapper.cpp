@@ -22,7 +22,7 @@
 #include "skvm/protocol_types.h"
 #include "io/IStream.h"
 
-namespace inputleap {
+namespace skvm {
 
 ClientConnectionLoggingWrapper::ClientConnectionLoggingWrapper(
         const std::string& name, std::unique_ptr<IClientConnection> conn) :
@@ -216,4 +216,4 @@ void ClientConnectionLoggingWrapper::close()
     conn_->close();
 }
 
-} // namespace inputleap
+} // namespace skvm

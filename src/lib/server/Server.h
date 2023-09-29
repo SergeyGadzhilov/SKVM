@@ -37,7 +37,7 @@
 #include <set>
 #include <vector>
 
-namespace inputleap {
+namespace skvm {
 
 class BaseClientProxy;
 class PrimaryClient;
@@ -113,7 +113,7 @@ public:
     ownership of \p primaryClient.
     */
     Server(Config& config, PrimaryClient* primaryClient,
-        inputleap::Screen* screen, IEventQueue* events, ServerArgs const& args);
+        skvm::Screen* screen, IEventQueue* events, ServerArgs const& args);
     ~Server();
 
 #ifdef INPUTLEAP_TEST_ENV
@@ -462,7 +462,7 @@ private:
     bool m_lockedToScreen;
 
     // server screen
-    inputleap::Screen* m_screen;
+    skvm::Screen* m_screen;
 
     IEventQueue* m_events;
 
@@ -485,4 +485,4 @@ private:
     ServerArgs m_args;
 };
 
-} // namespace inputleap
+} // namespace skvm

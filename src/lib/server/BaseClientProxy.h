@@ -22,7 +22,7 @@
 #include "skvm/Fwd.h"
 #include "skvm/IClient.h"
 
-namespace inputleap {
+namespace skvm {
 
 class IClientConnection;
 class IStream;
@@ -74,4 +74,4 @@ private:
     std::int32_t m_x, m_y;
 };
 
-} // namespace inputleap
+} // namespace skvm

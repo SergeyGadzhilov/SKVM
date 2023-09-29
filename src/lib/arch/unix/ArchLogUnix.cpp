@@ -20,7 +20,7 @@
 
 #include <syslog.h>
 
-namespace inputleap {
+namespace skvm {
 
 ArchLogUnix::ArchLogUnix()
 {
@@ -81,4 +81,4 @@ ArchLogUnix::writeLog(ELevel level, const char* msg)
     syslog(priority, "%s", msg);
 }
 
-} // namespace inputleap
+} // namespace skvm

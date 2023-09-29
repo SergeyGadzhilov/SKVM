@@ -21,7 +21,7 @@
 #include "skvm/IAppUtil.h"
 #include "skvm/Exceptions.h"
 
-namespace inputleap {
+namespace skvm {
 
 class AppUtil : public IAppUtil {
 public:
@@ -41,4 +41,4 @@ private:
     static AppUtil* s_instance;
 };
 
-} // namespace inputleap
+} // namespace skvm

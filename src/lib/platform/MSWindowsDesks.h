@@ -35,7 +35,7 @@
 
 #include <map>
 
-namespace inputleap {
+namespace skvm {
 
 class Thread;
 
@@ -297,4 +297,4 @@ private:
     bool m_stopOnDeskSwitch;
 };
 
-} // namespace inputleap
+} // namespace skvm

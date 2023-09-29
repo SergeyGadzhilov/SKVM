@@ -24,7 +24,7 @@
 #include "base/String.h"
 #include <cstring>
 
-namespace inputleap {
+namespace skvm {
 
 size_t ClipboardChunk::s_expectedSize = 0;
 
@@ -59,7 +59,7 @@ ClipboardChunk ClipboardChunk::end(ClipboardID id, std::uint32_t sequence)
     return chunk;
 }
 
-int ClipboardChunk::assemble(inputleap::IStream* stream, std::string& dataCached,
+int ClipboardChunk::assemble(skvm::IStream* stream, std::string& dataCached,
                              ClipboardID& id, std::uint32_t& sequence)
 {
     std::uint8_t mark;
@@ -70,7 +70,7 @@ int ClipboardChunk::assemble(inputleap::IStream* stream, std::string& dataCached
     }
 
     if (mark == kDataStart) {
-        s_expectedSize = inputleap::string::stringToSizeType(data);
+        s_expectedSize = skvm::string::stringToSizeType(data);
         LOG((CLOG_DEBUG "start receiving clipboard data"));
         dataCached.clear();
         return kStart;
@@ -95,4 +95,4 @@ int ClipboardChunk::assemble(inputleap::IStream* stream, std::string& dataCached
     return kError;
 }
 
-} // namespace inputleap
+} // namespace skvm

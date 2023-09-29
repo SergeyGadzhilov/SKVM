@@ -23,7 +23,7 @@
 #define WINDOWS_LEAN_AND_MEAN
 #include <Windows.h>
 
-namespace inputleap {
+namespace skvm {
 
 class MSWindowsUtil {
 public:
@@ -48,4 +48,4 @@ public:
     static void createDirectory(const std::string& path, bool stripLast = false);
 };
 
-} // namespace inputleap
+} // namespace skvm

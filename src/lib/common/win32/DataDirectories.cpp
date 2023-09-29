@@ -20,7 +20,7 @@
 
 #include <Shlobj.h>
 
-namespace inputleap {
+namespace skvm {
 
 fs::path known_folder_path(const KNOWNFOLDERID& id)
 {
@@ -77,4 +77,4 @@ const fs::path& DataDirectories::systemconfig(const fs::path& path)
     return _systemconfig;
 }
 
-} // namespace inputleap
+} // namespace skvm

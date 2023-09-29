@@ -20,7 +20,7 @@
 #include <chrono>
 #include <thread>
 
-namespace inputleap {
+namespace skvm {
 
 void this_thread_sleep(double timeout_seconds)
 {
@@ -40,4 +40,4 @@ double current_time_seconds()
     return us_since_epoch / 1000000.0;
 }
 
-} // namespace inputleap
+} // namespace skvm

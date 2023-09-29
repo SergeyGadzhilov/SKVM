@@ -22,7 +22,7 @@
 #include <Windows.h>
 #include <string>
 
-namespace inputleap {
+namespace skvm {
 
 MSWindowsDebugOutputter::MSWindowsDebugOutputter()
 {
@@ -59,4 +59,4 @@ MSWindowsDebugOutputter::flush()
 {
 }
 
-} // namespace inputleap
+} // namespace skvm

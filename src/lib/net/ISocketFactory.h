@@ -23,7 +23,7 @@
 #include "net/ConnectionSecurityLevel.h"
 #include <memory>
 
-namespace inputleap {
+namespace skvm {
 
 //! Socket factory
 /*!
@@ -45,4 +45,4 @@ public:
                       ConnectionSecurityLevel security_level) const = 0;
 };
 
-} // namespace inputleap
+} // namespace skvm

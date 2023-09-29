@@ -25,7 +25,7 @@
 #include "skvm/option_types.h"
 #include <string>
 
-namespace inputleap {
+namespace skvm {
 
 //! Client interface
 /*!
@@ -168,4 +168,4 @@ public:
     //@}
 };
 
-} // namespace inputleap
+} // namespace skvm

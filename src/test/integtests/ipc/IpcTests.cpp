@@ -38,7 +38,7 @@
 
 #define TEST_IPC_PORT 24802
 
-namespace inputleap {
+namespace skvm {
 
 class IpcTests : public ::testing::Test
 {
@@ -207,6 +207,6 @@ void IpcTests::sendMessageToClient_client_handle_message_received(const Event& e
     }
 }
 
-} // namespace inputleap
+} // namespace skvm
 
 #endif // WINAPI_CARBON

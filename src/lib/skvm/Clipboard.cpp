@@ -19,7 +19,7 @@
 #include "skvm/Clipboard.h"
 #include <cassert>
 
-namespace inputleap {
+namespace skvm {
 
 Clipboard::Clipboard() :
     m_open(false),
@@ -114,4 +114,4 @@ std::string Clipboard::marshall() const
     return IClipboard::marshall(this);
 }
 
-} // namespace inputleap
+} // namespace skvm

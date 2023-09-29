@@ -26,7 +26,7 @@
 
 #include <xkbcommon/xkbcommon.h>
 
-namespace inputleap {
+namespace skvm {
 
 EiKeyState::EiKeyState(EiScreen* screen, IEventQueue* events) :
     KeyState(events),
@@ -149,7 +149,7 @@ std::uint32_t EiKeyState::convert_mod_mask(std::uint32_t xkb_mask) const
 // Only way to figure out whether a key is a modifier key is to press it,
 // check if a modifier changed state and then release it again.
 // Luckily xkbcommon allows us to do this in a separate
-void EiKeyState::assign_generated_modifiers(std::uint32_t keycode, inputleap::KeyMap::KeyItem& item)
+void EiKeyState::assign_generated_modifiers(std::uint32_t keycode, skvm::KeyMap::KeyItem& item)
 {
     std::uint32_t mods_generates = 0;
     auto state = xkb_state_new(xkb_keymap_);
@@ -177,9 +177,9 @@ void EiKeyState::assign_generated_modifiers(std::uint32_t keycode, inputleap::Ke
     item.m_generates = convert_mod_mask(mods_generates);
 }
 
-void EiKeyState::getKeyMap(inputleap::KeyMap& keyMap)
+void EiKeyState::getKeyMap(skvm::KeyMap& keyMap)
 {
-    inputleap::KeyMap::KeyItem item;
+    skvm::KeyMap::KeyItem item;
 
     auto min_keycode = xkb_keymap_min_keycode(xkb_keymap_);
     auto max_keycode = xkb_keymap_max_keycode(xkb_keymap_);
@@ -289,4 +289,4 @@ void EiKeyState::update_xkb_state(uint32_t keyval, bool is_pressed)
     xkb_state_update_key(xkb_state_, keyval, is_pressed ? XKB_KEY_DOWN : XKB_KEY_UP);
 }
 
-} // namespace inputleap
+} // namespace skvm

@@ -26,7 +26,7 @@
 #include <cstdlib>
 #include <cstring>
 
-namespace inputleap {
+namespace skvm {
 
 // -----------------------------------------------------------------------------
 // Input Filter Condition Classes
@@ -97,8 +97,8 @@ InputFilter::KeystrokeCondition::clone() const
 
 std::string InputFilter::KeystrokeCondition::format() const
 {
-    return inputleap::string::sprintf("keystroke(%s)",
-                            inputleap::KeyMap::formatKey(m_key, m_mask).c_str());
+    return skvm::string::sprintf("keystroke(%s)",
+                            skvm::KeyMap::formatKey(m_key, m_mask).c_str());
 }
 
 InputFilter::EFilterStatus
@@ -181,11 +181,11 @@ InputFilter::MouseButtonCondition::clone() const
 
 std::string InputFilter::MouseButtonCondition::format() const
 {
-    std::string key = inputleap::KeyMap::formatKey(kKeyNone, m_mask);
+    std::string key = skvm::KeyMap::formatKey(kKeyNone, m_mask);
     if (!key.empty()) {
         key += "+";
     }
-    return inputleap::string::sprintf("mousebutton(%s%d)", key.c_str(), m_button);
+    return skvm::string::sprintf("mousebutton(%s%d)", key.c_str(), m_button);
 }
 
 InputFilter::EFilterStatus
@@ -239,7 +239,7 @@ InputFilter::ScreenConnectedCondition::clone() const
 
 std::string InputFilter::ScreenConnectedCondition::format() const
 {
-    return inputleap::string::sprintf("connect(%s)", m_screen.c_str());
+    return skvm::string::sprintf("connect(%s)", m_screen.c_str());
 }
 
 InputFilter::EFilterStatus
@@ -292,7 +292,7 @@ std::string InputFilter::LockCursorToScreenAction::format() const
 {
     static const char* s_mode[] = { "off", "on", "toggle" };
 
-    return inputleap::string::sprintf("lockCursorToScreen(%s)", s_mode[m_mode]);
+    return skvm::string::sprintf("lockCursorToScreen(%s)", s_mode[m_mode]);
 }
 
 void
@@ -332,7 +332,7 @@ InputFilter::SwitchToScreenAction::clone() const
 
 std::string InputFilter::SwitchToScreenAction::format() const
 {
-    return inputleap::string::sprintf("switchToScreen(%s)", m_screen.c_str());
+    return skvm::string::sprintf("switchToScreen(%s)", m_screen.c_str());
 }
 
 void
@@ -367,7 +367,7 @@ InputFilter::ToggleScreenAction::clone() const
 
 std::string InputFilter::ToggleScreenAction::format() const
 {
-    return inputleap::string::sprintf("toggleScreen");
+    return skvm::string::sprintf("toggleScreen");
 }
 
 void
@@ -407,7 +407,7 @@ std::string InputFilter::SwitchInDirectionAction::format() const
         "down"
     };
 
-    return inputleap::string::sprintf("switchInDirection(%s)", s_names[m_direction]);
+    return skvm::string::sprintf("switchInDirection(%s)", s_names[m_direction]);
 }
 
 void
@@ -461,10 +461,10 @@ std::string InputFilter::KeyboardBroadcastAction::format() const
     static const char* s_name = "keyboardBroadcast";
 
     if (m_screens.empty() || m_screens[0] == '*') {
-        return inputleap::string::sprintf("%s(%s)", s_name, s_mode[m_mode]);
+        return skvm::string::sprintf("%s(%s)", s_name, s_mode[m_mode]);
     }
     else {
-        return inputleap::string::sprintf("%s(%s,%.*s)", s_name, s_mode[m_mode],
+        return skvm::string::sprintf("%s(%s,%.*s)", s_name, s_mode[m_mode],
                             m_screens.size() - 2,
                             m_screens.c_str() + 1);
     }
@@ -513,16 +513,16 @@ std::string InputFilter::KeystrokeAction::format() const
     const char* type = formatName();
 
     if (info_.screens_.empty()) {
-        return inputleap::string::sprintf("%s(%s)", type,
-                            inputleap::KeyMap::formatKey(info_.m_key, info_.m_mask).c_str());
+        return skvm::string::sprintf("%s(%s)", type,
+                            skvm::KeyMap::formatKey(info_.m_key, info_.m_mask).c_str());
     }
     else if (info_.screens_ == "*") {
-        return inputleap::string::sprintf("%s(%s,*)", type,
-                            inputleap::KeyMap::formatKey(info_.m_key, info_.m_mask).c_str());
+        return skvm::string::sprintf("%s(%s,*)", type,
+                            skvm::KeyMap::formatKey(info_.m_key, info_.m_mask).c_str());
     }
     else {
-        return inputleap::string::sprintf("%s(%s,%s)", type,
-                            inputleap::KeyMap::formatKey(info_.m_key, info_.m_mask).c_str(),
+        return skvm::string::sprintf("%s(%s,%s)", type,
+                            skvm::KeyMap::formatKey(info_.m_key, info_.m_mask).c_str(),
                             info_.screens_.c_str());
     }
 }
@@ -575,8 +575,8 @@ std::string InputFilter::MouseButtonAction::format() const
 {
     const char* type = formatName();
 
-    std::string key = inputleap::KeyMap::formatKey(kKeyNone, button_info_.m_mask);
-    return inputleap::string::sprintf("%s(%s%s%d)", type,
+    std::string key = skvm::KeyMap::formatKey(kKeyNone, button_info_.m_mask);
+    return skvm::string::sprintf("%s(%s%s%d)", type,
                             key.c_str(), key.empty() ? "" : "+",
                             button_info_.m_button);
 }
@@ -1017,4 +1017,4 @@ void InputFilter::handle_event(const Event& event)
     m_events->add_event(std::move(myEvent));
 }
 
-} // namespace inputleap
+} // namespace skvm

@@ -20,13 +20,13 @@
 
 #include "EventTarget.h"
 
-namespace inputleap {
+namespace skvm {
 
 class EventQueueTimer : public EventTarget {
 public:
     virtual ~EventQueueTimer() = default;
 };
 
-} // namespace inputleap
+} // namespace skvm
 
 #endif // INPUTLEAP_LIB_BASE_EVENT_QUEUE_TIMER_H

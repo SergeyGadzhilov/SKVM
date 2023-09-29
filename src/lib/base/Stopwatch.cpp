@@ -19,7 +19,7 @@
 #include "base/Stopwatch.h"
 #include "base/Time.h"
 
-namespace inputleap {
+namespace skvm {
 
 Stopwatch::Stopwatch(bool triggered) :
     m_mark(0.0),
@@ -27,7 +27,7 @@ Stopwatch::Stopwatch(bool triggered) :
     m_stopped(triggered)
 {
     if (!triggered) {
-        m_mark = inputleap::current_time_seconds();
+        m_mark = skvm::current_time_seconds();
     }
 }
 
@@ -45,7 +45,7 @@ Stopwatch::reset()
         return dt;
     }
     else {
-        const double t = inputleap::current_time_seconds();
+        const double t = skvm::current_time_seconds();
         const double dt = t - m_mark;
         m_mark = t;
         return dt;
@@ -60,7 +60,7 @@ Stopwatch::stop()
     }
 
     // save the elapsed time
-    m_mark = inputleap::current_time_seconds() - m_mark;
+    m_mark = skvm::current_time_seconds() - m_mark;
     m_stopped = true;
 }
 
@@ -73,7 +73,7 @@ Stopwatch::start()
     }
 
     // set the mark such that it reports the time elapsed at stop()
-    m_mark = inputleap::current_time_seconds() - m_mark;
+    m_mark = skvm::current_time_seconds() - m_mark;
     m_stopped = false;
 }
 
@@ -96,7 +96,7 @@ Stopwatch::getTime()
         return m_mark;
     }
     else {
-        return inputleap::current_time_seconds() - m_mark;
+        return skvm::current_time_seconds() - m_mark;
     }
 }
 
@@ -118,7 +118,7 @@ Stopwatch::getTime() const
         return m_mark;
     }
     else {
-        return inputleap::current_time_seconds() - m_mark;
+        return skvm::current_time_seconds() - m_mark;
     }
 }
 
@@ -127,4 +127,4 @@ Stopwatch::operator double() const
     return getTime();
 }
 
-} // namespace inputleap
+} // namespace skvm

@@ -25,7 +25,7 @@
 int
 main(int argc, char** argv)
 {
-    inputleap::DaemonApp app;
+    skvm::DaemonApp app;
     return app.run(argc, argv);
 }
 
@@ -36,7 +36,7 @@ main(int argc, char** argv)
 int WINAPI
 WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {
-    inputleap::DaemonApp app;
+    skvm::DaemonApp app;
     return app.run(__argc, __argv);
 }
 

@@ -23,7 +23,7 @@
 #include "arch/Arch.h"
 #include "common/Version.h"
 
-namespace inputleap {
+namespace skvm {
 
 ClientTaskBarReceiver::ClientTaskBarReceiver(IEventQueue* events) :
     m_state(kNotRunning),
@@ -113,22 +113,22 @@ ClientTaskBarReceiver::getToolTip() const
 {
     switch (m_state) {
     case kNotRunning:
-        return inputleap::string::sprintf("%s:  Not running", kAppVersion);
+        return skvm::string::sprintf("%s:  Not running", kAppVersion);
 
     case kNotWorking:
-        return inputleap::string::sprintf("%s:  %s",
+        return skvm::string::sprintf("%s:  %s",
                                 kAppVersion, m_errorMessage.c_str());
 
     case kNotConnected:
-        return inputleap::string::sprintf("%s:  Not connected:  %s",
+        return skvm::string::sprintf("%s:  Not connected:  %s",
                                 kAppVersion, m_errorMessage.c_str());
 
     case kConnecting:
-        return inputleap::string::sprintf("%s:  Connecting to %s...",
+        return skvm::string::sprintf("%s:  Connecting to %s...",
                                 kAppVersion, m_server.c_str());
 
     case kConnected:
-        return inputleap::string::sprintf("%s:  Connected to %s",
+        return skvm::string::sprintf("%s:  Connected to %s",
                                 kAppVersion, m_server.c_str());
 
     default:
@@ -136,4 +136,4 @@ ClientTaskBarReceiver::getToolTip() const
     }
 }
 
-} // namespace inputleap
+} // namespace skvm

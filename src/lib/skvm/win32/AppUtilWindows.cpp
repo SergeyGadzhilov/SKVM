@@ -38,7 +38,7 @@
 #include <conio.h>
 #include <VersionHelpers.h>
 
-namespace inputleap {
+namespace skvm {
 
 AppUtilWindows::AppUtilWindows(IEventQueue* events) :
     m_events(events),
@@ -175,7 +175,7 @@ AppUtilWindows::debugServiceWait()
             // windows service controller (and --debug-service-wait arg is
             // used). to debug, set a breakpoint on this line so that
             // execution is delayed until the debugger is attached.
-            inputleap::this_thread_sleep(1);
+            skvm::this_thread_sleep(1);
             LOG((CLOG_INFO "waiting for debugger to attach"));
         }
     }
@@ -187,4 +187,4 @@ AppUtilWindows::startNode()
     app().startNode();
 }
 
-} // namespace inputleap
+} // namespace skvm

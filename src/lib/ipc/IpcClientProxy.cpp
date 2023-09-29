@@ -25,7 +25,7 @@
 #include "arch/Arch.h"
 #include "base/Log.h"
 
-namespace inputleap {
+namespace skvm {
 
 IpcClientProxy::IpcClientProxy(std::unique_ptr<IStream>&& stream, IEventQueue* events) :
     stream_(std::move(stream)),
@@ -161,4 +161,4 @@ IpcClientProxy::disconnect()
     m_events->add_event(EventType::IPC_CLIENT_PROXY_DISCONNECTED, this);
 }
 
-} // namespace inputleap
+} // namespace skvm

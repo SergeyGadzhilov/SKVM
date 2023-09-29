@@ -22,7 +22,7 @@
 
 #define ARCH_SYSTEM ArchSystemWindows
 
-namespace inputleap {
+namespace skvm {
 
 //! Win32 implementation of IArchSystem
 class ArchSystemWindows : public IArchSystem {
@@ -35,4 +35,4 @@ public:
     virtual void setting(const std::string& valueName, const std::string& valueString) const;
 };
 
-} // namespace inputleap
+} // namespace skvm

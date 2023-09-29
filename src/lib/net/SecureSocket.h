@@ -24,7 +24,7 @@
 #include "io/filesystem.h"
 #include <mutex>
 
-namespace inputleap {
+namespace skvm {
 
 struct Ssl;
 
@@ -57,7 +57,7 @@ public:
     EJobResult doRead() override;
     EJobResult doWrite() override;
     void initSsl(bool server);
-    bool load_certificates(const inputleap::fs::path& path);
+    bool load_certificates(const skvm::fs::path& path);
 
 private:
     // SSL
@@ -73,7 +73,7 @@ private:
     void disconnect();
 
     // may only be called with ssl_mutex_ acquired
-    bool verify_peer_certificate(const inputleap::fs::path& fingerprint_db_path);
+    bool verify_peer_certificate(const skvm::fs::path& fingerprint_db_path);
 
     MultiplexerJobStatus serviceConnect(ISocketMultiplexerJob*, bool, bool, bool);
     MultiplexerJobStatus serviceAccept(ISocketMultiplexerJob*, bool, bool, bool);
@@ -110,4 +110,4 @@ private:
     std::size_t do_write_retry_buffer_size_ = 0;
 };
 
-} // namespace inputleap
+} // namespace skvm

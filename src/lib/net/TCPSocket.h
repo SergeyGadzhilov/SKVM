@@ -28,7 +28,7 @@
 #include <memory>
 #include <mutex>
 
-namespace inputleap {
+namespace skvm {
 
 class Thread;
 
@@ -113,4 +113,4 @@ private:
     SocketMultiplexer* m_socketMultiplexer;
 };
 
-} // namespace inputleap
+} // namespace skvm

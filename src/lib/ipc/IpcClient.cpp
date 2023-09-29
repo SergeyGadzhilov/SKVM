@@ -22,7 +22,7 @@
 #include "ipc/IpcMessage.h"
 #include <cassert>
 
-namespace inputleap {
+namespace skvm {
 
 IpcClient::IpcClient(IEventQueue* events, SocketMultiplexer* socketMultiplexer) :
     m_serverAddress(NetworkAddress(IPC_HOST, IPC_PORT)),
@@ -95,4 +95,4 @@ void IpcClient::handle_message_received(const Event& e)
     m_events->add_event(std::move(event));
 }
 
-} // namespace inputleap
+} // namespace skvm

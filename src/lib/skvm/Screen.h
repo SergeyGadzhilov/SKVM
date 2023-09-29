@@ -29,7 +29,7 @@
 #include "base/Fwd.h"
 #include <memory>
 
-namespace inputleap {
+namespace skvm {
 
 //! Platform independent screen
 /*!

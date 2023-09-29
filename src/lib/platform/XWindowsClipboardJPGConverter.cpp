@@ -19,7 +19,7 @@
 
 #include "platform/XWindowsClipboardJPGConverter.h"
 
-namespace inputleap {
+namespace skvm {
 
 //
 // XWindowsClipboardJPGConverter
@@ -76,4 +76,4 @@ std::string XWindowsClipboardJPGConverter::toIClipboard(const std::string& jpegd
     return {};
 }
 
-} // namespace inputleap
+} // namespace skvm

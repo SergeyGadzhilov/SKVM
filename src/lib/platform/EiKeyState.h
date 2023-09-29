@@ -25,7 +25,7 @@ struct xkb_context;
 struct xkb_keymap;
 struct xkb_state;
 
-namespace inputleap {
+namespace skvm {
 
 /// A key state for Ei
 class EiKeyState : public KeyState {
@@ -60,6 +60,6 @@ private:
     xkb_state* xkb_state_ = nullptr;
 };
 
-} // namespace inputleap
+} // namespace skvm
 
 #endif // INPUTLEAP_LIB_PLATFORM_EI_KEY_STATE_H

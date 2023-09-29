@@ -17,7 +17,7 @@
 
 #include "DataDirectories.h"
 
-namespace inputleap {
+namespace skvm {
 
 fs::path DataDirectories::_profile;
 fs::path DataDirectories::_global;
@@ -53,4 +53,4 @@ fs::path DataDirectories::ssl_certificate_path()
     return profile() / "SSL" / "InputLeap.pem";
 }
 
-} // namespace inputleap
+} // namespace skvm

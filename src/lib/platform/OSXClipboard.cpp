@@ -25,7 +25,7 @@
 #include "base/Log.h"
 #include "arch/XArch.h"
 
-namespace inputleap {
+namespace skvm {
 
 OSXClipboard::OSXClipboard() :
     m_time(0),
@@ -254,4 +254,4 @@ OSXClipboard::clearConverters()
     m_converters.clear();
 }
 
-} // namespace inputleap
+} // namespace skvm

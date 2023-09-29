@@ -24,7 +24,7 @@
 #define WIN32_LEAN_AND_MEAN
 #include <Windows.h>
 
-namespace inputleap {
+namespace skvm {
 
 //! Loads and provides functions for the Windows hook
 class MSWindowsHook
@@ -41,4 +41,4 @@ public:
     static void uninstallScreenSaver();
 };
 
-} // namespace inputleap
+} // namespace skvm

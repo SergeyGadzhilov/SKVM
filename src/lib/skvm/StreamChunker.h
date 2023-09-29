@@ -22,7 +22,7 @@
 
 #include <string>
 
-namespace inputleap {
+namespace skvm {
 
 class StreamChunker {
 public:
@@ -37,4 +37,4 @@ private:
     static bool            s_interruptFile;
 };
 
-} // namespace inputleap
+} // namespace skvm

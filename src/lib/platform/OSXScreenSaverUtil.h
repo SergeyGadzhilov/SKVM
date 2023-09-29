@@ -20,7 +20,7 @@
 
 #include "common/common.h"
 
-namespace inputleap {
+namespace skvm {
 
 void* screenSaverUtilCreatePool();
 void screenSaverUtilReleasePool(void*);
@@ -33,4 +33,4 @@ void screenSaverUtilActivate(void*);
 void screenSaverUtilDeactivate(void*, int isEnabled);
 int screenSaverUtilIsActive(void*);
 
-} // namespace inputleap
+} // namespace skvm

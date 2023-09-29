@@ -30,7 +30,7 @@
 #include <fstream>
 #include <stdexcept>
 
-namespace inputleap {
+namespace skvm {
 
 static const size_t g_chunkSize = 32 * 1024; //32kb
 
@@ -157,4 +157,4 @@ StreamChunker::interruptFile()
     }
 }
 
-} // namespace inputleap
+} // namespace skvm

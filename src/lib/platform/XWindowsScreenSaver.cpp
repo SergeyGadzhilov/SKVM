@@ -29,7 +29,7 @@
 #include <X11/Xmd.h>
 #include <X11/extensions/dpms.h>
 
-namespace inputleap {
+namespace skvm {
 
 XWindowsScreenSaver::XWindowsScreenSaver(IXWindowsImpl* impl, Display* display,
                                          Window window, const EventTarget* event_target,
@@ -561,4 +561,4 @@ XWindowsScreenSaver::isDPMSActivated() const
     }
 }
 
-} // namespace inputleap
+} // namespace skvm

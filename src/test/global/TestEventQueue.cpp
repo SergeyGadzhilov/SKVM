@@ -22,7 +22,7 @@
 #include "base/SimpleEventQueueBuffer.h"
 #include <stdexcept>
 
-namespace inputleap {
+namespace skvm {
 
 void
 TestEventQueue::raiseQuitEvent()
@@ -47,4 +47,4 @@ TestEventQueue::cleanupQuitTimeout()
     m_quitTimeoutTimer = nullptr;
 }
 
-} // namespace inputleap
+} // namespace skvm

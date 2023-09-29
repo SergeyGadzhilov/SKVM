@@ -20,7 +20,7 @@
 
 #include "skvm/IApp.h"
 
-namespace inputleap {
+namespace skvm {
 
 class IAppUtil {
 public:
@@ -33,4 +33,4 @@ public:
     virtual void startNode() = 0;
 };
 
-} // namespace inputleap
+} // namespace skvm

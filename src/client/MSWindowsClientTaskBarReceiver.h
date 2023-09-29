@@ -22,7 +22,7 @@
 #include "skvm/ClientTaskBarReceiver.h"
 #include "common/win32/winapi.h"
 
-namespace inputleap {
+namespace skvm {
 
 //! Implementation of ClientTaskBarReceiver for Microsoft Windows
 class MSWindowsClientTaskBarReceiver : public ClientTaskBarReceiver {
@@ -62,4 +62,4 @@ private:
     static const UINT    s_stateToIconID[];
 };
 
-} // namespace inputleap
+} // namespace skvm

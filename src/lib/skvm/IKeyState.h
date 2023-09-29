@@ -24,7 +24,7 @@
 #include "base/EventTypes.h"
 #include <set>
 
-namespace inputleap {
+namespace skvm {
 
 //! Key state interface
 /*!
@@ -184,4 +184,4 @@ public:
     //@}
 };
 
-} // namespace inputleap
+} // namespace skvm

@@ -24,7 +24,7 @@
 #endif
 #include <fstream>
 
-namespace inputleap {
+namespace skvm {
 
 namespace {
 
@@ -68,4 +68,4 @@ std::FILE* fopen_utf8_path(const fs::path& path, const std::string& mode)
 #endif
 }
 
-} // namespace inputleap
+} // namespace skvm

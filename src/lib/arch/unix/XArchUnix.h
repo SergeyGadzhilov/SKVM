@@ -20,8 +20,8 @@
 
 #include <string>
 
-namespace inputleap {
+namespace skvm {
 
 std::string error_code_to_string_errno(int err);
 
-} // namespace inputleap
+} // namespace skvm

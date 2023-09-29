@@ -20,7 +20,7 @@
 
 #include <cstring>
 
-namespace inputleap {
+namespace skvm {
 
 std::string error_code_to_string_errno(int err)
 {
@@ -28,4 +28,4 @@ std::string error_code_to_string_errno(int err)
     return std::strerror(err);
 }
 
-} // namespace inputleap
+} // namespace skvm

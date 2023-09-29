@@ -21,7 +21,7 @@
 
 #include <cstdlib>
 
-namespace inputleap {
+namespace skvm {
 
 bool
 IPrimaryScreen::ButtonInfo::equal(const ButtonInfo* a, const ButtonInfo* b)
@@ -29,4 +29,4 @@ IPrimaryScreen::ButtonInfo::equal(const ButtonInfo* a, const ButtonInfo* b)
     return (a->m_button == b->m_button && a->m_mask == b->m_mask);
 }
 
-} // namespace inputleap
+} // namespace skvm

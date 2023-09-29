@@ -32,7 +32,7 @@
 #include <cstddef>
 #include <map>
 
-namespace inputleap {
+namespace skvm {
 
 static const size_t ModifiersFromXDefaultSize = 32;
 
@@ -50,7 +50,7 @@ XWindowsKeyState::XWindowsKeyState(IXWindowsImpl* impl,
 
 XWindowsKeyState::XWindowsKeyState(IXWindowsImpl* impl,
     Display* display, bool useXKB,
-    IEventQueue* events, inputleap::KeyMap& keyMap) :
+    IEventQueue* events, skvm::KeyMap& keyMap) :
     KeyState(events, keyMap),
     m_display(display),
     m_modifierFromX(ModifiersFromXDefaultSize)
@@ -214,7 +214,7 @@ XWindowsKeyState::pollPressedKeys(KeyButtonSet& pressedKeys) const
 }
 
 void
-XWindowsKeyState::getKeyMap(inputleap::KeyMap& keyMap)
+XWindowsKeyState::getKeyMap(skvm::KeyMap& keyMap)
 {
     // get autorepeat info.  we must use the global_auto_repeat told to
     // us because it may have modified by InputLeap.
@@ -292,7 +292,7 @@ XWindowsKeyState::fakeKey(const Keystroke& keystroke)
 }
 
 void
-XWindowsKeyState::updateKeysymMap(inputleap::KeyMap& keyMap)
+XWindowsKeyState::updateKeysymMap(skvm::KeyMap& keyMap)
 {
     // there are up to 4 keysyms per keycode
     static const int maxKeysyms = 4;
@@ -386,7 +386,7 @@ XWindowsKeyState::updateKeysymMap(inputleap::KeyMap& keyMap)
     }
 
     // add entries for each keycode
-    inputleap::KeyMap::KeyItem item;
+    skvm::KeyMap::KeyItem item;
     for (int i = 0; i < numKeycodes; ++i) {
         KeySym* keysyms = allKeysyms + maxKeysyms * i;
         KeyCode keycode = static_cast<KeyCode>(i + minKeycode);
@@ -490,7 +490,7 @@ XWindowsKeyState::updateKeysymMap(inputleap::KeyMap& keyMap)
             item.m_lock      = false;
             if (modifierButtons.count(keycode) > 0) {
                 // get flags for modifier keys
-                inputleap::KeyMap::initModifierKey(item);
+                skvm::KeyMap::initModifierKey(item);
 
                 // add mapping from X (unless we already have)
                 if (item.m_generates != 0) {
@@ -537,7 +537,7 @@ XWindowsKeyState::updateKeysymMap(inputleap::KeyMap& keyMap)
 }
 
 void
-XWindowsKeyState::updateKeysymMapXKB(inputleap::KeyMap& keyMap)
+XWindowsKeyState::updateKeysymMapXKB(skvm::KeyMap& keyMap)
 {
     static const XkbKTMapEntryRec defMapEntry = {
         True,        // active
@@ -583,7 +583,7 @@ XWindowsKeyState::updateKeysymMapXKB(inputleap::KeyMap& keyMap)
 
     // check every button.  on this pass we save all modifiers as native
     // X modifier masks.
-    inputleap::KeyMap::KeyItem item;
+    skvm::KeyMap::KeyItem item;
     for (int i = m_xkb->min_key_code; i <= m_xkb->max_key_code; ++i) {
         KeyCode keycode = static_cast<KeyCode>(i);
         item.m_button   = static_cast<KeyButton>(keycode);
@@ -778,7 +778,7 @@ XWindowsKeyState::updateKeysymMapXKB(inputleap::KeyMap& keyMap)
 }
 
 void XWindowsKeyState::remapKeyModifiers(KeyID id, std::int32_t group,
-                                         inputleap::KeyMap::KeyItem& item, void* vself)
+                                         skvm::KeyMap::KeyItem& item, void* vself)
 {
     (void) id;
 
@@ -856,4 +856,4 @@ std::uint32_t XWindowsKeyState::getGroupFromState(unsigned int state) const
     return 0;
 }
 
-} // namespace inputleap
+} // namespace skvm

@@ -24,7 +24,7 @@
 
 #include <string>
 
-namespace inputleap {
+namespace skvm {
 
 class IpcLogOutputter;
 class MSWindowsWatchdog;
@@ -57,4 +57,4 @@ private:
 
 #define LOG_FILENAME "skvmd.log"
 
-} // namespace inputleap
+} // namespace skvm

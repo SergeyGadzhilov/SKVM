@@ -21,8 +21,8 @@
 
 #import <CoreFoundation/CoreFoundation.h>
 
-namespace inputleap {
+namespace skvm {
 
 CFStringRef getDraggedFileURL();
 
-} // namespace inputleap
+} // namespace skvm

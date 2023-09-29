@@ -19,7 +19,7 @@
 #include "skvm/Exceptions.h"
 #include "base/String.h"
 
-namespace inputleap {
+namespace skvm {
 
 std::string XBadClient::getWhat() const noexcept
 {
@@ -51,8 +51,8 @@ int XIncompatibleClient::getMinor() const noexcept
 std::string XIncompatibleClient::getWhat() const noexcept
 {
     return format("XIncompatibleClient", "incompatible client %{1}.%{2}",
-                                inputleap::string::sprintf("%d", m_major).c_str(),
-                                inputleap::string::sprintf("%d", m_minor).c_str());
+                                skvm::string::sprintf("%d", m_major).c_str(),
+                                skvm::string::sprintf("%d", m_minor).c_str());
 }
 
 
@@ -117,7 +117,7 @@ std::string XExitApp::getWhat() const noexcept
 {
     return format(
         "XExitApp", "exiting with code %{1}",
-        inputleap::string::sprintf("%d", m_code).c_str());
+        skvm::string::sprintf("%d", m_code).c_str());
 }
 
-} // namespace inputleap
+} // namespace skvm

@@ -29,7 +29,7 @@
 #include <memory>
 #include <set>
 
-namespace inputleap {
+namespace skvm {
 
 class ClientProxy;
 class ClientProxyUnknown;
@@ -90,4 +90,4 @@ private:
     UniquePtrContainer<IDataSocket> client_sockets_;
 };
 
-} // namespace inputleap
+} // namespace skvm

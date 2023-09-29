@@ -22,7 +22,7 @@
 #include <Windows.h>
 #include <oleidl.h>
 
-namespace inputleap {
+namespace skvm {
 
 class MSWindowsScreen;
 
@@ -59,4 +59,4 @@ private:
                         s_instance;
 };
 
-} // namespace inputleap
+} // namespace skvm

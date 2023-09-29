@@ -14,7 +14,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-namespace inputleap {
+namespace skvm {
 
 // App.h
 class App;
@@ -108,4 +108,4 @@ class ServerArgs;
 // ServerTaskBarReceiver.h
 class ServerTaskBarReceiver;
 
-} // namespace inputleap
+} // namespace skvm

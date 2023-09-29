@@ -27,7 +27,7 @@
 #include "base/Event.h"
 #include "base/Log.h"
 
-namespace inputleap {
+namespace skvm {
 
 IpcServer::IpcServer(IEventQueue* events, SocketMultiplexer* socketMultiplexer) :
     m_mock(false),
@@ -171,4 +171,4 @@ IpcServer::send(const IpcMessage& message, EIpcClientType filterType)
     }
 }
 
-} // namespace inputleap
+} // namespace skvm

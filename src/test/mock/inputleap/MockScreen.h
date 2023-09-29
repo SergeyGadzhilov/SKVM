@@ -24,13 +24,13 @@
 
 #include <gmock/gmock.h>
 
-namespace inputleap {
+namespace skvm {
 
 class MockScreen : public Screen, public EventTarget
 {
 public:
     const EventTarget* get_event_target() const override { return this; }
-    MockScreen() : inputleap::Screen() { }
+    MockScreen() : skvm::Screen() { }
     MOCK_METHOD0(disable, void());
     MOCK_CONST_METHOD4(getShape, void(std::int32_t&, std::int32_t&, std::int32_t&, std::int32_t&));
     MOCK_CONST_METHOD2(getCursorPos, void(std::int32_t&, std::int32_t&));
@@ -39,4 +39,4 @@ public:
     MOCK_METHOD0(enable, void());
 };
 
-} // namespace inputleap
+} // namespace skvm

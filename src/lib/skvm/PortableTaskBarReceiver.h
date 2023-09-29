@@ -25,7 +25,7 @@
 #include "base/Event.h"
 #include <vector>
 
-namespace inputleap {
+namespace skvm {
 
 //! Implementation of IArchTaskBarReceiver for the InputLeap server
 class PortableTaskBarReceiver : public IArchTaskBarReceiver {
@@ -90,4 +90,4 @@ private:
 
 IArchTaskBarReceiver* createTaskBarReceiver(const BufferedLogOutputter* logBuffer, IEventQueue* events);
 
-} // namespace inputleap
+} // namespace skvm

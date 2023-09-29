@@ -20,7 +20,7 @@
 
 #include "platform/OSXClipboard.h"
 
-namespace inputleap {
+namespace skvm {
 
 //! Convert to/from some text encoding
 class OSXClipboardAnyTextConverter : public IOSXClipboardConverter {
@@ -53,4 +53,4 @@ private:
     static std::string convertLinefeedToUnix(const std::string&);
 };
 
-} // namespace inputleap
+} // namespace skvm

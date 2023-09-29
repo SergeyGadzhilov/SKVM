@@ -23,7 +23,7 @@
 
 #include <stdarg.h>
 
-namespace inputleap {
+namespace skvm {
 
 class IStream;
 
@@ -50,7 +50,7 @@ public:
     - \%s   -- converts std::string* to stream of bytes
     - \%S   -- converts integer N and const std::uint8_t* to stream of N bytes
     */
-    static void writef(inputleap::IStream*, const char* fmt, ...);
+    static void writef(skvm::IStream*, const char* fmt, ...);
 
     //! Read formatted data
     /*!
@@ -68,16 +68,16 @@ public:
     - \%4I  -- reads NBO 4 byte integers;  arg is std::vector<std::uint32_t>*
     - \%s   -- reads bytes;  argument must be a std::string*, \b not a char*
     */
-    static bool readf(inputleap::IStream*, const char* fmt, ...);
+    static bool readf(skvm::IStream*, const char* fmt, ...);
 
 private:
-    static void vwritef(inputleap::IStream*, const char* fmt, std::uint32_t size, va_list);
-    static void vreadf(inputleap::IStream*, const char* fmt, va_list);
+    static void vwritef(skvm::IStream*, const char* fmt, std::uint32_t size, va_list);
+    static void vreadf(skvm::IStream*, const char* fmt, va_list);
 
     static std::uint32_t getLength(const char* fmt, va_list);
     static void writef_void(void*, const char* fmt, va_list);
     static std::uint32_t eatLength(const char** fmt);
-    static void read(inputleap::IStream*, void*, std::uint32_t);
+    static void read(skvm::IStream*, void*, std::uint32_t);
 };
 
 //! Mismatched read exception
@@ -91,4 +91,4 @@ public:
     std::string getWhat() const noexcept override;
 };
 
-} // namespace inputleap
+} // namespace skvm

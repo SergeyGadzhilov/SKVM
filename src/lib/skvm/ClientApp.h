@@ -24,7 +24,7 @@
 #include "skvm/App.h"
 #include "ClientArgs.h"
 
-namespace inputleap {
+namespace skvm {
 
 class Client;
 
@@ -65,7 +65,7 @@ public:
     void handle_client_failed(const Event& e);
     void handle_client_disconnected();
     Client* openClient(const std::string& name, const NetworkAddress& address,
-                inputleap::Screen* screen);
+                skvm::Screen* screen);
     void closeClient(Client* client);
     bool startClient();
     void stopClient();
@@ -80,8 +80,8 @@ private:
     std::unique_ptr<IPlatformScreen> create_platform_screen();
 
     Client* m_client;
-    std::unique_ptr<inputleap::Screen> m_clientScreen;
+    std::unique_ptr<skvm::Screen> m_clientScreen;
     NetworkAddress* m_serverAddress;
 };
 
-} // namespace inputleap
+} // namespace skvm

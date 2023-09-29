@@ -25,7 +25,7 @@
 
 #include <malloc.h>
 
-namespace inputleap {
+namespace skvm {
 
 static const int s_family[] = {
     PF_UNSPEC,
@@ -979,4 +979,4 @@ ArchNetworkWinsock::throwNameError(int err)
     }
 }
 
-} // namespace inputleap
+} // namespace skvm

@@ -20,7 +20,7 @@
 
 #include "platform/OSXClipboard.h"
 
-namespace inputleap {
+namespace skvm {
 
 //! Convert to/from some text encoding
 class OSXClipboardBMPConverter : public IOSXClipboardConverter {
@@ -44,4 +44,4 @@ public:
                                      CFStringEncoding toEncoding);
 };
 
-} // namespace inputleap
+} // namespace skvm

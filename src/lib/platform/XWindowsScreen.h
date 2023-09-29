@@ -29,7 +29,7 @@
 #include <set>
 #include <vector>
 
-namespace inputleap {
+namespace skvm {
 
 class XWindowsClipboard;
 class XWindowsKeyState;
@@ -258,11 +258,11 @@ private:
     int m_xrandrEventBase;
 
     IEventQueue* m_events;
-    inputleap::KeyMap m_keyMap;
+    skvm::KeyMap m_keyMap;
 
     // pointer to (singleton) screen.  this is only needed by
     // ioErrorHandler().
     static XWindowsScreen*    s_screen;
 };
 
-} // namespace inputleap
+} // namespace skvm

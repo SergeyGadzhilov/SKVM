@@ -26,7 +26,7 @@
 
 #include <vector>
 
-namespace inputleap {
+namespace skvm {
 
 class IMSWindowsClipboardConverter;
 class IMSWindowsClipboardFacade;
@@ -116,4 +116,4 @@ public:
     virtual std::string toIClipboard(HANDLE data) const = 0;
 };
 
-} // namespace inputleap
+} // namespace skvm

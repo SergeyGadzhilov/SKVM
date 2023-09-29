@@ -30,7 +30,7 @@
 #include "net/NetworkAddress.h"
 #include "base/EventTypes.h"
 
-namespace inputleap {
+namespace skvm {
 
 class ServerProxy;
 class IStream;
@@ -54,7 +54,7 @@ public:
     */
     Client(IEventQueue* events, const std::string& name,
            const NetworkAddress& address, ISocketFactory* socketFactory,
-           inputleap::Screen* screen, ClientArgs const& args);
+           skvm::Screen* screen, ClientArgs const& args);
 
     ~Client();
 
@@ -194,8 +194,8 @@ private:
     std::string m_name;
     NetworkAddress m_serverAddress;
     ISocketFactory* m_socketFactory;
-    inputleap::Screen* m_screen;
-    inputleap::IStream* m_stream;
+    skvm::Screen* m_screen;
+    skvm::IStream* m_stream;
     EventQueueTimer* m_timer;
     ServerProxy* m_server;
     bool m_ready;
@@ -219,4 +219,4 @@ private:
     size_t m_maximumClipboardSize;
 };
 
-} // namespace inputleap
+} // namespace skvm

@@ -19,7 +19,7 @@
 
 #include "skvm/ArgsBase.h"
 
-namespace inputleap {
+namespace skvm {
 
 class ClientArgs : public ArgsBase {
 public:
@@ -29,4 +29,4 @@ public:
     int m_yscroll;
 };
 
-} // namespace inputleap
+} // namespace skvm

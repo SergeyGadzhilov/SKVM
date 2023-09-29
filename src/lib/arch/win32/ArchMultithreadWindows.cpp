@@ -36,7 +36,7 @@
 // can cause busy waiting.
 //
 
-namespace inputleap {
+namespace skvm {
 
 class ArchThreadImpl {
 public:
@@ -528,4 +528,4 @@ ArchMultithreadWindows::doThreadFunc(ArchThread thread)
     closeThread(thread);
 }
 
-} // namespace inputleap
+} // namespace skvm

@@ -23,7 +23,7 @@
 #include "net/ISocketFactory.h"
 #include "arch/IArchNetwork.h"
 
-namespace inputleap {
+namespace skvm {
 
 //! Socket factory for TCP sockets
 class TCPSocketFactory : public ISocketFactory {
@@ -45,4 +45,4 @@ private:
     SocketMultiplexer* m_socketMultiplexer;
 };
 
-} // namespace inputleap
+} // namespace skvm

@@ -23,7 +23,7 @@
 #include <stdio.h>
 #include <Shlobj.h>
 
-namespace inputleap {
+namespace skvm {
 
 void getDropData(IDataObject *pDataObject);
 
@@ -179,4 +179,4 @@ MSWindowsDropTarget::Release(void)
     }
 }
 
-} // namespace inputleap
+} // namespace skvm

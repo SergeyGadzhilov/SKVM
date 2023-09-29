@@ -23,7 +23,7 @@
 #include "base/EventTypes.h"
 #include <memory>
 
-namespace inputleap {
+namespace skvm {
 
 //! Generic proxy for client
 class ClientProxy : public BaseClientProxy {
@@ -50,4 +50,4 @@ private:
     std::unique_ptr<IClientConnection> conn_;
 };
 
-} // namespace inputleap
+} // namespace skvm

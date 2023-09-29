@@ -42,7 +42,7 @@ setSignalSet(sigset_t* sigset)
     sigaddset(sigset, SIGUSR2);
 }
 
-namespace inputleap {
+namespace skvm {
 
 namespace {
 
@@ -346,9 +346,9 @@ ArchMultithreadPosix::wait(ArchThread target, double timeout)
 
         // wait and repeat test if there's a timeout
         if (timeout != 0.0) {
-            const double start = inputleap::current_time_seconds();
+            const double start = skvm::current_time_seconds();
             do {
-                inputleap::this_thread_sleep(0.05);
+                skvm::this_thread_sleep(0.05);
 
                 // repeat test
                 testCancelThreadImpl(self);
@@ -358,7 +358,7 @@ ArchMultithreadPosix::wait(ArchThread target, double timeout)
                 }
 
                 // repeat wait and test until timed out
-            } while (timeout < 0.0 || (inputleap::current_time_seconds() - start) <= timeout);
+            } while (timeout < 0.0 || (skvm::current_time_seconds() - start) <= timeout);
         }
 
         closeThread(target);
@@ -644,4 +644,4 @@ ArchMultithreadPosix::threadSignalHandler(void*)
     return nullptr;
 }
 
-} // namespace inputleap
+} // namespace skvm

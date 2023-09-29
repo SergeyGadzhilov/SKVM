@@ -21,7 +21,7 @@
 #include "IClientConnection.h"
 #include <memory>
 
-namespace inputleap {
+namespace skvm {
 
 class IStream;
 
@@ -67,6 +67,6 @@ private:
     std::unique_ptr<IStream> stream_;
 };
 
-} // namespace inputleap
+} // namespace skvm
 
 #endif // INPUTLEAP_LIB_SERVER_CLIENT_MESSAGE_BACKEND_TO_STREAM_H

@@ -20,7 +20,7 @@
 
 #include "io/filesystem.h"
 
-namespace inputleap {
+namespace skvm {
 
 class DataDirectories
 {
@@ -48,6 +48,6 @@ private:
     static fs::path _systemconfig;
 };
 
-} // namespace inputleap
+} // namespace skvm
 
 #endif

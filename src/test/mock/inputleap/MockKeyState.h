@@ -25,7 +25,7 @@
 #include "MockEventQueue.h"
 #include "MockKeyMap.h"
 
-namespace inputleap {
+namespace skvm {
 
 // NOTE: do not mock methods that are not pure virtual. this mock exists only
 // to provide an implementation of the KeyState abstract class.
@@ -45,7 +45,7 @@ public:
     MOCK_CONST_METHOD0(pollActiveGroup, std::int32_t());
     MOCK_CONST_METHOD0(pollActiveModifiers, KeyModifierMask());
     MOCK_METHOD0(fakeCtrlAltDel, bool());
-    MOCK_METHOD1(getKeyMap, void(inputleap::KeyMap&));
+    MOCK_METHOD1(getKeyMap, void(skvm::KeyMap&));
     MOCK_METHOD1(fakeKey, void(const Keystroke&));
     MOCK_METHOD1(fakeMediaKey, bool(KeyID));
     MOCK_CONST_METHOD1(pollPressedKeys, void(KeyButtonSet&));
@@ -55,7 +55,7 @@ typedef ::testing::NiceMock<MockKeyState> KeyStateImpl;
 
 typedef std::uint32_t KeyID;
 
-typedef void (*ForeachKeyCallback)(KeyID, std::int32_t group, inputleap::KeyMap::KeyItem&,
+typedef void (*ForeachKeyCallback)(KeyID, std::int32_t group, skvm::KeyMap::KeyItem&,
                                    void* userData);
 
-} // namespace inputleap
+} // namespace skvm

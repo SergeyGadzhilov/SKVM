@@ -20,7 +20,7 @@
 
 #include "base/XBase.h"
 
-namespace inputleap {
+namespace skvm {
 
 //! Subscription error
 /*!
@@ -131,4 +131,4 @@ private:
     int m_code;
 };
 
-} // namespace inputleap
+} // namespace skvm

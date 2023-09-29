@@ -23,7 +23,7 @@
 
 #include <mutex>
 
-namespace inputleap {
+namespace skvm {
 
 //! Packetizing stream filter
 /*!
@@ -61,4 +61,4 @@ private:
     IEventQueue* m_events;
 };
 
-} // namespace inputleap
+} // namespace skvm

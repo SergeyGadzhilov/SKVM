@@ -23,7 +23,7 @@
 #include "base/Event.h"
 #include "base/EventTypes.h"
 
-namespace inputleap {
+namespace skvm {
 
 //! Screen interface
 /*!
@@ -72,4 +72,4 @@ public:
     //@}
 };
 
-} // namespace inputleap
+} // namespace skvm

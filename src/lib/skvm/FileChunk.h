@@ -22,7 +22,7 @@
 
 #define FILE_CHUNK_META_SIZE 2
 
-namespace inputleap {
+namespace skvm {
 
 class IStream;
 
@@ -31,10 +31,10 @@ public:
     static FileChunk start(std::size_t size);
     static FileChunk data(std::uint8_t* data, size_t dataSize);
     static FileChunk end();
-    static int assemble(inputleap::IStream* stream, std::string& dataCached, size_t& expectedSize);
+    static int assemble(skvm::IStream* stream, std::string& dataCached, size_t& expectedSize);
 
     std::uint8_t mark_ = 0;
     std::string data_;
 };
 
-} // namespace inputleap
+} // namespace skvm

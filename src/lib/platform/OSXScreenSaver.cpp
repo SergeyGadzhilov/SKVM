@@ -26,7 +26,7 @@
 #import <sys/sysctl.h>
 
 
-namespace inputleap {
+namespace skvm {
 
 // TODO: upgrade deprecated function usage in these functions.
 void getProcessSerialNumber(const char* name, ProcessSerialNumber& psn);
@@ -194,4 +194,4 @@ testProcessName(const char* name, const ProcessSerialNumber& psn)
 
 #pragma GCC diagnostic error "-Wdeprecated-declarations"
 
-} // namespace inputleap
+} // namespace skvm

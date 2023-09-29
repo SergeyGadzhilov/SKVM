@@ -25,7 +25,7 @@
 #include "base/Log.h"
 #include <vector>
 
-namespace inputleap {
+namespace skvm {
 
 class CursorMultiplexerJob : public ISocketMultiplexerJob {
 public:
@@ -334,4 +334,4 @@ SocketMultiplexer::unlockJobList()
     }
 }
 
-} // namespace inputleap
+} // namespace skvm

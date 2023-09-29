@@ -25,7 +25,7 @@
 #include <memory>
 #include <string>
 
-namespace inputleap {
+namespace skvm {
 
 //! Event queue interface
 /*!
@@ -171,4 +171,4 @@ public:
     //@}
 };
 
-} // namespace inputleap
+} // namespace skvm

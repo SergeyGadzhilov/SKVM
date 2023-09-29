@@ -34,7 +34,7 @@ static const char* s_settingsKeyNames[] = {
     nullptr
 };
 
-namespace inputleap {
+namespace skvm {
 
 ArchSystemWindows::ArchSystemWindows()
 {
@@ -65,4 +65,4 @@ ArchSystemWindows::setting(const std::string& valueName, const std::string& valu
     ArchMiscWindows::setValue(key, valueName.c_str(), valueString.c_str());
 }
 
-} // namespace inputleap
+} // namespace skvm

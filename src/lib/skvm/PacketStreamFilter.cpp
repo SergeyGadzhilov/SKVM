@@ -23,7 +23,7 @@
 #include <cstring>
 #include <memory>
 
-namespace inputleap {
+namespace skvm {
 
 PacketStreamFilter::PacketStreamFilter(IEventQueue* events, std::unique_ptr<IStream> stream) :
     StreamFilter(events, std::move(stream)),
@@ -199,4 +199,4 @@ PacketStreamFilter::filterEvent(const Event& event)
     StreamFilter::filterEvent(event);
 }
 
-} // namespace inputleap
+} // namespace skvm

@@ -22,7 +22,7 @@
 #include <gtest/gtest.h>
 #include <cstdlib>
 
-namespace inputleap {
+namespace skvm {
 
 using ::testing::_;
 
@@ -47,4 +47,4 @@ TEST(CXWindowsScreenTests, fakeMouseMove_nonPrimary_getCursorPosValuesCorrect)
     ASSERT_EQ(20, y);
 }
 
-} // namespace inputleap
+} // namespace skvm

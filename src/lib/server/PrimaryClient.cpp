@@ -22,9 +22,9 @@
 #include "skvm/Clipboard.h"
 #include "base/Log.h"
 
-namespace inputleap {
+namespace skvm {
 
-PrimaryClient::PrimaryClient(const std::string& name, inputleap::Screen* screen) :
+PrimaryClient::PrimaryClient(const std::string& name, skvm::Screen* screen) :
     BaseClientProxy(name),
     m_screen(screen),
     m_fakeInputCount(0)
@@ -262,4 +262,4 @@ PrimaryClient::setOptions(const OptionsList& options)
     m_screen->setOptions(options);
 }
 
-} // namespace inputleap
+} // namespace skvm

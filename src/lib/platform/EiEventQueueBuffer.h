@@ -30,7 +30,7 @@
 #include <memory>
 #include <mutex>
 
-namespace inputleap {
+namespace skvm {
 
 //! Event queue buffer for Ei
 class EiEventQueueBuffer : public IEventQueueBuffer {
@@ -53,6 +53,6 @@ private:
     mutable std::mutex mutex_;
 };
 
-} // namespace inputleap
+} // namespace skvm
 
 #endif // INPUTLEAP_LIB_PLATFORM_EI_EVENT_QUEUE_BUFFER_H

@@ -23,9 +23,9 @@
 #define WIN32_LEAN_AND_MEAN
 #include <Windows.h>
 
-namespace inputleap {
+namespace skvm {
 
 std::string error_code_to_string_windows(DWORD err);
 std::string error_code_to_string_winsock(int err);
 
-} // namespace inputleap
+} // namespace skvm

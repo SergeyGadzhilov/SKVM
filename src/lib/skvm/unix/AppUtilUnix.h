@@ -23,7 +23,7 @@
 
 #define ARCH_APP_UTIL AppUtilUnix
 
-namespace inputleap {
+namespace skvm {
 
 class AppUtilUnix : public AppUtil {
 public:
@@ -34,4 +34,4 @@ public:
     void startNode() override;
 };
 
-} // namespace inputleap
+} // namespace skvm

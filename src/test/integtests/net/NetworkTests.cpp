@@ -44,7 +44,7 @@
 #include <iostream>
 #include <stdio.h>
 
-namespace inputleap {
+namespace skvm {
 
 using ::testing::_;
 using ::testing::NiceMock;
@@ -521,6 +521,6 @@ void getCursorPos(std::int32_t& x, std::int32_t& y)
     y = 0;
 }
 
-} // namespace inputleap
+} // namespace skvm
 
 #endif // WINAPI_CARBON

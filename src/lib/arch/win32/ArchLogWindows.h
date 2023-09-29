@@ -25,7 +25,7 @@
 
 #define ARCH_LOG ArchLogWindows
 
-namespace inputleap {
+namespace skvm {
 
 //! Win32 implementation of IArchLog
 class ArchLogWindows : public IArchLog {
@@ -43,4 +43,4 @@ private:
     HANDLE m_eventLog;
 };
 
-} // namespace inputleap
+} // namespace skvm

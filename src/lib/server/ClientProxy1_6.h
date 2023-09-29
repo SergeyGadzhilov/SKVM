@@ -23,7 +23,7 @@
 #include "skvm/Clipboard.h"
 #include "skvm/protocol_types.h"
 
-namespace inputleap {
+namespace skvm {
 
 class Server;
 class IStream;
@@ -121,4 +121,4 @@ protected:
     Server* m_server;
 };
 
-} // namespace inputleap
+} // namespace skvm

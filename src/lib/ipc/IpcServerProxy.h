@@ -23,7 +23,7 @@
 #include "base/EventTarget.h"
 #include "base/Fwd.h"
 
-namespace inputleap {
+namespace skvm {
 
 class IStream;
 class IpcMessage;
@@ -33,7 +33,7 @@ class IpcServerProxy : public EventTarget {
     friend class IpcClient;
 
 public:
-    IpcServerProxy(inputleap::IStream& stream, IEventQueue* events);
+    IpcServerProxy(skvm::IStream& stream, IEventQueue* events);
     virtual ~IpcServerProxy();
 
 private:
@@ -44,8 +44,8 @@ private:
     void disconnect();
 
 private:
-    inputleap::IStream& m_stream;
+    skvm::IStream& m_stream;
     IEventQueue* m_events;
 };
 
-} // namespace inputleap
+} // namespace skvm

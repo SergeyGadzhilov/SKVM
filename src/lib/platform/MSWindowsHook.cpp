@@ -37,7 +37,7 @@
  //
 #define NO_GRAB_KEYBOARD 0
 
-namespace inputleap {
+namespace skvm {
 
 static const DWORD      g_threadID = GetCurrentThreadId();
 
@@ -573,7 +573,7 @@ MSWindowsHook::install()
     g_fakeServerInput = false;
 
     // setup immune keys
-    g_immuneKeysPath = (inputleap::DataDirectories::profile() / "ImmuneKeys.txt").u8string();
+    g_immuneKeysPath = (skvm::DataDirectories::profile() / "ImmuneKeys.txt").u8string();
     g_immuneKeys = immune_keys_list();
     LOG((CLOG_DEBUG "Found %u immune keys in %s", g_immuneKeys.size(), g_immuneKeysPath.c_str()));
 
@@ -639,4 +639,4 @@ MSWindowsHook::uninstallScreenSaver()
     g_hkMessage.unset();
 }
 
-} // namespace inputleap
+} // namespace skvm

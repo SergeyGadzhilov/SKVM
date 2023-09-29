@@ -21,7 +21,7 @@
 #include "Fwd.h"
 #include <cstdint>
 
-namespace inputleap {
+namespace skvm {
 
 //! Event queue buffer interface
 /*!
@@ -82,4 +82,4 @@ public:
     virtual bool isEmpty() const = 0;
 };
 
-} // namespace inputleap
+} // namespace skvm

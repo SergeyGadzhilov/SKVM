@@ -20,7 +20,7 @@
 
 #include "base/XBase.h"
 
-namespace inputleap {
+namespace skvm {
 
 //! Generic screen exception
 XBASE_SUBCLASS(XScreen, XBase);
@@ -69,4 +69,4 @@ private:
     double m_timeUntilRetry;
 };
 
-} // namespace inputleap
+} // namespace skvm

@@ -26,9 +26,9 @@
 
 #include <cstdlib>
 
-namespace inputleap {
+namespace skvm {
 
-using namespace inputleap::string;
+using namespace skvm::string;
 
 Config::Config(IEventQueue* events) :
 	m_inputFilter(events),
@@ -619,7 +619,7 @@ std::string Config::formatInterval(const Interval& x)
 	if (x.first == 0.0f && x.second == 1.0f) {
 		return "";
 	}
-    return inputleap::string::sprintf("(%d,%d)", static_cast<int>(x.first * 100.0f + 0.5f),
+    return skvm::string::sprintf("(%d,%d)", static_cast<int>(x.first * 100.0f + 0.5f),
                                         static_cast<int>(x.second * 100.0f + 0.5f));
 }
 
@@ -1408,7 +1408,7 @@ std::string Config::getOptionValue(OptionID id, OptionValue value)
 		id == kOptionScreenSwitchCornerSize ||
 		id == kOptionScreenSwitchDelay ||
 		id == kOptionScreenSwitchTwoTap) {
-		return inputleap::string::sprintf("%d", value);
+		return skvm::string::sprintf("%d", value);
 	}
 	if (id == kOptionScreenSwitchCorners) {
 		std::string result("none");
@@ -1878,7 +1878,7 @@ bool ConfigReadContext::readLine(std::string& line)
 				if (!isgraph(line[i]) && line[i] != ' ' && line[i] != '\t') {
 					throw XConfigRead(*this,
 								"invalid character %{1}",
-								inputleap::string::sprintf("%#2x", line[i]));
+								skvm::string::sprintf("%#2x", line[i]));
 				}
 			}
 
@@ -2183,12 +2183,12 @@ IPlatformScreen::KeyInfo ConfigReadContext::parseKeystroke(const std::string& ke
     std::string s = keystroke;
 
 	KeyModifierMask mask;
-	if (!inputleap::KeyMap::parseModifiers(s, mask)) {
+	if (!skvm::KeyMap::parseModifiers(s, mask)) {
 		throw XConfigRead(*this, "unable to parse key modifiers");
 	}
 
 	KeyID key;
-	if (!inputleap::KeyMap::parseKey(s, key)) {
+	if (!skvm::KeyMap::parseKey(s, key)) {
 		throw XConfigRead(*this, "unable to parse key");
 	}
 
@@ -2204,7 +2204,7 @@ IPlatformScreen::ButtonInfo ConfigReadContext::parseMouse(const std::string& mou
     std::string s = mouse;
 
 	KeyModifierMask mask;
-	if (!inputleap::KeyMap::parseModifiers(s, mask)) {
+	if (!skvm::KeyMap::parseModifiers(s, mask)) {
 		throw XConfigRead(*this, "unable to parse button modifiers");
 	}
 
@@ -2225,7 +2225,7 @@ KeyModifierMask ConfigReadContext::parseModifier(const std::string& modifiers) c
     std::string s = modifiers;
 
 	KeyModifierMask mask;
-	if (!inputleap::KeyMap::parseModifiers(s, mask)) {
+	if (!skvm::KeyMap::parseModifiers(s, mask)) {
 		throw XConfigRead(*this, "unable to parse modifiers");
 	}
 
@@ -2255,7 +2255,7 @@ std::string ConfigReadContext::concatArgs(const ArgList& args)
 //
 
 XConfigRead::XConfigRead(const ConfigReadContext& context, const std::string& error) :
-	m_error(inputleap::string::sprintf("line %d: %s",
+	m_error(skvm::string::sprintf("line %d: %s",
 							context.getLineNumber(), error.c_str()))
 {
 	// do nothing
@@ -2263,8 +2263,8 @@ XConfigRead::XConfigRead(const ConfigReadContext& context, const std::string& er
 
 XConfigRead::XConfigRead(const ConfigReadContext& context, const char* errorFmt,
                          const std::string& arg) :
-	m_error(inputleap::string::sprintf("line %d: ", context.getLineNumber()) +
-							inputleap::string::format(errorFmt, arg.c_str()))
+	m_error(skvm::string::sprintf("line %d: ", context.getLineNumber()) +
+							skvm::string::format(errorFmt, arg.c_str()))
 {
 	// do nothing
 }
@@ -2279,4 +2279,4 @@ std::string XConfigRead::getWhat() const noexcept
 	return format("XConfigRead", "read error: %{1}", m_error.c_str());
 }
 
-} // namespace inputleap
+} // namespace skvm

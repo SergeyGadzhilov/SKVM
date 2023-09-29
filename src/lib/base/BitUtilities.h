@@ -20,7 +20,7 @@
 
 #include <cstdint>
 
-namespace inputleap {
+namespace skvm {
 
 inline void store_little_endian_u8(std::uint8_t*& dst, std::uint8_t src)
 {
@@ -81,6 +81,6 @@ inline std::uint32_t load_little_endian_u32(const std::uint8_t* data)
             (static_cast<std::uint32_t>(data[3]) << 24);
 }
 
-} // namespace inputleap
+} // namespace skvm
 
 #endif // INPUTLEAP_LIB_BASE_BIT_UTILITIES_H

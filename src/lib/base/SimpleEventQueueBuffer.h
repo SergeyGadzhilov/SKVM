@@ -23,7 +23,7 @@
 #include <condition_variable>
 #include <deque>
 
-namespace inputleap {
+namespace skvm {
 
 //! In-memory event queue buffer
 /*!
@@ -50,4 +50,4 @@ private:
     EventDeque m_queue;
 };
 
-} // namespace inputleap
+} // namespace skvm

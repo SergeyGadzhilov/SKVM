@@ -32,7 +32,7 @@
 #include <queue>
 #include <set>
 
-namespace inputleap {
+namespace skvm {
 
 //! Event queue
 /*!
@@ -131,4 +131,4 @@ private:
     std::queue<Event> m_pending;
 };
 
-} // namespace inputleap
+} // namespace skvm

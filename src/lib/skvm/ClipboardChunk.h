@@ -24,7 +24,7 @@
 
 #define CLIPBOARD_CHUNK_META_SIZE 7
 
-namespace inputleap {
+namespace skvm {
 
 class IStream;
 
@@ -35,7 +35,7 @@ public:
     static ClipboardChunk data(ClipboardID id, std::uint32_t sequence, const std::string& data);
     static ClipboardChunk end(ClipboardID id, std::uint32_t sequence);
 
-    static int assemble(inputleap::IStream* stream, std::string& dataCached, ClipboardID& id,
+    static int assemble(skvm::IStream* stream, std::string& dataCached, ClipboardID& id,
                         std::uint32_t& sequence);
 
     static size_t getExpectedSize() { return s_expectedSize; }
@@ -49,4 +49,4 @@ private:
     static size_t        s_expectedSize;
 };
 
-} // namespace inputleap
+} // namespace skvm

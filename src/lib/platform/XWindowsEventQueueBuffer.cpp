@@ -26,7 +26,7 @@
 #include <unistd.h>
 #include <poll.h>
 
-namespace inputleap {
+namespace skvm {
 
 XWindowsEventQueueBuffer::XWindowsEventQueueBuffer(IXWindowsImpl* impl,
         Display* display, Window window, IEventQueue* events) :
@@ -221,4 +221,4 @@ XWindowsEventQueueBuffer::flush()
     m_postedEvents.clear();
 }
 
-} // namespace inputleap
+} // namespace skvm

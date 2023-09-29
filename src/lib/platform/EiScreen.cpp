@@ -37,7 +37,7 @@
 
 #include <libei.h>
 
-namespace inputleap {
+namespace skvm {
 
 EiScreen::EiScreen(bool is_primary, IEventQueue* events, bool use_portal) :
     is_primary_(is_primary),
@@ -678,4 +678,4 @@ IKeyState* EiScreen::getKeyState() const
     return key_state_;
 }
 
-} // namespace inputleap
+} // namespace skvm

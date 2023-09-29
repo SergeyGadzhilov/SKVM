@@ -21,7 +21,7 @@
 #include "net/TCPListenSocket.h"
 #include "ConnectionSecurityLevel.h"
 
-namespace inputleap {
+namespace skvm {
 
 class SecureListenSocket : public TCPListenSocket {
 public:
@@ -35,4 +35,4 @@ private:
     ConnectionSecurityLevel security_level_;
 };
 
-} // namespace inputleap
+} // namespace skvm

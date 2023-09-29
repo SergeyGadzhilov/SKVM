@@ -20,7 +20,7 @@
 #include "skvm/App.h"
 #include "skvm/ArgsBase.h"
 
-namespace inputleap {
+namespace skvm {
 
 PlatformScreen::PlatformScreen() :
     m_draggingStarted(false),
@@ -127,4 +127,4 @@ bool PlatformScreen::fakeMediaKey(KeyID id)
     return false;
 }
 
-} // namespace inputleap
+} // namespace skvm

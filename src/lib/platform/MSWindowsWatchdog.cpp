@@ -37,7 +37,7 @@
 #include <UserEnv.h>
 #include <Shellapi.h>
 
-namespace inputleap {
+namespace skvm {
 
 #define MAXIMUM_WAIT_TIME 3
 enum {
@@ -192,7 +192,7 @@ void MSWindowsWatchdog::main_loop()
                 // increasing backoff period, maximum of 10 seconds.
                 int timeout = (m_processFailures * 2) < 10 ? (m_processFailures * 2) : 10;
                 LOG((CLOG_INFO "backing off, wait=%ds, failures=%d", timeout, m_processFailures));
-                inputleap::this_thread_sleep(timeout);
+                skvm::this_thread_sleep(timeout);
             }
 
             if (!getCommand().empty() && ((m_processFailures != 0) || m_session.hasChanged() || m_commandChanged)) {
@@ -225,7 +225,7 @@ void MSWindowsWatchdog::main_loop()
             }
 
             // if the sas event failed, wait by sleeping.
-            inputleap::this_thread_sleep(1);
+            skvm::this_thread_sleep(1);
 
         }
         catch (std::exception& e) {
@@ -310,7 +310,7 @@ MSWindowsWatchdog::startProcess()
     }
     else {
         // wait for program to fail.
-        inputleap::this_thread_sleep(1);
+        skvm::this_thread_sleep(1);
         if (!isProcessActive()) {
             throw XMSWindowsWatchdogError("process immediately stopped");
         }
@@ -431,7 +431,7 @@ void MSWindowsWatchdog::output_loop()
         // assume the process has gone away? slow down
         // the reads until another one turns up.
         if (!success || bytesRead == 0) {
-            inputleap::this_thread_sleep(1);
+            skvm::this_thread_sleep(1);
         }
         else {
             buffer[bytesRead] = '\0';
@@ -456,7 +456,7 @@ MSWindowsWatchdog::shutdownProcess(HANDLE handle, DWORD pid, int timeout)
     m_ipcServer.send(shutdown, kIpcClientNode);
 
     // wait for process to exit gracefully.
-    double start = inputleap::current_time_seconds();
+    double start = skvm::current_time_seconds();
     while (true) {
 
         GetExitCodeProcess(handle, &exitCode);
@@ -467,7 +467,7 @@ MSWindowsWatchdog::shutdownProcess(HANDLE handle, DWORD pid, int timeout)
         }
         else {
 
-            double elapsed = (inputleap::current_time_seconds() - start);
+            double elapsed = (skvm::current_time_seconds() - start);
             if (elapsed > timeout) {
                 // if timeout reached, kill forcefully.
                 // calling TerminateProcess on InputLeap is very bad!
@@ -478,7 +478,7 @@ MSWindowsWatchdog::shutdownProcess(HANDLE handle, DWORD pid, int timeout)
                 break;
             }
 
-            inputleap::this_thread_sleep(1);
+            skvm::this_thread_sleep(1);
         }
     }
 }
@@ -537,4 +537,4 @@ MSWindowsWatchdog::shutdownExistingProcesses()
     m_processRunning = false;
 }
 
-} // namespace inputleap
+} // namespace skvm

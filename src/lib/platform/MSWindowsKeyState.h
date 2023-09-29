@@ -26,7 +26,7 @@
 
 #include <vector>
 
-namespace inputleap {
+namespace skvm {
 
 class MSWindowsDesks;
 
@@ -38,7 +38,7 @@ class MSWindowsKeyState : public KeyState {
 public:
     MSWindowsKeyState(MSWindowsDesks* desks, const void* event_target, IEventQueue* events);
     MSWindowsKeyState(MSWindowsDesks* desks, const void* event_target, IEventQueue* events,
-                      inputleap::KeyMap& keyMap);
+                      skvm::KeyMap& keyMap);
 	virtual ~MSWindowsKeyState();
 
 	//! @name manipulators
@@ -160,7 +160,7 @@ public:
 
 protected:
 	// KeyState overrides
-	virtual void		getKeyMap(inputleap::KeyMap& keyMap);
+	virtual void		getKeyMap(skvm::KeyMap& keyMap);
 	virtual void		fakeKey(const Keystroke& keystroke);
 	virtual KeyModifierMask&
 						getActiveModifiersRValue();
@@ -174,11 +174,11 @@ private:
 	bool				getGroups(GroupList&) const;
     void setWindowGroup(std::int32_t group);
 
-	KeyID				getIDForKey(inputleap::KeyMap::KeyItem& item,
+	KeyID				getIDForKey(skvm::KeyMap::KeyItem& item,
 							KeyButton button, UINT virtualKey,
 							PBYTE keyState, HKL hkl) const;
 
-	void				addKeyEntry(inputleap::KeyMap& keyMap, inputleap::KeyMap::KeyItem& item);
+	void				addKeyEntry(skvm::KeyMap& keyMap, skvm::KeyMap::KeyItem& item);
 
 	void				init();
 
@@ -231,4 +231,4 @@ private:
 	static const KeyID	s_virtualKey[];
 };
 
-} // namespace inputleap
+} // namespace skvm

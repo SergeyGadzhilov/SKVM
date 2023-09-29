@@ -22,7 +22,7 @@
 
 #include "skvm/IClipboard.h"
 
-namespace inputleap {
+namespace skvm {
 
 class MSWindowsClipboardFacade : public IMSWindowsClipboardFacade
 {
@@ -30,4 +30,4 @@ public:
     virtual void write(HANDLE win32Data, UINT win32Format);
 };
 
-} // namespace inputleap
+} // namespace skvm

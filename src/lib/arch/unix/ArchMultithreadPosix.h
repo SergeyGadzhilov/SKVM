@@ -28,7 +28,7 @@
 
 #define ARCH_MULTITHREAD ArchMultithreadPosix
 
-namespace inputleap {
+namespace skvm {
 
 //! Posix implementation of IArchMultithread
 class ArchMultithreadPosix : public IArchMultithread {
@@ -99,4 +99,4 @@ private:
     void* m_signalUserData[kNUM_SIGNALS];
 };
 
-} // namespace inputleap
+} // namespace skvm

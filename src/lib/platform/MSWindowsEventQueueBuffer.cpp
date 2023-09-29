@@ -23,7 +23,7 @@
 #include "base/IEventQueue.h"
 #include <VersionHelpers.h>
 
-namespace inputleap {
+namespace skvm {
 
 MSWindowsEventQueueBuffer::MSWindowsEventQueueBuffer(IEventQueue* events) :
     m_events(events)
@@ -130,4 +130,4 @@ MSWindowsEventQueueBuffer::isEmpty() const
     return (HIWORD(GetQueueStatus(m_os_supported_message_types)) == 0);
 }
 
-} // namespace inputleap
+} // namespace skvm

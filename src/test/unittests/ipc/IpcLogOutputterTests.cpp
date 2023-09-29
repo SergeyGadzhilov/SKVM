@@ -30,7 +30,7 @@
 // HACK: ipc logging only used on windows anyway
 #if WINAPI_MSWINDOWS
 
-namespace inputleap {
+namespace skvm {
 
 using ::testing::_;
 using ::testing::Return;
@@ -123,7 +123,7 @@ TEST(IpcLogOutputterTests, write_overBufferRateLimit_lastLineTruncated)
     // we can log after the time limit passes.
     // HACK: sleep causes the unit test to fail intermittently,
     // so lets try 100ms (there must be a better way to solve this)
-    inputleap::this_thread_sleep(2); // 2s
+    skvm::this_thread_sleep(2); // 2s
     outputter.write(kNOTE, "mock 4");
     outputter.write(kNOTE, "mock 5");
     outputter.write(kNOTE, "mock 6");
@@ -157,6 +157,6 @@ TEST(IpcLogOutputterTests, write_underBufferRateLimit_allLinesAreSent)
     outputter.sendBuffer();
 }
 
-} // namespace inputleap
+} // namespace skvm
 
 #endif // WINAPI_MSWINDOWS

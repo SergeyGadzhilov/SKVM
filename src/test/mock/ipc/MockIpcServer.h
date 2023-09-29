@@ -26,7 +26,7 @@
 #include <condition_variable>
 #include <mutex>
 
-namespace inputleap {
+namespace skvm {
 
 using ::testing::_;
 using ::testing::Invoke;
@@ -61,4 +61,4 @@ private:
     std::mutex send_mutex_;
 };
 
-} // namespace inputleap
+} // namespace skvm

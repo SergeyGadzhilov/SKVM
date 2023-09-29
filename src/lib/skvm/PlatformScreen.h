@@ -23,7 +23,7 @@
 #include "skvm/DragInformation.h"
 #include <stdexcept>
 
-namespace inputleap {
+namespace skvm {
 
 //! Base screen implementation
 /*!
@@ -90,4 +90,4 @@ protected:
     bool m_fakeDraggingStarted;
 };
 
-} // namespace inputleap
+} // namespace skvm

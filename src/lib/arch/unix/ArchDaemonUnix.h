@@ -23,7 +23,7 @@
 #undef ARCH_DAEMON
 #define ARCH_DAEMON ArchDaemonUnix
 
-namespace inputleap {
+namespace skvm {
 
 //! Unix implementation of IArchDaemon
 class ArchDaemonUnix : public ArchDaemonNone {
@@ -35,6 +35,6 @@ public:
     int daemonize(const char* name, DaemonFunc func) override;
 };
 
-} // namespace inputleap
+} // namespace skvm
 
 #define CONFIG_FILE "/etc/input-leap/input-leapd.conf"

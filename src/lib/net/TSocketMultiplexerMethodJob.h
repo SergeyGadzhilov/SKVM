@@ -22,7 +22,7 @@
 #include "arch/Arch.h"
 #include <functional>
 
-namespace inputleap {
+namespace skvm {
 
 //! Use a method as a socket multiplexer job
 /*!
@@ -67,4 +67,4 @@ private:
     bool m_writable;
 };
 
-} // namespace inputleap
+} // namespace skvm

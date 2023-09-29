@@ -20,7 +20,7 @@
 #include "arch/win32/ArchNetworkWinsock.h"
 #include "base/String.h"
 
-namespace inputleap {
+namespace skvm {
 
 std::string error_code_to_string_windows(DWORD err)
 {
@@ -35,7 +35,7 @@ std::string error_code_to_string_windows(DWORD err)
                             0,
                             nullptr) == 0) {
         cmsg = nullptr;
-        return inputleap::string::sprintf("Unknown error, code %d", err);
+        return skvm::string::sprintf("Unknown error, code %d", err);
     }
     std::string smsg(cmsg);
     LocalFree(cmsg);
@@ -110,4 +110,4 @@ std::string error_code_to_string_winsock(int err)
     return "Unknown error";
 }
 
-} // namespace inputleap
+} // namespace skvm

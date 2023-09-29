@@ -20,7 +20,7 @@
 #include "skvm/DragInformation.h"
 #include <string>
 
-namespace inputleap {
+namespace skvm {
 
 class DropHelper {
 public:
@@ -28,4 +28,4 @@ public:
                            DragFileList& fileList, std::string& data);
 };
 
-} // namespace inputleap
+} // namespace skvm

@@ -23,7 +23,7 @@
 
 #include <Carbon/Carbon.h>
 
-namespace inputleap {
+namespace skvm {
 
 //! OSX screen saver implementation
 class OSXScreenSaver : public IScreenSaver {
@@ -59,4 +59,4 @@ private:
     IEventQueue* m_events;
 };
 
-} // namespace inputleap
+} // namespace skvm

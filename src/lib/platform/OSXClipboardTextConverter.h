@@ -20,7 +20,7 @@
 
 #include "platform/OSXClipboardAnyTextConverter.h"
 
-namespace inputleap {
+namespace skvm {
 
 //! Convert to/from locale text encoding
 class OSXClipboardTextConverter : public OSXClipboardAnyTextConverter {
@@ -42,4 +42,4 @@ protected:
                                      CFStringEncoding toEncoding);
 };
 
-} // namespace inputleap
+} // namespace skvm

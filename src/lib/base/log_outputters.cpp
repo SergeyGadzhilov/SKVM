@@ -23,7 +23,7 @@
 #include <fstream>
 #include <iostream>
 
-namespace inputleap {
+namespace skvm {
 
 enum EFileLogOutputter {
     kFileSizeLimit = 1024 // kb
@@ -262,7 +262,7 @@ FileLogOutputter::write(ELevel level, const char *message)
     bool moveFile = false;
 
     std::ofstream m_handle;
-    inputleap::open_utf8_path(m_handle, m_fileName, std::fstream::app);
+    skvm::open_utf8_path(m_handle, m_fileName, std::fstream::app);
     if (m_handle.is_open() && m_handle.fail() != true) {
         m_handle << message << std::endl;
 
@@ -275,7 +275,7 @@ FileLogOutputter::write(ELevel level, const char *message)
     m_handle.close();
 
     if (moveFile) {
-        std::string oldLogFilename = inputleap::string::sprintf("%s.1", m_fileName.c_str());
+        std::string oldLogFilename = skvm::string::sprintf("%s.1", m_fileName.c_str());
         remove(oldLogFilename.c_str());
         rename(m_fileName.c_str(), oldLogFilename.c_str());
     }
@@ -340,4 +340,4 @@ MesssageBoxLogOutputter::write(ELevel level, const char* msg)
     return true;
 }
 
-} // namespace inputleap
+} // namespace skvm

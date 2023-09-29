@@ -21,7 +21,7 @@
 #include "base/EventTypes.h"
 #include "arch/IArchNetwork.h"
 
-namespace inputleap {
+namespace skvm {
 
 //! Network address type
 /*!
@@ -123,4 +123,4 @@ private:
     int m_port;
 };
 
-} // namespace inputleap
+} // namespace skvm

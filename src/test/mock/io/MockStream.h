@@ -22,7 +22,7 @@
 
 #include <gmock/gmock.h>
 
-class MockStream : public inputleap::IStream
+class MockStream : public skvm::IStream
 {
 public:
     MockStream() { }

@@ -56,7 +56,7 @@
 
 #include <mutex>
 
-namespace inputleap {
+namespace skvm {
 
 /*!
 \def ARCH
@@ -109,4 +109,4 @@ private:
     static Arch*        s_instance;
 };
 
-} // namespace inputleap
+} // namespace skvm

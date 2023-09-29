@@ -68,7 +68,7 @@
 #include <fstream>
 #include <sstream>
 
-namespace inputleap {
+namespace skvm {
 
 ServerApp::ServerApp(IEventQueue* events, CreateTaskBarReceiverFunc createTaskBarReceiver) :
     App(events, createTaskBarReceiver, new ServerArgs()),
@@ -113,14 +113,14 @@ void
 ServerApp::help()
 {
     // refer to custom profile directory even if not saved yet
-    inputleap::fs::path profile_path = argsBase().m_profileDirectory;
+    skvm::fs::path profile_path = argsBase().m_profileDirectory;
     if (profile_path.empty()) {
-        profile_path = inputleap::DataDirectories::profile();
+        profile_path = skvm::DataDirectories::profile();
     }
 
-    auto usr_config_path = (profile_path / inputleap::fs::u8path(USR_CONFIG_NAME)).u8string();
-    auto sys_config_path = (inputleap::DataDirectories::systemconfig() /
-                            inputleap::fs::u8path(SYS_CONFIG_NAME)).u8string();
+    auto usr_config_path = (profile_path / skvm::fs::u8path(USR_CONFIG_NAME)).u8string();
+    auto sys_config_path = (skvm::DataDirectories::systemconfig() /
+                            skvm::fs::u8path(SYS_CONFIG_NAME)).u8string();
 
     std::ostringstream buffer;
     buffer << "Start the InputLeap server component. The server shares the keyboard &\n"
@@ -205,10 +205,10 @@ ServerApp::loadConfig()
 
     // load the default configuration if no explicit file given
     else {
-        auto path = inputleap::DataDirectories::profile();
+        auto path = skvm::DataDirectories::profile();
         if (!path.empty()) {
             // complete path
-            path /= inputleap::fs::u8path(USR_CONFIG_NAME);
+            path /= skvm::fs::u8path(USR_CONFIG_NAME);
 
             // now try loading the user's configuration
             if (loadConfig(path.u8string())) {
@@ -218,9 +218,9 @@ ServerApp::loadConfig()
         }
         if (!loaded) {
             // try the system-wide config file
-            path = inputleap::DataDirectories::systemconfig();
+            path = skvm::DataDirectories::systemconfig();
             if (!path.empty()) {
-                path /= inputleap::fs::u8path(SYS_CONFIG_NAME);
+                path /= skvm::fs::u8path(SYS_CONFIG_NAME);
                 if (loadConfig(path.u8string())) {
                     loaded            = true;
                     args().m_configFile = path.u8string();
@@ -586,7 +586,7 @@ std::unique_ptr<Screen> ServerApp::create_screen()
     return std::make_unique<Screen>(std::move(plat_screen), m_events);
 }
 
-PrimaryClient* ServerApp::openPrimaryClient(const std::string& name, inputleap::Screen* screen)
+PrimaryClient* ServerApp::openPrimaryClient(const std::string& name, skvm::Screen* screen)
 {
     LOG((CLOG_DEBUG1 "creating primary screen"));
     return new PrimaryClient(name, screen);
@@ -890,4 +890,4 @@ std::unique_ptr<IPlatformScreen> ServerApp::create_platform_screen()
     throw std::runtime_error("Failed to create screen, this shouldn't happen");
 }
 
-} // namespace inputleap
+} // namespace skvm

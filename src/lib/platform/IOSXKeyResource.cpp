@@ -19,7 +19,7 @@
 
 #include <Carbon/Carbon.h>
 
-namespace inputleap {
+namespace skvm {
 
 KeyID IOSXKeyResource::getKeyID(std::uint8_t c)
 {
@@ -189,4 +189,4 @@ IOSXKeyResource::unicharToKeyID(UniChar c)
     }
 }
 
-} // namespace inputleap
+} // namespace skvm

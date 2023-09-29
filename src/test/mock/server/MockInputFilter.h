@@ -23,7 +23,7 @@
 
 #include <gmock/gmock.h>
 
-namespace inputleap {
+namespace skvm {
 
 class MockInputFilter : public InputFilter
 {
@@ -31,4 +31,4 @@ public:
      MOCK_METHOD1(setPrimaryClient, void(PrimaryClient*));
 };
 
-} // namespace inputleap
+} // namespace skvm

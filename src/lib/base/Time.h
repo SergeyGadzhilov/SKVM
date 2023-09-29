@@ -18,7 +18,7 @@
 #ifndef INPUTLEAP_LIB_BASE_TIME_H
 #define INPUTLEAP_LIB_BASE_TIME_H
 
-namespace inputleap {
+namespace skvm {
 
 /*!
 Blocks the calling thread for \c timeout seconds.  If
@@ -37,6 +37,6 @@ This should return as high a precision as reasonable.
 */
 double current_time_seconds();
 
-} // namespace inputleap
+} // namespace skvm
 
 #endif // INPUTLEAP_LIB_NET_SECUREUTILS_H

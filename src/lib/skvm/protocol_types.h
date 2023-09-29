@@ -22,7 +22,7 @@
 
 #include <cstdint>
 
-namespace inputleap {
+namespace skvm {
 
 // protocol version number
 // 1.0:  initial protocol
@@ -346,4 +346,4 @@ public:
     std::int32_t m_mx, m_my;
 };
 
-} // namespace inputleap
+} // namespace skvm

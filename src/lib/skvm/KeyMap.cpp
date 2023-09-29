@@ -24,7 +24,7 @@
 #include <cctype>
 #include <cstdlib>
 
-namespace inputleap {
+namespace skvm {
 
 KeyMap::NameToKeyMap* KeyMap::s_nameToKeyMap = nullptr;
 KeyMap::NameToModifierMap* KeyMap::s_nameToModifierMap = nullptr;
@@ -1147,7 +1147,7 @@ std::string KeyMap::formatKey(KeyID key, KeyModifierMask mask)
             x += static_cast<char>(key);
         }
         else {
-            x += inputleap::string::sprintf("\\u%04x", key);
+            x += skvm::string::sprintf("\\u%04x", key);
         }
     }
     else if (!x.empty()) {

@@ -22,7 +22,7 @@
 #include "arch/Arch.h"
 #include "common/Version.h"
 
-namespace inputleap {
+namespace skvm {
 
 PortableTaskBarReceiver::PortableTaskBarReceiver(IEventQueue* events) :
     m_state(kNotRunning),
@@ -101,18 +101,18 @@ PortableTaskBarReceiver::getToolTip() const
 {
     switch (m_state) {
     case kNotRunning:
-        return inputleap::string::sprintf("%s:  Not running", kAppVersion);
+        return skvm::string::sprintf("%s:  Not running", kAppVersion);
 
     case kNotWorking:
-        return inputleap::string::sprintf("%s:  %s",
+        return skvm::string::sprintf("%s:  %s",
                                 kAppVersion, m_errorMessage.c_str());
 
     case kNotConnected:
-        return inputleap::string::sprintf("%s:  Unknown", kAppVersion);
+        return skvm::string::sprintf("%s:  Unknown", kAppVersion);
 
     default:
         return "";
     }
 }
 
-} // namespace inputleap
+} // namespace skvm

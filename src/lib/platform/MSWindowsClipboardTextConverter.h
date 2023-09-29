@@ -20,7 +20,7 @@
 
 #include "platform/MSWindowsClipboardAnyTextConverter.h"
 
-namespace inputleap {
+namespace skvm {
 
 //! Convert to/from locale text encoding
 class MSWindowsClipboardTextConverter :
@@ -38,4 +38,4 @@ protected:
     virtual std::string doToIClipboard(const std::string&) const;
 };
 
-} // namespace inputleap
+} // namespace skvm

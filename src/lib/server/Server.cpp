@@ -51,12 +51,12 @@
 #include <ctime>
 #include <stdexcept>
 
-namespace inputleap {
+namespace skvm {
 
 Server::Server(
 		Config& config,
 		PrimaryClient* primaryClient,
-		inputleap::Screen* screen,
+		skvm::Screen* screen,
 		IEventQueue* events,
 		ServerArgs const& args) :
 	m_mock(false),
@@ -2009,7 +2009,7 @@ void Server::write_to_drop_dir_thread()
 	LOG((CLOG_DEBUG "starting write to drop dir thread"));
 
 	while (m_screen->isFakeDraggingStarted()) {
-		inputleap::this_thread_sleep(.1f);
+		skvm::this_thread_sleep(.1f);
 	}
 
 	DropHelper::writeToDir(m_screen->getDropTarget(), m_fakeDragFileList,
@@ -2257,4 +2257,4 @@ void Server::dragInfoReceived(std::uint32_t fileNum, std::string content)
 	m_screen->startDraggingFiles(m_fakeDragFileList);
 }
 
-} // namespace inputleap
+} // namespace skvm

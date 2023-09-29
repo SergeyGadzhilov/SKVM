@@ -28,7 +28,7 @@
 #include <string>
 #include <list>
 
-namespace inputleap {
+namespace skvm {
 
 class Thread;
 class IpcLogOutputter;
@@ -93,4 +93,4 @@ public:
     virtual std::string getWhat() const noexcept { return what(); }
 };
 
-} // namespace inputleap
+} // namespace skvm

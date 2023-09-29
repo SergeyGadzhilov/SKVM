@@ -26,7 +26,7 @@
 #include <memory>
 #include <mutex>
 
-namespace inputleap {
+namespace skvm {
 
 class Thread;
 
@@ -115,4 +115,4 @@ private:
     SocketJobMap m_socketJobMap;
 };
 
-} // namespace inputleap
+} // namespace skvm

@@ -25,7 +25,7 @@
 #include "skvm/option_types.h"
 #include <string>
 
-namespace inputleap {
+namespace skvm {
 
 class IStream;
 
@@ -67,6 +67,6 @@ public:
     virtual void close() = 0;
 };
 
-} // namespace inputleap
+} // namespace skvm
 
 #endif // INPUTLEAP_LIB_SERVER_ICLIENT_CONNECTION_H

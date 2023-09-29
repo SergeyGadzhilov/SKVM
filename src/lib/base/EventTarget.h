@@ -21,7 +21,7 @@
 #include "EventTypes.h"
 #include <vector>
 
-namespace inputleap {
+namespace skvm {
 
 /** EventTarget represents an object to which events are being sent. Event targets can be
     registered to IEventQueue. On destruction of an EventTarget, all such registrations are
@@ -41,6 +41,6 @@ private:
     mutable IEventQueue* event_queue_ = nullptr;
 };
 
-} // namespace inputleap
+} // namespace skvm
 
 #endif // INPUTLEAP_LIB_BASE_EVENT_TARGET_H

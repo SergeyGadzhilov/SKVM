@@ -20,7 +20,7 @@
 
 #include "common/common.h"
 
-namespace inputleap {
+namespace skvm {
 
 //! A timer class
 /*!
@@ -110,4 +110,4 @@ private:
     bool m_stopped;
 };
 
-} // namespace inputleap
+} // namespace skvm

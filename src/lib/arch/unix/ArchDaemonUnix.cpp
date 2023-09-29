@@ -33,7 +33,7 @@
 extern char** NXArgv;
 #endif
 
-namespace inputleap {
+namespace skvm {
 
 ArchDaemonUnix::ArchDaemonUnix()
 {
@@ -133,4 +133,4 @@ ArchDaemonUnix::daemonize(const char* name, DaemonFunc func)
     return func(1, &name);
 }
 
-} // namespace inputleap
+} // namespace skvm

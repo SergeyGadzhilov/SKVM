@@ -28,7 +28,7 @@
 #include <map>
 #include <set>
 
-namespace inputleap {
+namespace skvm {
 
 class PrimaryClient;
 
@@ -370,4 +370,4 @@ private:
     IEventQueue* m_events;
 };
 
-} // namespace inputleap
+} // namespace skvm

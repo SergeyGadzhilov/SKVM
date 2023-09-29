@@ -18,7 +18,7 @@
 
 #pragma once
 
-namespace inputleap {
+namespace skvm {
 
 class IArchTaskBarReceiver;
 
@@ -61,4 +61,4 @@ public:
     virtual void init() = 0;
 };
 
-} // namespace inputleap
+} // namespace skvm

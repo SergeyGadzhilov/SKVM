@@ -19,7 +19,7 @@
 
 #include <cstdint>
 
-namespace inputleap {
+namespace skvm {
 
 enum class EventType : std::uint32_t {
     /** An unknown event type. This type is used as a placeholder for unknown events when
@@ -282,4 +282,4 @@ enum class EventType : std::uint32_t {
     EVENT_COUNT,
 };
 
-} // namespace inputleap
+} // namespace skvm

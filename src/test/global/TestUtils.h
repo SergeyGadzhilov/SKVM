@@ -21,10 +21,10 @@
 #include <cstdint>
 #include <vector>
 
-namespace inputleap {
+namespace skvm {
 
 std::vector<std::uint8_t> generate_pseudo_random_bytes(std::size_t seed, std::size_t size);
 
-} // namespace inputleap
+} // namespace skvm
 
 #endif // INPUTLEAP_TEST_GLOBAL_TEST_UTILS_H

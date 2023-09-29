@@ -22,7 +22,7 @@
 
 #include <Carbon/Carbon.h>
 
-namespace inputleap {
+namespace skvm {
 
 typedef TISInputSourceRef KeyLayout;
 
@@ -55,4 +55,4 @@ private:
     std::uint16_t m_spaceOutput;
 };
 
-} // namespace inputleap
+} // namespace skvm

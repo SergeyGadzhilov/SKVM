@@ -23,11 +23,11 @@
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
 
-namespace inputleap {
+namespace skvm {
 
 TEST(OSXKeyStateTests, mapModifiersFromOSX_OSXMask)
 {
-    inputleap::KeyMap keyMap;
+    skvm::KeyMap keyMap;
     MockEventQueue eventQueue;
     OSXKeyState keyState(&eventQueue, keyMap);
 
@@ -58,4 +58,4 @@ TEST(OSXKeyStateTests, mapModifiersFromOSX_OSXMask)
     EXPECT_EQ(KeyModifierNumLock, outMask);
 }
 
-} // namespace inputleap
+} // namespace skvm

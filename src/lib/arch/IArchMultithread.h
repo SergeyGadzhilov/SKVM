@@ -22,7 +22,7 @@
 #include <mutex>
 #include <condition_variable>
 
-namespace inputleap {
+namespace skvm {
 
 /*!
 \class ArchThreadImpl
@@ -202,4 +202,4 @@ public:
     //@}
 };
 
-} // namespace inputleap
+} // namespace skvm

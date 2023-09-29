@@ -18,11 +18,11 @@
 
 #pragma once
 
-namespace inputleap {
+namespace skvm {
 
 class INode {
 public:
     virtual ~INode() { }
 };
 
-} // namespace inputleap
+} // namespace skvm

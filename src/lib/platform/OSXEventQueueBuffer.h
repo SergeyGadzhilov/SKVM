@@ -23,7 +23,7 @@
 
 #include <Carbon/Carbon.h>
 
-namespace inputleap {
+namespace skvm {
 
 //! Event queue buffer for OS X
 class OSXEventQueueBuffer : public IEventQueueBuffer {
@@ -44,4 +44,4 @@ private:
     EventQueueRef m_carbonEventQueue;
 };
 
-} // namespace inputleap
+} // namespace skvm

@@ -21,7 +21,7 @@
 
 #include <string.h>
 
-namespace inputleap {
+namespace skvm {
 
 ArchLogWindows::ArchLogWindows() : m_eventLog(nullptr)
 {
@@ -92,4 +92,4 @@ ArchLogWindows::writeLog(ELevel level, const char* msg)
     }
 }
 
-} // namespace inputleap
+} // namespace skvm

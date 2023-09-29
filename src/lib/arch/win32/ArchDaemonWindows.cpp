@@ -25,7 +25,7 @@
 #include <sstream>
 #include <vector>
 
-namespace inputleap {
+namespace skvm {
 
 ArchDaemonWindows*        ArchDaemonWindows::s_daemon = nullptr;
 
@@ -199,7 +199,7 @@ ArchDaemonWindows::uninstallDaemon(const char* name)
 
     // give windows a chance to remove the service before
     // we check if it still exists.
-    inputleap::this_thread_sleep(1);
+    skvm::this_thread_sleep(1);
 
     // handle failure.  ignore error if service isn't installed anymore.
     if (!okay && isDaemonInstalled(name)) {
@@ -681,4 +681,4 @@ ArchDaemonWindows::uninstallDaemon()
     }
 }
 
-} // namespace inputleap
+} // namespace skvm

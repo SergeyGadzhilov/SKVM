@@ -29,7 +29,7 @@
 #include "base/log_outputters.h"
 #include "base/EventTypes.h"
 
-namespace inputleap {
+namespace skvm {
 
 const UINT MSWindowsClientTaskBarReceiver::s_stateToIconID[kMaxState] =
 {
@@ -371,4 +371,4 @@ createTaskBarReceiver(const BufferedLogOutputter* logBuffer, IEventQueue* events
         MSWindowsScreen::getWindowInstance(), logBuffer, events);
 }
 
-} // namespace inputleap
+} // namespace skvm

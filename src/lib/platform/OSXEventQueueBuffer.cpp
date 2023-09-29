@@ -21,7 +21,7 @@
 #include "base/Event.h"
 #include "base/IEventQueue.h"
 
-namespace inputleap {
+namespace skvm {
 
 OSXEventQueueBuffer::OSXEventQueueBuffer(IEventQueue* events) :
     m_event(nullptr),
@@ -120,4 +120,4 @@ OSXEventQueueBuffer::isEmpty() const
     return (status == eventLoopTimedOutErr);
 }
 
-} // namespace inputleap
+} // namespace skvm

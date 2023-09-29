@@ -27,7 +27,7 @@
 #include <utility>
 #include <stdexcept>
 
-namespace inputleap {
+namespace skvm {
 
 class EventDataBase {
 public:
@@ -149,4 +149,4 @@ private:
     Flags flags_ = 0;
 };
 
-} // namespace inputleap
+} // namespace skvm

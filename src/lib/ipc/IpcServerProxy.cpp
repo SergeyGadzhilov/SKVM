@@ -24,9 +24,9 @@
 #include "io/IStream.h"
 #include "base/Log.h"
 
-namespace inputleap {
+namespace skvm {
 
-IpcServerProxy::IpcServerProxy(inputleap::IStream& stream, IEventQueue* events) :
+IpcServerProxy::IpcServerProxy(skvm::IStream& stream, IEventQueue* events) :
     m_stream(stream),
     m_events(events)
 {
@@ -111,4 +111,4 @@ IpcServerProxy::disconnect()
     m_stream.close();
 }
 
-} // namespace inputleap
+} // namespace skvm

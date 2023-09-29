@@ -23,7 +23,7 @@
 #include "base/IEventQueue.h"
 #include "server/ClientProxy.h"
 
-namespace inputleap {
+namespace skvm {
 
 Screen::Screen(std::unique_ptr<IPlatformScreen> platform_screen, IEventQueue* events) :
     m_screen(std::move(platform_screen)),

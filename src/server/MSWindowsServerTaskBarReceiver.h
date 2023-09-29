@@ -22,7 +22,7 @@
 #include "skvm/ServerTaskBarReceiver.h"
 #include "common/win32/winapi.h"
 
-namespace inputleap {
+namespace skvm {
 
 //! Implementation of ServerTaskBarReceiver for Microsoft Windows
 class MSWindowsServerTaskBarReceiver : public ServerTaskBarReceiver {
@@ -66,4 +66,4 @@ private:
     static const UINT    s_stateToIconID[];
 };
 
-} // namespace inputleap
+} // namespace skvm

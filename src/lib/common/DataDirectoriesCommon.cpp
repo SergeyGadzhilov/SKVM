@@ -16,7 +16,7 @@
 
 #include "DataDirectories.h"
 
-namespace inputleap {
+namespace skvm {
 
 void DataDirectories::maybe_copy_old_profile(const fs::path& old_profile_path,
                                              const fs::path& curr_profile_path)
@@ -35,4 +35,4 @@ void DataDirectories::maybe_copy_old_profile(const fs::path& old_profile_path,
     }
 }
 
-} // namespace inputleap
+} // namespace skvm

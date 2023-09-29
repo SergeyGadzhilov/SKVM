@@ -49,7 +49,7 @@
 #include <iostream>
 #include <sstream>
 
-namespace inputleap {
+namespace skvm {
 
 DaemonApp* DaemonApp::s_instance = nullptr;
 
@@ -240,7 +240,7 @@ DaemonApp::logFilename()
 {
     std::string logFilename = ARCH->setting("LogFilename");
     if (logFilename.empty())
-        logFilename = (inputleap::DataDirectories::global() / LOG_FILENAME).u8string();
+        logFilename = (skvm::DataDirectories::global() / LOG_FILENAME).u8string();
     MSWindowsUtil::createDirectory(logFilename, true);
     return logFilename;
 }
@@ -357,4 +357,4 @@ void DaemonApp::handle_ipc_message(const Event& e)
     }
 }
 
-} // namespace inputleap
+} // namespace skvm

@@ -23,7 +23,7 @@
 
 #include <Wtsapi32.h>
 
-namespace inputleap {
+namespace skvm {
 
 MSWindowsSession::MSWindowsSession() :
     m_activeSessionId(-1)
@@ -195,4 +195,4 @@ std::string MSWindowsSession::getActiveDesktopName()
     return result;
 }
 
-} // namespace inputleap
+} // namespace skvm

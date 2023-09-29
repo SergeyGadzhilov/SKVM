@@ -20,7 +20,7 @@
 
 #include "platform/XWindowsClipboard.h"
 
-namespace inputleap {
+namespace skvm {
 
 //! Convert to/from some text encoding
 class XWindowsClipboardAnyBitmapConverter :
@@ -59,4 +59,4 @@ protected:
                                        std::uint32_t& depth) const = 0;
 };
 
-} // namespace inputleap
+} // namespace skvm

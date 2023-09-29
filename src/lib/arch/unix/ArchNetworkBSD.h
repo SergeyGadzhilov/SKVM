@@ -36,7 +36,7 @@ typedef char optval_t;
 #define ARCH_NETWORK ArchNetworkBSD
 #define TYPED_ADDR(type_, addr_) (reinterpret_cast<type_*>(&addr_->m_addr))
 
-namespace inputleap {
+namespace skvm {
 
 class ArchSocketImpl {
 public:
@@ -102,4 +102,4 @@ private:
     std::mutex mutex_;
 };
 
-} // namespace inputleap
+} // namespace skvm

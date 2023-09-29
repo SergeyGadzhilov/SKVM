@@ -23,7 +23,7 @@
 #include "arch/Arch.h"
 #include "base/Log.h"
 
-namespace inputleap {
+namespace skvm {
 
 Thread::Thread(const std::function<void()>& fun)
 {
@@ -156,4 +156,4 @@ void Thread::threadFunc(const std::function<void()>& func)
     }
 }
 
-} // namespace inputleap
+} // namespace skvm

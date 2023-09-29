@@ -18,7 +18,7 @@
 
 #include "skvm/protocol_types.h"
 
-namespace inputleap {
+namespace skvm {
 
 const char*                kMsgHello            = "Barrier%2i%2i";
 const char*                kMsgHelloBack        = "Barrier%2i%2i%s";
@@ -54,4 +54,4 @@ const char*                kMsgEBusy             = "EBSY";
 const char*                kMsgEUnknown        = "EUNK";
 const char*                kMsgEBad            = "EBAD";
 
-} // namespace inputleap
+} // namespace skvm

@@ -23,7 +23,7 @@
 #include "base/Event.h"
 #include <string>
 
-namespace inputleap {
+namespace skvm {
 
 class IpcMessage {
 public:
@@ -86,4 +86,4 @@ private:
     bool m_elevate;
 };
 
-} // namespace inputleap
+} // namespace skvm

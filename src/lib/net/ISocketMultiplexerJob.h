@@ -21,7 +21,7 @@
 #include "arch/IArchNetwork.h"
 #include <memory>
 
-namespace inputleap {
+namespace skvm {
 
 class ISocketMultiplexerJob;
 
@@ -91,4 +91,4 @@ public:
     //@}
 };
 
-} // namespace inputleap
+} // namespace skvm

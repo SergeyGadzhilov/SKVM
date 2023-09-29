@@ -37,7 +37,7 @@
 #include <mutex>
 #include <vector>
 
-namespace inputleap {
+namespace skvm {
 
 extern "C" {
     typedef int CGSConnectionID;
@@ -349,4 +349,4 @@ private:
     class OSXScreenImpl* m_impl;
 };
 
-} // namespace inputleap
+} // namespace skvm

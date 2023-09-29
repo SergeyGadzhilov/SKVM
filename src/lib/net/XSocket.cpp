@@ -64,7 +64,7 @@ std::string XSocketAddress::getWhat() const noexcept
     };
     return format(s_errorID[m_error], s_errorMsg[m_error],
                                 m_hostname.c_str(),
-                                inputleap::string::sprintf("%d", m_port).c_str());
+                                skvm::string::sprintf("%d", m_port).c_str());
 }
 
 

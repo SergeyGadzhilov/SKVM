@@ -20,7 +20,7 @@
 #include "platform/OSXClipboardBMPConverter.h"
 #include "base/Log.h"
 
-namespace inputleap {
+namespace skvm {
 
 // BMP file header structure
 struct CBMPHeader {
@@ -95,4 +95,4 @@ std::string OSXClipboardBMPConverter::toIClipboard(const std::string& bmp) const
     }
 }
 
-} // namespace inputleap
+} // namespace skvm

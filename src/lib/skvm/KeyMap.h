@@ -29,7 +29,7 @@
 #include <set>
 #include <vector>
 
-namespace inputleap {
+namespace skvm {
 
 //! Key map
 /*!
@@ -464,9 +464,9 @@ private:
 
     // Key maps for parsing/formatting
     typedef std::map<std::string, KeyID,
-                            inputleap::string::CaselessCmp> NameToKeyMap;
+                            skvm::string::CaselessCmp> NameToKeyMap;
     typedef std::map<std::string, KeyModifierMask,
-                            inputleap::string::CaselessCmp> NameToModifierMap;
+                            skvm::string::CaselessCmp> NameToModifierMap;
     typedef std::map<KeyID, std::string> KeyToNameMap;
     typedef std::map<KeyModifierMask, std::string> ModifierToNameMap;
 

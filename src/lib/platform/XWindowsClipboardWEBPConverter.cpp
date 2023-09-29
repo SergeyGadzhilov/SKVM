@@ -19,7 +19,7 @@
 
 #include "platform/XWindowsClipboardWEBPConverter.h"
 
-namespace inputleap {
+namespace skvm {
 
 //
 // XWindowsClipboardWEBPConverter
@@ -77,4 +77,4 @@ std::string XWindowsClipboardWEBPConverter::toIClipboard(const std::string& webp
     return {};
 }
 
-} // namespace inputleap
+} // namespace skvm

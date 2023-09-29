@@ -30,7 +30,7 @@
 #define CLOG (Log::getInstance())
 #define BYE "\nTry `%s --help' for more information."
 
-namespace inputleap {
+namespace skvm {
 
 class Thread;
 
@@ -212,4 +212,4 @@ otherwise it expands to a call that doesn't.
 #define CLOG_DEBUG4        CLOG_TRACE "%z\071" // char is '9'
 #define CLOG_DEBUG5        CLOG_TRACE "%z\072" // char is ':'
 
-} // namespace inputleap
+} // namespace skvm

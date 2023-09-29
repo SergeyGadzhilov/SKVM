@@ -20,7 +20,7 @@
 
 #include "skvm/IClipboard.h"
 
-namespace inputleap {
+namespace skvm {
 
 //! Memory buffer clipboard
 /*!
@@ -72,4 +72,4 @@ private:
     std::string m_data[kNumFormats];
 };
 
-} // namespace inputleap
+} // namespace skvm

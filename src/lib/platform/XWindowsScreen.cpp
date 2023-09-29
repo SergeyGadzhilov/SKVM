@@ -39,7 +39,7 @@
 
 #define SCROLL_LOCK_EXCLUDE_MASK 0xDFFF
 // To ignore scroll lock state for hotkeys, as it is used for alternate keyboard layout indication
-namespace inputleap {
+namespace skvm {
 
 static int xi_opcode;
 
@@ -696,11 +696,11 @@ std::uint32_t XWindowsScreen::registerHotKey(KeyID key, KeyModifierMask mask)
 
 		m_oldHotKeyIDs.push_back(id);
 		m_hotKeys.erase(id);
-		LOG((CLOG_WARN "failed to register hotkey %s (id=%04x mask=%04x)", inputleap::KeyMap::formatKey(key, mask).c_str(), key, mask));
+		LOG((CLOG_WARN "failed to register hotkey %s (id=%04x mask=%04x)", skvm::KeyMap::formatKey(key, mask).c_str(), key, mask));
 		return 0;
 	}
 
-	LOG((CLOG_DEBUG "registered hotkey %s (id=%04x mask=%04x) as id=%d", inputleap::KeyMap::formatKey(key, mask).c_str(), key, mask, id));
+	LOG((CLOG_DEBUG "registered hotkey %s (id=%04x mask=%04x) as id=%d", skvm::KeyMap::formatKey(key, mask).c_str(), key, mask, id));
 	return id;
 }
 
@@ -1946,7 +1946,7 @@ XWindowsScreen::grabMouseAndKeyboard()
 			assert(result != GrabNotViewable);
 			if (result != GrabSuccess) {
 				LOG((CLOG_DEBUG2 "waiting to grab keyboard"));
-                inputleap::this_thread_sleep(0.05);
+                skvm::this_thread_sleep(0.05);
 				if (timer.getTime() >= s_timeout) {
 					LOG((CLOG_DEBUG2 "grab keyboard timed out"));
 					return false;
@@ -1964,7 +1964,7 @@ XWindowsScreen::grabMouseAndKeyboard()
 			// back off to avoid grab deadlock
             m_impl->XUngrabKeyboard(m_display, CurrentTime);
 			LOG((CLOG_DEBUG2 "ungrabbed keyboard, waiting to grab pointer"));
-            inputleap::this_thread_sleep(0.05);
+            skvm::this_thread_sleep(0.05);
 			if (timer.getTime() >= s_timeout) {
 				LOG((CLOG_DEBUG2 "grab pointer timed out"));
 				return false;
@@ -2041,4 +2041,4 @@ XWindowsScreen::selectXIRawMotion()
 	free(mask.mask);
 }
 
-} // namespace inputleap
+} // namespace skvm

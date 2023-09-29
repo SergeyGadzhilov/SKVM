@@ -20,7 +20,7 @@
 
 #include <utility>
 
-namespace inputleap {
+namespace skvm {
 
 // this implements a common pattern of executing an action at the end of function
 
@@ -56,6 +56,6 @@ inline final_action<Callable> finally(Callable&& callable) noexcept
     return final_action<Callable>(std::forward<Callable>(callable));
 }
 
-} // namespace inputleap
+} // namespace skvm
 
 #endif // INPUTLEAP_LIB_BASE_FINALLY_H

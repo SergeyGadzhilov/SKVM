@@ -22,7 +22,7 @@
 #include "base/Fwd.h"
 #include <memory>
 
-namespace inputleap {
+namespace skvm {
 
 typedef int (*StartupFunc)(int, char**);
 
@@ -47,4 +47,4 @@ public:
     virtual IEventQueue* getEvents() const = 0;
 };
 
-} // namespace inputleap
+} // namespace skvm

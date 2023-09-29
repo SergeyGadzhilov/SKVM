@@ -27,7 +27,7 @@
 #include <list>
 #include <mutex>
 
-namespace inputleap {
+namespace skvm {
 
 class IpcClientProxy;
 class IpcMessage;
@@ -90,4 +90,4 @@ public:
 #endif
 };
 
-} // namespace inputleap
+} // namespace skvm

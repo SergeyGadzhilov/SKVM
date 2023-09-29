@@ -25,7 +25,7 @@
 #include "MSWindowsClientTaskBarReceiver.h"
 #endif
 
-namespace inputleap {
+namespace skvm {
 
 #if WINAPI_XWINDOWS || WINAPI_LIBEI || WINAPI_CARBON
 CreateTaskBarReceiverFunc createTaskBarReceiver = nullptr;
@@ -55,9 +55,9 @@ int client_main(int argc, char** argv)
     return result;
 }
 
-} // namespace inputleap
+} // namespace skvm
 
 int main(int argc, char** argv)
 {
-    return inputleap::client_main(argc, argv);
+    return skvm::client_main(argc, argv);
 }

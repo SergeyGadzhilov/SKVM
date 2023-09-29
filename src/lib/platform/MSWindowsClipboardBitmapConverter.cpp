@@ -20,7 +20,7 @@
 
 #include "base/Log.h"
 
-namespace inputleap {
+namespace skvm {
 
 MSWindowsClipboardBitmapConverter::MSWindowsClipboardBitmapConverter()
 {
@@ -147,4 +147,4 @@ std::string MSWindowsClipboardBitmapConverter::toIClipboard(HANDLE data) const
     return image;
 }
 
-} // namespace inputleap
+} // namespace skvm

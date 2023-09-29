@@ -18,7 +18,7 @@
 
 #include "platform/XWindowsClipboardUTF8Converter.h"
 
-namespace inputleap {
+namespace skvm {
 
 XWindowsClipboardUTF8Converter::XWindowsClipboardUTF8Converter(
                 Display* display, const char* name) :
@@ -64,4 +64,4 @@ std::string XWindowsClipboardUTF8Converter::toIClipboard(const std::string& data
     return data;
 }
 
-} // namespace inputleap
+} // namespace skvm

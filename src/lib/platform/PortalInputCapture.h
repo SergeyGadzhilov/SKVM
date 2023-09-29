@@ -28,7 +28,7 @@
 #include <libportal/portal.h>
 #include <libportal/inputcapture.h>
 
-namespace inputleap {
+namespace skvm {
 
 class PortalInputCapture {
 public:
@@ -101,7 +101,7 @@ private:
     std::vector<XdpInputCapturePointerBarrier*> barriers_;
 };
 
-} // namespace inputleap
+} // namespace skvm
 
 #endif // HAVE_LIBPORTAL_INPUTCAPTURE
 #endif // INPUTLEAP_LIB_PLATFORM_PORTAL_INPUT_CAPTURE_H

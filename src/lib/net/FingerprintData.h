@@ -22,7 +22,7 @@
 #include <string>
 #include <vector>
 
-namespace inputleap {
+namespace skvm {
 
 enum FingerprintType {
     INVALID,
@@ -42,6 +42,6 @@ struct FingerprintData {
 const char* fingerprint_type_to_string(FingerprintType type);
 FingerprintType fingerprint_type_from_string(const std::string& type);
 
-} // namespace inputleap
+} // namespace skvm
 
 #endif // INPUTLEAP_LIB_NET_FINGERPRINT_DATA_H

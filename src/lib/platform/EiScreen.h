@@ -30,7 +30,7 @@ struct ei_event;
 struct ei_seat;
 struct ei_device;
 
-namespace inputleap {
+namespace skvm {
 
 class EiClipboard;
 class EiKeyState;
@@ -143,6 +143,6 @@ private:
 #endif
 };
 
-} // namespace inputleap
+} // namespace skvm
 
 #endif // INPUTLEAP_LIB_PLATFORM_EI_SCREEN_H

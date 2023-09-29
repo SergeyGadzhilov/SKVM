@@ -28,7 +28,7 @@
 #include <list>
 #include <vector>
 
-namespace inputleap {
+namespace skvm {
 
 class IXWindowsClipboardConverter;
 
@@ -379,4 +379,4 @@ public:
     //@}
 };
 
-} // namespace inputleap
+} // namespace skvm

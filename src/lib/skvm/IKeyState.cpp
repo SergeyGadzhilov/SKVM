@@ -22,7 +22,7 @@
 #include <cstring>
 #include <cstdlib>
 
-namespace inputleap {
+namespace skvm {
 
 IKeyState::KeyInfo IKeyState::KeyInfo::create(KeyID id, KeyModifierMask mask, KeyButton button,
                                               std::int32_t count,
@@ -114,4 +114,4 @@ void IKeyState::KeyInfo::split(const char* screens, std::set<std::string>& dst)
     }
 }
 
-} // namespace inputleap
+} // namespace skvm

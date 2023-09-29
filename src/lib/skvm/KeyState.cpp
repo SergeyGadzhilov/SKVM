@@ -24,7 +24,7 @@
 #include <iterator>
 #include <list>
 
-namespace inputleap {
+namespace skvm {
 
 static const KeyButton kButtonMask = static_cast<KeyButton>(IKeyState::kNumButtons - 1);
 
@@ -386,7 +386,7 @@ static const KeyID s_numpadTable[] = {
 //
 
 KeyState::KeyState(IEventQueue* events) :
-    m_keyMapPtr(new inputleap::KeyMap()),
+    m_keyMapPtr(new skvm::KeyMap()),
     m_keyMap(*m_keyMapPtr),
     m_mask(0),
     m_events(events)
@@ -394,7 +394,7 @@ KeyState::KeyState(IEventQueue* events) :
     init();
 }
 
-KeyState::KeyState(IEventQueue* events, inputleap::KeyMap& keyMap) :
+KeyState::KeyState(IEventQueue* events, skvm::KeyMap& keyMap) :
     m_keyMapPtr(nullptr),
     m_keyMap(keyMap),
     m_mask(0),
@@ -476,7 +476,7 @@ void
 KeyState::updateKeyMap()
 {
     // get the current keyboard map
-    inputleap::KeyMap keyMap;
+    skvm::KeyMap keyMap;
     getKeyMap(keyMap);
     m_keyMap.swap(keyMap);
     m_keyMap.finish();
@@ -516,7 +516,7 @@ KeyState::updateKeyState()
     LOG((CLOG_DEBUG1 "modifiers on update: 0x%04x", m_mask));
 }
 
-void KeyState::addActiveModifierCB(KeyID, std::int32_t group, inputleap::KeyMap::KeyItem& keyItem,
+void KeyState::addActiveModifierCB(KeyID, std::int32_t group, skvm::KeyMap::KeyItem& keyItem,
                                    void* vcontext)
 {
     AddActiveModifierContext* context =
@@ -563,7 +563,7 @@ KeyState::fakeKeyDown(KeyID id, KeyModifierMask mask, KeyButton serverID)
     // get keys for key press
     Keystrokes keys;
     ModifierToKeys oldActiveModifiers = m_activeModifiers;
-    const inputleap::KeyMap::KeyItem* keyItem =
+    const skvm::KeyMap::KeyItem* keyItem =
         m_keyMap.mapKey(keys, id, pollActiveGroup(), m_activeModifiers,
                                 getActiveModifiersRValue(), mask, false);
     if (keyItem == nullptr) {
@@ -608,7 +608,7 @@ bool KeyState::fakeKeyRepeat(KeyID id, KeyModifierMask mask, std::int32_t count,
     // get keys for key repeat
     Keystrokes keys;
     ModifierToKeys oldActiveModifiers = m_activeModifiers;
-    const inputleap::KeyMap::KeyItem* keyItem =
+    const skvm::KeyMap::KeyItem* keyItem =
         m_keyMap.mapKey(keys, id, pollActiveGroup(), m_activeModifiers,
                                 getActiveModifiersRValue(), mask, true);
     if (keyItem == nullptr) {
@@ -763,7 +763,7 @@ KeyState::isIgnoredKey(KeyID key, KeyModifierMask) const
 
 KeyButton KeyState::getButton(KeyID id, std::int32_t group) const
 {
-    const inputleap::KeyMap::KeyItemList* items =
+    const skvm::KeyMap::KeyItemList* items =
         m_keyMap.findCompatibleKey(id, group, 0, 0);
     if (items == nullptr) {
         return 0;
@@ -874,7 +874,7 @@ KeyState::updateModifierKeyState(KeyButton button,
                 const ModifierToKeys& newModifiers)
 {
     // get the pressed modifier buttons before and after
-    inputleap::KeyMap::ButtonToKeyMap oldKeys, newKeys;
+    skvm::KeyMap::ButtonToKeyMap oldKeys, newKeys;
     for (ModifierToKeys::const_iterator i = oldModifiers.begin();
                                 i != oldModifiers.end(); ++i) {
         oldKeys.insert(std::make_pair(i->second.m_button, &i->second));
@@ -885,7 +885,7 @@ KeyState::updateModifierKeyState(KeyButton button,
     }
 
     // get the modifier buttons that were pressed or released
-    inputleap::KeyMap::ButtonToKeyMap pressed, released;
+    skvm::KeyMap::ButtonToKeyMap pressed, released;
     std::set_difference(oldKeys.begin(), oldKeys.end(),
                         newKeys.begin(), newKeys.end(),
                         std::inserter(released, released.end()),
@@ -896,14 +896,14 @@ KeyState::updateModifierKeyState(KeyButton button,
                         ButtonToKeyLess());
 
     // update state
-    for (inputleap::KeyMap::ButtonToKeyMap::const_iterator i = released.begin();
+    for (skvm::KeyMap::ButtonToKeyMap::const_iterator i = released.begin();
                                 i != released.end(); ++i) {
         if (i->first != button) {
             m_keys[i->first]          = 0;
             m_syntheticKeys[i->first] = 0;
         }
     }
-    for (inputleap::KeyMap::ButtonToKeyMap::const_iterator i = pressed.begin();
+    for (skvm::KeyMap::ButtonToKeyMap::const_iterator i = pressed.begin();
                                 i != pressed.end(); ++i) {
         if (i->first != button) {
             m_keys[i->first]          = 1;
@@ -927,4 +927,4 @@ KeyState::AddActiveModifierContext::AddActiveModifierContext(std::int32_t group,
     // do nothing
 }
 
-} // namespace inputleap
+} // namespace skvm

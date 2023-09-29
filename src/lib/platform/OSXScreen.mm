@@ -41,7 +41,7 @@
 #include <IOKit/hidsystem/event_status_driver.h>
 #include <AppKit/NSEvent.h>
 
-namespace inputleap {
+namespace skvm {
 
 // This isn't in any Apple SDK that I know of as of yet.
 constexpr int INPUT_LEAP_EVENT_MOUSE_SCROLL = 11;
@@ -326,13 +326,13 @@ std::uint32_t OSXScreen::registerHotKey(KeyID key, KeyModifierMask mask)
 	if (!okay) {
 		m_oldHotKeyIDs.push_back(id);
 		m_hotKeyToIDMap.erase(HotKeyItem(macKey, macMask));
-		LOG((CLOG_WARN "failed to register hotkey %s (id=%04x mask=%04x)", inputleap::KeyMap::formatKey(key, mask).c_str(), key, mask));
+		LOG((CLOG_WARN "failed to register hotkey %s (id=%04x mask=%04x)", skvm::KeyMap::formatKey(key, mask).c_str(), key, mask));
 		return 0;
 	}
 
 	m_hotKeys.insert(std::make_pair(id, HotKeyItem(ref, macKey, macMask)));
 
-	LOG((CLOG_DEBUG "registered hotkey %s (id=%04x mask=%04x) as id=%d", inputleap::KeyMap::formatKey(key, mask).c_str(), key, mask, id));
+	LOG((CLOG_DEBUG "registered hotkey %s (id=%04x mask=%04x) as id=%d", skvm::KeyMap::formatKey(key, mask).c_str(), key, mask, id));
 	return id;
 }
 
@@ -505,14 +505,14 @@ OSXScreen::fakeMouseButton(ButtonID id, bool press)
     // This will allow for higher than triple click but the quartz documentation
     // does not specify that this should be limited to triple click
     if (press) {
-        if ((inputleap::current_time_seconds() - m_lastClickTime) <= clickTime && diff <= maxDiff) {
+        if ((skvm::current_time_seconds() - m_lastClickTime) <= clickTime && diff <= maxDiff) {
             m_clickState++;
         }
         else {
             m_clickState = 1;
         }
 
-        m_lastClickTime = inputleap::current_time_seconds();
+        m_lastClickTime = skvm::current_time_seconds();
     }
 
     if (m_clickState == 1) {
@@ -555,9 +555,9 @@ void OSXScreen::get_drop_target_thread()
     char* cstr = nullptr;
 
 	// wait for 5 secs for the drop destinaiton string to be filled.
-    std::uint32_t timeout = inputleap::current_time_seconds() + 5;
+    std::uint32_t timeout = skvm::current_time_seconds() + 5;
 
-    while (inputleap::current_time_seconds() < timeout) {
+    while (skvm::current_time_seconds() < timeout) {
 		CFStringRef cfstr = getCocoaDropTarget();
 		cstr = CFStringRefToUTF8String(cfstr);
 		CFRelease(cfstr);
@@ -565,7 +565,7 @@ void OSXScreen::get_drop_target_thread()
         if (cstr != nullptr) {
 			break;
 		}
-		inputleap::this_thread_sleep(.1f);
+		skvm::this_thread_sleep(.1f);
 	}
 
     if (cstr != nullptr) {
@@ -2075,4 +2075,4 @@ avoidHesitatingCursor()
 
 #pragma GCC diagnostic error "-Wdeprecated-declarations"
 
-} // namespace inputleap
+} // namespace skvm

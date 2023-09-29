@@ -25,7 +25,7 @@
 #include "base/EventTypes.h"
 #include <memory>
 
-namespace inputleap {
+namespace skvm {
 
 class IpcServerProxy;
 class IpcMessage;
@@ -66,4 +66,4 @@ private:
     IEventQueue* m_events;
 };
 
-} // namespace inputleap
+} // namespace skvm

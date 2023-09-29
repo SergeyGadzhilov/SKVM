@@ -31,7 +31,7 @@
 #define XDP_OUTPUT_NONE (XdpOutputType)0
 #endif
 
-namespace inputleap {
+namespace skvm {
 
 class PortalRemoteDesktop {
 public:
@@ -67,6 +67,6 @@ private:
     guint session_signal_id_;
 };
 
-} // namespace inputleap
+} // namespace skvm
 
 #endif // INPUTLEAP_LIB_PLATFORM_PORTAL_REMOTE_DESKTOP_H

@@ -21,7 +21,7 @@
 #include "arch/IArchMultithread.h"
 #include <functional>
 
-namespace inputleap {
+namespace skvm {
 
 //! Thread handle
 /*!
@@ -198,4 +198,4 @@ private:
     ArchThread m_thread;
 };
 
-} // namespace inputleap
+} // namespace skvm

@@ -22,7 +22,7 @@
 #define WIN32_LEAN_AND_MEAN
 #include <Windows.h>
 
-namespace inputleap {
+namespace skvm {
 
 class IMSWindowsClipboardConverter;
 
@@ -32,6 +32,6 @@ public:
     virtual ~IMSWindowsClipboardFacade() { }
 };
 
-} // namespace inputleap
+} // namespace skvm
 
 #endif

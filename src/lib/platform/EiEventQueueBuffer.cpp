@@ -30,7 +30,7 @@
 
 #include <cstdio>
 
-namespace inputleap {
+namespace skvm {
 
 EiEventQueueBuffer::EiEventQueueBuffer(EiScreen* screen, ei *ei, IEventQueue* events) :
     ei_(ei_ref(ei)),
@@ -150,4 +150,4 @@ bool EiEventQueueBuffer::isEmpty() const
     return queue_.empty();
 }
 
-} // namespace inputleap
+} // namespace skvm

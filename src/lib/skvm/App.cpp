@@ -47,7 +47,7 @@
 #include "platform/OSXDragSimulator.h"
 #endif
 
-namespace inputleap {
+namespace skvm {
 
 App* App::s_instance = nullptr;
 
@@ -161,7 +161,7 @@ App::initApp(int argc, const char** argv)
     // parse command line
     parseArgs(argc, argv);
 
-    inputleap::DataDirectories::profile(argsBase().m_profileDirectory);
+    skvm::DataDirectories::profile(argsBase().m_profileDirectory);
 
     // set log filter
     if (!CLOG->setFilter(argsBase().m_logFilter)) {
@@ -327,4 +327,4 @@ MinimalApp::parseArgs(int argc, const char* const* argv)
     (void) argv;
 }
 
-} // namespace inputleap
+} // namespace skvm

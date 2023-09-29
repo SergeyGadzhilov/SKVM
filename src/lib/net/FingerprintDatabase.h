@@ -24,7 +24,7 @@
 #include <string>
 #include <vector>
 
-namespace inputleap {
+namespace skvm {
 
 class FingerprintDatabase {
 public:
@@ -48,6 +48,6 @@ private:
     std::vector<FingerprintData> fingerprints_;
 };
 
-} // namespace inputleap
+} // namespace skvm
 
 #endif // INPUTLEAP_LIB_NET_FINGERPRINT_DATABASE_H

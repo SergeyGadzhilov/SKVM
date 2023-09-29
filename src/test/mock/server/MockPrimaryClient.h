@@ -23,7 +23,7 @@
 
 #include <gmock/gmock.h>
 
-namespace inputleap {
+namespace skvm {
 
 class MockPrimaryClient : public PrimaryClient
 {
@@ -41,4 +41,4 @@ public:
     MOCK_METHOD1(unregisterHotKey, void(std::uint32_t));
 };
 
-} // namespace inputleap
+} // namespace skvm

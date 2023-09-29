@@ -23,7 +23,7 @@
 
 #include <gmock/gmock.h>
 
-namespace inputleap {
+namespace skvm {
 
 class MockConfig : public Config
 {
@@ -33,4 +33,4 @@ public:
     MOCK_CONST_METHOD1(isScreen, bool(const std::string&));
 };
 
-} // namespace inputleap
+} // namespace skvm

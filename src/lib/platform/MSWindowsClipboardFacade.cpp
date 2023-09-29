@@ -20,7 +20,7 @@
 
 #include "platform/MSWindowsClipboard.h"
 
-namespace inputleap {
+namespace skvm {
 
 void MSWindowsClipboardFacade::write(HANDLE win32Data, UINT win32Format)
 {
@@ -32,4 +32,4 @@ void MSWindowsClipboardFacade::write(HANDLE win32Data, UINT win32Format)
     }
 }
 
-} // namespace inputleap
+} // namespace skvm

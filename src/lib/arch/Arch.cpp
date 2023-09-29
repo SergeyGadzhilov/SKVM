@@ -18,7 +18,7 @@
 
 #include "arch/Arch.h"
 
-namespace inputleap {
+namespace skvm {
 
 Arch* Arch::s_instance = nullptr;
 
@@ -57,4 +57,4 @@ Arch::getInstance()
     return s_instance;
 }
 
-} // namespace inputleap
+} // namespace skvm

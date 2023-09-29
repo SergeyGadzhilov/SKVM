@@ -20,7 +20,7 @@
 
 #include <gtest/gtest.h>
 
-namespace inputleap {
+namespace skvm {
 
 TEST(ClipboardTests, empty_openCalled_returnsTrue)
 {
@@ -398,4 +398,4 @@ TEST(ClipboardTests, copy_withSingleText_clipboardsAreEqual)
     EXPECT_EQ("test string!", actual);
 }
 
-} // namespace inputleap
+} // namespace skvm

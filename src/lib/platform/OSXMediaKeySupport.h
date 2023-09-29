@@ -22,10 +22,10 @@
 
 #include "skvm/key_types.h"
 
-namespace inputleap {
+namespace skvm {
 
 bool fakeNativeMediaKey(KeyID id);
 bool isMediaKeyEvent(CGEventRef event);
 bool getMediaKeyEventInfo(CGEventRef event, KeyID* keyId, bool* down, bool* isRepeat);
 
-} // namespace inputleap
+} // namespace skvm

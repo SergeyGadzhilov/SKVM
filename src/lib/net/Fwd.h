@@ -17,7 +17,7 @@
 #ifndef INPUTLEAP_LIB_NET_FWD_H
 #define INPUTLEAP_LIB_NET_FWD_H
 
-namespace inputleap {
+namespace skvm {
 
 // FingerprintData.h
 struct FingerprintData;
@@ -59,6 +59,6 @@ class TCPSocket;
 // TCPSocketFactory.h
 class TCPSocketFactory;
 
-} // namespace inputleap
+} // namespace skvm
 
 #endif // INPUTLEAP_LIB_NET_FWD_H

@@ -23,7 +23,7 @@
 #include "base/EventTarget.h"
 #include <memory>
 
-namespace inputleap {
+namespace skvm {
 
 //! A stream filter
 /*!
@@ -57,7 +57,7 @@ public:
     /*!
     Returns the stream passed to the c'tor.
     */
-    inputleap::IStream* getStream() const { return stream_.get(); }
+    skvm::IStream* getStream() const { return stream_.get(); }
 
 protected:
     //! Handle events from source stream
@@ -75,4 +75,4 @@ private:
     IEventQueue* m_events;
 };
 
-} // namespace inputleap
+} // namespace skvm

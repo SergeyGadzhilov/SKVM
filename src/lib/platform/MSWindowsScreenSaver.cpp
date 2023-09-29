@@ -32,7 +32,7 @@
 #define SPI_GETSCREENSAVERRUNNING 114
 #endif
 
-namespace inputleap {
+namespace skvm {
 
 static const TCHAR* g_isSecureNT = "ScreenSaverIsSecure";
 static const TCHAR* g_isSecure9x = "ScreenSaveUsePassword";
@@ -267,7 +267,7 @@ void MSWindowsScreenSaver::watch_desktop_thread()
 
     for (;;) {
         // wait a bit
-        inputleap::this_thread_sleep(0.2);
+        skvm::this_thread_sleep(0.2);
 
         BOOL running;
         SystemParametersInfo(SPI_GETSCREENSAVERRUNNING, 0, &running, 0);
@@ -356,4 +356,4 @@ MSWindowsScreenSaver::isSecure(bool* wasSecureFlagAnInt) const
     return result;
 }
 
-} // namespace inputleap
+} // namespace skvm

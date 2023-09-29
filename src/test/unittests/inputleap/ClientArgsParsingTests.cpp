@@ -21,7 +21,7 @@
 
 #include <gtest/gtest.h>
 
-namespace inputleap {
+namespace skvm {
 
 using ::testing::_;
 using ::testing::Invoke;
@@ -96,4 +96,4 @@ TEST(ClientArgsParsingTests, parseClientArgs_unrecognizedArg_returnFalse)
     EXPECT_FALSE(result);
 }
 
-} // namespace inputleap
+} // namespace skvm

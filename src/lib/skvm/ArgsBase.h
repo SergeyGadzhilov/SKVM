@@ -20,7 +20,7 @@
 
 #include "io/filesystem.h"
 
-namespace inputleap {
+namespace skvm {
 
 class ArgsBase {
 public:
@@ -49,11 +49,11 @@ public:
     bool m_shouldExit;
     std::string network_address;
     bool m_enableCrypto;
-    inputleap::fs::path m_profileDirectory;
-    inputleap::fs::path m_pluginDirectory;
+    skvm::fs::path m_profileDirectory;
+    skvm::fs::path m_pluginDirectory;
     bool use_x11 = false;
     bool use_ei = false;
     bool use_portal = true; // use the XDG portals for ei
 };
 
-} // namespace inputleap
+} // namespace skvm

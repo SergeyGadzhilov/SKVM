@@ -18,7 +18,7 @@
 
 #include "skvm/unix/AppUtilUnix.h"
 
-namespace inputleap {
+namespace skvm {
 
 AppUtilUnix::AppUtilUnix(IEventQueue* events)
 {
@@ -47,4 +47,4 @@ AppUtilUnix::startNode()
     app().startNode();
 }
 
-} // namespace inputleap
+} // namespace skvm

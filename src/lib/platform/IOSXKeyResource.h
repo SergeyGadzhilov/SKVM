@@ -20,7 +20,7 @@
 #include "skvm/KeyState.h"
 #include <CoreServices/CoreServices.h>
 
-namespace inputleap {
+namespace skvm {
 
 class IOSXKeyResource {
 public:
@@ -39,4 +39,4 @@ public:
     static KeyID unicharToKeyID(UniChar);
 };
 
-} // namespace inputleap
+} // namespace skvm

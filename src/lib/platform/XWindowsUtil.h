@@ -26,7 +26,7 @@
 #include <string>
 #include <vector>
 
-namespace inputleap {
+namespace skvm {
 
 //! X11 utility functions
 class XWindowsUtil {
@@ -180,4 +180,4 @@ private:
     static KeySymMap    s_keySymToUCS4;
 };
 
-} // namespace inputleap
+} // namespace skvm

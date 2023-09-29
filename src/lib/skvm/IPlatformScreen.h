@@ -26,7 +26,7 @@
 #include "skvm/IKeyState.h"
 #include "skvm/option_types.h"
 
-namespace inputleap {
+namespace skvm {
 
 //! Screen interface
 /*!
@@ -177,4 +177,4 @@ public:
     virtual void handle_system_event(const Event& event) = 0;
 };
 
-} // namespace inputleap
+} // namespace skvm

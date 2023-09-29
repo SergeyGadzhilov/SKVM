@@ -22,7 +22,7 @@
 
 #define ARCH_LOG ArchLogUnix
 
-namespace inputleap {
+namespace skvm {
 
 //! Unix implementation of IArchLog
 class ArchLogUnix : public IArchLog {
@@ -37,4 +37,4 @@ public:
     void writeLog(ELevel, const char*) override;
 };
 
-} // namespace inputleap
+} // namespace skvm

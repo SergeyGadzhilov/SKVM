@@ -28,7 +28,7 @@
 #include "base/Log.h"
 #include "base/IEventQueue.h"
 
-namespace inputleap {
+namespace skvm {
 
 ClientListener::ClientListener(const NetworkAddress& address,
                                std::unique_ptr<ISocketFactory> socket_factory,
@@ -218,4 +218,4 @@ ClientListener::cleanupClientSockets()
     client_sockets_.clear();
 }
 
-} // namespace inputleap
+} // namespace skvm

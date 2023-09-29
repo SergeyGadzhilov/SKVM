@@ -20,7 +20,7 @@
 
 #include "base/ILogOutputter.h"
 
-namespace inputleap {
+namespace skvm {
 
 //! Write log to debugger
 /*!
@@ -40,4 +40,4 @@ public:
     virtual void flush();
 };
 
-} // namespace inputleap
+} // namespace skvm

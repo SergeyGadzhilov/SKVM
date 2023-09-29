@@ -21,7 +21,7 @@
 #include "skvm/Fwd.h"
 #include <string>
 
-namespace inputleap {
+namespace skvm {
 
 /** This interface defines the task bar icon event handlers required by InputLeap.
     Each architecture must implement this interface though each operation can be a no-op.
@@ -95,4 +95,4 @@ public:
     //@}
 };
 
-} // namespace inputleap
+} // namespace skvm

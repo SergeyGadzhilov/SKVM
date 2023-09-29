@@ -39,7 +39,7 @@
 
 #include <poll.h>
 
-namespace inputleap {
+namespace skvm {
 
 static const int s_family[] = {
     PF_UNSPEC,
@@ -262,7 +262,7 @@ ArchNetworkBSD::pollSocket(PollEntry pe[], int num, double timeout)
     // return if nothing to do
     if (num == 0) {
         if (timeout > 0.0) {
-            inputleap::this_thread_sleep(timeout);
+            skvm::this_thread_sleep(timeout);
         }
         return 0;
     }
@@ -842,4 +842,4 @@ ArchNetworkBSD::throwNameError(int err)
     }
 }
 
-} // namespace inputleap
+} // namespace skvm

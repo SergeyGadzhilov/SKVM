@@ -15,7 +15,7 @@
 #include <X11/XKBlib.h>
 #include <X11/extensions/XInput2.h>
 
-namespace inputleap {
+namespace skvm {
 
 class IXWindowsImpl {
 public:
@@ -214,4 +214,4 @@ public:
     virtual int XNextEvent(Display* display, XEvent* event_return) = 0;
 };
 
-} // namespace inputleap
+} // namespace skvm

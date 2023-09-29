@@ -20,7 +20,7 @@
 #include "IClientConnection.h"
 #include "base/EventQueue.h"
 
-namespace inputleap {
+namespace skvm {
 
 ClientProxy::ClientProxy(const std::string& name, std::unique_ptr<IClientConnection> backend) :
     BaseClientProxy(name),
@@ -42,4 +42,4 @@ const EventTarget* ClientProxy::get_event_target() const
     return this;
 }
 
-} // namespace inputleap
+} // namespace skvm

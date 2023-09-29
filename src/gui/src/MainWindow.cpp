@@ -471,31 +471,31 @@ void MainWindow::checkFingerprint(const QString& line)
     auto match2 = fingerprintRegex.cap(2).toStdString();
 #endif
 
-    inputleap::FingerprintData fingerprint_sha1 = {
-        inputleap::fingerprint_type_to_string(inputleap::FingerprintType::SHA1),
-        inputleap::string::from_hex(match1)
+    skvm::FingerprintData fingerprint_sha1 = {
+        skvm::fingerprint_type_to_string(skvm::FingerprintType::SHA1),
+        skvm::string::from_hex(match1)
     };
 
-    inputleap::FingerprintData fingerprint_sha256 = {
-        inputleap::fingerprint_type_to_string(inputleap::FingerprintType::SHA256),
-        inputleap::string::from_hex(match2)
+    skvm::FingerprintData fingerprint_sha256 = {
+        skvm::fingerprint_type_to_string(skvm::FingerprintType::SHA256),
+        skvm::string::from_hex(match2)
     };
 
     bool is_client = app_role() == AppRole::Client;
 
     auto db_path = is_client
-            ? inputleap::DataDirectories::trusted_servers_ssl_fingerprints_path()
-            : inputleap::DataDirectories::trusted_clients_ssl_fingerprints_path();
+            ? skvm::DataDirectories::trusted_servers_ssl_fingerprints_path()
+            : skvm::DataDirectories::trusted_clients_ssl_fingerprints_path();
 
     auto db_dir = db_path.parent_path();
-    if (!inputleap::fs::exists(db_dir)) {
-        inputleap::fs::create_directories(db_dir);
+    if (!skvm::fs::exists(db_dir)) {
+        skvm::fs::create_directories(db_dir);
     }
 
     // We compare only SHA256 fingerprints, but show both SHA1 and SHA256 so that the users can
     // still verify fingerprints on old InputLeap servers. This way the only time when we are
     // exposed to SHA1 vulnerabilities is when the user is reconnecting again.
-    inputleap::FingerprintDatabase db;
+    skvm::FingerprintDatabase db;
     db.read(db_path);
     if (db.is_trusted(fingerprint_sha256)) {
         return;
@@ -595,7 +595,7 @@ void MainWindow::start_cmd_app()
     // launched the process (e.g. when launched with elevation). setting the
     // profile dir on launch ensures it uses the same profile dir is used
     // no matter how its relaunched.
-    args << "--profile-dir" << QString::fromStdString("\"" + inputleap::DataDirectories::profile().u8string() + "\"");
+    args << "--profile-dir" << QString::fromStdString("\"" + skvm::DataDirectories::profile().u8string() + "\"");
 #endif
 
     if ((app_role() == AppRole::Client && !clientArgs(args, app))
@@ -1064,12 +1064,12 @@ void MainWindow::updateSSLFingerprint()
         return;
     }
 
-    auto local_path = inputleap::DataDirectories::local_ssl_fingerprints_path();
-    if (!inputleap::fs::exists(local_path)) {
+    auto local_path = skvm::DataDirectories::local_ssl_fingerprints_path();
+    if (!skvm::fs::exists(local_path)) {
         return;
     }
 
-    inputleap::FingerprintDatabase db;
+    skvm::FingerprintDatabase db;
     db.read(local_path);
     if (db.fingerprints().size() != 2) {
         return;
@@ -1077,18 +1077,18 @@ void MainWindow::updateSSLFingerprint()
 
     for (const auto& fingerprint : db.fingerprints()) {
         if (fingerprint.algorithm == "sha1") {
-            auto fingerprint_str = inputleap::format_ssl_fingerprint(fingerprint.data);
+            auto fingerprint_str = skvm::format_ssl_fingerprint(fingerprint.data);
             label_sha1_fingerprint_full->setText(QString::fromStdString(fingerprint_str));
             continue;
         }
 
         if (fingerprint.algorithm == "sha256") {
-            auto fingerprint_str = inputleap::format_ssl_fingerprint(fingerprint.data);
+            auto fingerprint_str = skvm::format_ssl_fingerprint(fingerprint.data);
             fingerprint_str.resize(40);
             fingerprint_str += " ...";
 
-            auto fingerprint_str_cols = inputleap::format_ssl_fingerprint_columns(fingerprint.data);
-            auto fingerprint_randomart = inputleap::create_fingerprint_randomart(fingerprint.data);
+            auto fingerprint_str_cols = skvm::format_ssl_fingerprint_columns(fingerprint.data);
+            auto fingerprint_randomart = skvm::create_fingerprint_randomart(fingerprint.data);
 
             m_pLabelLocalFingerprint->setText(QString::fromStdString(fingerprint_str));
             label_sha256_fingerprint_full->setText(QString::fromStdString(fingerprint_str_cols));

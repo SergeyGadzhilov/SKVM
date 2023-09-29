@@ -24,7 +24,7 @@
 
 #include <cstdlib>
 
-namespace inputleap {
+namespace skvm {
 
 static bool parse_address(const std::string& address, std::string& host, int& port)
 {
@@ -208,4 +208,4 @@ NetworkAddress::checkPort()
     }
 }
 
-} // namespace inputleap
+} // namespace skvm

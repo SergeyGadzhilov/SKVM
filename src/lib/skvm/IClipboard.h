@@ -21,7 +21,7 @@
 #include "base/EventTypes.h"
 #include <string>
 
-namespace inputleap {
+namespace skvm {
 
 //! Clipboard interface
 /*!
@@ -174,4 +174,4 @@ private:
     static void writeUInt32(std::string*, std::uint32_t);
 };
 
-} // namespace inputleap
+} // namespace skvm

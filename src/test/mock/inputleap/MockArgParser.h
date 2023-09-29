@@ -23,7 +23,7 @@
 
 #include <gmock/gmock.h>
 
-namespace inputleap {
+namespace skvm {
 
 class MockArgParser : public ArgParser
 {
@@ -34,4 +34,4 @@ public:
     MOCK_METHOD0(checkUnexpectedArgs, bool());
 };
 
-} // namespace inputleap
+} // namespace skvm

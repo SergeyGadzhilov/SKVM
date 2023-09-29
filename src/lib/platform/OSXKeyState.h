@@ -26,7 +26,7 @@
 #include <set>
 #include <vector>
 
-namespace inputleap {
+namespace skvm {
 
 typedef TISInputSourceRef KeyLayout;
 class IOSXKeyResource;
@@ -40,7 +40,7 @@ public:
     typedef std::vector<KeyID> KeyIDs;
 
     OSXKeyState(IEventQueue* events);
-    OSXKeyState(IEventQueue* events, inputleap::KeyMap& keyMap);
+    OSXKeyState(IEventQueue* events, skvm::KeyMap& keyMap);
     virtual ~OSXKeyState();
 
     //! @name modifiers
@@ -102,18 +102,18 @@ public:
     CGEventFlags getModifierStateAsOSXFlags();
 protected:
     // KeyState overrides
-    virtual void getKeyMap(inputleap::KeyMap& keyMap);
+    virtual void getKeyMap(skvm::KeyMap& keyMap);
     virtual void fakeKey(const Keystroke& keystroke);
 
 private:
     class KeyResource;
     typedef std::vector<KeyLayout> GroupList;
 
-    // Add hard coded special keys to a inputleap::KeyMap.
-    void getKeyMapForSpecialKeys(inputleap::KeyMap& keyMap, std::int32_t group) const;
+    // Add hard coded special keys to a skvm::KeyMap.
+    void getKeyMapForSpecialKeys(skvm::KeyMap& keyMap, std::int32_t group) const;
 
     // Convert keyboard resource to a key map
-    bool getKeyMap(inputleap::KeyMap& keyMap, std::int32_t group, const IOSXKeyResource& r) const;
+    bool getKeyMap(skvm::KeyMap& keyMap, std::int32_t group, const IOSXKeyResource& r) const;
 
     // Get the available keyboard groups
     bool getGroups(GroupList&) const;
@@ -176,4 +176,4 @@ private:
     bool m_capsPressed;
 };
 
-} // namespace inputleap
+} // namespace skvm

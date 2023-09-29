@@ -25,7 +25,7 @@
 #include <string>
 #include <vector>
 
-namespace inputleap {
+namespace skvm {
 
 //! std::string utilities
 /*!

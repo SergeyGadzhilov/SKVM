@@ -17,7 +17,7 @@
 #ifndef INPUTLEAP_LIB_BASE_FWD_H
 #define INPUTLEAP_LIB_BASE_FWD_H
 
-namespace inputleap {
+namespace skvm {
 
 // Event.h
 class EventDataBase;
@@ -60,6 +60,6 @@ class SimpleEventQueueBuffer;
 // Stopwatch.h
 class Stopwatch;
 
-} // namespace inputleap
+} // namespace skvm
 
 #endif // INPUTLEAP_LIB_BASE_FWD_H

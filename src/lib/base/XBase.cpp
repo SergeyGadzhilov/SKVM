@@ -64,7 +64,7 @@ std::string XBase::format(const char* /*id*/, const char* fmt, ...) const noexce
     va_list args;
     va_start(args, fmt);
     try {
-        result = inputleap::string::vformat(fmt, args);
+        result = skvm::string::vformat(fmt, args);
     }
     catch (...) {
         // ignore

@@ -31,7 +31,7 @@
 // wParam = flags, HIBYTE(lParam) = virtual key, LOBYTE(lParam) = scan code
 #define INPUTLEAP_MSG_FAKE_KEY		INPUTLEAP_HOOK_LAST_MSG + 4
 
-namespace inputleap {
+namespace skvm {
 
 using ::testing::_;
 using ::testing::NiceMock;
@@ -137,4 +137,4 @@ TEST_F(MSWindowsKeyStateTests, testKoreanLocale_inputModeKey_resultCorrectKeyID)
 	delete desks;
 }
 
-} // namespace inputleap
+} // namespace skvm

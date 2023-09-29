@@ -25,7 +25,7 @@
 #include "base/Event.h"
 #include "base/EventTarget.h"
 
-namespace inputleap {
+namespace skvm {
 
 class Client;
 class ClientInfo;
@@ -42,7 +42,7 @@ public:
     Process messages from the server on \p stream and forward to
     \p client.
     */
-    ServerProxy(Client* client, inputleap::IStream* stream, IEventQueue* events);
+    ServerProxy(Client* client, skvm::IStream* stream, IEventQueue* events);
     ~ServerProxy();
 
     //! @name manipulators
@@ -112,7 +112,7 @@ private:
     typedef EResult (ServerProxy::*MessageParser)(const std::uint8_t*);
 
     Client* m_client;
-    inputleap::IStream* m_stream;
+    skvm::IStream* m_stream;
 
     std::uint32_t m_seqNum;
 
@@ -132,4 +132,4 @@ private:
     IEventQueue* m_events;
 };
 
-} // namespace inputleap
+} // namespace skvm

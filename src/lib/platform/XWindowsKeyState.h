@@ -31,7 +31,7 @@
 #include <map>
 #include <vector>
 
-namespace inputleap {
+namespace skvm {
 
 //! X Windows key state
 /*!
@@ -48,7 +48,7 @@ public:
     XWindowsKeyState(IXWindowsImpl* impl, Display*, bool useXKB,
                      IEventQueue* events);
     XWindowsKeyState(IXWindowsImpl* impl, Display*, bool useXKB,
-                     IEventQueue* events, inputleap::KeyMap& keyMap);
+                     IEventQueue* events, skvm::KeyMap& keyMap);
     ~XWindowsKeyState();
 
     //! @name modifiers
@@ -107,18 +107,18 @@ public:
 
 protected:
     // KeyState overrides
-    void getKeyMap(inputleap::KeyMap& keyMap) override;
+    void getKeyMap(skvm::KeyMap& keyMap) override;
     void fakeKey(const Keystroke& keystroke) override;
 
 private:
     void init(Display* display, bool useXKB);
-    void updateKeysymMap(inputleap::KeyMap&);
-    void updateKeysymMapXKB(inputleap::KeyMap&);
+    void updateKeysymMap(skvm::KeyMap&);
+    void updateKeysymMapXKB(skvm::KeyMap&);
     bool hasModifiersXKB() const;
     int getEffectiveGroup(KeyCode, int group) const;
     std::uint32_t getGroupFromState(unsigned int state) const;
 
-    static void remapKeyModifiers(KeyID, std::int32_t, inputleap::KeyMap::KeyItem&, void*);
+    static void remapKeyModifiers(KeyID, std::int32_t, skvm::KeyMap::KeyItem&, void*);
 
 private:
     struct XKBModifierInfo {
@@ -167,4 +167,4 @@ public:
 #endif
 };
 
-} // namespace inputleap
+} // namespace skvm
