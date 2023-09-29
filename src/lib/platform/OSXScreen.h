@@ -19,8 +19,8 @@
 #pragma once
 
 #include "platform/OSXClipboard.h"
-#include "inputleap/PlatformScreen.h"
-#include "inputleap/DragInformation.h"
+#include "skvm/PlatformScreen.h"
+#include "skvm/DragInformation.h"
 #include "base/EventTypes.h"
 #include "base/Fwd.h"
 

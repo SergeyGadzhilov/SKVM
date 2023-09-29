@@ -31,7 +31,7 @@
 #if SYSAPI_WIN32
 #include "skvm/win32/AppUtilWindows.h"
 #elif SYSAPI_UNIX
-#include "inputleap/unix/AppUtilUnix.h"
+#include "skvm/unix/AppUtilUnix.h"
 #endif
 
 namespace inputleap {

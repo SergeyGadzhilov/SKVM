@@ -18,7 +18,7 @@
 
 #pragma once
 
-#include "inputleap/AppUtil.h"
+#include "skvm/AppUtil.h"
 #include "base/Fwd.h"
 
 #define ARCH_APP_UTIL AppUtilUnix

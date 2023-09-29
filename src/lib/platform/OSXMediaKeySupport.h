@@ -20,7 +20,7 @@
 #import <CoreFoundation/CoreFoundation.h>
 #import <Carbon/Carbon.h>
 
-#include "inputleap/key_types.h"
+#include "skvm/key_types.h"
 
 namespace inputleap {
 

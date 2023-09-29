@@ -18,7 +18,6 @@
 
 #include "platform/OSXScreen.h"
 
-#include "base/EventQueue.h"
 #include "base/EventQueueTimer.h"
 #include "client/Client.h"
 #include "platform/OSXClipboard.h"
@@ -28,11 +27,10 @@
 #include "platform/OSXDragSimulator.h"
 #include "platform/OSXMediaKeySupport.h"
 #include "platform/OSXPasteboardPeeker.h"
-#include "inputleap/Clipboard.h"
-#include "inputleap/KeyMap.h"
-#include "inputleap/ClientApp.h"
+#include "skvm/Clipboard.h"
+#include "skvm/KeyMap.h"
+#include "skvm/ClientApp.h"
 #include "mt/Thread.h"
-#include "arch/XArch.h"
 #include "base/Log.h"
 #include "base/IEventQueue.h"
 #include "base/Time.h"

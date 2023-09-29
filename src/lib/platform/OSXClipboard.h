@@ -18,7 +18,7 @@
 
 #pragma once
 
-#include "inputleap/IClipboard.h"
+#include "skvm/IClipboard.h"
 
 #include <Carbon/Carbon.h>
 #include <string>

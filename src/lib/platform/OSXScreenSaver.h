@@ -19,7 +19,7 @@
 #pragma once
 
 #include "base/Fwd.h"
-#include "inputleap/IScreenSaver.h"
+#include "skvm/IScreenSaver.h"
 
 #include <Carbon/Carbon.h>
 

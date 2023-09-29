@@ -18,7 +18,7 @@
 
 #pragma once
 
-#include "inputleap/KeyState.h"
+#include "skvm/KeyState.h"
 
 #include <Carbon/Carbon.h>
 

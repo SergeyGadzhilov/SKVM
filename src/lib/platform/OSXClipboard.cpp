@@ -18,7 +18,6 @@
 
 #include "platform/OSXClipboard.h"
 
-#include "inputleap/Clipboard.h"
 #include "platform/OSXClipboardUTF16Converter.h"
 #include "platform/OSXClipboardTextConverter.h"
 #include "platform/OSXClipboardBMPConverter.h"

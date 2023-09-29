@@ -17,7 +17,7 @@
 
 #pragma once
 
-#include "inputleap/KeyState.h"
+#include "skvm/KeyState.h"
 #include <CoreServices/CoreServices.h>
 
 namespace inputleap {

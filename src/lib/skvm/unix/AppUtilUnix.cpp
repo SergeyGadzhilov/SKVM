@@ -16,8 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "inputleap/unix/AppUtilUnix.h"
-#include "inputleap/ArgsBase.h"
+#include "skvm/unix/AppUtilUnix.h"
 
 namespace inputleap {
 
