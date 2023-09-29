@@ -20,8 +20,8 @@
 #include "platform/MSWindowsDesks.h"
 
 #include "platform/MSWindowsScreen.h"
-#include "inputleap/IScreenSaver.h"
-#include "inputleap/XScreen.h"
+#include "skvm/IScreenSaver.h"
+#include "skvm/XScreen.h"
 #include "mt/Thread.h"
 #include "arch/win32/ArchMiscWindows.h"
 #include "base/Log.h"

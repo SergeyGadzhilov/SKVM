@@ -59,15 +59,15 @@ namespace {
 
 static const QString allFilesFilter(QObject::tr("All files (*.*)"));
 #if defined(Q_OS_WIN)
-static const char APP_CONFIG_NAME[] = "input-leap.sgc";
-static const QString APP_CONFIG_FILTER(QObject::tr("InputLeap Configurations (*.sgc)"));
+static const char APP_CONFIG_NAME[] = "skvm.sgc";
+static const QString APP_CONFIG_FILTER(QObject::tr("SKVM Configurations (*.sgc)"));
 static QString bonjourBaseUrl = "http://binaries.symless.com/bonjour/";
 static const char bonjourFilename32[] = "Bonjour.msi";
 static const char bonjourFilename64[] = "Bonjour64.msi";
 static const char bonjourTargetFilename[] = "Bonjour.msi";
 #else
-static const char APP_CONFIG_NAME[] = "input-leap.conf";
-static const QString APP_CONFIG_FILTER(QObject::tr("InputLeap Configurations (*.conf)"));
+static const char APP_CONFIG_NAME[] = "skvm.conf";
+static const QString APP_CONFIG_FILTER(QObject::tr("SKVM Configurations (*.conf)"));
 #endif
 static const QString APP_CONFIG_OPEN_FILTER(APP_CONFIG_FILTER + ";;" + allFilesFilter);
 static const QString APP_CONFIG_SAVE_FILTER(APP_CONFIG_FILTER);
@@ -77,18 +77,18 @@ const char* icon_file_for_connection_state(AppConnectionState state)
 #if defined(Q_OS_MAC)
     switch (state) {
         default:
-        case AppConnectionState::DISCONNECTED: return ":/res/icons/32x32/input-leap-disconnected-mask.png";
-        case AppConnectionState::CONNECTING:   return ":/res/icons/32x32/input-leap-disconnected-mask.png";
-        case AppConnectionState::CONNECTED:    return ":/res/icons/32x32/input-leap-connected-mask.png";
-        case AppConnectionState::TRANSFERRING: return ":/res/icons/32x32/input-leap-transfering-mask.png";
+        case AppConnectionState::DISCONNECTED: return ":/res/icons/32x32/skvm-disconnected-mask.png";
+        case AppConnectionState::CONNECTING:   return ":/res/icons/32x32/skvm-disconnected-mask.png";
+        case AppConnectionState::CONNECTED:    return ":/res/icons/32x32/skvm-connected-mask.png";
+        case AppConnectionState::TRANSFERRING: return ":/res/icons/32x32/skvm-transfering-mask.png";
     }
 #else
     switch (state) {
         default:
-        case AppConnectionState::DISCONNECTED: return ":/res/icons/16x16/input-leap-disconnected.png";
-        case AppConnectionState::CONNECTING:   return ":/res/icons/16x16/input-leap-disconnected.png";
-        case AppConnectionState::CONNECTED:    return ":/res/icons/16x16/input-leap-connected.png";
-        case AppConnectionState::TRANSFERRING: return ":/res/icons/16x16/input-leap-transfering.png";
+        case AppConnectionState::DISCONNECTED: return ":/res/icons/16x16/skvm-disconnected.png";
+        case AppConnectionState::CONNECTING:   return ":/res/icons/16x16/skvm-disconnected.png";
+        case AppConnectionState::CONNECTED:    return ":/res/icons/16x16/skvm-connected.png";
+        case AppConnectionState::TRANSFERRING: return ":/res/icons/16x16/skvm-transfering.png";
     }
 #endif
 }
@@ -97,14 +97,14 @@ const char* icon_name_for_connection_state(AppConnectionState state)
 {
     switch (state) {
         default:
-        case AppConnectionState::DISCONNECTED: return "input-leap-disconnected";
-        case AppConnectionState::CONNECTING: return "input-leap-disconnected";
-        case AppConnectionState::CONNECTED: return "input-leap-connected";
-        case AppConnectionState::TRANSFERRING: return "input-leap-transfering";
+        case AppConnectionState::DISCONNECTED: return "skvm-disconnected";
+        case AppConnectionState::CONNECTING: return "skvm-disconnected";
+        case AppConnectionState::CONNECTED: return "skvm-connected";
+        case AppConnectionState::TRANSFERRING: return "skvm-transfering";
     }
 }
 
-static const char* APP_LARGE_ICON = ":/res/icons/256x256/input-leap.ico";
+static const char* APP_LARGE_ICON = ":/res/icons/256x256/skvm.ico";
 
 } // namespace
 
@@ -1274,7 +1274,7 @@ void MainWindow::downloadBonjour()
 
     if (m_DownloadMessageBox == nullptr) {
         m_DownloadMessageBox = new QMessageBox(this);
-        m_DownloadMessageBox->setWindowTitle("InputLeap");
+        m_DownloadMessageBox->setWindowTitle("SKVM");
         m_DownloadMessageBox->setIcon(QMessageBox::Information);
         m_DownloadMessageBox->setText("Installing Bonjour, please wait...");
         m_DownloadMessageBox->setStandardButtons(0);

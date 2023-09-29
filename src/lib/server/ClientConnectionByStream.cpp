@@ -16,10 +16,10 @@
 
 #include "ClientConnectionByStream.h"
 #include "base/Log.h"
-#include "inputleap/ClipboardChunk.h"
-#include "inputleap/FileChunk.h"
-#include "inputleap/ProtocolUtil.h"
-#include "inputleap/protocol_types.h"
+#include "skvm/ClipboardChunk.h"
+#include "skvm/FileChunk.h"
+#include "skvm/ProtocolUtil.h"
+#include "skvm/protocol_types.h"
 #include "io/IStream.h"
 
 namespace inputleap {

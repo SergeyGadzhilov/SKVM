@@ -1,4 +1,5 @@
-# InputLeap -- mouse and keyboard sharing utility
+# SKVM -- mouse and keyboard sharing utility
+# Copyright (C) 2023 Hadzhilov Serhii
 # Copyright (C) 2012-2016 Symless Ltd.
 # Copyright (C) 2011 Nick Bolton
 #
@@ -28,11 +29,11 @@ endif()
 
 include(../cmake/gtest.cmake)
 
-if(INPUTLEAP_BUILD_TESTS)
+if(SKVM_BUILD_TESTS)
     add_subdirectory(test/integtests)
     add_subdirectory(test/unittests)
 endif()
 
-if(INPUTLEAP_BUILD_GUI)
+if(SKVM_BUILD_GUI)
     add_subdirectory(gui)
 endif()

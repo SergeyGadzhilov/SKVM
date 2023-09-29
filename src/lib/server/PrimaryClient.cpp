@@ -18,8 +18,8 @@
 
 #include "server/PrimaryClient.h"
 
-#include "inputleap/Screen.h"
-#include "inputleap/Clipboard.h"
+#include "skvm/Screen.h"
+#include "skvm/Clipboard.h"
 #include "base/Log.h"
 
 namespace inputleap {

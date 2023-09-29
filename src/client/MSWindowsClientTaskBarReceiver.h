@@ -19,7 +19,7 @@
 #pragma once
 
 #include "base/Fwd.h"
-#include "inputleap/ClientTaskBarReceiver.h"
+#include "skvm/ClientTaskBarReceiver.h"
 #include "common/win32/winapi.h"
 
 namespace inputleap {

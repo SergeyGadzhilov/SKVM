@@ -48,7 +48,7 @@ set(GUI_SOURCE_FILES
     src/main.cpp
     src/MainWindow.cpp
     src/NewScreenWidget.cpp
-    src/QInputLeapApplication.cpp
+    src/QSKVMApplication.cpp
     src/QUtility.cpp
     src/Screen.cpp
     src/ScreenSettingsDialog.cpp
@@ -88,7 +88,7 @@ set(GUI_HEADER_FILES
     src/MainWindow.h
     src/NewScreenWidget.h
     src/ProcessorArch.h
-    src/QInputLeapApplication.h
+    src/QSKVMApplication.h
     src/QUtility.h
     src/Screen.h
     src/ScreenSettingsDialog.h
@@ -183,23 +183,23 @@ endif()
 set_source_files_properties("src/DisplayIsValid.cpp" PROPERTIES SKIP_UNITY_BUILD_INCLUSION TRUE)
 
 if (WIN32)
-    set (GUI_RC_FILES res/win/InputLeap.rc)
-    set_property(SOURCE res/win/InputLeap.rc PROPERTY COMPILE_FLAGS /nologo)
+    set (GUI_RC_FILES res/win/SKVM.rc)
+    set_property(SOURCE res/win/SKVM.rc PROPERTY COMPILE_FLAGS /nologo)
 endif()
 
-add_executable (input-leap WIN32
+add_executable (skvm WIN32
     ${GUI_COMMON_SOURCE_FILES}
     ${GUI_COMMON_HEADER_FILES}
     ${GUI_SOURCE_FILES}
     ${GUI_HEADER_FILES}
     ${GUI_UI_FILES}
     ${GUI_RC_FILES}
-    res/InputLeap.qrc
+    res/SKVM.qrc
 )
 
 include_directories (./src)
 
-target_link_libraries(input-leap
+target_link_libraries(skvm
     net
     arch
     base
@@ -210,38 +210,38 @@ target_link_libraries(input-leap
 )
 
 if (Qt6_FOUND)
-    target_link_libraries(input-leap Qt6::Core5Compat)
+    target_link_libraries(skvm Qt6::Core5Compat)
 endif()
-target_link_libraries(input-leap ${OPENSSL_LIBS})
+target_link_libraries(skvm ${OPENSSL_LIBS})
 
-target_compile_definitions (input-leap PRIVATE -DINPUTLEAP_VERSION_STAGE="${INPUTLEAP_VERSION_STAGE}")
-target_compile_definitions (input-leap PRIVATE -DINPUTLEAP_REVISION="${INPUTLEAP_REVISION}")
+target_compile_definitions (skvm PRIVATE -DSKVM_VERSION_STAGE="${SKVM_VERSION_STAGE}")
+target_compile_definitions (skvm PRIVATE -DSKVM_REVISION="${SKVM_REVISION}")
 
 if (BUILD_MSWINDOWS)
     include_directories ($ENV{BONJOUR_SDK_HOME}/Include)
     find_library (DNSSD_LIB dnssd.lib
                   HINTS ENV BONJOUR_SDK_HOME
                   PATH_SUFFIXES "Lib/x64")
-    set_target_properties (input-leap PROPERTIES LINK_FLAGS "/NODEFAULTLIB:LIBCMT")
-    target_link_libraries (input-leap ${DNSSD_LIB})
+    set_target_properties (skvm PROPERTIES LINK_FLAGS "/NODEFAULTLIB:LIBCMT")
+    target_link_libraries (skvm ${DNSSD_LIB})
 endif()
 if (BUILD_CARBON)
     find_library(APPSERVICES_LIB ApplicationServices)
-    target_link_libraries(input-leap ${APPSERVICES_LIB})
+    target_link_libraries(skvm ${APPSERVICES_LIB})
 endif()
 if (BUILD_XWINDOWS)
-    target_link_libraries (input-leap dns_sd X11 Threads::Threads)
+    target_link_libraries (skvm dns_sd X11 Threads::Threads)
 endif()
 
-target_link_libraries (input-leap common)
+target_link_libraries (skvm common)
 
 if (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
-    install(TARGETS input-leap DESTINATION ${INPUTLEAP_BUNDLE_BINARY_DIR})
+    install(TARGETS skvm DESTINATION ${SKVM_BUNDLE_BINARY_DIR})
 elseif (${CMAKE_SYSTEM_NAME} MATCHES "Linux" OR ${CMAKE_SYSTEM_NAME} MATCHES "BSD")
-    install (TARGETS input-leap DESTINATION bin)
+    install (TARGETS skvm DESTINATION bin)
 endif()
 
-if(INPUTLEAP_BUILD_TESTS)
+if(SKVM_BUILD_TESTS)
     set(GUI_TEST_SOURCE_FILES
         test/KeySequenceTests.cpp
         test/HotkeyTests.cpp

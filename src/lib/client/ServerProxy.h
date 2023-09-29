@@ -18,9 +18,9 @@
 
 #pragma once
 
-#include "inputleap/clipboard_types.h"
-#include "inputleap/key_types.h"
-#include "inputleap/Fwd.h"
+#include "skvm/clipboard_types.h"
+#include "skvm/key_types.h"
+#include "skvm/Fwd.h"
 #include "base/Fwd.h"
 #include "base/Event.h"
 #include "base/EventTarget.h"

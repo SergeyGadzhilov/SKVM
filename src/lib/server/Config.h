@@ -19,9 +19,9 @@
 #pragma once
 
 #include "server/InputFilter.h"
-#include "inputleap/option_types.h"
-#include "inputleap/protocol_types.h"
-#include "inputleap/IPlatformScreen.h"
+#include "skvm/option_types.h"
+#include "skvm/protocol_types.h"
+#include "skvm/IPlatformScreen.h"
 #include "net/NetworkAddress.h"
 #include "base/Fwd.h"
 #include "base/String.h"

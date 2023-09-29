@@ -21,8 +21,8 @@
 
 #include "base/Fwd.h"
 #include "platform/MSWindowsHook.h"
-#include "inputleap/PlatformScreen.h"
-#include "inputleap/DragInformation.h"
+#include "skvm/PlatformScreen.h"
+#include "skvm/DragInformation.h"
 #include "platform/synwinhk.h"
 #include <map>
 #include <string>

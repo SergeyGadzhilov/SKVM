@@ -17,7 +17,7 @@
 
 #define INPUTLEAP_TEST_ENV
 
-#include "inputleap/KeyMap.h"
+#include "skvm/KeyMap.h"
 
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>

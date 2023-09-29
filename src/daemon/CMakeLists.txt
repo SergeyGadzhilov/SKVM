@@ -1,4 +1,5 @@
-# InputLeap -- mouse and keyboard sharing utility
+# SKVM -- mouse and keyboard sharing utility
+# Copyright (C) 2023 Hadzhilov Serhii
 # Copyright (C) 2012-2016 Symless Ltd.
 # Copyright (C) 2012 Nick Bolton
 #
@@ -17,15 +18,15 @@
 file(GLOB headers "*.h")
 file(GLOB sources "*.cpp")
 if (WIN32)
-    list(APPEND sources input-leapd.rc)
-    set_property(SOURCE input-leapd.rc PROPERTY COMPILE_FLAGS /nologo)
+    list(APPEND sources skvmd.rc)
+    set_property(SOURCE skvmd.rc PROPERTY COMPILE_FLAGS /nologo)
 endif()
 
 if (WIN32)
-  add_executable (input-leapd WIN32 ${sources})
+  add_executable (skvmd WIN32 ${sources})
 else()
-  add_executable (input-leapd ${sources})
+  add_executable (skvmd ${sources})
 endif()
 
-target_link_libraries (input-leapd
+target_link_libraries (skvmd
     arch base common io ipc mt net platform synlib ${libs} ${OPENSSL_LIBS})

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2023 Serhii Hadzhilov <gadzhilov.sergey@gmail.com> -->
+<component type="desktop-application">
+  <id>skvm</id>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPLv2</project_license>
+  <name>skvm</name>
+  <summary>Share mouse and keyboard between multiple computers over the network</summary>
+
+  <description>
+    <p>
+      SKVM allows you to share one mouse and keyboard between multiple computers.
+      Work seamlessly across Windows, macOS and Linux.
+    </p>
+  </description>
+
+  <launchable type="desktop-id">skvm.desktop</launchable>
+
+  <url type="homepage">https://github.com/SergeyGadzhilov/skvm</url>
+
+  <provides>
+    <binary>skvm</binary>
+    <binary>skvmc</binary>
+    <binary>skvms</binary>
+  </provides>
+
+  <releases>
+    <release version="${SKVM_VERSION}" date="${SKVM_BUILD_DATE_ISO}" />
+  </releases>
+</component>
+

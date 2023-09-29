@@ -1,4 +1,5 @@
-# InputLeap -- mouse and keyboard sharing utility
+# SKVM -- mouse and keyboard sharing utility
+# Copyright (C) 2023 Hadzhilov Serhii
 # Copyright (C) 2012-2016 Symless Ltd.
 # Copyright (C) 2009 Nick Bolton
 #
@@ -24,4 +25,4 @@ add_subdirectory(mt)
 add_subdirectory(net)
 add_subdirectory(platform)
 add_subdirectory(server)
-add_subdirectory(inputleap)
+add_subdirectory(skvm)

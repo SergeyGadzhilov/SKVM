@@ -20,7 +20,7 @@
 
 #define MAINWINDOW__H
 
-#include "inputleap/AppRole.h"
+#include "skvm/AppRole.h"
 #include "AppConnectionState.h"
 
 #include <QMainWindow>

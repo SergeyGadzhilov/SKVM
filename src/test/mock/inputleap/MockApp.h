@@ -19,8 +19,8 @@
 
 #define INPUTLEAP_TEST_ENV
 
-#include "inputleap/App.h"
-#include "inputleap/Screen.h"
+#include "skvm/App.h"
+#include "skvm/Screen.h"
 
 #include <gmock/gmock.h>
 

@@ -20,7 +20,7 @@
 
 #include "server/ClientProxy.h"
 #include "server/ClientProxyUnknown.h"
-#include "inputleap/PacketStreamFilter.h"
+#include "skvm/PacketStreamFilter.h"
 #include "net/IDataSocket.h"
 #include "net/IListenSocket.h"
 #include "net/ISocketFactory.h"
