@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Developer Studio generated include file.
-// Used by input-leapc.rc
+// Used by skvm.rc
 //
 #define IDS_FAILED                      1
 #define IDS_INIT_FAILED                 2

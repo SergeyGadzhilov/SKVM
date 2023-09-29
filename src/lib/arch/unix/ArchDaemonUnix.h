@@ -37,4 +37,4 @@ public:
 
 } // namespace skvm
 
-#define CONFIG_FILE "/etc/input-leap/input-leapd.conf"
+#define CONFIG_FILE "/etc/skvm/skvm.conf"
