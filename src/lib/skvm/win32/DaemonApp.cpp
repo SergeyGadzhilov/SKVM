@@ -268,7 +268,7 @@ void DaemonApp::handle_ipc_message(const Event& e)
                 ServerArgs serverArgs;
                 ClientArgs clientArgs;
                 int argc = static_cast<int>(argsArray.size());
-                bool server = argsArray[0].find("input-leaps") != std::string::npos ? true : false;
+                bool server = argsArray[0].find("skvms") != std::string::npos ? true : false;
                 ArgsBase* argBase = nullptr;
 
                 if (server) {

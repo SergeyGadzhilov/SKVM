@@ -194,7 +194,7 @@ private:
 #  define HELP_SYS_INFO \
     "      --service <action>   manage the windows service, valid options are:\n" \
     "                             install/uninstall/start/stop\n" \
-    "                             (obsolete, use input-leapd instead)\n" \
+    "                             (obsolete, use skvmd instead)\n" \
     "      --exit-pause         wait for key press on exit, can be useful for\n" \
     "                             reading error messages that occur on exit.\n"
 #endif

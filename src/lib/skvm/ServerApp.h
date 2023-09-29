@@ -118,11 +118,11 @@ private:
 
 // configuration file name
 #if SYSAPI_WIN32
-#define USR_CONFIG_NAME "input-leap.sgc"
-#define SYS_CONFIG_NAME "input-leap.sgc"
+#define USR_CONFIG_NAME "skvm.sgc"
+#define SYS_CONFIG_NAME "skvm.sgc"
 #elif SYSAPI_UNIX
-#define USR_CONFIG_NAME ".input-leap.conf"
-#define SYS_CONFIG_NAME "input-leap.conf"
+#define USR_CONFIG_NAME "skvm.conf"
+#define SYS_CONFIG_NAME "skvm.conf"
 #endif
 
 } // namespace inputleap

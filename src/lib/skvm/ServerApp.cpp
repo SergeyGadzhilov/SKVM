@@ -840,9 +840,9 @@ const char*
 ServerApp::daemonName() const
 {
 #if SYSAPI_WIN32
-    return "InputLeap Server";
+    return "SKVM Server";
 #elif SYSAPI_UNIX
-    return "input-leaps";
+    return "skvms";
 #endif
 }
 

@@ -155,9 +155,9 @@ const char*
 ClientApp::daemonName() const
 {
 #if SYSAPI_WIN32
-    return "InputLeap Client";
+    return "SKVM Client";
 #elif SYSAPI_UNIX
-    return "input-leapc";
+    return "skvmc";
 #endif
 }
 

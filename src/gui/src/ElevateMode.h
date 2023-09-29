@@ -18,10 +18,10 @@
 #pragma once
 
 // The elevate mode tristate determines two behaviours on Windows.
-// The first, switch-on-desk-switch (SodS), passed through input-leapd as a
+// The first, switch-on-desk-switch (SodS), passed through skvmd as a
 // command line argument to InputLeap core, determines if the server restarts
 // when switching Windows desktops (e.g. when Windows UAC dialog pops up).
-// The second, passed as a boolean flag to input-leapd over the IPC inside
+// The second, passed as a boolean flag to skvmd over the IPC inside
 // kIpcCommandMessage, determines whether InputLeap should be started with
 // elevated privileges.
 //
