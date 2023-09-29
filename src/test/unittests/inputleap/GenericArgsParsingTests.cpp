@@ -17,7 +17,7 @@
 
 #include "skvm/ArgParser.h"
 #include "skvm/ArgsBase.h"
-#include "test/mock/inputleap/MockApp.h"
+#include "test/mock/skvm/MockApp.h"
 
 #include <gtest/gtest.h>
 

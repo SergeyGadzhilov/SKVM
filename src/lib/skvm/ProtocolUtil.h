@@ -28,7 +28,7 @@ namespace skvm {
 class IStream;
 
 /**
-This class provides various functions for implementing the inputleap protocol.
+This class provides various functions for implementing the skvm protocol.
 */
 class ProtocolUtil {
 public:

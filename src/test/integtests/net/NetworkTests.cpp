@@ -22,7 +22,7 @@
 
 #include "test/mock/server/MockConfig.h"
 #include "test/mock/server/MockPrimaryClient.h"
-#include "test/mock/inputleap/MockScreen.h"
+#include "test/mock/skvm/MockScreen.h"
 #include "test/mock/server/MockInputFilter.h"
 #include "test/global/TestEventQueue.h"
 #include "server/Server.h"

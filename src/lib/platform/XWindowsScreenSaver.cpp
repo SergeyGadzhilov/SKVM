@@ -19,7 +19,7 @@
 #include "platform/XWindowsScreenSaver.h"
 
 #include "platform/XWindowsUtil.h"
-#include "inputleap/IPlatformScreen.h"
+#include "skvm/IPlatformScreen.h"
 #include "base/Log.h"
 #include "base/Event.h"
 #include "base/IEventQueue.h"

@@ -22,7 +22,7 @@
 #include "base/IEventQueueBuffer.h"
 #include "mt/Thread.h"
 #include "platform/EiScreen.h"
-#include "inputleap/IScreen.h"
+#include "skvm/IScreen.h"
 
 #include <libei.h>
 

@@ -18,8 +18,8 @@
 
 #define SKVM_TEST_ENV
 
-#include "test/mock/inputleap/MockEventQueue.h"
-#include "test/mock/inputleap/MockKeyMap.h"
+#include "test/mock/skvm/MockEventQueue.h"
+#include "test/mock/skvm/MockKeyMap.h"
 #include "platform/MSWindowsKeyState.h"
 #include "platform/MSWindowsDesks.h"
 #include "platform/MSWindowsScreen.h"

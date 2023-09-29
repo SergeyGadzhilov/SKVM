@@ -20,8 +20,8 @@
 
 #include "config.h"
 
-#include "inputleap/PlatformScreen.h"
-#include "inputleap/KeyMap.h"
+#include "skvm/PlatformScreen.h"
+#include "skvm/KeyMap.h"
 #include "XWindowsImpl.h"
 
 #include <X11/Xlib.h>

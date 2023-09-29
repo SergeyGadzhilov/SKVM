@@ -19,8 +19,8 @@
 
 #include "config.h"
 
-#include "inputleap/PlatformScreen.h"
-#include "inputleap/KeyMap.h"
+#include "skvm/PlatformScreen.h"
+#include "skvm/KeyMap.h"
 #include <set>
 #include <mutex>
 #include <vector>

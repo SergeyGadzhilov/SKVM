@@ -17,7 +17,7 @@
 
 #include "skvm/ArgParser.h"
 #include "skvm/ServerArgs.h"
-#include "test/mock/inputleap/MockArgParser.h"
+#include "test/mock/skvm/MockArgParser.h"
 
 #include <gtest/gtest.h>
 

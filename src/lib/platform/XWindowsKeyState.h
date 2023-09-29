@@ -21,7 +21,7 @@
 #include "config.h"
 
 #include "base/Fwd.h"
-#include "inputleap/KeyState.h"
+#include "skvm/KeyState.h"
 #include "XWindowsImpl.h"
 
 #include <X11/Xlib.h>

@@ -20,7 +20,7 @@
 
 #include "config.h"
 
-#include "inputleap/IScreenSaver.h"
+#include "skvm/IScreenSaver.h"
 #include "base/Fwd.h"
 #include "base/EventTarget.h"
 #include "XWindowsImpl.h"

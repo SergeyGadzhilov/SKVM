@@ -18,8 +18,8 @@
 
 #pragma once
 
-#include "inputleap/clipboard_types.h"
-#include "inputleap/IClipboard.h"
+#include "skvm/clipboard_types.h"
+#include "skvm/IClipboard.h"
 #include "XWindowsImpl.h"
 
 #include <X11/Xlib.h>
