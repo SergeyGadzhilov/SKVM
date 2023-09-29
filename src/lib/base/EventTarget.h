@@ -14,8 +14,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef INPUTLEAP_LIB_BASE_EVENT_TARGET_H
-#define INPUTLEAP_LIB_BASE_EVENT_TARGET_H
+#ifndef SKVM_LIB_BASE_EVENT_TARGET_H
+#define SKVM_LIB_BASE_EVENT_TARGET_H
 
 #include "Fwd.h"
 #include "EventTypes.h"
@@ -43,4 +43,4 @@ private:
 
 } // namespace skvm
 
-#endif // INPUTLEAP_LIB_BASE_EVENT_TARGET_H
+#endif // SKVM_LIB_BASE_EVENT_TARGET_H

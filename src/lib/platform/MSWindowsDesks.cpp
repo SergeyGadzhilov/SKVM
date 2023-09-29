@@ -67,29 +67,29 @@ namespace skvm {
 #endif
 
 // <unused>; <unused>
-#define INPUTLEAP_MSG_SWITCH INPUTLEAP_HOOK_LAST_MSG + 1
+#define SKVM_MSG_SWITCH SKVM_HOOK_LAST_MSG + 1
 // <unused>; <unused>
-#define INPUTLEAP_MSG_ENTER INPUTLEAP_HOOK_LAST_MSG + 2
+#define SKVM_MSG_ENTER SKVM_HOOK_LAST_MSG + 2
 // <unused>; <unused>
-#define INPUTLEAP_MSG_LEAVE INPUTLEAP_HOOK_LAST_MSG + 3
+#define SKVM_MSG_LEAVE SKVM_HOOK_LAST_MSG + 3
 // wParam = flags, HIBYTE(lParam) = virtual key, LOBYTE(lParam) = scan code
-#define INPUTLEAP_MSG_FAKE_KEY INPUTLEAP_HOOK_LAST_MSG + 4
+#define SKVM_MSG_FAKE_KEY SKVM_HOOK_LAST_MSG + 4
  // flags, XBUTTON id
-#define INPUTLEAP_MSG_FAKE_BUTTON INPUTLEAP_HOOK_LAST_MSG + 5
+#define SKVM_MSG_FAKE_BUTTON SKVM_HOOK_LAST_MSG + 5
 // x; y
-#define INPUTLEAP_MSG_FAKE_MOVE INPUTLEAP_HOOK_LAST_MSG + 6
+#define SKVM_MSG_FAKE_MOVE SKVM_HOOK_LAST_MSG + 6
 // xDelta; yDelta
-#define INPUTLEAP_MSG_FAKE_WHEEL INPUTLEAP_HOOK_LAST_MSG + 7
+#define SKVM_MSG_FAKE_WHEEL SKVM_HOOK_LAST_MSG + 7
 // POINT*; <unused>
-#define INPUTLEAP_MSG_CURSOR_POS INPUTLEAP_HOOK_LAST_MSG + 8
+#define SKVM_MSG_CURSOR_POS SKVM_HOOK_LAST_MSG + 8
 // IKeyState*; <unused>
-#define INPUTLEAP_MSG_SYNC_KEYS INPUTLEAP_HOOK_LAST_MSG + 9
+#define SKVM_MSG_SYNC_KEYS SKVM_HOOK_LAST_MSG + 9
 // install; <unused>
-#define INPUTLEAP_MSG_SCREENSAVER INPUTLEAP_HOOK_LAST_MSG + 10
+#define SKVM_MSG_SCREENSAVER SKVM_HOOK_LAST_MSG + 10
 // dx; dy
-#define INPUTLEAP_MSG_FAKE_REL_MOVE INPUTLEAP_HOOK_LAST_MSG + 11
+#define SKVM_MSG_FAKE_REL_MOVE SKVM_HOOK_LAST_MSG + 11
 // enable; <unused>
-#define INPUTLEAP_MSG_FAKE_INPUT INPUTLEAP_HOOK_LAST_MSG + 12
+#define SKVM_MSG_FAKE_INPUT SKVM_HOOK_LAST_MSG + 12
 
 //
 // MSWindowsDesks
@@ -165,13 +165,13 @@ MSWindowsDesks::disable()
 void
 MSWindowsDesks::enter()
 {
-    sendMessage(INPUTLEAP_MSG_ENTER, 0, 0);
+    sendMessage(SKVM_MSG_ENTER, 0, 0);
 }
 
 void
 MSWindowsDesks::leave(HKL keyLayout)
 {
-    sendMessage(INPUTLEAP_MSG_LEAVE, (WPARAM)keyLayout, 0);
+    sendMessage(SKVM_MSG_LEAVE, (WPARAM)keyLayout, 0);
 }
 
 void
@@ -194,7 +194,7 @@ MSWindowsDesks::setOptions(const OptionsList& options)
 void
 MSWindowsDesks::updateKeys()
 {
-    sendMessage(INPUTLEAP_MSG_SYNC_KEYS, 0, 0);
+    sendMessage(SKVM_MSG_SYNC_KEYS, 0, 0);
 }
 
 void MSWindowsDesks::setShape(std::int32_t x, std::int32_t y, std::int32_t width,
@@ -215,26 +215,26 @@ MSWindowsDesks::installScreensaverHooks(bool install)
 {
     if (m_isPrimary && m_screensaverNotify != install) {
         m_screensaverNotify = install;
-        sendMessage(INPUTLEAP_MSG_SCREENSAVER, install, 0);
+        sendMessage(SKVM_MSG_SCREENSAVER, install, 0);
     }
 }
 
 void
 MSWindowsDesks::fakeInputBegin()
 {
-    sendMessage(INPUTLEAP_MSG_FAKE_INPUT, 1, 0);
+    sendMessage(SKVM_MSG_FAKE_INPUT, 1, 0);
 }
 
 void
 MSWindowsDesks::fakeInputEnd()
 {
-    sendMessage(INPUTLEAP_MSG_FAKE_INPUT, 0, 0);
+    sendMessage(SKVM_MSG_FAKE_INPUT, 0, 0);
 }
 
 void MSWindowsDesks::getCursorPos(std::int32_t& x, std::int32_t& y) const
 {
     POINT pos;
-    sendMessage(INPUTLEAP_MSG_CURSOR_POS, reinterpret_cast<WPARAM>(&pos), 0);
+    sendMessage(SKVM_MSG_CURSOR_POS, reinterpret_cast<WPARAM>(&pos), 0);
     x = pos.x;
     y = pos.y;
 }
@@ -252,7 +252,7 @@ MSWindowsDesks::fakeKeyEvent(
     if (!press) {
         flags |= KEYEVENTF_KEYUP;
     }
-    sendMessage(INPUTLEAP_MSG_FAKE_KEY, flags,
+    sendMessage(SKVM_MSG_FAKE_KEY, flags,
                             MAKEWORD(static_cast<BYTE>(button & 0xffu),
                                 static_cast<BYTE>(virtualKey & 0xffu)));
 }
@@ -307,26 +307,26 @@ MSWindowsDesks::fakeMouseButton(ButtonID button, bool press)
     }
 
     // do it
-    sendMessage(INPUTLEAP_MSG_FAKE_BUTTON, flags, data);
+    sendMessage(SKVM_MSG_FAKE_BUTTON, flags, data);
 }
 
 void MSWindowsDesks::fakeMouseMove(std::int32_t x, std::int32_t y) const
 {
-    sendMessage(INPUTLEAP_MSG_FAKE_MOVE,
+    sendMessage(SKVM_MSG_FAKE_MOVE,
                             static_cast<WPARAM>(x),
                             static_cast<LPARAM>(y));
 }
 
 void MSWindowsDesks::fakeMouseRelativeMove(std::int32_t dx, std::int32_t dy) const
 {
-    sendMessage(INPUTLEAP_MSG_FAKE_REL_MOVE,
+    sendMessage(SKVM_MSG_FAKE_REL_MOVE,
                             static_cast<WPARAM>(dx),
                             static_cast<LPARAM>(dy));
 }
 
 void MSWindowsDesks::fakeMouseWheel(std::int32_t xDelta, std::int32_t yDelta) const
 {
-    sendMessage(INPUTLEAP_MSG_FAKE_WHEEL, xDelta, yDelta);
+    sendMessage(SKVM_MSG_FAKE_WHEEL, xDelta, yDelta);
 }
 
 void
@@ -625,7 +625,7 @@ void MSWindowsDesks::desk_thread(Desk* desk)
             DispatchMessage(&msg);
             continue;
 
-        case INPUTLEAP_MSG_SWITCH:
+        case SKVM_MSG_SWITCH:
             if (m_isPrimary && !m_noHooks) {
                 MSWindowsHook::uninstall();
                 if (m_screensaverNotify) {
@@ -643,38 +643,38 @@ void MSWindowsDesks::desk_thread(Desk* desk)
             }
             break;
 
-        case INPUTLEAP_MSG_ENTER:
+        case SKVM_MSG_ENTER:
             m_isOnScreen = true;
             deskEnter(desk);
             break;
 
-        case INPUTLEAP_MSG_LEAVE:
+        case SKVM_MSG_LEAVE:
             m_isOnScreen = false;
             m_keyLayout  = (HKL)msg.wParam;
             deskLeave(desk, m_keyLayout);
             break;
 
-        case INPUTLEAP_MSG_FAKE_KEY:
+        case SKVM_MSG_FAKE_KEY:
             keybd_event(HIBYTE(msg.lParam), LOBYTE(msg.lParam), (DWORD)msg.wParam, 0);
             break;
 
-        case INPUTLEAP_MSG_FAKE_BUTTON:
+        case SKVM_MSG_FAKE_BUTTON:
             if (msg.wParam != 0) {
                 mouse_event((DWORD)msg.wParam, 0, 0, (DWORD)msg.lParam, 0);
             }
             break;
 
-        case INPUTLEAP_MSG_FAKE_MOVE:
+        case SKVM_MSG_FAKE_MOVE:
             deskMouseMove(static_cast<std::int32_t>(msg.wParam),
                           static_cast<std::int32_t>(msg.lParam));
             break;
 
-        case INPUTLEAP_MSG_FAKE_REL_MOVE:
+        case SKVM_MSG_FAKE_REL_MOVE:
             deskMouseRelativeMove(static_cast<std::int32_t>(msg.wParam),
                                   static_cast<std::int32_t>(msg.lParam));
             break;
 
-        case INPUTLEAP_MSG_FAKE_WHEEL:
+        case SKVM_MSG_FAKE_WHEEL:
             if (msg.lParam != 0) {
                 mouse_event(MOUSEEVENTF_WHEEL, 0, 0, (DWORD)msg.lParam, 0);
             }
@@ -683,7 +683,7 @@ void MSWindowsDesks::desk_thread(Desk* desk)
             }
             break;
 
-        case INPUTLEAP_MSG_CURSOR_POS: {
+        case SKVM_MSG_CURSOR_POS: {
             POINT* pos = reinterpret_cast<POINT*>(msg.wParam);
             if (!GetCursorPos(pos)) {
                 pos->x = m_xCenter;
@@ -692,11 +692,11 @@ void MSWindowsDesks::desk_thread(Desk* desk)
             break;
         }
 
-        case INPUTLEAP_MSG_SYNC_KEYS:
+        case SKVM_MSG_SYNC_KEYS:
             m_updateKeys();
             break;
 
-        case INPUTLEAP_MSG_SCREENSAVER:
+        case SKVM_MSG_SCREENSAVER:
             if (!m_noHooks) {
                 if (msg.wParam != 0) {
                     MSWindowsHook::installScreenSaver();
@@ -707,9 +707,9 @@ void MSWindowsDesks::desk_thread(Desk* desk)
             }
             break;
 
-        case INPUTLEAP_MSG_FAKE_INPUT:
-            keybd_event(INPUTLEAP_HOOK_FAKE_INPUT_VIRTUAL_KEY,
-                        INPUTLEAP_HOOK_FAKE_INPUT_SCANCODE,
+        case SKVM_MSG_FAKE_INPUT:
+            keybd_event(SKVM_HOOK_FAKE_INPUT_VIRTUAL_KEY,
+                        SKVM_HOOK_FAKE_INPUT_SCANCODE,
                         msg.wParam ? 0 : KEYEVENTF_KEYUP, 0);
             break;
         }
@@ -793,7 +793,7 @@ MSWindowsDesks::checkDesk()
         // show cursor on previous desk
         bool wasOnScreen = m_isOnScreen;
         if (!wasOnScreen) {
-            sendMessage(INPUTLEAP_MSG_ENTER, 0, 0);
+            sendMessage(SKVM_MSG_ENTER, 0, 0);
         }
 
         // check for desk accessibility change.  we don't get events
@@ -816,11 +816,11 @@ MSWindowsDesks::checkDesk()
         // switch desk
         m_activeDesk     = desk;
         m_activeDeskName = name;
-        sendMessage(INPUTLEAP_MSG_SWITCH, 0, 0);
+        sendMessage(SKVM_MSG_SWITCH, 0, 0);
 
         // hide cursor on new desk
         if (!wasOnScreen) {
-            sendMessage(INPUTLEAP_MSG_LEAVE, (WPARAM)m_keyLayout, 0);
+            sendMessage(SKVM_MSG_LEAVE, (WPARAM)m_keyLayout, 0);
         }
 
         // update keys if necessary
@@ -830,7 +830,7 @@ MSWindowsDesks::checkDesk()
     }
     else if (name != m_activeDeskName) {
         // screen saver might have started
-        PostThreadMessage(m_threadID, INPUTLEAP_MSG_SCREEN_SAVER, TRUE, 0);
+        PostThreadMessage(m_threadID, SKVM_MSG_SCREEN_SAVER, TRUE, 0);
     }
 }
 
@@ -859,7 +859,7 @@ void MSWindowsDesks::handle_check_desk()
     if (m_isPrimary) {
         BOOL running;
         SystemParametersInfo(SPI_GETSCREENSAVERRUNNING, 0, &running, FALSE);
-        PostThreadMessage(m_threadID, INPUTLEAP_MSG_SCREEN_SAVER, running, 0);
+        PostThreadMessage(m_threadID, SKVM_MSG_SCREEN_SAVER, running, 0);
     }
 }
 

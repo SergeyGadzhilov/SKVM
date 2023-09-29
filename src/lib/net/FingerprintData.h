@@ -15,8 +15,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef INPUTLEAP_LIB_NET_FINGERPRINT_DATA_H
-#define INPUTLEAP_LIB_NET_FINGERPRINT_DATA_H
+#ifndef SKVM_LIB_NET_FINGERPRINT_DATA_H
+#define SKVM_LIB_NET_FINGERPRINT_DATA_H
 
 #include <cstdint>
 #include <string>
@@ -44,4 +44,4 @@ FingerprintType fingerprint_type_from_string(const std::string& type);
 
 } // namespace skvm
 
-#endif // INPUTLEAP_LIB_NET_FINGERPRINT_DATA_H
+#endif // SKVM_LIB_NET_FINGERPRINT_DATA_H

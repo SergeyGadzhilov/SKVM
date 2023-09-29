@@ -30,7 +30,7 @@ AboutDialog::AboutDialog(QWidget* parent, const QString& app_name) :
 
     QString version = kVersion;
     version = version + '-' + SKVM_VERSION_STAGE;
-#ifdef INPUTLEAP_REVISION
+#ifdef SKVM_REVISION
     version +=  '-';
     version += SKVM_REVISION;
 #endif

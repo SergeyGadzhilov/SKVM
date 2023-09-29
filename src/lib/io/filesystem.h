@@ -15,8 +15,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef INPUTLEAP_LIB_IO_FILESYSTEM_H
-#define INPUTLEAP_LIB_IO_FILESYSTEM_H
+#ifndef SKVM_LIB_IO_FILESYSTEM_H
+#define SKVM_LIB_IO_FILESYSTEM_H
 
 #include <cstdio>
 #include <iosfwd>
@@ -38,4 +38,4 @@ std::FILE* fopen_utf8_path(const fs::path& path, const std::string& mode);
 
 } // namespace skvm
 
-#endif // INPUTLEAP_LIB_IO_FILESYSTEM_H
+#endif // SKVM_LIB_IO_FILESYSTEM_H

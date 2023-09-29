@@ -522,8 +522,8 @@ void MSWindowsScreen::warpCursor(std::int32_t x, std::int32_t y)
 
     // remove all input events before and including warp
     MSG msg;
-    while (PeekMessage(&msg, nullptr, INPUTLEAP_MSG_INPUT_FIRST,
-                                INPUTLEAP_MSG_INPUT_LAST, PM_REMOVE)) {
+    while (PeekMessage(&msg, nullptr, SKVM_MSG_INPUT_FIRST,
+                                SKVM_MSG_INPUT_LAST, PM_REMOVE)) {
         // do nothing
     }
 
@@ -924,10 +924,10 @@ MSWindowsScreen::onPreDispatch(HWND hwnd,
 {
     // handle event
     switch (message) {
-    case INPUTLEAP_MSG_SCREEN_SAVER:
+    case SKVM_MSG_SCREEN_SAVER:
         return onScreensaver(wParam != 0);
 
-    case INPUTLEAP_MSG_DEBUG:
+    case SKVM_MSG_DEBUG:
         LOG((CLOG_DEBUG1 "hook: 0x%08x 0x%08x", wParam, lParam));
         return true;
     }
@@ -947,22 +947,22 @@ MSWindowsScreen::onPreDispatchPrimary(HWND,
 
     // handle event
     switch (message) {
-    case INPUTLEAP_MSG_MARK:
+    case SKVM_MSG_MARK:
         return onMark(static_cast<std::uint32_t>(wParam));
 
-    case INPUTLEAP_MSG_KEY:
+    case SKVM_MSG_KEY:
         return onKey(wParam, lParam);
 
-    case INPUTLEAP_MSG_MOUSE_BUTTON:
+    case SKVM_MSG_MOUSE_BUTTON:
         return onMouseButton(wParam, lParam);
 
-    case INPUTLEAP_MSG_MOUSE_MOVE:
+    case SKVM_MSG_MOUSE_MOVE:
         return onMouseMove(static_cast<std::int32_t>(wParam), static_cast<std::int32_t>(lParam));
 
-    case INPUTLEAP_MSG_MOUSE_WHEEL:
+    case SKVM_MSG_MOUSE_WHEEL:
         return onMouseWheel(static_cast<std::int32_t>(lParam), static_cast<std::int32_t>(wParam));
 
-    case INPUTLEAP_MSG_PRE_WARP:
+    case SKVM_MSG_PRE_WARP:
         {
             // save position to compute delta of next motion
             saveMousePosition(static_cast<std::int32_t>(wParam), static_cast<std::int32_t>(lParam));
@@ -974,13 +974,13 @@ MSWindowsScreen::onPreDispatchPrimary(HWND,
             // event.
             MSG msg;
             do {
-                GetMessage(&msg, nullptr, INPUTLEAP_MSG_MOUSE_MOVE,
-                                        INPUTLEAP_MSG_POST_WARP);
-            } while (msg.message != INPUTLEAP_MSG_POST_WARP);
+                GetMessage(&msg, nullptr, SKVM_MSG_MOUSE_MOVE,
+                                        SKVM_MSG_POST_WARP);
+            } while (msg.message != SKVM_MSG_POST_WARP);
         }
         return true;
 
-    case INPUTLEAP_MSG_POST_WARP:
+    case SKVM_MSG_POST_WARP:
         LOG((CLOG_WARN "unmatched post warp"));
         return true;
 
@@ -1374,14 +1374,14 @@ MSWindowsScreen::onScreensaver(bool activated)
     // send SC_SCREENSAVE until the screen saver starts, even if
     // the screen saver is disabled!
     MSG msg;
-    if (PeekMessage(&msg, nullptr, INPUTLEAP_MSG_SCREEN_SAVER,
-                        INPUTLEAP_MSG_SCREEN_SAVER, PM_NOREMOVE)) {
+    if (PeekMessage(&msg, nullptr, SKVM_MSG_SCREEN_SAVER,
+                        SKVM_MSG_SCREEN_SAVER, PM_NOREMOVE)) {
         return true;
     }
 
     if (activated) {
         if (!m_screensaverActive &&
-            m_screensaver->checkStarted(INPUTLEAP_MSG_SCREEN_SAVER, FALSE, 0)) {
+            m_screensaver->checkStarted(SKVM_MSG_SCREEN_SAVER, FALSE, 0)) {
             m_screensaverActive = true;
             sendEvent(EventType::PRIMARY_SCREEN_SAVER_ACTIVATED);
 
@@ -1460,7 +1460,7 @@ MSWindowsScreen::onClipboardChange()
 void MSWindowsScreen::warpCursorNoFlush(std::int32_t x, std::int32_t y)
 {
     // send an event that we can recognize before the mouse warp
-    PostThreadMessage(GetCurrentThreadId(), INPUTLEAP_MSG_PRE_WARP, x, y);
+    PostThreadMessage(GetCurrentThreadId(), SKVM_MSG_PRE_WARP, x, y);
 
     // warp mouse.  hopefully this inserts a mouse motion event
     // between the previous message and the following message.
@@ -1508,7 +1508,7 @@ void MSWindowsScreen::warpCursorNoFlush(std::int32_t x, std::int32_t y)
     skvm::this_thread_sleep(0.0);
 
     // send an event that we can recognize after the mouse warp
-    PostThreadMessage(GetCurrentThreadId(), INPUTLEAP_MSG_POST_WARP, 0, 0);
+    PostThreadMessage(GetCurrentThreadId(), SKVM_MSG_POST_WARP, 0, 0);
 }
 
 void
@@ -1518,7 +1518,7 @@ MSWindowsScreen::nextMark()
     ++m_mark;
 
     // mark point in message queue where the mark was changed
-    PostThreadMessage(GetCurrentThreadId(), INPUTLEAP_MSG_MARK, m_mark, 0);
+    PostThreadMessage(GetCurrentThreadId(), SKVM_MSG_MARK, m_mark, 0);
 }
 
 bool

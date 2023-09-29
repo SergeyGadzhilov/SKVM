@@ -14,8 +14,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef INPUTLEAP_LIB_PLATFORM_EI_EVENT_QUEUE_BUFFER_H
-#define INPUTLEAP_LIB_PLATFORM_EI_EVENT_QUEUE_BUFFER_H
+#ifndef SKVM_LIB_PLATFORM_EI_EVENT_QUEUE_BUFFER_H
+#define SKVM_LIB_PLATFORM_EI_EVENT_QUEUE_BUFFER_H
 
 #include "config.h"
 
@@ -55,4 +55,4 @@ private:
 
 } // namespace skvm
 
-#endif // INPUTLEAP_LIB_PLATFORM_EI_EVENT_QUEUE_BUFFER_H
+#endif // SKVM_LIB_PLATFORM_EI_EVENT_QUEUE_BUFFER_H

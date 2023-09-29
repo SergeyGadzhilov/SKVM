@@ -17,7 +17,7 @@
 
 #pragma once
 
-#define INPUTLEAP_TEST_ENV
+#define SKVM_TEST_ENV
 
 #include "base/EventTarget.h"
 #include "skvm/Screen.h"

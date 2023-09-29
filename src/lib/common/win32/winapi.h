@@ -15,8 +15,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef INPUTLEAP_LIB_COMMON_WIN32_WINAPI_H
-#define INPUTLEAP_LIB_COMMON_WIN32_WINAPI_H
+#ifndef SKVM_LIB_COMMON_WIN32_WINAPI_H
+#define SKVM_LIB_COMMON_WIN32_WINAPI_H
 
 #ifndef WIN32_LEAN_AND_MEAN
 #define WIN32_LEAN_AND_MEAN
@@ -32,4 +32,4 @@
 
 #include <Windows.h>
 
-#endif // INPUTLEAP_LIB_COMMON_WIN32_WINAPI_H
+#endif // SKVM_LIB_COMMON_WIN32_WINAPI_H

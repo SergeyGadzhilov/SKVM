@@ -15,8 +15,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef INPUTLEAP_GUI_FINGERPRINT_ACCEPT_DIALOG_H
-#define INPUTLEAP_GUI_FINGERPRINT_ACCEPT_DIALOG_H
+#ifndef SKVM_GUI_FINGERPRINT_ACCEPT_DIALOG_H
+#define SKVM_GUI_FINGERPRINT_ACCEPT_DIALOG_H
 
 #include "net/FingerprintData.h"
 #include "skvm/AppRole.h"
@@ -42,4 +42,4 @@ private:
     std::unique_ptr<Ui::FingerprintAcceptDialog> ui_;
 };
 
-#endif // INPUTLEAP_GUI_FINGERPRINT_ACCEPT_DIALOG_H
+#endif // SKVM_GUI_FINGERPRINT_ACCEPT_DIALOG_H

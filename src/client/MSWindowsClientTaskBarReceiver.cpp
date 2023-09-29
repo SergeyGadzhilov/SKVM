@@ -359,11 +359,11 @@ createTaskBarReceiver(const BufferedLogOutputter* logBuffer, IEventQueue* events
 {
     ArchMiscWindows::setIcons(
         (HICON)LoadImage(ArchMiscWindows::instanceWin32(),
-        MAKEINTRESOURCE(IDI_INPUTLEAP),
+        MAKEINTRESOURCE(IDI_SKVM),
         IMAGE_ICON,
         32, 32, LR_SHARED),
         (HICON)LoadImage(ArchMiscWindows::instanceWin32(),
-        MAKEINTRESOURCE(IDI_INPUTLEAP),
+        MAKEINTRESOURCE(IDI_SKVM),
         IMAGE_ICON,
         16, 16, LR_SHARED));
 

@@ -15,8 +15,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef INPUTLEAP_LIB_BASE_TIME_H
-#define INPUTLEAP_LIB_BASE_TIME_H
+#ifndef SKVM_LIB_BASE_TIME_H
+#define SKVM_LIB_BASE_TIME_H
 
 namespace skvm {
 
@@ -39,4 +39,4 @@ double current_time_seconds();
 
 } // namespace skvm
 
-#endif // INPUTLEAP_LIB_NET_SECUREUTILS_H
+#endif // SKVM_LIB_NET_SECUREUTILS_H

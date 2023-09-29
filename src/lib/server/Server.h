@@ -116,7 +116,7 @@ public:
         skvm::Screen* screen, IEventQueue* events, ServerArgs const& args);
     ~Server();
 
-#ifdef INPUTLEAP_TEST_ENV
+#ifdef SKVM_TEST_ENV
     Server() : m_mock(true), m_config(nullptr) { }
     void setActive(BaseClientProxy* active) { m_active = active; }
 #endif

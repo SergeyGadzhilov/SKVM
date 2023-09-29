@@ -40,7 +40,7 @@ public:
     PrimaryClient(const std::string& name, skvm::Screen* screen);
     ~PrimaryClient();
 
-#ifdef INPUTLEAP_TEST_ENV
+#ifdef SKVM_TEST_ENV
     PrimaryClient() : BaseClientProxy("") { }
 #endif
 

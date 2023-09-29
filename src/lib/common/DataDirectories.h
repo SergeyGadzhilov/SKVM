@@ -15,8 +15,8 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef INPUTLEAP_LIB_COMMON_DATA_DIRECTORIES_H
-#define INPUTLEAP_LIB_COMMON_DATA_DIRECTORIES_H
+#ifndef SKVM_LIB_COMMON_DATA_DIRECTORIES_H
+#define SKVM_LIB_COMMON_DATA_DIRECTORIES_H
 
 #include "io/filesystem.h"
 

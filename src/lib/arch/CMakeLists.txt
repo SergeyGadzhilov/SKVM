@@ -18,7 +18,7 @@
 file(GLOB headers "*.h")
 file(GLOB sources "*.cpp")
 
-if(INPUTLEAP_ADD_HEADERS)
+if(SKVM_ADD_HEADERS)
     list(APPEND sources ${headers})
 endif()
 
@@ -34,7 +34,7 @@ endif()
 list(APPEND sources ${arch_sources})
 list(APPEND headers ${arch_headers})
 
-if(INPUTLEAP_ADD_HEADERS)
+if(SKVM_ADD_HEADERS)
     list(APPEND sources ${headers})
 endif()
 

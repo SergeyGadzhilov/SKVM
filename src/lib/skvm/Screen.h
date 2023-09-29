@@ -41,7 +41,7 @@ public:
     Screen(std::unique_ptr<IPlatformScreen> platform_screen, IEventQueue* events);
     virtual ~Screen();
 
-#ifdef INPUTLEAP_TEST_ENV
+#ifdef SKVM_TEST_ENV
     Screen() : m_mock(true) { }
 #endif
 

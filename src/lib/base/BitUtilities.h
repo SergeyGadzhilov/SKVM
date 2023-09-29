@@ -15,8 +15,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef INPUTLEAP_LIB_BASE_BIT_UTILITIES_H
-#define INPUTLEAP_LIB_BASE_BIT_UTILITIES_H
+#ifndef SKVM_LIB_BASE_BIT_UTILITIES_H
+#define SKVM_LIB_BASE_BIT_UTILITIES_H
 
 #include <cstdint>
 
@@ -83,4 +83,4 @@ inline std::uint32_t load_little_endian_u32(const std::uint8_t* data)
 
 } // namespace skvm
 
-#endif // INPUTLEAP_LIB_BASE_BIT_UTILITIES_H
+#endif // SKVM_LIB_BASE_BIT_UTILITIES_H

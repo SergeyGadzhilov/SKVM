@@ -160,11 +160,11 @@ keyboardHookHandler(WPARAM wParam, LPARAM lParam)
     // passing events through and not report them to the server.  this
     // is used to allow the server to synthesize events locally but
     // not pick them up as user events.
-    if (wParam == INPUTLEAP_HOOK_FAKE_INPUT_VIRTUAL_KEY &&
-        ((lParam >> 16) & 0xffu) == INPUTLEAP_HOOK_FAKE_INPUT_SCANCODE) {
+    if (wParam == SKVM_HOOK_FAKE_INPUT_VIRTUAL_KEY &&
+        ((lParam >> 16) & 0xffu) == SKVM_HOOK_FAKE_INPUT_SCANCODE) {
         // update flag
         g_fakeServerInput = ((lParam & 0x80000000u) == 0);
-        PostThreadMessage(g_threadID, INPUTLEAP_MSG_DEBUG,
+        PostThreadMessage(g_threadID, SKVM_MSG_DEBUG,
             0xff000000u | wParam, lParam);
 
         // discard event
@@ -174,7 +174,7 @@ keyboardHookHandler(WPARAM wParam, LPARAM lParam)
     // if we're expecting fake input then just pass the event through
     // and do not forward to the server
     if (g_fakeServerInput) {
-        PostThreadMessage(g_threadID, INPUTLEAP_MSG_DEBUG,
+        PostThreadMessage(g_threadID, SKVM_MSG_DEBUG,
             0xfe000000u | wParam, lParam);
         return false;
     }
@@ -186,13 +186,13 @@ keyboardHookHandler(WPARAM wParam, LPARAM lParam)
     }
 
     // tell server about event
-    PostThreadMessage(g_threadID, INPUTLEAP_MSG_DEBUG, wParam, lParam);
+    PostThreadMessage(g_threadID, SKVM_MSG_DEBUG, wParam, lParam);
 
     // ignore dead key release
     if ((g_deadVirtKey == wParam || g_deadRelease == wParam) &&
         (lParam & 0x80000000u) != 0) {
         g_deadRelease = 0;
-        PostThreadMessage(g_threadID, INPUTLEAP_MSG_DEBUG,
+        PostThreadMessage(g_threadID, SKVM_MSG_DEBUG,
             wParam | 0x40000000, lParam);
         return false;
     }
@@ -278,7 +278,7 @@ keyboardHookHandler(WPARAM wParam, LPARAM lParam)
     bool noAltGr = false;
     if (n == 0 && (control & 0x80) != 0 && (menu & 0x80) != 0) {
         noAltGr = true;
-        PostThreadMessage(g_threadID, INPUTLEAP_MSG_DEBUG,
+        PostThreadMessage(g_threadID, SKVM_MSG_DEBUG,
             wParam | 0x50000000, lParam);
         if (g_deadVirtKey != 0) {
             if (ToUnicode((UINT)g_deadVirtKey, (g_deadLParam & 0x10ff0000u) >> 16,
@@ -301,7 +301,7 @@ keyboardHookHandler(WPARAM wParam, LPARAM lParam)
         n = ToUnicode((UINT)wParam, scanCode, keys2, wc, 2, flags);
     }
 
-    PostThreadMessage(g_threadID, INPUTLEAP_MSG_DEBUG,
+    PostThreadMessage(g_threadID, SKVM_MSG_DEBUG,
         (wc[0] & 0xffff) | ((wParam & 0xff) << 16) |
         ((n & 0xf) << 24) | 0x60000000,
         lParam);
@@ -343,9 +343,9 @@ keyboardHookHandler(WPARAM wParam, LPARAM lParam)
         // and release for the dead key to our window.
         WPARAM deadCharAndVirtKey =
             makeKeyMsg((UINT)g_deadVirtKey, wc[0], noAltGr);
-        PostThreadMessage(g_threadID, INPUTLEAP_MSG_KEY,
+        PostThreadMessage(g_threadID, SKVM_MSG_KEY,
             deadCharAndVirtKey, g_deadLParam & 0x7fffffffu);
-        PostThreadMessage(g_threadID, INPUTLEAP_MSG_KEY,
+        PostThreadMessage(g_threadID, SKVM_MSG_KEY,
             deadCharAndVirtKey, g_deadLParam | 0x80000000u);
 
         // use uncomposed character
@@ -374,9 +374,9 @@ keyboardHookHandler(WPARAM wParam, LPARAM lParam)
     // XXX -- with hot keys for actions we may only need to do this when
     // forwarding.
     if (charAndVirtKey != 0) {
-        PostThreadMessage(g_threadID, INPUTLEAP_MSG_DEBUG,
+        PostThreadMessage(g_threadID, SKVM_MSG_DEBUG,
             charAndVirtKey | 0x70000000, lParam);
-        PostThreadMessage(g_threadID, INPUTLEAP_MSG_KEY, charAndVirtKey, lParam);
+        PostThreadMessage(g_threadID, SKVM_MSG_KEY, charAndVirtKey, lParam);
     }
 
     if (g_mode == kHOOK_RELAY_EVENTS) {
@@ -465,20 +465,20 @@ static bool mouseHookHandler(WPARAM wParam, std::int32_t x, std::int32_t y, std:
     case WM_NCRBUTTONUP:
     case WM_NCXBUTTONUP:
         // always relay the event.  eat it if relaying.
-        PostThreadMessage(g_threadID, INPUTLEAP_MSG_MOUSE_BUTTON, wParam, data);
+        PostThreadMessage(g_threadID, SKVM_MSG_MOUSE_BUTTON, wParam, data);
         return (g_mode == kHOOK_RELAY_EVENTS);
 
     case WM_MOUSEWHEEL:
         if (g_mode == kHOOK_RELAY_EVENTS) {
             // relay event
-            PostThreadMessage(g_threadID, INPUTLEAP_MSG_MOUSE_WHEEL, data, 0);
+            PostThreadMessage(g_threadID, SKVM_MSG_MOUSE_WHEEL, data, 0);
         }
         return (g_mode == kHOOK_RELAY_EVENTS);
 
     case WM_MOUSEHWHEEL:
         if (g_mode == kHOOK_RELAY_EVENTS) {
             // relay event
-            PostThreadMessage(g_threadID, INPUTLEAP_MSG_MOUSE_WHEEL, 0, data);
+            PostThreadMessage(g_threadID, SKVM_MSG_MOUSE_WHEEL, 0, data);
         }
         return (g_mode == kHOOK_RELAY_EVENTS);
 
@@ -486,7 +486,7 @@ static bool mouseHookHandler(WPARAM wParam, std::int32_t x, std::int32_t y, std:
     case WM_MOUSEMOVE:
         if (g_mode == kHOOK_RELAY_EVENTS) {
             // relay and eat event
-            PostThreadMessage(g_threadID, INPUTLEAP_MSG_MOUSE_MOVE, x, y);
+            PostThreadMessage(g_threadID, SKVM_MSG_MOUSE_MOVE, x, y);
             return true;
         } else if (g_mode == kHOOK_WATCH_JUMP_ZONE) {
             // low level hooks can report bogus mouse positions that are
@@ -530,7 +530,7 @@ static bool mouseHookHandler(WPARAM wParam, std::int32_t x, std::int32_t y, std:
             }
 
             // relay the event
-            PostThreadMessage(g_threadID, INPUTLEAP_MSG_MOUSE_MOVE, x, y);
+            PostThreadMessage(g_threadID, SKVM_MSG_MOUSE_MOVE, x, y);
 
             // if inside and not bogus then eat the event
             return inside && !bogus;
@@ -617,7 +617,7 @@ getMessageHook(int code, WPARAM wParam, LPARAM lParam)
             msg->wParam == SC_SCREENSAVE) {
             // broadcast screen saver started message
             PostThreadMessage(g_threadID,
-                INPUTLEAP_MSG_SCREEN_SAVER, TRUE, 0);
+                SKVM_MSG_SCREEN_SAVER, TRUE, 0);
         }
     }
 

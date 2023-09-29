@@ -17,7 +17,7 @@
  */
 
 // uncomment to debug this end of IPC chatter
-//#define INPUTLEAP_IPC_VERBOSE
+//#define SKVM_IPC_VERBOSE
 
 #include "IpcReader.h"
 #include <QTcpSocket>
@@ -25,10 +25,10 @@
 #include <QMutex>
 #include <QByteArray>
 
-#ifdef INPUTLEAP_IPC_VERBOSE
+#ifdef SKVM_IPC_VERBOSE
 #include <iostream>
 #define IPC_LOG(x) (x)
-#else // not defined INPUTLEAP_IPC_VERBOSE
+#else // not defined SKVM_IPC_VERBOSE
 #define IPC_LOG(x)
 #endif
 

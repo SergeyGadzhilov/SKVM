@@ -14,8 +14,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef INPUTLEAP_LIB_PLATFORM_EI_KEY_STATE_H
-#define INPUTLEAP_LIB_PLATFORM_EI_KEY_STATE_H
+#ifndef SKVM_LIB_PLATFORM_EI_KEY_STATE_H
+#define SKVM_LIB_PLATFORM_EI_KEY_STATE_H
 
 #include "base/Fwd.h"
 #include "platform/EiScreen.h"
@@ -62,4 +62,4 @@ private:
 
 } // namespace skvm
 
-#endif // INPUTLEAP_LIB_PLATFORM_EI_KEY_STATE_H
+#endif // SKVM_LIB_PLATFORM_EI_KEY_STATE_H

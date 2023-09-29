@@ -18,7 +18,7 @@
 // TODO: fix, tests failing intermittently on mac.
 #ifndef WINAPI_CARBON
 
-#define INPUTLEAP_TEST_ENV
+#define SKVM_TEST_ENV
 
 #include "test/mock/server/MockConfig.h"
 #include "test/mock/server/MockPrimaryClient.h"

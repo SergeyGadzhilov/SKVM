@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#define INPUTLEAP_TEST_ENV
+#define SKVM_TEST_ENV
 
 #include "test/mock/inputleap/MockEventQueue.h"
 #include "test/mock/inputleap/MockKeyMap.h"
@@ -29,7 +29,7 @@
 #include <gtest/gtest.h>
 
 // wParam = flags, HIBYTE(lParam) = virtual key, LOBYTE(lParam) = scan code
-#define INPUTLEAP_MSG_FAKE_KEY		INPUTLEAP_HOOK_LAST_MSG + 4
+#define SKVM_MSG_FAKE_KEY		SKVM_HOOK_LAST_MSG + 4
 
 namespace skvm {
 

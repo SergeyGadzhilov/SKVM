@@ -56,14 +56,14 @@ execSelfNonDaemonized()
 {
     char** selfArgv = NXArgv;
 
-    setenv("_INPUTLEAP_DAEMONIZED", "", 1);
+    setenv("_SKVM_DAEMONIZED", "", 1);
 
     execvp(selfArgv[0], selfArgv);
     return 0;
 }
 
 bool alreadyDaemonized() {
-    return std::getenv("_INPUTLEAP_DAEMONIZED") != nullptr;
+    return std::getenv("_SKVM_DAEMONIZED") != nullptr;
 }
 
 #endif

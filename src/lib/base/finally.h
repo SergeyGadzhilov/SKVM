@@ -15,8 +15,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef INPUTLEAP_LIB_BASE_FINALLY_H
-#define INPUTLEAP_LIB_BASE_FINALLY_H
+#ifndef SKVM_LIB_BASE_FINALLY_H
+#define SKVM_LIB_BASE_FINALLY_H
 
 #include <utility>
 
@@ -58,4 +58,4 @@ inline final_action<Callable> finally(Callable&& callable) noexcept
 
 } // namespace skvm
 
-#endif // INPUTLEAP_LIB_BASE_FINALLY_H
+#endif // SKVM_LIB_BASE_FINALLY_H

@@ -16,8 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef INPUTLEAP_LIB_BASE_UNIQUE_PTR_CONTAINER
-#define INPUTLEAP_LIB_BASE_UNIQUE_PTR_CONTAINER
+#ifndef SKVM_LIB_BASE_UNIQUE_PTR_CONTAINER
+#define SKVM_LIB_BASE_UNIQUE_PTR_CONTAINER
 
 #include <algorithm>
 #include <memory>
@@ -61,4 +61,4 @@ private:
     std::vector<std::unique_ptr<T>> data_;
 };
 
-#endif // INPUTLEAP_LIB_BASE_UNIQUE_PTR_CONTAINER
+#endif // SKVM_LIB_BASE_UNIQUE_PTR_CONTAINER

@@ -14,8 +14,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef INPUTLEAP_GUI_TEST_UTILS_H
-#define INPUTLEAP_GUI_TEST_UTILS_H
+#ifndef SKVM_GUI_TEST_UTILS_H
+#define SKVM_GUI_TEST_UTILS_H
 
 #include <QtCore/QFile>
 #include <QtCore/QTemporaryFile>
@@ -35,4 +35,4 @@ inline QString getTemporaryFilename()
     return temp_file.fileName();
 }
 
-#endif // INPUTLEAP_GUI_TEST_UTILS_H
+#endif // SKVM_GUI_TEST_UTILS_H

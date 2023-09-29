@@ -128,7 +128,7 @@ private:
         bool m_lock;
     };
 
-#ifdef INPUTLEAP_TEST_ENV
+#ifdef SKVM_TEST_ENV
 public: // yuck
 #endif
     typedef std::vector<KeyModifierMask> KeyModifierMaskList;
@@ -159,7 +159,7 @@ private:
     // autorepeat state
     XKeyboardState m_keyboardState;
 
-#ifdef INPUTLEAP_TEST_ENV
+#ifdef SKVM_TEST_ENV
 public:
     std::int32_t group() const { return m_group; }
     void group(const std::int32_t& group) { m_group = group; }

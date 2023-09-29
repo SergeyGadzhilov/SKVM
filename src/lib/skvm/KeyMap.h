@@ -21,7 +21,7 @@
 #include "skvm/key_types.h"
 #include "base/String.h"
 
-#ifdef INPUTLEAP_TEST_ENV
+#ifdef SKVM_TEST_ENV
 #include <gtest/gtest_prod.h>
 #endif
 
@@ -323,7 +323,7 @@ public:
     //@}
 
 private:
-#ifdef INPUTLEAP_TEST_ENV
+#ifdef SKVM_TEST_ENV
     FRIEND_TEST(KeyMapTests,
                 findBestKey_requiredDown_matchExactFirstItem);
     FRIEND_TEST(KeyMapTests,

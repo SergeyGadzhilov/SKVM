@@ -330,7 +330,7 @@ public:
     InputFilter(const InputFilter&);
     virtual ~InputFilter();
 
-#ifdef INPUTLEAP_TEST_ENV
+#ifdef SKVM_TEST_ENV
     InputFilter() : m_primaryClient(nullptr) { }
 #endif
 

@@ -39,7 +39,7 @@ XWindowsEventQueueBuffer::XWindowsEventQueueBuffer(IXWindowsImpl* impl,
     assert(m_display != nullptr);
     assert(m_window  != None);
 
-    m_userEvent = m_impl->XInternAtom(m_display, "INPUTLEAP_USER_EVENT", False);
+    m_userEvent = m_impl->XInternAtom(m_display, "SKVM_USER_EVENT", False);
     // set up for pipe hack
     int result = pipe(m_pipefd);
     assert(result == 0);

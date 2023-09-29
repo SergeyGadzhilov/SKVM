@@ -32,7 +32,7 @@ MSWindowsEventQueueBuffer::MSWindowsEventQueueBuffer(IEventQueue* events) :
     m_thread     = GetCurrentThreadId();
 
     // create a message type for custom events
-    m_userEvent = RegisterWindowMessage("INPUTLEAP_USER_EVENT");
+    m_userEvent = RegisterWindowMessage("SKVM_USER_EVENT");
 
     // get message type for daemon quit
     m_daemonQuit = ArchMiscWindows::getDaemonQuitMessage();

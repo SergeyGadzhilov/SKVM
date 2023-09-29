@@ -60,7 +60,7 @@ public:
     // sending dragging information to server
     void sendDragInfo(std::uint32_t fileCount, const char* info, size_t size);
 
-#ifdef INPUTLEAP_TEST_ENV
+#ifdef SKVM_TEST_ENV
     void handleDataForTest() { handleData(Event(), nullptr); }
 #endif
 

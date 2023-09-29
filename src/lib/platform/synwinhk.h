@@ -25,26 +25,26 @@
 #include <Windows.h>
 
 #if defined(synwinhk_EXPORTS)
-#define CINPUTLEAP_HOOK_API __declspec(dllexport)
+#define CSKVM_HOOK_API __declspec(dllexport)
 #else
-#define CINPUTLEAP_HOOK_API __declspec(dllimport)
+#define CSKVM_HOOK_API __declspec(dllimport)
 #endif
 
-#define INPUTLEAP_MSG_MARK            WM_APP + 0x0011    // mark id; <unused>
-#define INPUTLEAP_MSG_KEY             WM_APP + 0x0012    // vk code; key data
-#define INPUTLEAP_MSG_MOUSE_BUTTON    WM_APP + 0x0013    // button msg; <unused>
-#define INPUTLEAP_MSG_MOUSE_WHEEL     WM_APP + 0x0014    // delta; <unused>
-#define INPUTLEAP_MSG_MOUSE_MOVE      WM_APP + 0x0015    // x; y
-#define INPUTLEAP_MSG_POST_WARP       WM_APP + 0x0016    // <unused>; <unused>
-#define INPUTLEAP_MSG_PRE_WARP        WM_APP + 0x0017    // x; y
-#define INPUTLEAP_MSG_SCREEN_SAVER    WM_APP + 0x0018    // activated; <unused>
-#define INPUTLEAP_MSG_DEBUG           WM_APP + 0x0019    // data, data
-#define INPUTLEAP_MSG_INPUT_FIRST INPUTLEAP_MSG_KEY
-#define INPUTLEAP_MSG_INPUT_LAST INPUTLEAP_MSG_PRE_WARP
-#define INPUTLEAP_HOOK_LAST_MSG INPUTLEAP_MSG_DEBUG
+#define SKVM_MSG_MARK            WM_APP + 0x0011    // mark id; <unused>
+#define SKVM_MSG_KEY             WM_APP + 0x0012    // vk code; key data
+#define SKVM_MSG_MOUSE_BUTTON    WM_APP + 0x0013    // button msg; <unused>
+#define SKVM_MSG_MOUSE_WHEEL     WM_APP + 0x0014    // delta; <unused>
+#define SKVM_MSG_MOUSE_MOVE      WM_APP + 0x0015    // x; y
+#define SKVM_MSG_POST_WARP       WM_APP + 0x0016    // <unused>; <unused>
+#define SKVM_MSG_PRE_WARP        WM_APP + 0x0017    // x; y
+#define SKVM_MSG_SCREEN_SAVER    WM_APP + 0x0018    // activated; <unused>
+#define SKVM_MSG_DEBUG           WM_APP + 0x0019    // data, data
+#define SKVM_MSG_INPUT_FIRST SKVM_MSG_KEY
+#define SKVM_MSG_INPUT_LAST SKVM_MSG_PRE_WARP
+#define SKVM_HOOK_LAST_MSG SKVM_MSG_DEBUG
 
-#define INPUTLEAP_HOOK_FAKE_INPUT_VIRTUAL_KEY    VK_CANCEL
-#define INPUTLEAP_HOOK_FAKE_INPUT_SCANCODE    0
+#define SKVM_HOOK_FAKE_INPUT_VIRTUAL_KEY    VK_CANCEL
+#define SKVM_HOOK_FAKE_INPUT_SCANCODE    0
 
 extern "C" {
 
@@ -59,7 +59,7 @@ enum EHookMode {
 typedef void            (*SetImmuneKeysFunc)(const DWORD*, std::size_t);
 
 // do not call setImmuneKeys() while the hooks are active!
-CINPUTLEAP_HOOK_API void setImmuneKeys(const DWORD *list, std::size_t size);
+CSKVM_HOOK_API void setImmuneKeys(const DWORD *list, std::size_t size);
 
 */
 
