@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2004 Chris Schoeneman, Nick Bolton, Sorin Sbarnea
  * 
  * This package is free software; you can redistribute it and/or
