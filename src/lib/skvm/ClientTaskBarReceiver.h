@@ -26,7 +26,7 @@
 
 namespace skvm {
 
-/// Implementation of IArchTaskBarReceiver for the InputLeap server
+/// Implementation of IArchTaskBarReceiver for the SKVM server
 class ClientTaskBarReceiver : public IArchTaskBarReceiver {
 public:
     ClientTaskBarReceiver(IEventQueue* events);

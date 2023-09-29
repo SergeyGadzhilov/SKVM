@@ -50,7 +50,7 @@ fs::path DataDirectories::trusted_clients_ssl_fingerprints_path()
 
 fs::path DataDirectories::ssl_certificate_path()
 {
-    return profile() / "SSL" / "InputLeap.pem";
+    return profile() / "SSL" / "SKVM.pem";
 }
 
 } // namespace skvm

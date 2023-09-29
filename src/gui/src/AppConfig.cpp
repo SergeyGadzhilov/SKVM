@@ -98,7 +98,7 @@ QString AppConfig::log_dir() const
 
 QString AppConfig::program_dir() const
 {
-    // InputLeap binaries should be in the same dir.
+    // SKVM binaries should be in the same dir.
     return QCoreApplication::applicationDirPath() + "/";
 }
 
@@ -158,7 +158,6 @@ void AppConfig::loadSettings()
     m_ElevateMode = static_cast<ElevateMode>(elevateMode.toInt());
     m_AutoConfigPrompted = settings().value("autoConfigPrompted", false).toBool();
     m_CryptoEnabled = settings().value("cryptoEnabled", true).toBool();
-    // TODO: set default value of requireClientCertificate to true on InputLeap 3.0.0
     m_RequireClientCertificate = settings().value("requireClientCertificate", false).toBool();
     m_AutoHide = settings().value("autoHide", false).toBool();
     m_AutoStart = settings().value("autoStart", false).toBool();

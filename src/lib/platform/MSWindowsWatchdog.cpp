@@ -138,7 +138,7 @@ MSWindowsWatchdog::getUserToken(LPSECURITY_ATTRIBUTES security)
 {
     // always elevate if we are at the vista/7 login screen. we could also
     // elevate for the uac dialog (consent.exe) but this would be pointless,
-    // since InputLeap would re-launch as non-elevated after the desk switch,
+    // since SKVM would re-launch as non-elevated after the desk switch,
     // and so would be unusable with the new elevated process taking focus.
     if (m_elevateProcess || m_autoElevated) {
         LOG((CLOG_DEBUG "getting elevated token, %s",
@@ -470,9 +470,9 @@ MSWindowsWatchdog::shutdownProcess(HANDLE handle, DWORD pid, int timeout)
             double elapsed = (skvm::current_time_seconds() - start);
             if (elapsed > timeout) {
                 // if timeout reached, kill forcefully.
-                // calling TerminateProcess on InputLeap is very bad!
+                // calling TerminateProcess on SKVM is very bad!
                 // it causes the hook DLL to stay loaded in some apps,
-                // making it impossible to start InputLeap again.
+                // making it impossible to start SKVM again.
                 LOG((CLOG_WARN "shutdown timed out after %d secs, forcefully terminating", (int)elapsed));
                 TerminateProcess(handle, kExitSuccess);
                 break;

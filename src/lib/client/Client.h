@@ -36,7 +36,7 @@ class ServerProxy;
 class IStream;
 class Thread;
 
-/// This class implements the top-level client algorithms for InputLeap.
+/// This class implements the top-level client algorithms for SKVM.
 class Client : public IClient, public INode, public EventTarget {
 public:
     class FailInfo {

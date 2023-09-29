@@ -217,7 +217,7 @@ void
 XWindowsKeyState::getKeyMap(skvm::KeyMap& keyMap)
 {
     // get autorepeat info.  we must use the global_auto_repeat told to
-    // us because it may have modified by InputLeap.
+    // us because it may have modified by SKVM.
     int oldGlobalAutoRepeat = m_keyboardState.global_auto_repeat;
     XGetKeyboardControl(m_display, &m_keyboardState);
     m_keyboardState.global_auto_repeat = oldGlobalAutoRepeat;
@@ -770,7 +770,7 @@ XWindowsKeyState::updateKeysymMapXKB(skvm::KeyMap& keyMap)
         }
     }
 
-    // change all modifier masks to InputLeap masks from X masks
+    // change all modifier masks to SKVM masks from X masks
     keyMap.foreachKey(&XWindowsKeyState::remapKeyModifiers, this);
 
     // allow composition across groups

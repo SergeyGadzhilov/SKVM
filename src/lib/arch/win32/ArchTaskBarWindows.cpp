@@ -442,7 +442,7 @@ ArchTaskBarWindows::threadMainLoop()
     // create window
     m_hwnd = CreateWindowEx(WS_EX_TOOLWINDOW,
                             className,
-                            TEXT("InputLeap Task Bar"),
+                            TEXT("SKVM Task Bar"),
                             WS_POPUP,
                             0, 0, 1, 1,
                             nullptr,

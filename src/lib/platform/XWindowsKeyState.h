@@ -74,24 +74,24 @@ public:
     //! @name accessors
     //@{
 
-    //! Convert X modifier mask to InputLeap mask
+    //! Convert X modifier mask to SKVM mask
     /*!
-    Returns the InputLeap modifier mask corresponding to the X modifier
+    Returns the SKVM modifier mask corresponding to the X modifier
     mask in \p state.
     */
     KeyModifierMask mapModifiersFromX(unsigned int state) const;
 
-    //! Convert InputLeap modifier mask to X mask
+    //! Convert SKVM modifier mask to X mask
     /*!
-    Converts the InputLeap modifier mask to the corresponding X modifier
+    Converts the SKVM modifier mask to the corresponding X modifier
     mask.  Returns \c true if successful and \c false if any modifier
     could not be converted.
     */
     bool mapModifiersToX(KeyModifierMask, unsigned int&) const;
 
-    //! Convert InputLeap key to all corresponding X keycodes
+    //! Convert SKVM key to all corresponding X keycodes
     /*!
-    Converts the InputLeap key \p key to all of the keycodes that map to
+    Converts the SKVM key \p key to all of the keycodes that map to
     that key.
     */
     void mapKeyToKeycodes(KeyID key,
@@ -147,10 +147,10 @@ private:
     XKBModifierMap m_lastGoodXKBModifiers;
     NonXKBModifierMap m_lastGoodNonXKBModifiers;
 
-    // X modifier (bit number) to InputLeap modifier (mask) mapping
+    // X modifier (bit number) to SKVM modifier (mask) mapping
     KeyModifierMaskList m_modifierFromX;
 
-    // InputLeap modifier (mask) to X modifier (mask)
+    // SKVM modifier (mask) to X modifier (mask)
     KeyModifierToXMask m_modifierToX;
 
     // map KeyID to all keycodes that can synthesize that KeyID

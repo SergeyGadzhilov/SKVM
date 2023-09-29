@@ -30,7 +30,7 @@
 
 static const char* s_settingsKeyNames[] = {
     _T("SOFTWARE"),
-    _T("InputLeap"),
+    _T("SKVM"),
     nullptr
 };
 

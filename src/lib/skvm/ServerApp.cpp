@@ -123,7 +123,7 @@ ServerApp::help()
                             skvm::fs::u8path(SYS_CONFIG_NAME)).u8string();
 
     std::ostringstream buffer;
-    buffer << "Start the InputLeap server component. The server shares the keyboard &\n"
+    buffer << "Start the SKVM server component. The server shares the keyboard &\n"
            << "mouse of the local machine with the connected clients based on the\n"
            << "configuration file.\n"
            << "\n"
@@ -734,7 +734,7 @@ ServerApp::mainLoop()
                           [this](const auto& e){ force_reconnect(); });
 
     // to work around the sticky meta keys problem, we'll give users
-    // the option to reset the state of InputLeap server.
+    // the option to reset the state of SKVM server.
     m_events->add_handler(EventType::SERVER_APP_RESET_SERVER, m_events->getSystemTarget(),
                           [this](const auto& e){ reset_server(); });
 

@@ -20,7 +20,7 @@
 
 #include "base/ELevel.h"
 
-/** This interface defines the logging operations required by InputLeap.
+/** This interface defines the logging operations required by SKVM.
     Each architecture must implement this interface.
 */
 class IArchLog {

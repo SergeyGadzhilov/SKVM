@@ -45,7 +45,7 @@ class InputFilter;
 class Thread;
 class ClientListener;
 
-/// This class implements the top-level server algorithms for InputLeap.
+/// This class implements the top-level server algorithms for SKVM.
 class Server : public INode, public EventTarget {
 public:
     //! Lock cursor to screen data

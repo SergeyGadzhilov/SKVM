@@ -58,9 +58,9 @@ public:
     //! @name accessors
     //@{
 
-    //! Convert OS X modifier mask to InputLeap mask
+    //! Convert OS X modifier mask to SKVM mask
     /*!
-    Returns the InputLeap modifier mask corresponding to the OS X modifier
+    Returns the SKVM modifier mask corresponding to the OS X modifier
     mask in \p mask.
     */
     KeyModifierMask mapModifiersFromOSX(std::uint32_t mask) const;
@@ -154,7 +154,7 @@ private:
     void postHIDVirtualKey(const std::uint8_t virtualKeyCode, const bool postDown);
 
 private:
-    // OS X uses a physical key if 0 for the 'A' key.  InputLeap reserves
+    // OS X uses a physical key if 0 for the 'A' key.  SKVM reserves
     // KeyButton 0 so we offset all OS X physical key ids by this much
     // when used as a KeyButton and by minus this much to map a KeyButton
     // to a physical button.

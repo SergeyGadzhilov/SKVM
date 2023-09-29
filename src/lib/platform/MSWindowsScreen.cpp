@@ -136,7 +136,7 @@ MSWindowsScreen::MSWindowsScreen(
 
         updateScreenShape();
         m_class       = createWindowClass();
-        m_window      = createWindow(m_class, "InputLeap");
+        m_window      = createWindow(m_class, "SKVM");
         forceShowCursor();
         LOG((CLOG_DEBUG "screen shape: %d,%d %dx%d %s", m_x, m_y, m_w, m_h, m_multimon ? "(multi-monitor)" : ""));
         LOG((CLOG_DEBUG "window is 0x%08x", m_window));
@@ -809,7 +809,7 @@ MSWindowsScreen::createWindowClass() const
     classInfo.hCursor = nullptr;
     classInfo.hbrBackground = nullptr;
     classInfo.lpszMenuName = nullptr;
-    classInfo.lpszClassName = "InputLeap";
+    classInfo.lpszClassName = "SKVM";
     classInfo.hIconSm = nullptr;
     return RegisterClassEx(&classInfo);
 }
@@ -1282,7 +1282,7 @@ MSWindowsScreen::onMouseButton(WPARAM wParam, LPARAM lParam)
 }
 
 // here's how mouse movements are sent across the network to a client:
-//   1. InputLeap checks the mouse position on server screen
+//   1. SKVM checks the mouse position on server screen
 //   2. records the delta (current x,y minus last x,y)
 //   3. records the current x,y as "last" (so we can calc delta next time)
 //   4. on the server, puts the cursor back to the center of the screen

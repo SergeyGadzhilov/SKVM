@@ -31,10 +31,10 @@ public:
     //! @name accessors
     //@{
 
-    /// Reads a InputLeap setting from the system.
+    /// Reads a SKVM setting from the system.
     virtual std::string setting(const std::string& valueName) const = 0;
     //@}
 
-    /// Writes a InputLeap setting from the system.
+    /// Writes a SKVM setting from the system.
     virtual void setting(const std::string& valueName, const std::string& valueString) const = 0;
 };

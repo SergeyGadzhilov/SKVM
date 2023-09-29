@@ -132,7 +132,7 @@ MainWindow::MainWindow(QSettings& settings, AppConfig& appConfig) :
     m_pLogWindow(new LogWindow(nullptr))
 {
     // explicitly unset DeleteOnClose so the window can be show and hidden
-    // repeatedly until InputLeap is finished
+    // repeatedly until SKVM is finished
     setAttribute(Qt::WA_DeleteOnClose, false);
     // mark the windows as sort of "dialog" window so that tiling window
     // managers will float it by default (X11)
@@ -229,8 +229,8 @@ void MainWindow::open()
     }
 
     // only start if user has previously started. this stops the gui from
-    // auto hiding before the user has configured InputLeap (which of course
-    // confuses first time users, who think InputLeap has crashed).
+    // auto hiding before the user has configured SKVM (which of course
+    // confuses first time users, who think SKVM has crashed).
     if (appConfig().startedBefore() && appConfig().getAutoStart()) {
         m_SuppressEmptyServerWarning = true;
         start_cmd_app();
@@ -259,7 +259,7 @@ void MainWindow::createTrayIcon()
 
     m_pTrayIcon = new QSystemTrayIcon(this);
     m_pTrayIcon->setContextMenu(m_pTrayIconMenu);
-    m_pTrayIcon->setToolTip("InputLeap");
+    m_pTrayIcon->setToolTip("SKVM");
 
     connect(m_pTrayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)),
             this, SLOT(trayActivated(QSystemTrayIcon::ActivationReason)));
@@ -271,7 +271,7 @@ void MainWindow::createTrayIcon()
 
 void MainWindow::retranslateMenuBar()
 {
-    main_menu_->setTitle(tr("&InputLeap"));
+    main_menu_->setTitle(tr("&SKVM"));
     m_pMenuHelp->setTitle(tr("&Help"));
 }
 
@@ -439,9 +439,9 @@ void MainWindow::checkConnected(const QString& line)
 
         if (!appConfig().startedBefore() && isVisible()) {
                 QMessageBox::information(
-                    this, "InputLeap",
-                    tr("InputLeap is now connected. You can close the "
-                    "config window and InputLeap will remain connected in "
+                    this, "SKVM",
+                    tr("SKVM is now connected. You can close the "
+                    "config window and SKVM will remain connected in "
                     "the background."));
 
             appConfig().setStartedBefore(true);
@@ -493,7 +493,7 @@ void MainWindow::checkFingerprint(const QString& line)
     }
 
     // We compare only SHA256 fingerprints, but show both SHA1 and SHA256 so that the users can
-    // still verify fingerprints on old InputLeap servers. This way the only time when we are
+    // still verify fingerprints on old SKVM servers. This way the only time when we are
     // exposed to SHA1 vulnerabilities is when the user is reconnecting again.
     skvm::FingerprintDatabase db;
     db.read(db_path);
@@ -567,9 +567,9 @@ void MainWindow::start_cmd_app()
         // is switched; this is because we may need to elevate or not
         // based on which desk the user is in (login always needs
         // elevation, where as default desk does not).
-        // Note that this is only enabled when InputLeap is set to elevate
+        // Note that this is only enabled when SKVM is set to elevate
         // 'as needed' (e.g. on a UAC dialog popup) in order to prevent
-        // unnecessary restarts when InputLeap was started elevated or
+        // unnecessary restarts when SKVM was started elevated or
         // when it is not allowed to elevate. In these cases restarting
         // the server is fruitless.
         if (appConfig().elevateMode() == ElevateAsNeeded) {
@@ -651,8 +651,8 @@ bool MainWindow::clientArgs(QStringList& args, QString& app)
     if (!QFile::exists(app))
     {
         show();
-        QMessageBox::warning(this, tr("InputLeap client not found"),
-                             tr("The executable for the InputLeap client does not exist."));
+        QMessageBox::warning(this, tr("SKVM client not found"),
+                             tr("The executable for the SKVM client does not exist."));
         return false;
     }
 
@@ -679,7 +679,7 @@ bool MainWindow::clientArgs(QStringList& args, QString& app)
         show();
         if (!m_SuppressEmptyServerWarning) {
             QMessageBox::warning(this, tr("Hostname is empty"),
-                             tr("Please fill in a hostname for the InputLeap client to connect to."));
+                             tr("Please fill in a hostname for the SKVM client to connect to."));
         }
         return false;
     }
@@ -700,7 +700,7 @@ QString MainWindow::configFilename()
         if (!m_pTempConfigFile->open())
         {
             QMessageBox::critical(this, tr("Cannot write configuration file"),
-                                  tr("The temporary configuration file required to start InputLeap can not be written."));
+                                  tr("The temporary configuration file required to start SKVM can not be written."));
             return "";
         }
 
@@ -714,7 +714,7 @@ QString MainWindow::configFilename()
         if (!QFile::exists(m_pLineEditConfigFile->text()))
         {
             if (QMessageBox::warning(this, tr("Configuration filename invalid"),
-                tr("You have not filled in a valid configuration file for the InputLeap server. "
+                tr("You have not filled in a valid configuration file for the SKVM server. "
                         "Do you want to browse for the configuration file now?"), QMessageBox::Yes | QMessageBox::No) != QMessageBox::Yes
                     || !on_m_pButtonBrowseConfigFile_clicked())
                 return "";
@@ -749,8 +749,8 @@ bool MainWindow::serverArgs(QStringList& args, QString& app)
 
     if (!QFile::exists(app))
     {
-        QMessageBox::warning(this, tr("InputLeap server not found"),
-                             tr("The executable for the InputLeap server does not exist."));
+        QMessageBox::warning(this, tr("SKVM server not found"),
+                             tr("The executable for the SKVM server does not exist."));
         return false;
     }
 
@@ -821,7 +821,7 @@ void MainWindow::stopDesktop()
         return;
     }
 
-    appendLogInfo("stopping InputLeap desktop process");
+    appendLogInfo("stopping SKVM desktop process");
 
     if (cmd_app_process_->isOpen()) {
 #if SYSAPI_UNIX
@@ -891,17 +891,17 @@ void MainWindow::set_connection_state(AppConnectionState state)
             m_pLabelPadlock->hide();
         }
 
-        setStatus(tr("InputLeap is running."));
+        setStatus(tr("SKVM is running."));
 
         break;
     }
     case AppConnectionState::CONNECTING:
         m_pLabelPadlock->hide();
-        setStatus(tr("InputLeap is starting."));
+        setStatus(tr("SKVM is starting."));
         break;
     case AppConnectionState::DISCONNECTED:
         m_pLabelPadlock->hide();
-        setStatus(tr("InputLeap is not running."));
+        setStatus(tr("SKVM is not running."));
         break;
     case AppConnectionState::TRANSFERRING:
         break;
@@ -1117,7 +1117,7 @@ void MainWindow::on_m_pGroupServer_toggled(bool on)
 
 bool MainWindow::on_m_pButtonBrowseConfigFile_clicked()
 {
-    QString fileName = QFileDialog::getOpenFileName(this, tr("Browse for a InputLeap config file"), QString(), APP_CONFIG_OPEN_FILTER);
+    QString fileName = QFileDialog::getOpenFileName(this, tr("Browse for a SKVM config file"), QString(), APP_CONFIG_OPEN_FILTER);
 
     if (!fileName.isEmpty())
     {
@@ -1260,7 +1260,7 @@ void MainWindow::downloadBonjour()
     }
     else {
         QMessageBox::critical(
-            this, tr("InputLeap"),
+            this, tr("SKVM"),
             tr("Failed to detect system architecture."));
         return;
     }
@@ -1306,7 +1306,7 @@ void MainWindow::installBonjour()
         m_DownloadMessageBox->hide();
 
         QMessageBox::warning(
-            this, "InputLeap",
+            this, "SKVM",
             tr("Failed to download Bonjour installer to location: %1")
             .arg(tempLocation));
         return;
@@ -1343,7 +1343,7 @@ void MainWindow::promptAutoConfig()
 {
     if (!isBonjourRunning()) {
         int r = QMessageBox::question(
-            this, tr("InputLeap"),
+            this, tr("SKVM"),
             tr("Do you want to enable auto config and install Bonjour?\n\n"
                "This feature helps you establish the connection."),
             QMessageBox::Yes | QMessageBox::No);
@@ -1373,7 +1373,7 @@ void MainWindow::on_m_pCheckBoxAutoConfig_toggled(bool checked)
     if (!isBonjourRunning() && checked) {
         if (!m_SuppressAutoConfigWarning) {
             int r = QMessageBox::information(
-                this, tr("InputLeap"),
+                this, tr("SKVM"),
                 tr("Auto config feature requires Bonjour.\n\n"
                    "Do you want to install Bonjour?"),
                 QMessageBox::Yes | QMessageBox::No);

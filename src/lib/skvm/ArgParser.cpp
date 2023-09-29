@@ -410,11 +410,11 @@ ArgParser::parseGenericArgs(Argv& argv)
     }
     else if (argv.shift("--server")) {
         // HACK: stop error happening when using portable app.
-        // FIXME: there is no portable InputLeap
+        // FIXME: there is no portable SKVM
     }
     else if (argv.shift("--client")) {
         // HACK: stop error happening when using portable app.
-        // FIXME: there is no portable InputLeap.
+        // FIXME: there is no portable SKVM.
     }
     else if (argv.shift("--enable-drag-drop")) {
         bool useDragDrop = true;

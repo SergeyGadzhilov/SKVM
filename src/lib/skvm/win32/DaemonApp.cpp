@@ -137,7 +137,7 @@ DaemonApp::run(int argc, char** argv)
             mainLoop(false);
         }
         else {
-            arch.daemonize("InputLeap", mainLoopStatic);
+            arch.daemonize("SKVM", mainLoopStatic);
         }
 
         return kExitSuccess;
@@ -232,7 +232,7 @@ DaemonApp::mainLoop(bool daemonized)
 void
 DaemonApp::foregroundError(const char* message)
 {
-    MessageBox(nullptr, message, "InputLeap Service", MB_OK | MB_ICONERROR);
+    MessageBox(nullptr, message, "SKVM Service", MB_OK | MB_ICONERROR);
 }
 
 std::string

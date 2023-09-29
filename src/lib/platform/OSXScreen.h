@@ -136,16 +136,16 @@ private:
     void showCursor();
     void hideCursor();
 
-    // map InputLeap mouse button to mac buttons
+    // map SKVM mouse button to mac buttons
     ButtonID map_button_to_osx(std::uint16_t) const;
 
-    // map mac mouse button to InputLeap buttons
+    // map mac mouse button to SKVM buttons
     ButtonID map_button_from_osx(std::uint16_t) const;
 
-    // map mac scroll wheel value to a InputLeap scroll wheel value
+    // map mac scroll wheel value to a SKVM scroll wheel value
     std::int32_t map_scroll_wheel_from_osx(float) const;
 
-    // map InputLeap scroll wheel value to a mac scroll wheel value
+    // map SKVM scroll wheel value to a mac scroll wheel value
     std::int32_t map_scroll_wheel_to_osx(float) const;
 
     // get the current scroll wheel speed

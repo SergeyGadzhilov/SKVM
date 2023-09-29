@@ -43,7 +43,7 @@ inline std::chrono::nanoseconds seconds_to_chrono(double seconds)
     return std::chrono::nanoseconds(std::uint64_t(seconds * 1000000000.0));
 }
 
-/** This interface defines the multithreading operations required by InputLeap.
+/** This interface defines the multithreading operations required by SKVM.
     Each architecture must implement this interface.
 */
 class IArchMultithread {

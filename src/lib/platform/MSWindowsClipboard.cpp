@@ -84,7 +84,7 @@ MSWindowsClipboard::empty()
         return false;
     }
 
-    // mark clipboard as being owned by InputLeap
+    // mark clipboard as being owned by SKVM
     HGLOBAL data = GlobalAlloc(GMEM_MOVEABLE | GMEM_DDESHARE, 1);
     if (nullptr == SetClipboardData(getOwnershipFormat(), data)) {
         LOG((CLOG_DEBUG "failed to set clipboard data"));

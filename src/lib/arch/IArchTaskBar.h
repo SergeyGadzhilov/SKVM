@@ -22,7 +22,7 @@ namespace skvm {
 
 class IArchTaskBarReceiver;
 
-/** This interface defines the task bar icon operations required by InputLeap.
+/** This interface defines the task bar icon operations required by SKVM.
     Each architecture must implement this interface though each operation can be a no-op.
 */
 class IArchTaskBar {

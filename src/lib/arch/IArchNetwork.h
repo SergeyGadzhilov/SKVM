@@ -54,7 +54,7 @@ An opaque type representing a network address.
 */
 typedef ArchNetAddressImpl* ArchNetAddress;
 
-/** This interface defines the networking operations required by InputLeap.
+/** This interface defines the networking operations required by SKVM.
     Each architecture must implement this interface.
 */
 class IArchNetwork {

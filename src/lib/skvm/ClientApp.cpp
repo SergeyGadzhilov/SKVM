@@ -113,7 +113,7 @@ void
 ClientApp::help()
 {
     std::ostringstream buffer;
-    buffer << "Start the InputLeap client and connect to a remote server component.\n"
+    buffer << "Start the SKVM client and connect to a remote server component.\n"
            << "\n"
            << "Usage: " << args().m_exename << " [--yscroll <delta>]"
 #ifdef WINAPI_XWINDOWS

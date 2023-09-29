@@ -117,7 +117,7 @@ bool SslCertificate::is_certificate_valid(const skvm::fs::path& path)
 
     auto bits = EVP_PKEY_bits(pubkey);
     if (bits < 2048) {
-        // We could have small keys in old InputLeap installations
+        // We could have small keys in old SKVM installations
         emit info(tr("Public key in default certificate key file is too small."));
         return false;
     }

@@ -79,7 +79,7 @@ static fs::path profile_basedir()
 const fs::path& DataDirectories::profile()
 {
     if (_profile.empty()) {
-        _profile = profile_basedir() / "InputLeap";
+        _profile = profile_basedir() / "SKVM";
         maybe_copy_old_profile(profile_basedir() / "barrier", _profile);
     }
     return _profile;

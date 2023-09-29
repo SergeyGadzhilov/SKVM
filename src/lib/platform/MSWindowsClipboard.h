@@ -45,15 +45,15 @@ public:
     Return false if the clipboard ownership could not be taken;
     the clipboard should not be emptied in this case.  Unlike
     empty(), is_owned_by_us() will return false when emptied
-    this way.  This is useful when InputLeap wants to put data on
+    this way.  This is useful when SKVM wants to put data on
     clipboard but pretend (to itself) that some other app did it.
-    When using empty(), InputLeap assumes the data came from the
+    When using empty(), SKVM assumes the data came from the
     server and doesn't need to be sent back.  emptyUnowned()
-    makes InputLeap send the data to the server.
+    makes SKVM send the data to the server.
     */
     bool emptyUnowned();
 
-    //! Test if clipboard is owned by InputLeap
+    //! Test if clipboard is owned by SKVM
     static bool is_owned_by_us();
 
     // IClipboard overrides

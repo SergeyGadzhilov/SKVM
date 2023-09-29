@@ -33,7 +33,7 @@
 
 namespace skvm {
 
-// map virtual keys to InputLeap key enumeration
+// map virtual keys to SKVM key enumeration
 const KeyID				MSWindowsKeyState::s_virtualKey[] =
 {
 	/* 0x000 */ { kKeyNone },		// reserved
