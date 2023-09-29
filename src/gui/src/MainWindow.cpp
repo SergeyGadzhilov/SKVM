@@ -1037,7 +1037,7 @@ void MainWindow::updateZeroconfService()
 void MainWindow::serverDetected(const QString name)
 {
     if (m_pComboServerList->findText(name) == -1) {
-        // Note: the first added item triggers startInputLeap
+        // Note: the first added item triggers startSKVM
         m_pComboServerList->addItem(name);
     }
 

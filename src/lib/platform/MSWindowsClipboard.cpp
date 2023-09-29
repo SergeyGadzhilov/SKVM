@@ -210,7 +210,7 @@ bool MSWindowsClipboard::is_owned_by_us()
 {
     // create ownership format if we haven't yet
     if (s_ownershipFormat == 0) {
-        s_ownershipFormat = RegisterClipboardFormat(TEXT("InputLeapOwnership"));
+        s_ownershipFormat = RegisterClipboardFormat(TEXT("SKVMOwnership"));
     }
     return (IsClipboardFormatAvailable(getOwnershipFormat()) != 0);
 }
@@ -220,7 +220,7 @@ MSWindowsClipboard::getOwnershipFormat()
 {
     // create ownership format if we haven't yet
     if (s_ownershipFormat == 0) {
-        s_ownershipFormat = RegisterClipboardFormat(TEXT("InputLeapOwnership"));
+        s_ownershipFormat = RegisterClipboardFormat(TEXT("SKVMOwnership"));
     }
 
     // return the format

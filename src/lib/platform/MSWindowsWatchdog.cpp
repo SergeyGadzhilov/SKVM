@@ -511,8 +511,8 @@ MSWindowsWatchdog::shutdownExistingProcesses()
         // make sure we're not checking the system process
         if (entry.th32ProcessID != 0) {
 
-            if (_stricmp(entry.szExeFile, "InputLeapc.exe") == 0 ||
-                _stricmp(entry.szExeFile, "InputLeaps.exe") == 0) {
+            if (_stricmp(entry.szExeFile, "skvmc.exe") == 0 ||
+                _stricmp(entry.szExeFile, "skvms.exe") == 0) {
 
                 HANDLE handle = OpenProcess(PROCESS_ALL_ACCESS, FALSE, entry.th32ProcessID);
                 shutdownProcess(handle, entry.th32ProcessID, 10);

@@ -131,7 +131,7 @@ void SetupWizard::accept()
 
 void SetupWizard::reject()
 {
-    QInputLeapApplication::getInstance()->switchTranslator(m_MainWindow.appConfig().language());
+    QSKVMApplication::getInstance()->switchTranslator(m_MainWindow.appConfig().language());
 
     if (m_StartMain)
     {
@@ -144,5 +144,5 @@ void SetupWizard::reject()
 void SetupWizard::on_m_pComboLanguage_currentIndexChanged(int index)
 {
     QString ietfCode = m_pComboLanguage->itemData(index).toString();
-    QInputLeapApplication::getInstance()->switchTranslator(ietfCode);
+    QSKVMApplication::getInstance()->switchTranslator(ietfCode);
 }

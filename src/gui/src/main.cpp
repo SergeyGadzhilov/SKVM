@@ -79,7 +79,7 @@ int main(int argc, char* argv[])
 	QCoreApplication::setOrganizationDomain("github.com");
     QCoreApplication::setApplicationName("SKVM");
 
-	QInputLeapApplication app(argc, argv);
+	QSKVMApplication app(argc, argv);
 
 #if defined(Q_OS_MAC)
 	if (app.applicationDirPath().startsWith("/Volumes/")) {

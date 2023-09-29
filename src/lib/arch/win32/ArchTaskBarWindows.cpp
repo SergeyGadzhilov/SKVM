@@ -423,7 +423,7 @@ ArchTaskBarWindows::threadMainLoop()
     m_taskBarRestart        = RegisterWindowMessage(TEXT("TaskbarCreated"));
 
     // register a window class
-    LPCTSTR className = TEXT("InputLeapTaskBar");
+    LPCTSTR className = TEXT("SKVMTaskBar");
     WNDCLASSEX classInfo;
     classInfo.cbSize        = sizeof(classInfo);
     classInfo.style         = CS_NOCLOSE;
