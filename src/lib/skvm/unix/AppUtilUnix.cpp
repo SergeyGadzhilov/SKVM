@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
  *
@@ -16,10 +16,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "inputleap/unix/AppUtilUnix.h"
-#include "inputleap/ArgsBase.h"
+#include "skvm/unix/AppUtilUnix.h"
 
-namespace inputleap {
+namespace skvm {
 
 AppUtilUnix::AppUtilUnix(IEventQueue* events)
 {
@@ -48,4 +47,4 @@ AppUtilUnix::startNode()
     app().startNode();
 }
 
-} // namespace inputleap
+} // namespace skvm

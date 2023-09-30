@@ -1,6 +1,6 @@
 /*
-    InputLeap -- mouse and keyboard sharing utility
-    Copyright (C) InputLeap contributors
+    SKVM -- mouse and keyboard sharing utility
+    Copyright (C) SKVM contributors
 
     This package is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License
@@ -15,10 +15,10 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef INPUTLEAP_LIB_BASE_TIME_H
-#define INPUTLEAP_LIB_BASE_TIME_H
+#ifndef SKVM_LIB_BASE_TIME_H
+#define SKVM_LIB_BASE_TIME_H
 
-namespace inputleap {
+namespace skvm {
 
 /*!
 Blocks the calling thread for \c timeout seconds.  If
@@ -37,6 +37,6 @@ This should return as high a precision as reasonable.
 */
 double current_time_seconds();
 
-} // namespace inputleap
+} // namespace skvm
 
-#endif // INPUTLEAP_LIB_NET_SECUREUTILS_H
+#endif // SKVM_LIB_NET_SECUREUTILS_H

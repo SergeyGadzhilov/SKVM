@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2016 Symless Ltd.
  *
  * This package is free software; you can redistribute it and/or
@@ -17,12 +17,12 @@
 
 #pragma once
 
-#include "inputleap/KeyState.h"
+
 #include "platform/IOSXKeyResource.h"
 
 #include <Carbon/Carbon.h>
 
-namespace inputleap {
+namespace skvm {
 
 typedef TISInputSourceRef KeyLayout;
 
@@ -55,4 +55,4 @@ private:
     std::uint16_t m_spaceOutput;
 };
 
-} // namespace inputleap
+} // namespace skvm

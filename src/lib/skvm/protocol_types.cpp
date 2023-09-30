@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
  *
@@ -18,7 +18,7 @@
 
 #include "skvm/protocol_types.h"
 
-namespace inputleap {
+namespace skvm {
 
 const char*                kMsgHello            = "Barrier%2i%2i";
 const char*                kMsgHelloBack        = "Barrier%2i%2i%s";
@@ -54,4 +54,4 @@ const char*                kMsgEBusy             = "EBSY";
 const char*                kMsgEUnknown        = "EUNK";
 const char*                kMsgEBad            = "EBAD";
 
-} // namespace inputleap
+} // namespace skvm

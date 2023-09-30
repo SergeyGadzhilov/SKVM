@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
  *
@@ -24,7 +24,7 @@
 
 #include <cstdlib>
 
-namespace inputleap {
+namespace skvm {
 
 static bool parse_address(const std::string& address, std::string& host, int& port)
 {
@@ -208,4 +208,4 @@ NetworkAddress::checkPort()
     }
 }
 
-} // namespace inputleap
+} // namespace skvm

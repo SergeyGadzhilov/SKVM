@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2004 Chris Schoeneman
  *
@@ -26,7 +26,7 @@
 #include <unistd.h>
 #include <poll.h>
 
-namespace inputleap {
+namespace skvm {
 
 XWindowsEventQueueBuffer::XWindowsEventQueueBuffer(IXWindowsImpl* impl,
         Display* display, Window window, IEventQueue* events) :
@@ -39,7 +39,7 @@ XWindowsEventQueueBuffer::XWindowsEventQueueBuffer(IXWindowsImpl* impl,
     assert(m_display != nullptr);
     assert(m_window  != None);
 
-    m_userEvent = m_impl->XInternAtom(m_display, "INPUTLEAP_USER_EVENT", False);
+    m_userEvent = m_impl->XInternAtom(m_display, "SKVM_USER_EVENT", False);
     // set up for pipe hack
     int result = pipe(m_pipefd);
     assert(result == 0);
@@ -221,4 +221,4 @@ XWindowsEventQueueBuffer::flush()
     m_postedEvents.clear();
 }
 
-} // namespace inputleap
+} // namespace skvm

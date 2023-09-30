@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2008 Volker Lanz (vl@fidra.de)
  *
@@ -67,7 +67,7 @@ int main(int argc, char* argv[])
     // QApplication's constructor will call a fscking abort() if
     // DISPLAY is bad. Let's check it first and handle it gracefully
     if (!display_is_valid()) {
-        fprintf(stderr, "The InputLeap GUI requires the DISPLAY environment variable to be set. Quitting...\n");
+        fprintf(stderr, "The SKVM GUI requires the DISPLAY environment variable to be set. Quitting...\n");
         return 1;
     }
 #endif
@@ -75,11 +75,11 @@ int main(int argc, char* argv[])
     /* Workaround for QTBUG-40332 - "High ping when QNetworkAccessManager is instantiated" */
     ::setenv ("QT_BEARER_POLL_TIMEOUT", "-1", 1);
 #endif
-    QCoreApplication::setOrganizationName("InputLeap");
+    QCoreApplication::setOrganizationName("SKVM");
 	QCoreApplication::setOrganizationDomain("github.com");
-    QCoreApplication::setApplicationName("InputLeap");
+    QCoreApplication::setApplicationName("SKVM");
 
-	QInputLeapApplication app(argc, argv);
+	QSKVMApplication app(argc, argv);
 
 #if defined(Q_OS_MAC)
 	if (app.applicationDirPath().startsWith("/Volumes/")) {
@@ -87,10 +87,10 @@ int main(int argc, char* argv[])
         // Unfortunately, there's no user-friendly way to allow assistive access
         // to applications that are not in default paths (/Applications),
         // especially if an identically named application already exists in
-        // /Applications). Thus we require InputLeap to reside in the /Applications
+        // /Applications). Thus we require SKVM to reside in the /Applications
         // folder
-        QMessageBox::information(nullptr, "InputLeap",
-                                 "Please drag InputLeap to the Applications folder, "
+        QMessageBox::information(nullptr, "SKVM",
+                                 "Please drag SKVM to the Applications folder, "
                                  "and open it from there.");
 		return 1;
 	}
@@ -108,8 +108,8 @@ int main(int argc, char* argv[])
     // TODO: Remove once Wayland support is stabilised.
     if (QGuiApplication::platformName() == "wayland") {
         QMessageBox::warning(
-        nullptr, "InputLeap",
-        "You are using wayland session, which is currently not fully supported by InputLeap.");
+        nullptr, "SKVM",
+        "You are using wayland session, which is currently not fully supported by SKVM.");
     }
 
 	QSettings settings;
@@ -176,7 +176,7 @@ bool checkMacAssistiveDevices()
 	// new in mavericks, applications are trusted individually
 	// with use of the accessibility api. this call will show a
 	// prompt which can show the security/privacy/accessibility
-    // tab, with a list of allowed applications. InputLeap should
+    // tab, with a list of allowed applications. SKVM should
 	// show up there automatically, but will be unchecked.
 
 	if (AXIsProcessTrusted()) {
@@ -197,10 +197,10 @@ bool checkMacAssistiveDevices()
 	bool result = AXAPIEnabled();
 	if (!result) {
 		QMessageBox::information(
-            nullptr, "InputLeap",
+            nullptr, "SKVM",
 			"Please enable access to assistive devices "
 			"System Preferences -> Security & Privacy -> "
-            "Privacy -> Accessibility, then re-open InputLeap.");
+            "Privacy -> Accessibility, then re-open SKVM.");
 	}
 	return result;
 

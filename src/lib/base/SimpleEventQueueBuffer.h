@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2004 Chris Schoeneman
  *
@@ -23,7 +23,7 @@
 #include <condition_variable>
 #include <deque>
 
-namespace inputleap {
+namespace skvm {
 
 //! In-memory event queue buffer
 /*!
@@ -50,4 +50,4 @@ private:
     EventDeque m_queue;
 };
 
-} // namespace inputleap
+} // namespace skvm

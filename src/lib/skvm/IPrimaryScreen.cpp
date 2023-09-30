@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2004 Chris Schoeneman
  *
@@ -21,7 +21,7 @@
 
 #include <cstdlib>
 
-namespace inputleap {
+namespace skvm {
 
 bool
 IPrimaryScreen::ButtonInfo::equal(const ButtonInfo* a, const ButtonInfo* b)
@@ -29,4 +29,4 @@ IPrimaryScreen::ButtonInfo::equal(const ButtonInfo* a, const ButtonInfo* b)
     return (a->m_button == b->m_button && a->m_mask == b->m_mask);
 }
 
-} // namespace inputleap
+} // namespace skvm

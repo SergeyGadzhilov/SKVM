@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2012 Nick Bolton
  *
@@ -22,7 +22,7 @@
 #include "ipc/IpcMessage.h"
 #include <cassert>
 
-namespace inputleap {
+namespace skvm {
 
 IpcClient::IpcClient(IEventQueue* events, SocketMultiplexer* socketMultiplexer) :
     m_serverAddress(NetworkAddress(IPC_HOST, IPC_PORT)),
@@ -95,4 +95,4 @@ void IpcClient::handle_message_received(const Event& e)
     m_events->add_event(std::move(event));
 }
 
-} // namespace inputleap
+} // namespace skvm

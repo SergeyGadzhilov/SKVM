@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
  *
@@ -21,7 +21,7 @@
 #include "base/EventTypes.h"
 #include <string>
 
-namespace inputleap {
+namespace skvm {
 
 //! Clipboard interface
 /*!
@@ -174,4 +174,4 @@ private:
     static void writeUInt32(std::string*, std::uint32_t);
 };
 
-} // namespace inputleap
+} // namespace skvm

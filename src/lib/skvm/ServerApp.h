@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
  *
@@ -31,7 +31,7 @@
 
 #include <map>
 
-namespace inputleap {
+namespace skvm {
 
 enum EServerState {
     kUninitialized,
@@ -79,13 +79,13 @@ public:
     void closeClientListener(ClientListener* listen);
     void stopServer();
     void closePrimaryClient(PrimaryClient* primaryClient);
-    void closeServerScreen(inputleap::Screen* screen);
+    void closeServerScreen(skvm::Screen* screen);
     void cleanupServer();
     bool initServer();
     void handle_retry();
     std::unique_ptr<Screen> open_server_screen();
     std::unique_ptr<Screen> create_screen() override;
-    PrimaryClient* openPrimaryClient(const std::string& name, inputleap::Screen* screen);
+    PrimaryClient* openPrimaryClient(const std::string& name, skvm::Screen* screen);
     void handle_screen_error();
     void handle_suspend();
     void handle_resume();
@@ -125,4 +125,4 @@ private:
 #define SYS_CONFIG_NAME "skvm.conf"
 #endif
 
-} // namespace inputleap
+} // namespace skvm

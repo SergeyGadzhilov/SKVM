@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2014-2016 Symless Ltd.
  *
  * This package is free software; you can redistribute it and/or
@@ -22,7 +22,7 @@
 
 #include <fstream>
 
-namespace inputleap {
+namespace skvm {
 
 void
 DropHelper::writeToDir(const std::string& destination, DragFileList& fileList, std::string& data)
@@ -55,4 +55,4 @@ DropHelper::writeToDir(const std::string& destination, DragFileList& fileList, s
     }
 }
 
-} // namespace inputleap
+} // namespace skvm

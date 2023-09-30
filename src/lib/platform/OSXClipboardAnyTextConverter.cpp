@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2004 Chris Schoeneman
  *
@@ -20,7 +20,7 @@
 
 #include <algorithm>
 
-namespace inputleap {
+namespace skvm {
 
 OSXClipboardAnyTextConverter::OSXClipboardAnyTextConverter()
 {
@@ -83,4 +83,4 @@ std::string OSXClipboardAnyTextConverter::convertLinefeedToUnix(const std::strin
     return copy;
 }
 
-} // namespace inputleap
+} // namespace skvm

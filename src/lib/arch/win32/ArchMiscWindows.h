@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
  *
@@ -27,7 +27,7 @@
 #include <set>
 #include <string>
 
-namespace inputleap {
+namespace skvm {
 
 //! Miscellaneous win32 functions.
 class ArchMiscWindows {
@@ -203,4 +203,4 @@ private:
     static HINSTANCE    s_instanceWin32;
 };
 
-} // namespace inputleap
+} // namespace skvm

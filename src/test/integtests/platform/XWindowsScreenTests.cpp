@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2011 Nick Bolton
  *
@@ -16,13 +16,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "test/mock/inputleap/MockEventQueue.h"
+#include "test/mock/skvm/MockEventQueue.h"
 #include "platform/XWindowsScreen.h"
 
 #include <gtest/gtest.h>
 #include <cstdlib>
 
-namespace inputleap {
+namespace skvm {
 
 using ::testing::_;
 
@@ -47,4 +47,4 @@ TEST(CXWindowsScreenTests, fakeMouseMove_nonPrimary_getCursorPosValuesCorrect)
     ASSERT_EQ(20, y);
 }
 
-} // namespace inputleap
+} // namespace skvm

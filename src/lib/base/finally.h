@@ -1,6 +1,6 @@
 /*
-    InputLeap -- mouse and keyboard sharing utility
-    Copyright (C) InputLeap contributors
+    SKVM -- mouse and keyboard sharing utility
+    Copyright (C) SKVM contributors
 
     This package is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License
@@ -15,12 +15,12 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef INPUTLEAP_LIB_BASE_FINALLY_H
-#define INPUTLEAP_LIB_BASE_FINALLY_H
+#ifndef SKVM_LIB_BASE_FINALLY_H
+#define SKVM_LIB_BASE_FINALLY_H
 
 #include <utility>
 
-namespace inputleap {
+namespace skvm {
 
 // this implements a common pattern of executing an action at the end of function
 
@@ -56,6 +56,6 @@ inline final_action<Callable> finally(Callable&& callable) noexcept
     return final_action<Callable>(std::forward<Callable>(callable));
 }
 
-} // namespace inputleap
+} // namespace skvm
 
-#endif // INPUTLEAP_LIB_BASE_FINALLY_H
+#endif // SKVM_LIB_BASE_FINALLY_H

@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2004 Chris Schoeneman
  *
@@ -26,7 +26,7 @@
 #include <memory>
 #include <mutex>
 
-namespace inputleap {
+namespace skvm {
 
 class Thread;
 
@@ -115,4 +115,4 @@ private:
     SocketJobMap m_socketJobMap;
 };
 
-} // namespace inputleap
+} // namespace skvm

@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
  *
@@ -23,7 +23,7 @@
 #include "arch/Arch.h"
 #include "base/Log.h"
 
-namespace inputleap {
+namespace skvm {
 
 Thread::Thread(const std::function<void()>& fun)
 {
@@ -156,4 +156,4 @@ void Thread::threadFunc(const std::function<void()>& func)
     }
 }
 
-} // namespace inputleap
+} // namespace skvm

@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
  *
@@ -18,7 +18,7 @@
 
 #include "platform/XWindowsUtil.h"
 
-#include "inputleap/key_types.h"
+#include "skvm/key_types.h"
 #include "mt/Thread.h"
 #include "base/Log.h"
 #include "base/String.h"
@@ -60,7 +60,7 @@
 #define XK_Ydiaeresis          0x13be
 #endif
 
-namespace inputleap {
+namespace skvm {
 
 /*
  * This table maps keysym values into the corresponding ISO 10646
@@ -1660,10 +1660,10 @@ std::string XWindowsUtil::atomToString(Display* display, Atom atom)
     XWindowsUtil::ErrorLock lock(display, &error);
     char* name = XGetAtomName(display, atom);
     if (error) {
-        return inputleap::string::sprintf("<UNKNOWN> (%d)", static_cast<int>(atom));
+        return skvm::string::sprintf("<UNKNOWN> (%d)", static_cast<int>(atom));
     }
     else {
-        std::string msg = inputleap::string::sprintf("%s (%d)", name, static_cast<int>(atom));
+        std::string msg = skvm::string::sprintf("%s (%d)", name, static_cast<int>(atom));
         XFree(name);
         return msg;
     }
@@ -1678,12 +1678,12 @@ std::string XWindowsUtil::atomsToString(Display* display, const Atom* atom, std:
     std::string msg;
     if (error) {
         for (std::uint32_t i = 0; i < num; ++i) {
-            msg += inputleap::string::sprintf("<UNKNOWN> (%d), ", static_cast<int>(atom[i]));
+            msg += skvm::string::sprintf("<UNKNOWN> (%d), ", static_cast<int>(atom[i]));
         }
     }
     else {
         for (std::uint32_t i = 0; i < num; ++i) {
-            msg += inputleap::string::sprintf("%s (%d), ", names[i], static_cast<int>(atom[i]));
+            msg += skvm::string::sprintf("%s (%d), ", names[i], static_cast<int>(atom[i]));
             XFree(names[i]);
         }
     }
@@ -1827,4 +1827,4 @@ XWindowsUtil::ErrorLock::saveHandler(Display* display, XErrorEvent* e, void* fla
     *static_cast<bool*>(flag) = true;
 }
 
-} // namespace inputleap
+} // namespace skvm

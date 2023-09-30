@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2011 Nick Bolton
  *
@@ -38,13 +38,13 @@ main(int argc, char **argv)
 {
 #if SYSAPI_WIN32
     // record window instance for tray icon, etc
-    inputleap::ArchMiscWindows::setInstanceWin32(GetModuleHandle(nullptr));
+    skvm::ArchMiscWindows::setInstanceWin32(GetModuleHandle(nullptr));
 #endif
 
-    inputleap::Arch arch;
+    skvm::Arch arch;
     arch.init();
 
-    inputleap::Log log;
+    skvm::Log log;
     log.setFilter(kDEBUG2);
 
     std::string lockFile;
@@ -77,10 +77,10 @@ main(int argc, char **argv)
 
 void lock(std::string lockFile)
 {
-    double start = inputleap::current_time_seconds();
+    double start = skvm::current_time_seconds();
 
     // keep checking until timeout is reached.
-    while ((inputleap::current_time_seconds() - start) < LOCK_TIMEOUT) {
+    while ((skvm::current_time_seconds() - start) < LOCK_TIMEOUT) {
 
         std::ifstream is(lockFile.c_str());
         bool noLock = !is;
@@ -91,7 +91,7 @@ void lock(std::string lockFile)
         }
 
         // check every second if file has gone.
-        inputleap::this_thread_sleep(1);
+        skvm::this_thread_sleep(1);
     }
 
     // write empty lock file.

@@ -1,5 +1,5 @@
 /*
-* InputLeap -- mouse and keyboard sharing utility
+* SKVM -- mouse and keyboard sharing utility
 * Copyright (C) 2018 Debauchee Open Source Group
 *
 * This package is free software; you can redistribute it and/or
@@ -20,7 +20,7 @@
 
 #include <Shlobj.h>
 
-namespace inputleap {
+namespace skvm {
 
 fs::path known_folder_path(const KNOWNFOLDERID& id)
 {
@@ -38,7 +38,7 @@ const fs::path& DataDirectories::profile()
 {
     if (_profile.empty()) {
         auto basedir = known_folder_path(FOLDERID_LocalAppData);
-        _profile = basedir / "InputLeap";
+        _profile = basedir / "SKVM";
         maybe_copy_old_profile(basedir / "barrier", _profile);
     }
     return _profile;
@@ -52,7 +52,7 @@ const fs::path& DataDirectories::profile(const fs::path& path)
 const fs::path& DataDirectories::global()
 {
     if (_global.empty())
-        _global = known_folder_path(FOLDERID_ProgramData) / "InputLeap";
+        _global = known_folder_path(FOLDERID_ProgramData) / "SKVM";
     return _global;
 }
 const fs::path& DataDirectories::global(const fs::path& path)
@@ -77,4 +77,4 @@ const fs::path& DataDirectories::systemconfig(const fs::path& path)
     return _systemconfig;
 }
 
-} // namespace inputleap
+} // namespace skvm

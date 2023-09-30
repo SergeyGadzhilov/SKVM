@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2014-2016 Symless Ltd.
  *
  * This package is free software; you can redistribute it and/or
@@ -19,7 +19,7 @@
 
 #include "skvm/ArgsBase.h"
 
-namespace inputleap {
+namespace skvm {
 
 class ClientArgs : public ArgsBase {
 public:
@@ -29,4 +29,4 @@ public:
     int m_yscroll;
 };
 
-} // namespace inputleap
+} // namespace skvm

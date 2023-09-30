@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
  *
@@ -40,7 +40,7 @@
 #endif
 typedef DWORD EXECUTION_STATE;
 
-namespace inputleap {
+namespace skvm {
 
 ArchMiscWindows::Dialogs* ArchMiscWindows::s_dialogs = nullptr;
 DWORD ArchMiscWindows::s_busyState = 0;
@@ -524,4 +524,4 @@ ArchMiscWindows::setInstanceWin32(HINSTANCE instance)
     s_instanceWin32 = instance;
 }
 
-} // namespace inputleap
+} // namespace skvm

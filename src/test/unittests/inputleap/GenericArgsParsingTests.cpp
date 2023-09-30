@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2014-2016 Symless Ltd.
  *
  * This package is free software; you can redistribute it and/or
@@ -17,11 +17,11 @@
 
 #include "skvm/ArgParser.h"
 #include "skvm/ArgsBase.h"
-#include "test/mock/inputleap/MockApp.h"
+#include "test/mock/skvm/MockApp.h"
 
 #include <gtest/gtest.h>
 
-using namespace inputleap;
+using namespace skvm;
 using ::testing::_;
 using ::testing::Invoke;
 using ::testing::NiceMock;

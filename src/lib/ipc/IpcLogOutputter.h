@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2012 Nick Bolton
  *
@@ -27,7 +27,7 @@
 #include <condition_variable>
 #include <mutex>
 
-namespace inputleap {
+namespace skvm {
 
 class IpcServer;
 class Event;
@@ -122,4 +122,4 @@ private:
     std::mutex m_runningMutex;
 };
 
-} // namespace inputleap
+} // namespace skvm

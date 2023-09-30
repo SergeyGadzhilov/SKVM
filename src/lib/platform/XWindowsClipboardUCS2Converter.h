@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
  *
@@ -20,7 +20,7 @@
 
 #include "platform/XWindowsClipboard.h"
 
-namespace inputleap {
+namespace skvm {
 
 //! Convert to/from UCS-2 encoding
 class XWindowsClipboardUCS2Converter : public IXWindowsClipboardConverter {
@@ -42,4 +42,4 @@ private:
     Atom m_atom;
 };
 
-} // namespace inputleap
+} // namespace skvm

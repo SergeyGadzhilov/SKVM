@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2011 Nick Bolton
  *
@@ -30,13 +30,13 @@ main(int argc, char **argv)
 {
 #if SYSAPI_WIN32
     // HACK: shouldn't be needed, but logging fails without this.
-    inputleap::ArchMiscWindows::setInstanceWin32(GetModuleHandle(nullptr));
+    skvm::ArchMiscWindows::setInstanceWin32(GetModuleHandle(nullptr));
 #endif
 
-    inputleap::Arch arch;
+    skvm::Arch arch;
     arch.init();
 
-    inputleap::Log log;
+    skvm::Log log;
     log.setFilter(kDEBUG4);
 
     testing::InitGoogleTest(&argc, argv);

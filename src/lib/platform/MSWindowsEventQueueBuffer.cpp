@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2004 Chris Schoeneman
  *
@@ -23,7 +23,7 @@
 #include "base/IEventQueue.h"
 #include <VersionHelpers.h>
 
-namespace inputleap {
+namespace skvm {
 
 MSWindowsEventQueueBuffer::MSWindowsEventQueueBuffer(IEventQueue* events) :
     m_events(events)
@@ -32,7 +32,7 @@ MSWindowsEventQueueBuffer::MSWindowsEventQueueBuffer(IEventQueue* events) :
     m_thread     = GetCurrentThreadId();
 
     // create a message type for custom events
-    m_userEvent = RegisterWindowMessage("INPUTLEAP_USER_EVENT");
+    m_userEvent = RegisterWindowMessage("SKVM_USER_EVENT");
 
     // get message type for daemon quit
     m_daemonQuit = ArchMiscWindows::getDaemonQuitMessage();
@@ -130,4 +130,4 @@ MSWindowsEventQueueBuffer::isEmpty() const
     return (HIWORD(GetQueueStatus(m_os_supported_message_types)) == 0);
 }
 
-} // namespace inputleap
+} // namespace skvm

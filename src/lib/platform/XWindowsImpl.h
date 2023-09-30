@@ -5,7 +5,7 @@
 
 #include "IXWindowsImpl.h"
 
-namespace inputleap {
+namespace skvm {
 
 class XWindowsImpl : public IXWindowsImpl {
 public:
@@ -148,4 +148,4 @@ public:
     int XNextEvent(Display* display, XEvent* event_return) override;
 };
 
-} // namespace inputleap
+} // namespace skvm

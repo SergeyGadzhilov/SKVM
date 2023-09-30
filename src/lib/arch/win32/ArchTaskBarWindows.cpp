@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2003 Chris Schoeneman
  *
@@ -32,7 +32,7 @@ static const UINT        kUpdateReceiver  = WM_USER + 12;
 static const UINT        kNotifyReceiver  = WM_USER + 13;
 static const UINT        kFirstReceiverID = WM_USER + 14;
 
-namespace inputleap {
+namespace skvm {
 
 ArchTaskBarWindows* ArchTaskBarWindows::s_instance = nullptr;
 
@@ -423,7 +423,7 @@ ArchTaskBarWindows::threadMainLoop()
     m_taskBarRestart        = RegisterWindowMessage(TEXT("TaskbarCreated"));
 
     // register a window class
-    LPCTSTR className = TEXT("InputLeapTaskBar");
+    LPCTSTR className = TEXT("SKVMTaskBar");
     WNDCLASSEX classInfo;
     classInfo.cbSize        = sizeof(classInfo);
     classInfo.style         = CS_NOCLOSE;
@@ -442,7 +442,7 @@ ArchTaskBarWindows::threadMainLoop()
     // create window
     m_hwnd = CreateWindowEx(WS_EX_TOOLWINDOW,
                             className,
-                            TEXT("InputLeap Task Bar"),
+                            TEXT("SKVM Task Bar"),
                             WS_POPUP,
                             0, 0, 1, 1,
                             nullptr,
@@ -483,4 +483,4 @@ HINSTANCE ArchTaskBarWindows::instanceWin32()
     return ArchMiscWindows::instanceWin32();
 }
 
-} // namespace inputleap
+} // namespace skvm

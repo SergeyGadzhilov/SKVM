@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
  *
@@ -23,7 +23,7 @@
 #define WIN32_LEAN_AND_MEAN
 #include <Windows.h>
 
-namespace inputleap {
+namespace skvm {
 
 class Thread;
 
@@ -89,4 +89,4 @@ private:
     bool m_active;
 };
 
-} // namespace inputleap
+} // namespace skvm

@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2013-2016 Symless Ltd.
  *
  * This package is free software; you can redistribute it and/or
@@ -23,7 +23,7 @@
 #include <Windows.h>
 #include <Tlhelp32.h>
 
-namespace inputleap {
+namespace skvm {
 
 class MSWindowsSession {
 public:
@@ -53,4 +53,4 @@ private:
     DWORD m_activeSessionId;
 };
 
-} // namespace inputleap
+} // namespace skvm

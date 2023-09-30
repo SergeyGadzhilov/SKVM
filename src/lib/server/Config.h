@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
  *
@@ -31,11 +31,11 @@
 #include <map>
 #include <set>
 
-namespace inputleap { class Config; }
+namespace skvm { class Config; }
 
 namespace std {
 template <>
-struct iterator_traits<inputleap::Config> {
+struct iterator_traits<skvm::Config> {
     typedef std::string value_type;
     typedef ptrdiff_t                    difference_type;
     typedef bidirectional_iterator_tag    iterator_category;
@@ -44,7 +44,7 @@ struct iterator_traits<inputleap::Config> {
 };
 }
 
-namespace inputleap {
+namespace skvm {
 
 class Config;
 class ConfigReadContext;
@@ -143,8 +143,8 @@ private:
     public:
         ScreenOptions m_options;
     };
-    typedef std::map<std::string, Cell, inputleap::string::CaselessCmp> CellMap;
-    typedef std::map<std::string, std::string, inputleap::string::CaselessCmp> NameMap;
+    typedef std::map<std::string, Cell, skvm::string::CaselessCmp> CellMap;
+    typedef std::map<std::string, std::string, skvm::string::CaselessCmp> NameMap;
 
 public:
     typedef Cell::const_iterator link_const_iterator;
@@ -181,7 +181,7 @@ public:
     Config(IEventQueue* events);
     virtual ~Config();
 
-#ifdef INPUTLEAP_TEST_ENV
+#ifdef SKVM_TEST_ENV
     Config() : m_inputFilter(nullptr) { }
 #endif
 
@@ -536,4 +536,4 @@ private:
     std::string m_error;
 };
 
-} // namespace inputleap
+} // namespace skvm

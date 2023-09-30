@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2016 Symless
  *
  * This package is free software; you can redistribute it and/or
@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#define INPUTLEAP_TEST_ENV
+#define SKVM_TEST_ENV
 
 #include "skvm/KeyMap.h"
 
@@ -29,7 +29,7 @@ using ::testing::Return;
 using ::testing::ReturnRef;
 using ::testing::SaveArg;
 
-namespace inputleap {
+namespace skvm {
 
 TEST(KeyMapTests, findBestKey_requiredDown_matchExactFirstItem)
 {

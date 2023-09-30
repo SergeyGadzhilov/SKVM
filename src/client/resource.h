@@ -1,11 +1,11 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Developer Studio generated include file.
-// Used by input-leapc.rc
+// Used by skvm.rc
 //
 #define IDS_FAILED                      1
 #define IDS_INIT_FAILED                 2
 #define IDS_UNCAUGHT_EXCEPTION          3
-#define IDI_INPUTLEAP                     101
+#define IDI_SKVM                     101
 #define IDI_TASKBAR_NOT_RUNNING         102
 #define IDI_TASKBAR_NOT_WORKING         103
 #define IDI_TASKBAR_NOT_CONNECTED       104

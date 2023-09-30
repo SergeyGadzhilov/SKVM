@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
  *
@@ -22,7 +22,7 @@
 #include "skvm/Fwd.h"
 #include "skvm/protocol_types.h"
 
-namespace inputleap {
+namespace skvm {
 
 class IStream;
 
@@ -37,10 +37,10 @@ public:
     /*!
     \c name is the name of the server and \p screen is primary screen.
     */
-    PrimaryClient(const std::string& name, inputleap::Screen* screen);
+    PrimaryClient(const std::string& name, skvm::Screen* screen);
     ~PrimaryClient();
 
-#ifdef INPUTLEAP_TEST_ENV
+#ifdef SKVM_TEST_ENV
     PrimaryClient() : BaseClientProxy("") { }
 #endif
 
@@ -153,9 +153,9 @@ public:
 
     bool isPrimary() const override{ return true; }
 private:
-    inputleap::Screen* m_screen;
+    skvm::Screen* m_screen;
     bool m_clipboardDirty[kClipboardEnd];
     std::int32_t m_fakeInputCount;
 };
 
-} // namespace inputleap
+} // namespace skvm

@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2008 Volker Lanz (vl@fidra.de)
  *
@@ -46,7 +46,7 @@ Action::Action() :
 
 QString Action::text() const
 {
-    /* This function is used to save to config file which is for InputLeap server to
+    /* This function is used to save to config file which is for SKVM server to
      * read. However the server config parse does not support functions with ()
      * in the end but now argument inside. If you need a function with no
      * argument, it can not have () in the end.

@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2004 Chris Schoeneman
  *
@@ -23,14 +23,14 @@
 #include "base/EventTypes.h"
 #include <string>
 
-namespace inputleap {
+namespace skvm {
 
 //! Data stream socket interface
 /*!
 This interface defines the methods common to all network sockets that
 represent a full-duplex data stream.
 */
-class IDataSocket : public ISocket, public inputleap::IStream {
+class IDataSocket : public ISocket, public skvm::IStream {
 public:
     class ConnectionFailedInfo {
     public:
@@ -66,4 +66,4 @@ public:
     virtual bool isFatal() const = 0;
 };
 
-} // namespace inputleap
+} // namespace skvm

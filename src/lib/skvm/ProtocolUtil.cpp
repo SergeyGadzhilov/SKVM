@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
  *
@@ -26,10 +26,10 @@
 #include <cstring>
 #include <vector>
 
-namespace inputleap {
+namespace skvm {
 
 void
-ProtocolUtil::writef(inputleap::IStream* stream, const char* fmt, ...)
+ProtocolUtil::writef(skvm::IStream* stream, const char* fmt, ...)
 {
     assert(stream != nullptr);
     assert(fmt != nullptr);
@@ -45,7 +45,7 @@ ProtocolUtil::writef(inputleap::IStream* stream, const char* fmt, ...)
 }
 
 bool
-ProtocolUtil::readf(inputleap::IStream* stream, const char* fmt, ...)
+ProtocolUtil::readf(skvm::IStream* stream, const char* fmt, ...)
 {
     assert(stream != nullptr);
     assert(fmt != nullptr);
@@ -65,7 +65,7 @@ ProtocolUtil::readf(inputleap::IStream* stream, const char* fmt, ...)
     return result;
 }
 
-void ProtocolUtil::vwritef(inputleap::IStream* stream, const char* fmt, std::uint32_t size,
+void ProtocolUtil::vwritef(skvm::IStream* stream, const char* fmt, std::uint32_t size,
                            va_list args)
 {
     assert(stream != nullptr);
@@ -94,7 +94,7 @@ void ProtocolUtil::vwritef(inputleap::IStream* stream, const char* fmt, std::uin
 }
 
 void
-ProtocolUtil::vreadf(inputleap::IStream* stream, const char* fmt, va_list args)
+ProtocolUtil::vreadf(skvm::IStream* stream, const char* fmt, va_list args)
 {
     assert(stream != nullptr);
     assert(fmt != nullptr);
@@ -533,7 +533,7 @@ std::uint32_t ProtocolUtil::eatLength(const char** pfmt)
     }
 }
 
-void ProtocolUtil::read(inputleap::IStream* stream, void* vbuffer, std::uint32_t count)
+void ProtocolUtil::read(skvm::IStream* stream, void* vbuffer, std::uint32_t count)
 {
     assert(stream != nullptr);
     assert(vbuffer != nullptr);
@@ -565,4 +565,4 @@ std::string XIOReadMismatch::getWhat() const noexcept
     return format("XIOReadMismatch", "ProtocolUtil::readf() mismatch");
 }
 
-} // namespace inputleap
+} // namespace skvm

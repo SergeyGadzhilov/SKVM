@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
  *
@@ -18,12 +18,12 @@
 
 #pragma once
 
-#include "inputleap/AppUtil.h"
+#include "skvm/AppUtil.h"
 #include "base/Fwd.h"
 
 #define ARCH_APP_UTIL AppUtilUnix
 
-namespace inputleap {
+namespace skvm {
 
 class AppUtilUnix : public AppUtil {
 public:
@@ -34,4 +34,4 @@ public:
     void startNode() override;
 };
 
-} // namespace inputleap
+} // namespace skvm

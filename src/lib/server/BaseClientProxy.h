@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
  *
@@ -22,7 +22,7 @@
 #include "skvm/Fwd.h"
 #include "skvm/IClient.h"
 
-namespace inputleap {
+namespace skvm {
 
 class IClientConnection;
 class IStream;
@@ -74,4 +74,4 @@ private:
     std::int32_t m_x, m_y;
 };
 
-} // namespace inputleap
+} // namespace skvm

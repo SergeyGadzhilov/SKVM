@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
  *
@@ -51,12 +51,12 @@
 #include <ctime>
 #include <stdexcept>
 
-namespace inputleap {
+namespace skvm {
 
 Server::Server(
 		Config& config,
 		PrimaryClient* primaryClient,
-		inputleap::Screen* screen,
+		skvm::Screen* screen,
 		IEventQueue* events,
 		ServerArgs const& args) :
 	m_mock(false),
@@ -1777,8 +1777,8 @@ void Server::send_drag_info_thread(BaseClientProxy* newScreen)
 
 #if defined(__APPLE__)
 	// on mac it seems that after faking a LMB up, system would signal back
-    // to InputLeap a mouse up event, which doesn't happen on windows. as a
-    // result, InputLeap would send dragging file to client twice. This variable
+    // to SKVM a mouse up event, which doesn't happen on windows. as a
+    // result, SKVM would send dragging file to client twice. This variable
 	// is used to ignore the first file sending.
 	m_ignoreFileTransfer = true;
 #endif
@@ -2009,7 +2009,7 @@ void Server::write_to_drop_dir_thread()
 	LOG((CLOG_DEBUG "starting write to drop dir thread"));
 
 	while (m_screen->isFakeDraggingStarted()) {
-		inputleap::this_thread_sleep(.1f);
+		skvm::this_thread_sleep(.1f);
 	}
 
 	DropHelper::writeToDir(m_screen->getDropTarget(), m_fakeDragFileList,
@@ -2257,4 +2257,4 @@ void Server::dragInfoReceived(std::uint32_t fileNum, std::string content)
 	m_screen->startDraggingFiles(m_fakeDragFileList);
 }
 
-} // namespace inputleap
+} // namespace skvm

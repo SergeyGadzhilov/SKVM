@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2011 Nick Bolton
  *
@@ -16,18 +16,18 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "test/mock/inputleap/MockKeyMap.h"
-#include "test/mock/inputleap/MockEventQueue.h"
+#include "test/mock/skvm/MockKeyMap.h"
+#include "test/mock/skvm/MockEventQueue.h"
 #include "platform/OSXKeyState.h"
 
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
 
-namespace inputleap {
+namespace skvm {
 
 TEST(OSXKeyStateTests, mapModifiersFromOSX_OSXMask)
 {
-    inputleap::KeyMap keyMap;
+    skvm::KeyMap keyMap;
     MockEventQueue eventQueue;
     OSXKeyState keyState(&eventQueue, keyMap);
 
@@ -58,4 +58,4 @@ TEST(OSXKeyStateTests, mapModifiersFromOSX_OSXMask)
     EXPECT_EQ(KeyModifierNumLock, outMask);
 }
 
-} // namespace inputleap
+} // namespace skvm

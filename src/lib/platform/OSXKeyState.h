@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2004 Chris Schoeneman
  *
@@ -18,7 +18,7 @@
 
 #pragma once
 
-#include "inputleap/KeyState.h"
+#include "skvm/KeyState.h"
 
 #include <Carbon/Carbon.h>
 
@@ -26,7 +26,7 @@
 #include <set>
 #include <vector>
 
-namespace inputleap {
+namespace skvm {
 
 typedef TISInputSourceRef KeyLayout;
 class IOSXKeyResource;
@@ -40,7 +40,7 @@ public:
     typedef std::vector<KeyID> KeyIDs;
 
     OSXKeyState(IEventQueue* events);
-    OSXKeyState(IEventQueue* events, inputleap::KeyMap& keyMap);
+    OSXKeyState(IEventQueue* events, skvm::KeyMap& keyMap);
     virtual ~OSXKeyState();
 
     //! @name modifiers
@@ -58,9 +58,9 @@ public:
     //! @name accessors
     //@{
 
-    //! Convert OS X modifier mask to InputLeap mask
+    //! Convert OS X modifier mask to SKVM mask
     /*!
-    Returns the InputLeap modifier mask corresponding to the OS X modifier
+    Returns the SKVM modifier mask corresponding to the OS X modifier
     mask in \p mask.
     */
     KeyModifierMask mapModifiersFromOSX(std::uint32_t mask) const;
@@ -102,18 +102,18 @@ public:
     CGEventFlags getModifierStateAsOSXFlags();
 protected:
     // KeyState overrides
-    virtual void getKeyMap(inputleap::KeyMap& keyMap);
+    virtual void getKeyMap(skvm::KeyMap& keyMap);
     virtual void fakeKey(const Keystroke& keystroke);
 
 private:
     class KeyResource;
     typedef std::vector<KeyLayout> GroupList;
 
-    // Add hard coded special keys to a inputleap::KeyMap.
-    void getKeyMapForSpecialKeys(inputleap::KeyMap& keyMap, std::int32_t group) const;
+    // Add hard coded special keys to a skvm::KeyMap.
+    void getKeyMapForSpecialKeys(skvm::KeyMap& keyMap, std::int32_t group) const;
 
     // Convert keyboard resource to a key map
-    bool getKeyMap(inputleap::KeyMap& keyMap, std::int32_t group, const IOSXKeyResource& r) const;
+    bool getKeyMap(skvm::KeyMap& keyMap, std::int32_t group, const IOSXKeyResource& r) const;
 
     // Get the available keyboard groups
     bool getGroups(GroupList&) const;
@@ -154,7 +154,7 @@ private:
     void postHIDVirtualKey(const std::uint8_t virtualKeyCode, const bool postDown);
 
 private:
-    // OS X uses a physical key if 0 for the 'A' key.  InputLeap reserves
+    // OS X uses a physical key if 0 for the 'A' key.  SKVM reserves
     // KeyButton 0 so we offset all OS X physical key ids by this much
     // when used as a KeyButton and by minus this much to map a KeyButton
     // to a physical button.
@@ -176,4 +176,4 @@ private:
     bool m_capsPressed;
 };
 
-} // namespace inputleap
+} // namespace skvm

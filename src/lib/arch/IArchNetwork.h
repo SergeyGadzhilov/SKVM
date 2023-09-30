@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
  *
@@ -20,7 +20,7 @@
 
 #include <string>
 
-namespace inputleap {
+namespace skvm {
 
 class ArchThreadImpl;
 typedef ArchThreadImpl* ArchThread;
@@ -54,7 +54,7 @@ An opaque type representing a network address.
 */
 typedef ArchNetAddressImpl* ArchNetAddress;
 
-/** This interface defines the networking operations required by InputLeap.
+/** This interface defines the networking operations required by SKVM.
     Each architecture must implement this interface.
 */
 class IArchNetwork {
@@ -283,4 +283,4 @@ public:
     virtual void init() = 0;
 };
 
-} // namespace inputleap
+} // namespace skvm

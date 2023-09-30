@@ -1,6 +1,6 @@
 /*
-    InputLeap -- mouse and keyboard sharing utility
-    Copyright (C) InputLeap contributors
+    SKVM -- mouse and keyboard sharing utility
+    Copyright (C) SKVM contributors
 
     This package is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License
@@ -20,7 +20,7 @@
 #include <chrono>
 #include <thread>
 
-namespace inputleap {
+namespace skvm {
 
 void this_thread_sleep(double timeout_seconds)
 {
@@ -40,4 +40,4 @@ double current_time_seconds()
     return us_since_epoch / 1000000.0;
 }
 
-} // namespace inputleap
+} // namespace skvm

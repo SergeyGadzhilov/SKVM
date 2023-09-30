@@ -1,6 +1,6 @@
 /*
-    InputLeap -- mouse and keyboard sharing utility
-    Copyright (C) 2021 InputLeap contributors
+    SKVM -- mouse and keyboard sharing utility
+    Copyright (C) 2021 SKVM contributors
 
     This package is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License
@@ -20,7 +20,7 @@
 #include <gtest/gtest.h>
 #include "test/global/TestUtils.h"
 
-namespace inputleap {
+namespace skvm {
 
 TEST(SecureUtilsTest, FormatSslFingerprintHexWithSeparators)
 {
@@ -70,4 +70,4 @@ TEST(SecureUtilsTest, CreateFingerprintRandomArt)
               "+-----------------+");
 }
 
-} // namespace inputleap
+} // namespace skvm

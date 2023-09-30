@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2016 Symless Ltd.
  *
  * This package is free software; you can redistribute it and/or
@@ -19,7 +19,7 @@
 
 #include <Carbon/Carbon.h>
 
-namespace inputleap {
+namespace skvm {
 
 OSXUchrKeyResource::OSXUchrKeyResource(const void* resource, std::uint32_t keyboardType) :
     m_m(nullptr),
@@ -190,7 +190,7 @@ bool OSXUchrKeyResource::getDeadKey(KeySequence& keys, std::uint16_t index) cons
 
     // convert keys to their dead counterparts
     for (KeySequence::iterator i = keys.begin(); i != keys.end(); ++i) {
-        *i = inputleap::KeyMap::getDeadKey(*i);
+        *i = skvm::KeyMap::getDeadKey(*i);
     }
 
     return true;
@@ -283,4 +283,4 @@ OSXUchrKeyResource::addSequence(
     return true;
 }
 
-} // namespace inputleap
+} // namespace skvm

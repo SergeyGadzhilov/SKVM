@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2012 Nick Bolton
  *
@@ -27,7 +27,7 @@
 #include "base/Event.h"
 #include "base/Log.h"
 
-namespace inputleap {
+namespace skvm {
 
 IpcServer::IpcServer(IEventQueue* events, SocketMultiplexer* socketMultiplexer) :
     m_mock(false),
@@ -171,4 +171,4 @@ IpcServer::send(const IpcMessage& message, EIpcClientType filterType)
     }
 }
 
-} // namespace inputleap
+} // namespace skvm

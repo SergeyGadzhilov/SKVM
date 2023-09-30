@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2014-2016 Symless Ltd.
  *
  * This package is free software; you can redistribute it and/or
@@ -20,7 +20,7 @@
 
 #include <gtest/gtest.h>
 
-namespace inputleap {
+namespace skvm {
 
 TEST(ArgParserTests, isArg_abbreviationsArg_returnTrue)
 {
@@ -223,4 +223,4 @@ TEST(ArgParserTests, assembleCommand_stringArrayWithSpace_returnCommand)
     EXPECT_EQ("\"stub1 space\" stub2 \"stub3 space\"", command);
 }
 
-} // namespace inputleap
+} // namespace skvm

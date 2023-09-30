@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2003 Chris Schoeneman
  *
@@ -30,7 +30,7 @@
 
 #define ARCH_TASKBAR ArchTaskBarWindows
 
-namespace inputleap {
+namespace skvm {
 
 //! Win32 implementation of IArchTaskBar
 class ArchTaskBarWindows : public IArchTaskBar {
@@ -116,4 +116,4 @@ private:
     Dialogs m_addedDialogs;
 };
 
-} // namespace inputleap
+} // namespace skvm

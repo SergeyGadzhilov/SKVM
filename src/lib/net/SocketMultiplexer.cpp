@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2004 Chris Schoeneman
  *
@@ -25,7 +25,7 @@
 #include "base/Log.h"
 #include <vector>
 
-namespace inputleap {
+namespace skvm {
 
 class CursorMultiplexerJob : public ISocketMultiplexerJob {
 public:
@@ -334,4 +334,4 @@ SocketMultiplexer::unlockJobList()
     }
 }
 
-} // namespace inputleap
+} // namespace skvm

@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
  *
@@ -29,7 +29,7 @@
 #include "base/Fwd.h"
 #include <memory>
 
-namespace inputleap {
+namespace skvm {
 
 //! Platform independent screen
 /*!
@@ -41,7 +41,7 @@ public:
     Screen(std::unique_ptr<IPlatformScreen> platform_screen, IEventQueue* events);
     virtual ~Screen();
 
-#ifdef INPUTLEAP_TEST_ENV
+#ifdef SKVM_TEST_ENV
     Screen() : m_mock(true) { }
 #endif
 

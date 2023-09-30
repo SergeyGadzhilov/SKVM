@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
  *
@@ -19,7 +19,7 @@
 #include "net/IDataSocket.h"
 #include "base/EventQueue.h"
 
-namespace inputleap {
+namespace skvm {
 
 void
 IDataSocket::close()
@@ -35,4 +35,4 @@ const EventTarget* IDataSocket::get_event_target() const
     return nullptr;
 }
 
-} // namespace inputleap
+} // namespace skvm

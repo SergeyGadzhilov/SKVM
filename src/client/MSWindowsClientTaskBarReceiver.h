@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2003 Chris Schoeneman
  *
@@ -22,7 +22,7 @@
 #include "skvm/ClientTaskBarReceiver.h"
 #include "common/win32/winapi.h"
 
-namespace inputleap {
+namespace skvm {
 
 //! Implementation of ClientTaskBarReceiver for Microsoft Windows
 class MSWindowsClientTaskBarReceiver : public ClientTaskBarReceiver {
@@ -62,4 +62,4 @@ private:
     static const UINT    s_stateToIconID[];
 };
 
-} // namespace inputleap
+} // namespace skvm

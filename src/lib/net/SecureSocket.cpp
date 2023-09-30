@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2015-2016 Symless Ltd.
  *
  * This package is free software; you can redistribute it and/or
@@ -37,7 +37,7 @@
 #include <fstream>
 #include <memory>
 
-namespace inputleap {
+namespace skvm {
 
 #define MAX_ERROR_SIZE 65535
 
@@ -316,7 +316,7 @@ SecureSocket::initSsl(bool server)
     initContext(server);
 }
 
-bool SecureSocket::load_certificates(const inputleap::fs::path& path)
+bool SecureSocket::load_certificates(const skvm::fs::path& path)
 {
     std::lock_guard<std::mutex> ssl_lock{ssl_mutex_};
 
@@ -325,7 +325,7 @@ bool SecureSocket::load_certificates(const inputleap::fs::path& path)
         return false;
     }
     else {
-        if (!inputleap::fs::is_regular_file(path)) {
+        if (!skvm::fs::is_regular_file(path)) {
             showError("ssl certificate doesn't exist: " + path.u8string());
             return false;
         }
@@ -438,7 +438,7 @@ SecureSocket::secureAccept(int socket)
         LOG((CLOG_ERR "failed to accept secure socket"));
         LOG((CLOG_INFO "client connection may not be secure"));
         m_secureReady = false;
-        inputleap::this_thread_sleep(1);
+        skvm::this_thread_sleep(1);
         secure_accept_retry_ = 0;
         return -1; // Failed, error out
     }
@@ -447,7 +447,7 @@ SecureSocket::secureAccept(int socket)
     if (secure_accept_retry_ == 0) {
         if (security_level_ == ConnectionSecurityLevel::ENCRYPTED_AUTHENTICATED) {
             if (verify_peer_certificate(
-                        inputleap::DataDirectories::trusted_clients_ssl_fingerprints_path())) {
+                        skvm::DataDirectories::trusted_clients_ssl_fingerprints_path())) {
                 LOG((CLOG_INFO "accepted secure socket"));
             }
             else {
@@ -471,7 +471,7 @@ SecureSocket::secureAccept(int socket)
     if (secure_accept_retry_ > 0) {
         LOG((CLOG_DEBUG2 "retry accepting secure socket"));
         m_secureReady = false;
-        inputleap::this_thread_sleep(s_retryDelay);
+        skvm::this_thread_sleep(s_retryDelay);
         return 0;
     }
 
@@ -484,7 +484,7 @@ int
 SecureSocket::secureConnect(int socket)
 {
     // note that load_certificates acquires ssl_mutex_
-    if (!load_certificates(inputleap::DataDirectories::ssl_certificate_path())) {
+    if (!load_certificates(skvm::DataDirectories::ssl_certificate_path())) {
         LOG((CLOG_ERR "could not load client certificates"));
         // FIXME: this is fatal error, but we current don't disconnect because whole logic in this
         // function needs to be cleaned up
@@ -512,14 +512,14 @@ SecureSocket::secureConnect(int socket)
     if (secure_connect_retry_ > 0) {
         LOG((CLOG_DEBUG2 "retry connect secure socket"));
         m_secureReady = false;
-        inputleap::this_thread_sleep(s_retryDelay);
+        skvm::this_thread_sleep(s_retryDelay);
         return 0;
     }
 
     secure_connect_retry_ = 0;
     // No error, set ready, process and return ok
     m_secureReady = true;
-    if (verify_peer_certificate(inputleap::DataDirectories::trusted_servers_ssl_fingerprints_path())) {
+    if (verify_peer_certificate(skvm::DataDirectories::trusted_servers_ssl_fingerprints_path())) {
         LOG((CLOG_INFO "connected to secure socket"));
     }
     else {
@@ -653,7 +653,7 @@ SecureSocket::disconnect()
     sendEvent(EventType::STREAM_INPUT_SHUTDOWN);
 }
 
-bool SecureSocket::verify_peer_certificate(const inputleap::fs::path& fingerprint_db_path)
+bool SecureSocket::verify_peer_certificate(const skvm::fs::path& fingerprint_db_path)
 {
     // ssl_mutex_ is assumed to be acquired
 
@@ -663,18 +663,18 @@ bool SecureSocket::verify_peer_certificate(const inputleap::fs::path& fingerprin
         showError("peer has no ssl certificate");
         return false;
     }
-    auto cert_free = inputleap::finally([cert]() { X509_free(cert); });
+    auto cert_free = skvm::finally([cert]() { X509_free(cert); });
     char* line = X509_NAME_oneline(X509_get_subject_name(cert), nullptr, 0);
     LOG((CLOG_INFO "peer ssl certificate info: %s", line));
     OPENSSL_free(line);
 
     // calculate received certificate fingerprint
-    inputleap::FingerprintData fingerprint_sha1, fingerprint_sha256;
+    skvm::FingerprintData fingerprint_sha1, fingerprint_sha256;
     try {
-        fingerprint_sha1 = inputleap::get_ssl_cert_fingerprint(cert,
-                                                             inputleap::FingerprintType::SHA1);
-        fingerprint_sha256 = inputleap::get_ssl_cert_fingerprint(cert,
-                                                               inputleap::FingerprintType::SHA256);
+        fingerprint_sha1 = skvm::get_ssl_cert_fingerprint(cert,
+                                                             skvm::FingerprintType::SHA1);
+        fingerprint_sha256 = skvm::get_ssl_cert_fingerprint(cert,
+                                                               skvm::FingerprintType::SHA256);
     } catch (const std::exception& e) {
         LOG((CLOG_ERR "%s", e.what()));
         return false;
@@ -682,13 +682,13 @@ bool SecureSocket::verify_peer_certificate(const inputleap::fs::path& fingerprin
 
     // note: the GUI parses the following two lines of logs, don't change unnecessarily
     LOG((CLOG_NOTE "peer fingerprint (SHA1): %s (SHA256): %s",
-         inputleap::format_ssl_fingerprint(fingerprint_sha1.data).c_str(),
-         inputleap::format_ssl_fingerprint(fingerprint_sha256.data).c_str()));
+         skvm::format_ssl_fingerprint(fingerprint_sha1.data).c_str(),
+         skvm::format_ssl_fingerprint(fingerprint_sha256.data).c_str()));
 
     // Provide debug hint as to what file is being used to verify fingerprint trust
     LOG((CLOG_NOTE "fingerprint_db_path: %s", fingerprint_db_path.u8string().c_str()));
 
-    inputleap::FingerprintDatabase db;
+    skvm::FingerprintDatabase db;
     db.read(fingerprint_db_path);
 
     if (!db.fingerprints().empty()) {
@@ -870,4 +870,4 @@ void SecureSocket::handle_tcp_connected(const Event& event)
     secureConnect();
 }
 
-} // namespace inputleap
+} // namespace skvm

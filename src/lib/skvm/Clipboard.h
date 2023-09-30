@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
  *
@@ -20,7 +20,7 @@
 
 #include "skvm/IClipboard.h"
 
-namespace inputleap {
+namespace skvm {
 
 //! Memory buffer clipboard
 /*!
@@ -72,4 +72,4 @@ private:
     std::string m_data[kNumFormats];
 };
 
-} // namespace inputleap
+} // namespace skvm

@@ -1,5 +1,5 @@
-/*  InputLeap -- mouse and keyboard sharing utility
-    Copyright (C) InputLeap contributors
+/*  SKVM -- mouse and keyboard sharing utility
+    Copyright (C) SKVM contributors
 
     This package is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License
@@ -22,7 +22,7 @@
 #include "skvm/protocol_types.h"
 #include "io/IStream.h"
 
-namespace inputleap {
+namespace skvm {
 
 ClientConnectionByStream::ClientConnectionByStream(std::unique_ptr<IStream> stream) :
     stream_{std::move(stream)}
@@ -153,4 +153,4 @@ void ClientConnectionByStream::close()
     stream_->close();
 }
 
-} // namespace inputleap
+} // namespace skvm

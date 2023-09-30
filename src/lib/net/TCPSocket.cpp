@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
  *
@@ -31,7 +31,7 @@
 #include <cstdlib>
 #include <memory>
 
-namespace inputleap {
+namespace skvm {
 
 static const std::size_t MAX_INPUT_BUFFER_SIZE = 1024 * 1024;
 
@@ -504,16 +504,16 @@ MultiplexerJobStatus TCPSocket::serviceConnecting(ISocketMultiplexerJob* job, bo
     // non-blocking stream socket that fails to connect immediately is
     // reported by select as being writable (i.e. connected) even when
     // the connection has failed.  this is easily demonstrated on OS X
-    // 10.3.4 by starting a InputLeap client and telling to connect to
-    // another system that's not running a InputLeap server.  it will
+    // 10.3.4 by starting a SKVM client and telling to connect to
+    // another system that's not running a SKVM server.  it will
     // claim to have connected then quickly disconnect (i guess because
-    // read returns 0 bytes).  unfortunately, InputLeap attempts to
+    // read returns 0 bytes).  unfortunately, SKVM attempts to
     // reconnect immediately, the process repeats and we end up
     // spinning the CPU.  luckily, OS X does set SO_ERROR on the
     // socket correctly when the connection has failed so checking for
     // errors works.  (curiously, sometimes OS X doesn't report
     // connection refused.  when that happens it at least doesn't
-    // report the socket as being writable so InputLeap is able to time
+    // report the socket as being writable so SKVM is able to time
     // out the attempt.)
     if (error || true) {
         try {
@@ -607,4 +607,4 @@ MultiplexerJobStatus TCPSocket::serviceConnected(ISocketMultiplexerJob* job,
     }
 }
 
-} // namespace inputleap
+} // namespace skvm

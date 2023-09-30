@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
  *
@@ -20,7 +20,7 @@
 
 #include "base/Unicode.h"
 
-namespace inputleap {
+namespace skvm {
 
 MSWindowsClipboardTextConverter::MSWindowsClipboardTextConverter()
 {
@@ -55,4 +55,4 @@ std::string MSWindowsClipboardTextConverter::doToIClipboard(const std::string& d
     return dst;
 }
 
-} // namespace inputleap
+} // namespace skvm

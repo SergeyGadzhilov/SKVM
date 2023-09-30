@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
  *
@@ -18,7 +18,7 @@
 
 #include "IArchMultithread.h"
 
-namespace inputleap {
+namespace skvm {
 
 bool IArchMultithread::wait_cond_var(std::condition_variable& cv,
                                      std::unique_lock<std::mutex>& lock, double timeout)
@@ -49,4 +49,4 @@ bool IArchMultithread::wait_cond_var(std::condition_variable& cv,
     return false;
 }
 
-} // namespace inputleap
+} // namespace skvm

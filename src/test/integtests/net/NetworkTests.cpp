@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2013-2016 Symless Ltd.
  *
  * This package is free software; you can redistribute it and/or
@@ -18,11 +18,11 @@
 // TODO: fix, tests failing intermittently on mac.
 #ifndef WINAPI_CARBON
 
-#define INPUTLEAP_TEST_ENV
+#define SKVM_TEST_ENV
 
 #include "test/mock/server/MockConfig.h"
 #include "test/mock/server/MockPrimaryClient.h"
-#include "test/mock/inputleap/MockScreen.h"
+#include "test/mock/skvm/MockScreen.h"
 #include "test/mock/server/MockInputFilter.h"
 #include "test/global/TestEventQueue.h"
 #include "server/Server.h"
@@ -44,7 +44,7 @@
 #include <iostream>
 #include <stdio.h>
 
-namespace inputleap {
+namespace skvm {
 
 using ::testing::_;
 using ::testing::NiceMock;
@@ -521,6 +521,6 @@ void getCursorPos(std::int32_t& x, std::int32_t& y)
     y = 0;
 }
 
-} // namespace inputleap
+} // namespace skvm
 
 #endif // WINAPI_CARBON

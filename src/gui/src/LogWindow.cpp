@@ -1,5 +1,5 @@
 /*
-* InputLeap -- mouse and keyboard sharing utility
+* SKVM -- mouse and keyboard sharing utility
 * Copyright (C) 2018 Debauchee Open Source Group
 *
 * This package is free software; you can redistribute it and/or
@@ -29,7 +29,7 @@ LogWindow::LogWindow(QWidget *parent) :
     QDialog(parent)
 {
     // explicitly unset DeleteOnClose so the log window can be show and hidden
-    // repeatedly until InputLeap is finished
+    // repeatedly until SKVM is finished
     setAttribute(Qt::WA_DeleteOnClose, false);
     setupUi(this);
 }

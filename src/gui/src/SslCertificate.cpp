@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2015-2016 Symless Ltd.
  *
  * This package is free software; you can redistribute it and/or
@@ -31,23 +31,23 @@
 SslCertificate::SslCertificate(QObject *parent) :
     QObject(parent)
 {
-    if (inputleap::DataDirectories::profile().empty()) {
+    if (skvm::DataDirectories::profile().empty()) {
         emit error(tr("Failed to get profile directory."));
     }
 }
 
 void SslCertificate::generateCertificate()
 {
-    auto cert_path = inputleap::DataDirectories::ssl_certificate_path();
+    auto cert_path = skvm::DataDirectories::ssl_certificate_path();
 
-    if (!inputleap::fs::exists(cert_path) || !is_certificate_valid(cert_path)) {
+    if (!skvm::fs::exists(cert_path) || !is_certificate_valid(cert_path)) {
         try {
             auto cert_dir = cert_path.parent_path();
-            if (!inputleap::fs::exists(cert_dir)) {
-                inputleap::fs::create_directories(cert_dir);
+            if (!skvm::fs::exists(cert_dir)) {
+                skvm::fs::create_directories(cert_dir);
             }
 
-            inputleap::generate_pem_self_signed_cert(cert_path.u8string());
+            skvm::generate_pem_self_signed_cert(cert_path.u8string());
         }  catch (const std::exception& e) {
             emit error(QString("SSL tool failed: %1").arg(e.what()));
             return;
@@ -61,20 +61,20 @@ void SslCertificate::generateCertificate()
     emit generateFinished();
 }
 
-void SslCertificate::generate_fingerprint(const inputleap::fs::path& cert_path)
+void SslCertificate::generate_fingerprint(const skvm::fs::path& cert_path)
 {
     try {
-        auto local_path = inputleap::DataDirectories::local_ssl_fingerprints_path();
+        auto local_path = skvm::DataDirectories::local_ssl_fingerprints_path();
         auto local_dir = local_path.parent_path();
-        if (!inputleap::fs::exists(local_dir)) {
-            inputleap::fs::create_directories(local_dir);
+        if (!skvm::fs::exists(local_dir)) {
+            skvm::fs::create_directories(local_dir);
         }
 
-        inputleap::FingerprintDatabase db;
-        db.add_trusted(inputleap::get_pem_file_cert_fingerprint(cert_path.u8string(),
-                                                              inputleap::FingerprintType::SHA1));
-        db.add_trusted(inputleap::get_pem_file_cert_fingerprint(cert_path.u8string(),
-                                                              inputleap::FingerprintType::SHA256));
+        skvm::FingerprintDatabase db;
+        db.add_trusted(skvm::get_pem_file_cert_fingerprint(cert_path.u8string(),
+                                                              skvm::FingerprintType::SHA1));
+        db.add_trusted(skvm::get_pem_file_cert_fingerprint(cert_path.u8string(),
+                                                              skvm::FingerprintType::SHA256));
         db.write(local_path);
 
         emit info(tr("SSL fingerprint generated."));
@@ -83,31 +83,31 @@ void SslCertificate::generate_fingerprint(const inputleap::fs::path& cert_path)
     }
 }
 
-bool SslCertificate::is_certificate_valid(const inputleap::fs::path& path)
+bool SslCertificate::is_certificate_valid(const skvm::fs::path& path)
 {
     OpenSSL_add_all_algorithms();
     ERR_load_crypto_strings();
 
-    auto fp = inputleap::fopen_utf8_path(path, "r");
+    auto fp = skvm::fopen_utf8_path(path, "r");
     if (!fp) {
         emit info(tr("Could not read from default certificate file."));
         return false;
     }
-    auto file_close = inputleap::finally([fp]() { std::fclose(fp); });
+    auto file_close = skvm::finally([fp]() { std::fclose(fp); });
 
     auto* cert = PEM_read_X509(fp, nullptr, nullptr, nullptr);
     if (!cert) {
         emit info(tr("Error loading default certificate file to memory."));
         return false;
     }
-    auto cert_free = inputleap::finally([cert]() { X509_free(cert); });
+    auto cert_free = skvm::finally([cert]() { X509_free(cert); });
 
     auto* pubkey = X509_get_pubkey(cert);
     if (!pubkey) {
         emit info(tr("Default certificate key file does not contain valid public key"));
         return false;
     }
-    auto pubkey_free = inputleap::finally([pubkey]() { EVP_PKEY_free(pubkey); });
+    auto pubkey_free = skvm::finally([pubkey]() { EVP_PKEY_free(pubkey); });
 
     auto type = EVP_PKEY_type(EVP_PKEY_id(pubkey));
     if (type != EVP_PKEY_RSA && type != EVP_PKEY_DSA) {
@@ -117,7 +117,7 @@ bool SslCertificate::is_certificate_valid(const inputleap::fs::path& path)
 
     auto bits = EVP_PKEY_bits(pubkey);
     if (bits < 2048) {
-        // We could have small keys in old InputLeap installations
+        // We could have small keys in old SKVM installations
         emit info(tr("Public key in default certificate key file is too small."));
         return false;
     }

@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2014-2016 Symless Ltd.
  * Patch by Ryan Chapman
  *
@@ -20,7 +20,7 @@
 #include "platform/OSXClipboardBMPConverter.h"
 #include "base/Log.h"
 
-namespace inputleap {
+namespace skvm {
 
 // BMP file header structure
 struct CBMPHeader {
@@ -95,4 +95,4 @@ std::string OSXClipboardBMPConverter::toIClipboard(const std::string& bmp) const
     }
 }
 
-} // namespace inputleap
+} // namespace skvm

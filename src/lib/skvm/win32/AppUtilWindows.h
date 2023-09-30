@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
  *
@@ -26,7 +26,7 @@
 
 #define ARCH_APP_UTIL AppUtilWindows
 
-namespace inputleap {
+namespace skvm {
 
 enum AppExitMode {
     kExitModeNormal,
@@ -61,4 +61,4 @@ private:
     static BOOL WINAPI consoleHandler(DWORD Event);
 };
 
-} // namespace inputleap
+} // namespace skvm

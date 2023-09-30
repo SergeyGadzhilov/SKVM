@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2013-2016 Symless Ltd.
  *
  * This package is free software; you can redistribute it and/or
@@ -21,7 +21,7 @@
 #include <string>
 #include <vector>
 
-namespace inputleap {
+namespace skvm {
 
 class DragInformation;
 typedef std::vector<DragInformation> DragFileList;
@@ -54,4 +54,4 @@ private:
     size_t m_filesize;
 };
 
-} // namespace inputleap
+} // namespace skvm

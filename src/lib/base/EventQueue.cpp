@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2004 Chris Schoeneman
  *
@@ -26,7 +26,7 @@
 #include "base/Log.h"
 #include "base/XBase.h"
 
-namespace inputleap {
+namespace skvm {
 
 // interrupt handler.  this just adds a quit event to the queue.
 static
@@ -522,4 +522,4 @@ EventQueue::Timer::operator<(const Timer& t) const
     return m_time < t.m_time;
 }
 
-} // namespace inputleap
+} // namespace skvm

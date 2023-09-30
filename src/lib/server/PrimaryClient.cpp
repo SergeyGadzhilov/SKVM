@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
  *
@@ -22,9 +22,9 @@
 #include "skvm/Clipboard.h"
 #include "base/Log.h"
 
-namespace inputleap {
+namespace skvm {
 
-PrimaryClient::PrimaryClient(const std::string& name, inputleap::Screen* screen) :
+PrimaryClient::PrimaryClient(const std::string& name, skvm::Screen* screen) :
     BaseClientProxy(name),
     m_screen(screen),
     m_fakeInputCount(0)
@@ -262,4 +262,4 @@ PrimaryClient::setOptions(const OptionsList& options)
     m_screen->setOptions(options);
 }
 
-} // namespace inputleap
+} // namespace skvm

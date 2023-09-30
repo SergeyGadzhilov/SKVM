@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2009 Chris Schoeneman
  *
@@ -28,7 +28,7 @@
 #include <string>
 #include <list>
 
-namespace inputleap {
+namespace skvm {
 
 class Thread;
 class IpcLogOutputter;
@@ -93,4 +93,4 @@ public:
     virtual std::string getWhat() const noexcept { return what(); }
 };
 
-} // namespace inputleap
+} // namespace skvm

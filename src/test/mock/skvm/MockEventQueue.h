@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2011 Nick Bolton
  *
@@ -23,7 +23,7 @@
 #include <gmock/gmock.h>
 #include <memory>
 
-namespace inputleap {
+namespace skvm {
 
 class MockEventQueue : public IEventQueue
 {
@@ -45,4 +45,4 @@ public:
     MOCK_CONST_METHOD0(waitForReady, void());
 };
 
-} // namespace inputleap
+} // namespace skvm

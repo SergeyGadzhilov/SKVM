@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
  *
@@ -30,7 +30,7 @@
 
 #define ARCH_DAEMON ArchDaemonWindows
 
-namespace inputleap {
+namespace skvm {
 
 //! Win32 implementation of IArchDaemon
 class ArchDaemonWindows : public IArchDaemon {
@@ -143,15 +143,15 @@ private:
     std::string m_commandLine;
 };
 
-#define DEFAULT_DAEMON_NAME _T("InputLeap")
-#define DEFAULT_DAEMON_INFO _T("Manages the InputLeap foreground processes.")
+#define DEFAULT_DAEMON_NAME _T("SKVM")
+#define DEFAULT_DAEMON_INFO _T("Manages the SKVM foreground processes.")
 
 static const TCHAR* const g_daemonKeyPath[] = {
     _T("SOFTWARE"),
-    _T("The InputLeap Project"),
-    _T("InputLeap"),
+    _T("The SKVM Project"),
+    _T("SKVM"),
     _T("Service"),
     nullptr
 };
 
-} // namespace inputleap
+} // namespace skvm

@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2004 Chris Schoeneman
  *
@@ -19,8 +19,8 @@
 #pragma once
 
 #include "platform/OSXClipboard.h"
-#include "inputleap/PlatformScreen.h"
-#include "inputleap/DragInformation.h"
+#include "skvm/PlatformScreen.h"
+#include "skvm/DragInformation.h"
 #include "base/EventTypes.h"
 #include "base/Fwd.h"
 
@@ -37,7 +37,7 @@
 #include <mutex>
 #include <vector>
 
-namespace inputleap {
+namespace skvm {
 
 extern "C" {
     typedef int CGSConnectionID;
@@ -136,16 +136,16 @@ private:
     void showCursor();
     void hideCursor();
 
-    // map InputLeap mouse button to mac buttons
+    // map SKVM mouse button to mac buttons
     ButtonID map_button_to_osx(std::uint16_t) const;
 
-    // map mac mouse button to InputLeap buttons
+    // map mac mouse button to SKVM buttons
     ButtonID map_button_from_osx(std::uint16_t) const;
 
-    // map mac scroll wheel value to a InputLeap scroll wheel value
+    // map mac scroll wheel value to a SKVM scroll wheel value
     std::int32_t map_scroll_wheel_from_osx(float) const;
 
-    // map InputLeap scroll wheel value to a mac scroll wheel value
+    // map SKVM scroll wheel value to a mac scroll wheel value
     std::int32_t map_scroll_wheel_to_osx(float) const;
 
     // get the current scroll wheel speed
@@ -349,4 +349,4 @@ private:
     class OSXScreenImpl* m_impl;
 };
 
-} // namespace inputleap
+} // namespace skvm

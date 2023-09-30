@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
  *
@@ -26,7 +26,7 @@
 #include "arch/win32/ArchMiscWindows.h"
 #include "base/Log.h"
 
-namespace inputleap {
+namespace skvm {
 
 UINT                    MSWindowsClipboard::s_ownershipFormat = 0;
 
@@ -84,7 +84,7 @@ MSWindowsClipboard::empty()
         return false;
     }
 
-    // mark clipboard as being owned by InputLeap
+    // mark clipboard as being owned by SKVM
     HGLOBAL data = GlobalAlloc(GMEM_MOVEABLE | GMEM_DDESHARE, 1);
     if (nullptr == SetClipboardData(getOwnershipFormat(), data)) {
         LOG((CLOG_DEBUG "failed to set clipboard data"));
@@ -210,7 +210,7 @@ bool MSWindowsClipboard::is_owned_by_us()
 {
     // create ownership format if we haven't yet
     if (s_ownershipFormat == 0) {
-        s_ownershipFormat = RegisterClipboardFormat(TEXT("InputLeapOwnership"));
+        s_ownershipFormat = RegisterClipboardFormat(TEXT("SKVMOwnership"));
     }
     return (IsClipboardFormatAvailable(getOwnershipFormat()) != 0);
 }
@@ -220,11 +220,11 @@ MSWindowsClipboard::getOwnershipFormat()
 {
     // create ownership format if we haven't yet
     if (s_ownershipFormat == 0) {
-        s_ownershipFormat = RegisterClipboardFormat(TEXT("InputLeapOwnership"));
+        s_ownershipFormat = RegisterClipboardFormat(TEXT("SKVMOwnership"));
     }
 
     // return the format
     return s_ownershipFormat;
 }
 
-} // namespace inputleap
+} // namespace skvm

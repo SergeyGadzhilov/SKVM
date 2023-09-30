@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2008 Volker Lanz (vl@fidra.de)
  *
@@ -84,7 +84,7 @@ void SettingsDialog::accept()
 void SettingsDialog::reject()
 {
     if (m_appConfig.language() != m_pComboLanguage->itemData(m_pComboLanguage->currentIndex()).toString()) {
-        QInputLeapApplication::getInstance()->switchTranslator(m_appConfig.language());
+        QSKVMApplication::getInstance()->switchTranslator(m_appConfig.language());
     }
     QDialog::reject();
 }
@@ -137,5 +137,5 @@ void SettingsDialog::on_m_pButtonBrowseLog_clicked()
 void SettingsDialog::on_m_pComboLanguage_currentIndexChanged(int index)
 {
     QString ietfCode = m_pComboLanguage->itemData(index).toString();
-    QInputLeapApplication::getInstance()->switchTranslator(ietfCode);
+    QSKVMApplication::getInstance()->switchTranslator(ietfCode);
 }

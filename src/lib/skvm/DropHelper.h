@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2014-2016 Symless Ltd.
  *
  * This package is free software; you can redistribute it and/or
@@ -20,7 +20,7 @@
 #include "skvm/DragInformation.h"
 #include <string>
 
-namespace inputleap {
+namespace skvm {
 
 class DropHelper {
 public:
@@ -28,4 +28,4 @@ public:
                            DragFileList& fileList, std::string& data);
 };
 
-} // namespace inputleap
+} // namespace skvm

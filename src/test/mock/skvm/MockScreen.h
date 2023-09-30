@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2013-2016 Symless Ltd.
  *
  * This package is free software; you can redistribute it and/or
@@ -17,20 +17,20 @@
 
 #pragma once
 
-#define INPUTLEAP_TEST_ENV
+#define SKVM_TEST_ENV
 
 #include "base/EventTarget.h"
 #include "skvm/Screen.h"
 
 #include <gmock/gmock.h>
 
-namespace inputleap {
+namespace skvm {
 
 class MockScreen : public Screen, public EventTarget
 {
 public:
     const EventTarget* get_event_target() const override { return this; }
-    MockScreen() : inputleap::Screen() { }
+    MockScreen() : skvm::Screen() { }
     MOCK_METHOD0(disable, void());
     MOCK_CONST_METHOD4(getShape, void(std::int32_t&, std::int32_t&, std::int32_t&, std::int32_t&));
     MOCK_CONST_METHOD2(getCursorPos, void(std::int32_t&, std::int32_t&));
@@ -39,4 +39,4 @@ public:
     MOCK_METHOD0(enable, void());
 };
 
-} // namespace inputleap
+} // namespace skvm

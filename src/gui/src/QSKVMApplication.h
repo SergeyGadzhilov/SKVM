@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2008 Volker Lanz (vl@fidra.de)
  *
@@ -16,20 +16,20 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#if !defined(QInputLeapApplication__H)
+#if !defined(QSKVMApplication__H)
 
-#define QInputLeapApplication__H
+#define QSKVMApplication__H
 
 #include <QApplication>
 #include <memory>
 
 class QSessionManager;
 
-class QInputLeapApplication : public QApplication
+class QSKVMApplication : public QApplication
 {
     public:
-        QInputLeapApplication(int& argc, char** argv);
-        ~QInputLeapApplication();
+        QSKVMApplication(int& argc, char** argv);
+        ~QSKVMApplication();
 
     public:
         void commitData(QSessionManager& manager);
@@ -37,12 +37,12 @@ class QInputLeapApplication : public QApplication
         // takes ownership
         void setTranslator(QTranslator* translator);
 
-        static QInputLeapApplication* getInstance();
+        static QSKVMApplication* getInstance();
 
     private:
         std::unique_ptr<QTranslator> translator_;
 
-        static QInputLeapApplication* s_Instance;
+        static QSKVMApplication* s_Instance;
 };
 
 #endif

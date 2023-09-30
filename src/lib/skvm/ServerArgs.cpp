@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2014-2016 Symless Ltd.
  *
  * This package is free software; you can redistribute it and/or
@@ -17,7 +17,7 @@
 
 #include "skvm/ServerArgs.h"
 
-namespace inputleap {
+namespace skvm {
 
 ServerArgs::ServerArgs() :
     m_configFile(),
@@ -26,4 +26,4 @@ ServerArgs::ServerArgs() :
 {
 }
 
-} // namespace inputleap
+} // namespace skvm

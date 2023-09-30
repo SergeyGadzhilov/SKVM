@@ -1,4 +1,4 @@
-/*  InputLeap -- mouse and keyboard sharing utility
+/*  SKVM -- mouse and keyboard sharing utility
     Copyright (C) 2012-2016 Symless Ltd.
     Copyright (C) 2004 Chris Schoeneman
 
@@ -15,12 +15,12 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef INPUTLEAP_LIB_BASE_BIT_UTILITIES_H
-#define INPUTLEAP_LIB_BASE_BIT_UTILITIES_H
+#ifndef SKVM_LIB_BASE_BIT_UTILITIES_H
+#define SKVM_LIB_BASE_BIT_UTILITIES_H
 
 #include <cstdint>
 
-namespace inputleap {
+namespace skvm {
 
 inline void store_little_endian_u8(std::uint8_t*& dst, std::uint8_t src)
 {
@@ -81,6 +81,6 @@ inline std::uint32_t load_little_endian_u32(const std::uint8_t* data)
             (static_cast<std::uint32_t>(data[3]) << 24);
 }
 
-} // namespace inputleap
+} // namespace skvm
 
-#endif // INPUTLEAP_LIB_BASE_BIT_UTILITIES_H
+#endif // SKVM_LIB_BASE_BIT_UTILITIES_H

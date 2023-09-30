@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2004 Chris Schoeneman
  *
@@ -24,7 +24,7 @@
 
 #define ARCH_SYSTEM ArchSystemUnix
 
-namespace inputleap {
+namespace skvm {
 
 //! Unix implementation of IArchSystem
 class ArchSystemUnix : public IArchSystem {
@@ -38,4 +38,4 @@ public:
 
 };
 
-} // namespace inputleap
+} // namespace skvm

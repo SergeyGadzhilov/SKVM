@@ -1,6 +1,6 @@
 /*
-    InputLeap -- mouse and keyboard sharing utility
-    Copyright (C) InputLeap contributors
+    SKVM -- mouse and keyboard sharing utility
+    Copyright (C) SKVM contributors
 
     This package is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License
@@ -24,7 +24,7 @@
 #endif
 #include <fstream>
 
-namespace inputleap {
+namespace skvm {
 
 namespace {
 
@@ -68,4 +68,4 @@ std::FILE* fopen_utf8_path(const fs::path& path, const std::string& mode)
 #endif
 }
 
-} // namespace inputleap
+} // namespace skvm

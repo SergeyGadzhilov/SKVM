@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
  *
@@ -46,11 +46,11 @@
 #include <stdexcept>
 #include <fstream>
 
-namespace inputleap {
+namespace skvm {
 
 Client::Client(IEventQueue* events, const std::string& name, const NetworkAddress& address,
                ISocketFactory* socketFactory,
-               inputleap::Screen* screen,
+               skvm::Screen* screen,
                ClientArgs const& args) :
     m_mock(false),
     m_name(name),
@@ -719,7 +719,7 @@ void Client::write_to_drop_dir_thread()
     LOG((CLOG_DEBUG "starting write to drop dir thread"));
 
     while (m_screen->isFakeDraggingStarted()) {
-        inputleap::this_thread_sleep(.1f);
+        skvm::this_thread_sleep(.1f);
     }
 
     DropHelper::writeToDir(m_screen->getDropTarget(), m_dragFileList,
@@ -772,4 +772,4 @@ void Client::sendDragInfo(std::uint32_t fileCount, std::string& info, size_t siz
     m_server->sendDragInfo(fileCount, info.c_str(), size);
 }
 
-} // namespace inputleap
+} // namespace skvm

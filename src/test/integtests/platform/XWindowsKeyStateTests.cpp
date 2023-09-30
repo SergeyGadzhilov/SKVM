@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2011 Nick Bolton
  *
@@ -16,12 +16,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#define INPUTLEAP_TEST_ENV
+#define SKVM_TEST_ENV
 
 #include "config.h"
 
-#include "test/mock/inputleap/MockKeyMap.h"
-#include "test/mock/inputleap/MockEventQueue.h"
+#include "test/mock/skvm/MockKeyMap.h"
+#include "test/mock/skvm/MockEventQueue.h"
 #include "platform/XWindowsKeyState.h"
 #include "base/Log.h"
 
@@ -35,7 +35,7 @@
 #include <gmock/gmock.h>
 #include <errno.h>
 
-namespace inputleap {
+namespace skvm {
 
 class XWindowsKeyStateTests : public ::testing::Test
 {
@@ -169,13 +169,13 @@ TEST_F(XWindowsKeyStateTests, pollActiveModifiers_shiftKeyDownThenUp_masksAreCor
 
     KeyCode key = XKeysymToKeycode(m_display, XK_Shift_L);
 
-    // fake shift key down (without using InputLeap)
+    // fake shift key down (without using SKVM)
     XTestFakeKeyEvent(m_display, key, true, CurrentTime);
 
     // function under test (1st call)
     KeyModifierMask modDown = keyState.pollActiveModifiers();
 
-    // fake shift key up (without using InputLeap)
+    // fake shift key up (without using SKVM)
     XTestFakeKeyEvent(m_display, key, false, CurrentTime);
 
     // function under test (2nd call)
@@ -234,4 +234,4 @@ TEST_F(XWindowsKeyStateTests, pollActiveGroup_xkb_areEqual)
     }
 }
 
-} // namespace inputleap
+} // namespace skvm

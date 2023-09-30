@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
  *
@@ -64,7 +64,7 @@
 
 #define RETRY_TIME 1.0
 
-namespace inputleap {
+namespace skvm {
 
 ClientApp::ClientApp(IEventQueue* events, CreateTaskBarReceiverFunc createTaskBarReceiver) :
     App(events, createTaskBarReceiver, new ClientArgs()),
@@ -113,7 +113,7 @@ void
 ClientApp::help()
 {
     std::ostringstream buffer;
-    buffer << "Start the InputLeap client and connect to a remote server component.\n"
+    buffer << "Start the SKVM client and connect to a remote server component.\n"
            << "\n"
            << "Usage: " << args().m_exename << " [--yscroll <delta>]"
 #ifdef WINAPI_XWINDOWS
@@ -310,7 +310,7 @@ void ClientApp::handle_client_disconnected()
 }
 
 Client* ClientApp::openClient(const std::string& name, const NetworkAddress& address,
-                              inputleap::Screen* screen)
+                              skvm::Screen* screen)
 {
     Client* client = new Client(
         m_events,
@@ -553,4 +553,4 @@ std::unique_ptr<IPlatformScreen> ClientApp::create_platform_screen()
     throw std::runtime_error("Failed to create screen, this shouldn't happen");
 }
 
-} // namespace inputleap
+} // namespace skvm

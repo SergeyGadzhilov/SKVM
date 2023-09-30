@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
  *
@@ -28,7 +28,7 @@
 
 #define ARCH_MULTITHREAD ArchMultithreadWindows
 
-namespace inputleap {
+namespace skvm {
 
 //! Win32 implementation of IArchMultithread
 class ArchMultithreadWindows : public IArchMultithread {
@@ -95,4 +95,4 @@ private:
     void* m_signalUserData[kNUM_SIGNALS];
 };
 
-} // namespace inputleap
+} // namespace skvm

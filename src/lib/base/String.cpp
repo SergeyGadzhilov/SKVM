@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2014-2016 Symless Ltd.
  *
  * This package is free software; you can redistribute it and/or
@@ -32,7 +32,7 @@
 #include <cerrno>
 #include <vector>
 
-namespace inputleap {
+namespace skvm {
 namespace string {
 
 namespace {
@@ -336,7 +336,7 @@ CaselessCmp::less(const std::string& a, const std::string& b)
     return std::lexicographical_compare(
         a.begin(), a.end(),
         b.begin(), b.end(),
-        &inputleap::string::CaselessCmp::cmpLess);
+        &skvm::string::CaselessCmp::cmpLess);
 }
 
 bool

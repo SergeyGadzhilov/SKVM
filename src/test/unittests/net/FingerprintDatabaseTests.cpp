@@ -1,6 +1,6 @@
 /*
-    InputLeap -- mouse and keyboard sharing utility
-    Copyright (C) InputLeap contributors
+    SKVM -- mouse and keyboard sharing utility
+    Copyright (C) SKVM contributors
 
     This package is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License
@@ -18,7 +18,7 @@
 #include "net/FingerprintDatabase.h"
 #include <gtest/gtest.h>
 
-namespace inputleap {
+namespace skvm {
 
 TEST(FingerprintDatabase, parse_db_line)
 {
@@ -92,4 +92,4 @@ TEST(FingerprintDatabase, is_trusted)
     ASSERT_FALSE(db.is_trusted({ "algo1", { 1, 2, 3, 4, 0xac } }));
 }
 
-} // namespace inputleap
+} // namespace skvm

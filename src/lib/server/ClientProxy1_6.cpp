@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
  *
@@ -32,7 +32,7 @@
 
 #include <cstring>
 
-namespace inputleap {
+namespace skvm {
 
 ClientProxy1_6::ClientProxy1_6(const std::string& name,
                                std::unique_ptr<IClientConnection> backend,
@@ -545,4 +545,4 @@ ClientProxy1_6::ClientClipboard::ClientClipboard() :
     // do nothing
 }
 
-} // namespace inputleap
+} // namespace skvm

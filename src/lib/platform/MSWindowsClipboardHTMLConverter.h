@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2004 Chris Schoeneman
  *
@@ -20,7 +20,7 @@
 
 #include "platform/MSWindowsClipboardAnyTextConverter.h"
 
-namespace inputleap {
+namespace skvm {
 
 //! Convert to/from HTML encoding
 class MSWindowsClipboardHTMLConverter :
@@ -45,4 +45,4 @@ private:
     UINT m_format;
 };
 
-} // namespace inputleap
+} // namespace skvm

@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2016 Symless Ltd.
  *
  * This package is free software; you can redistribute it and/or
@@ -19,7 +19,7 @@
 
 #include <Carbon/Carbon.h>
 
-namespace inputleap {
+namespace skvm {
 
 KeyID IOSXKeyResource::getKeyID(std::uint8_t c)
 {
@@ -189,4 +189,4 @@ IOSXKeyResource::unicharToKeyID(UniChar c)
     }
 }
 
-} // namespace inputleap
+} // namespace skvm

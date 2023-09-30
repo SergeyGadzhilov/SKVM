@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2013-2016 Symless Ltd.
  *
  * This package is free software; you can redistribute it and/or
@@ -17,7 +17,7 @@
 
 #pragma once
 
-#define INPUTLEAP_TEST_ENV
+#define SKVM_TEST_ENV
 
 #include "server/Server.h"
 

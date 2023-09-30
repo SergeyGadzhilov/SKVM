@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
  *
@@ -22,7 +22,7 @@
 
 #define ARCH_LOG ArchLogUnix
 
-namespace inputleap {
+namespace skvm {
 
 //! Unix implementation of IArchLog
 class ArchLogUnix : public IArchLog {
@@ -37,4 +37,4 @@ public:
     void writeLog(ELevel, const char*) override;
 };
 
-} // namespace inputleap
+} // namespace skvm

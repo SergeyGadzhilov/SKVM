@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2013-2016 Symless Ltd.
  *
  * This package is free software; you can redistribute it and/or
@@ -30,7 +30,7 @@
 #include <fstream>
 #include <stdexcept>
 
-namespace inputleap {
+namespace skvm {
 
 static const size_t g_chunkSize = 32 * 1024; //32kb
 
@@ -157,4 +157,4 @@ StreamChunker::interruptFile()
     }
 }
 
-} // namespace inputleap
+} // namespace skvm

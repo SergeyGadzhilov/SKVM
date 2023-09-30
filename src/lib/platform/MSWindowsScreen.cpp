@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2018 Debauchee Open Source Group
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
@@ -81,7 +81,7 @@
 #define PBT_APMRESUMEAUTOMATIC    0x0012
 #endif
 
-namespace inputleap {
+namespace skvm {
 
 HINSTANCE MSWindowsScreen::s_windowInstance = nullptr;
 MSWindowsScreen* MSWindowsScreen::s_screen  = nullptr;
@@ -136,7 +136,7 @@ MSWindowsScreen::MSWindowsScreen(
 
         updateScreenShape();
         m_class       = createWindowClass();
-        m_window      = createWindow(m_class, "InputLeap");
+        m_window      = createWindow(m_class, "SKVM");
         forceShowCursor();
         LOG((CLOG_DEBUG "screen shape: %d,%d %dx%d %s", m_x, m_y, m_w, m_h, m_multimon ? "(multi-monitor)" : ""));
         LOG((CLOG_DEBUG "window is 0x%08x", m_window));
@@ -522,8 +522,8 @@ void MSWindowsScreen::warpCursor(std::int32_t x, std::int32_t y)
 
     // remove all input events before and including warp
     MSG msg;
-    while (PeekMessage(&msg, nullptr, INPUTLEAP_MSG_INPUT_FIRST,
-                                INPUTLEAP_MSG_INPUT_LAST, PM_REMOVE)) {
+    while (PeekMessage(&msg, nullptr, SKVM_MSG_INPUT_FIRST,
+                                SKVM_MSG_INPUT_LAST, PM_REMOVE)) {
         // do nothing
     }
 
@@ -606,11 +606,11 @@ std::uint32_t MSWindowsScreen::registerHotKey(KeyID key, KeyModifierMask mask)
     else {
         m_oldHotKeyIDs.push_back(id);
         m_hotKeys.erase(id);
-        LOG((CLOG_WARN "failed to register hotkey %s (id=%04x mask=%04x)", inputleap::KeyMap::formatKey(key, mask).c_str(), key, mask));
+        LOG((CLOG_WARN "failed to register hotkey %s (id=%04x mask=%04x)", skvm::KeyMap::formatKey(key, mask).c_str(), key, mask));
         return 0;
     }
 
-    LOG((CLOG_DEBUG "registered hotkey %s (id=%04x mask=%04x) as id=%d", inputleap::KeyMap::formatKey(key, mask).c_str(), key, mask, id));
+    LOG((CLOG_DEBUG "registered hotkey %s (id=%04x mask=%04x) as id=%d", skvm::KeyMap::formatKey(key, mask).c_str(), key, mask, id));
     return id;
 }
 
@@ -809,7 +809,7 @@ MSWindowsScreen::createWindowClass() const
     classInfo.hCursor = nullptr;
     classInfo.hbrBackground = nullptr;
     classInfo.lpszMenuName = nullptr;
-    classInfo.lpszClassName = "InputLeap";
+    classInfo.lpszClassName = "SKVM";
     classInfo.hIconSm = nullptr;
     return RegisterClassEx(&classInfo);
 }
@@ -924,10 +924,10 @@ MSWindowsScreen::onPreDispatch(HWND hwnd,
 {
     // handle event
     switch (message) {
-    case INPUTLEAP_MSG_SCREEN_SAVER:
+    case SKVM_MSG_SCREEN_SAVER:
         return onScreensaver(wParam != 0);
 
-    case INPUTLEAP_MSG_DEBUG:
+    case SKVM_MSG_DEBUG:
         LOG((CLOG_DEBUG1 "hook: 0x%08x 0x%08x", wParam, lParam));
         return true;
     }
@@ -947,22 +947,22 @@ MSWindowsScreen::onPreDispatchPrimary(HWND,
 
     // handle event
     switch (message) {
-    case INPUTLEAP_MSG_MARK:
+    case SKVM_MSG_MARK:
         return onMark(static_cast<std::uint32_t>(wParam));
 
-    case INPUTLEAP_MSG_KEY:
+    case SKVM_MSG_KEY:
         return onKey(wParam, lParam);
 
-    case INPUTLEAP_MSG_MOUSE_BUTTON:
+    case SKVM_MSG_MOUSE_BUTTON:
         return onMouseButton(wParam, lParam);
 
-    case INPUTLEAP_MSG_MOUSE_MOVE:
+    case SKVM_MSG_MOUSE_MOVE:
         return onMouseMove(static_cast<std::int32_t>(wParam), static_cast<std::int32_t>(lParam));
 
-    case INPUTLEAP_MSG_MOUSE_WHEEL:
+    case SKVM_MSG_MOUSE_WHEEL:
         return onMouseWheel(static_cast<std::int32_t>(lParam), static_cast<std::int32_t>(wParam));
 
-    case INPUTLEAP_MSG_PRE_WARP:
+    case SKVM_MSG_PRE_WARP:
         {
             // save position to compute delta of next motion
             saveMousePosition(static_cast<std::int32_t>(wParam), static_cast<std::int32_t>(lParam));
@@ -974,13 +974,13 @@ MSWindowsScreen::onPreDispatchPrimary(HWND,
             // event.
             MSG msg;
             do {
-                GetMessage(&msg, nullptr, INPUTLEAP_MSG_MOUSE_MOVE,
-                                        INPUTLEAP_MSG_POST_WARP);
-            } while (msg.message != INPUTLEAP_MSG_POST_WARP);
+                GetMessage(&msg, nullptr, SKVM_MSG_MOUSE_MOVE,
+                                        SKVM_MSG_POST_WARP);
+            } while (msg.message != SKVM_MSG_POST_WARP);
         }
         return true;
 
-    case INPUTLEAP_MSG_POST_WARP:
+    case SKVM_MSG_POST_WARP:
         LOG((CLOG_WARN "unmatched post warp"));
         return true;
 
@@ -1282,7 +1282,7 @@ MSWindowsScreen::onMouseButton(WPARAM wParam, LPARAM lParam)
 }
 
 // here's how mouse movements are sent across the network to a client:
-//   1. InputLeap checks the mouse position on server screen
+//   1. SKVM checks the mouse position on server screen
 //   2. records the delta (current x,y minus last x,y)
 //   3. records the current x,y as "last" (so we can calc delta next time)
 //   4. on the server, puts the cursor back to the center of the screen
@@ -1374,14 +1374,14 @@ MSWindowsScreen::onScreensaver(bool activated)
     // send SC_SCREENSAVE until the screen saver starts, even if
     // the screen saver is disabled!
     MSG msg;
-    if (PeekMessage(&msg, nullptr, INPUTLEAP_MSG_SCREEN_SAVER,
-                        INPUTLEAP_MSG_SCREEN_SAVER, PM_NOREMOVE)) {
+    if (PeekMessage(&msg, nullptr, SKVM_MSG_SCREEN_SAVER,
+                        SKVM_MSG_SCREEN_SAVER, PM_NOREMOVE)) {
         return true;
     }
 
     if (activated) {
         if (!m_screensaverActive &&
-            m_screensaver->checkStarted(INPUTLEAP_MSG_SCREEN_SAVER, FALSE, 0)) {
+            m_screensaver->checkStarted(SKVM_MSG_SCREEN_SAVER, FALSE, 0)) {
             m_screensaverActive = true;
             sendEvent(EventType::PRIMARY_SCREEN_SAVER_ACTIVATED);
 
@@ -1460,7 +1460,7 @@ MSWindowsScreen::onClipboardChange()
 void MSWindowsScreen::warpCursorNoFlush(std::int32_t x, std::int32_t y)
 {
     // send an event that we can recognize before the mouse warp
-    PostThreadMessage(GetCurrentThreadId(), INPUTLEAP_MSG_PRE_WARP, x, y);
+    PostThreadMessage(GetCurrentThreadId(), SKVM_MSG_PRE_WARP, x, y);
 
     // warp mouse.  hopefully this inserts a mouse motion event
     // between the previous message and the following message.
@@ -1505,10 +1505,10 @@ void MSWindowsScreen::warpCursorNoFlush(std::int32_t x, std::int32_t y)
     // chance of undesired behavior.  we'll also check for very
     // large motions that look suspiciously like about half width
     // or height of the screen.
-    inputleap::this_thread_sleep(0.0);
+    skvm::this_thread_sleep(0.0);
 
     // send an event that we can recognize after the mouse warp
-    PostThreadMessage(GetCurrentThreadId(), INPUTLEAP_MSG_POST_WARP, 0, 0);
+    PostThreadMessage(GetCurrentThreadId(), SKVM_MSG_POST_WARP, 0, 0);
 }
 
 void
@@ -1518,7 +1518,7 @@ MSWindowsScreen::nextMark()
     ++m_mark;
 
     // mark point in message queue where the mark was changed
-    PostThreadMessage(GetCurrentThreadId(), INPUTLEAP_MSG_MARK, m_mark, 0);
+    PostThreadMessage(GetCurrentThreadId(), SKVM_MSG_MARK, m_mark, 0);
 }
 
 bool
@@ -1836,15 +1836,15 @@ std::string& MSWindowsScreen::getDraggingFilename()
             SWP_SHOWWINDOW);
 
         // TODO: fake these keys properly
-        inputleap::this_thread_sleep(.05f); // A tiny sleep here makes the DragEnter event on m_dropWindow trigger much more consistently
+        skvm::this_thread_sleep(.05f); // A tiny sleep here makes the DragEnter event on m_dropWindow trigger much more consistently
         fakeKeyDown(kKeyEscape, 8192, 1);
         fakeKeyUp(1);
         fakeMouseButton(kButtonLeft, false);
 
         std::string filename;
-        DOUBLE timeout = inputleap::current_time_seconds() + .5f;
-        while (inputleap::current_time_seconds() < timeout) {
-            inputleap::this_thread_sleep(.05f);
+        DOUBLE timeout = skvm::current_time_seconds() + .5f;
+        while (skvm::current_time_seconds() < timeout) {
+            skvm::this_thread_sleep(.05f);
             filename = m_dropTarget->getDraggingFilename();
             if (!filename.empty()) {
                 break;
@@ -1921,4 +1921,4 @@ MSWindowsScreen::isModifierRepeat(KeyModifierMask oldState, KeyModifierMask stat
     return result;
 }
 
-} // namespace inputleap
+} // namespace skvm

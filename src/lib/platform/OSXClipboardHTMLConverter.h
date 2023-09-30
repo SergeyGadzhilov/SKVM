@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2014-2016 Symless Ltd.
  * Patch by Ryan Chapman
  *
@@ -20,7 +20,7 @@
 
 #include "OSXClipboardAnyTextConverter.h"
 
-namespace inputleap {
+namespace skvm {
 
 //! Convert to/from HTML encoding
 class OSXClipboardHTMLConverter : public OSXClipboardAnyTextConverter {
@@ -44,4 +44,4 @@ protected:
                                      CFStringEncoding toEncoding);
 };
 
-} // namespace inputleap
+} // namespace skvm

@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
  *
@@ -21,7 +21,7 @@
 #include "base/EventTypes.h"
 #include "arch/IArchNetwork.h"
 
-namespace inputleap {
+namespace skvm {
 
 //! Network address type
 /*!
@@ -123,4 +123,4 @@ private:
     int m_port;
 };
 
-} // namespace inputleap
+} // namespace skvm

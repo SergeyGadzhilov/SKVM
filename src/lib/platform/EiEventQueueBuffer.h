@@ -1,5 +1,5 @@
-/*  InputLeap -- mouse and keyboard sharing utility
-    Copyright (C) InputLeap contributors
+/*  SKVM -- mouse and keyboard sharing utility
+    Copyright (C) SKVM contributors
 
     This package is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License
@@ -14,15 +14,15 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef INPUTLEAP_LIB_PLATFORM_EI_EVENT_QUEUE_BUFFER_H
-#define INPUTLEAP_LIB_PLATFORM_EI_EVENT_QUEUE_BUFFER_H
+#ifndef SKVM_LIB_PLATFORM_EI_EVENT_QUEUE_BUFFER_H
+#define SKVM_LIB_PLATFORM_EI_EVENT_QUEUE_BUFFER_H
 
 #include "config.h"
 
 #include "base/IEventQueueBuffer.h"
 #include "mt/Thread.h"
 #include "platform/EiScreen.h"
-#include "inputleap/IScreen.h"
+#include "skvm/IScreen.h"
 
 #include <libei.h>
 
@@ -30,7 +30,7 @@
 #include <memory>
 #include <mutex>
 
-namespace inputleap {
+namespace skvm {
 
 //! Event queue buffer for Ei
 class EiEventQueueBuffer : public IEventQueueBuffer {
@@ -53,6 +53,6 @@ private:
     mutable std::mutex mutex_;
 };
 
-} // namespace inputleap
+} // namespace skvm
 
-#endif // INPUTLEAP_LIB_PLATFORM_EI_EVENT_QUEUE_BUFFER_H
+#endif // SKVM_LIB_PLATFORM_EI_EVENT_QUEUE_BUFFER_H

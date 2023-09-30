@@ -1,5 +1,5 @@
-/*  InputLeap -- mouse and keyboard sharing utility
-    Copyright (C) InputLeap contributors
+/*  SKVM -- mouse and keyboard sharing utility
+    Copyright (C) SKVM contributors
 
     This package is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License
@@ -14,13 +14,13 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef INPUTLEAP_LIB_INPUTLEAP_PLATFORM_SCREEN_LOGGING_WRAPPER_H
-#define INPUTLEAP_LIB_INPUTLEAP_PLATFORM_SCREEN_LOGGING_WRAPPER_H
+#ifndef SKVM_LIB_SKVM_PLATFORM_SCREEN_LOGGING_WRAPPER_H
+#define SKVM_LIB_SKVM_PLATFORM_SCREEN_LOGGING_WRAPPER_H
 
 #include "IPlatformScreen.h"
 #include <memory>
 
-namespace inputleap {
+namespace skvm {
 
 class PlatformScreenLoggingWrapper : public IPlatformScreen
 {
@@ -102,6 +102,6 @@ private:
     std::unique_ptr<IPlatformScreen> screen_;
 };
 
-} // namespace inputleap
+} // namespace skvm
 
-#endif // INPUTLEAP_LIB_INPUTLEAP_PLATFORM_SCREEN_LOGGING_WRAPPER_H
+#endif // SKVM_LIB_SKVM_PLATFORM_SCREEN_LOGGING_WRAPPER_H

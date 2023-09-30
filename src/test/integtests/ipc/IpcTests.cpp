@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2012 Nick Bolton
  *
@@ -19,7 +19,7 @@
 // TODO: fix, tests failing intermittently on mac.
 #ifndef WINAPI_CARBON
 
-#define INPUTLEAP_TEST_ENV
+#define SKVM_TEST_ENV
 
 #include "test/global/TestEventQueue.h"
 #include "ipc/IpcServer.h"
@@ -38,7 +38,7 @@
 
 #define TEST_IPC_PORT 24802
 
-namespace inputleap {
+namespace skvm {
 
 class IpcTests : public ::testing::Test
 {
@@ -207,6 +207,6 @@ void IpcTests::sendMessageToClient_client_handle_message_received(const Event& e
     }
 }
 
-} // namespace inputleap
+} // namespace skvm
 
 #endif // WINAPI_CARBON

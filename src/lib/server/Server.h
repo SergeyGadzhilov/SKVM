@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
  *
@@ -37,7 +37,7 @@
 #include <set>
 #include <vector>
 
-namespace inputleap {
+namespace skvm {
 
 class BaseClientProxy;
 class PrimaryClient;
@@ -45,7 +45,7 @@ class InputFilter;
 class Thread;
 class ClientListener;
 
-/// This class implements the top-level server algorithms for InputLeap.
+/// This class implements the top-level server algorithms for SKVM.
 class Server : public INode, public EventTarget {
 public:
     //! Lock cursor to screen data
@@ -113,10 +113,10 @@ public:
     ownership of \p primaryClient.
     */
     Server(Config& config, PrimaryClient* primaryClient,
-        inputleap::Screen* screen, IEventQueue* events, ServerArgs const& args);
+        skvm::Screen* screen, IEventQueue* events, ServerArgs const& args);
     ~Server();
 
-#ifdef INPUTLEAP_TEST_ENV
+#ifdef SKVM_TEST_ENV
     Server() : m_mock(true), m_config(nullptr) { }
     void setActive(BaseClientProxy* active) { m_active = active; }
 #endif
@@ -462,7 +462,7 @@ private:
     bool m_lockedToScreen;
 
     // server screen
-    inputleap::Screen* m_screen;
+    skvm::Screen* m_screen;
 
     IEventQueue* m_events;
 
@@ -485,4 +485,4 @@ private:
     ServerArgs m_args;
 };
 
-} // namespace inputleap
+} // namespace skvm

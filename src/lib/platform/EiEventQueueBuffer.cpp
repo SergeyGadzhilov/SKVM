@@ -1,5 +1,5 @@
-/*  InputLeap -- mouse and keyboard sharing utility
-    Copyright (C) InputLeap contributors
+/*  SKVM -- mouse and keyboard sharing utility
+    Copyright (C) SKVM contributors
 
     This package is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License
@@ -30,7 +30,7 @@
 
 #include <cstdio>
 
-namespace inputleap {
+namespace skvm {
 
 EiEventQueueBuffer::EiEventQueueBuffer(EiScreen* screen, ei *ei, IEventQueue* events) :
     ei_(ei_ref(ei)),
@@ -150,4 +150,4 @@ bool EiEventQueueBuffer::isEmpty() const
     return queue_.empty();
 }
 
-} // namespace inputleap
+} // namespace skvm

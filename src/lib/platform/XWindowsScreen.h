@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
  *
@@ -20,8 +20,8 @@
 
 #include "config.h"
 
-#include "inputleap/PlatformScreen.h"
-#include "inputleap/KeyMap.h"
+#include "skvm/PlatformScreen.h"
+#include "skvm/KeyMap.h"
 #include "XWindowsImpl.h"
 
 #include <X11/Xlib.h>
@@ -29,7 +29,7 @@
 #include <set>
 #include <vector>
 
-namespace inputleap {
+namespace skvm {
 
 class XWindowsClipboard;
 class XWindowsKeyState;
@@ -258,11 +258,11 @@ private:
     int m_xrandrEventBase;
 
     IEventQueue* m_events;
-    inputleap::KeyMap m_keyMap;
+    skvm::KeyMap m_keyMap;
 
     // pointer to (singleton) screen.  this is only needed by
     // ioErrorHandler().
     static XWindowsScreen*    s_screen;
 };
 
-} // namespace inputleap
+} // namespace skvm

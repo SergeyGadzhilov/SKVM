@@ -1,6 +1,6 @@
 /*
-    InputLeap -- mouse and keyboard sharing utility
-    Copyright (C) InputLeap contributors
+    SKVM -- mouse and keyboard sharing utility
+    Copyright (C) SKVM contributors
 
     This package is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License
@@ -63,7 +63,7 @@
 #include <openssl/applink.c>
 #endif
 
-namespace inputleap {
+namespace skvm {
 
 namespace {
 
@@ -82,10 +82,10 @@ const EVP_MD* get_digest_for_type(FingerprintType type)
 
 std::string format_ssl_fingerprint(const std::vector<uint8_t>& fingerprint, bool separator)
 {
-    std::string result = inputleap::string::to_hex(fingerprint, 2);
+    std::string result = skvm::string::to_hex(fingerprint, 2);
 
     // all uppercase
-    inputleap::string::uppercase(result);
+    skvm::string::uppercase(result);
 
     if (separator) {
         // add colon to separate each 2 characters
@@ -101,8 +101,8 @@ std::string format_ssl_fingerprint_columns(const std::vector<uint8_t>& fingerpri
 {
     auto max_columns = 8;
 
-    std::string hex = inputleap::string::to_hex(fingerprint, 2);
-    inputleap::string::uppercase(hex);
+    std::string hex = skvm::string::to_hex(fingerprint, 2);
+    skvm::string::uppercase(hex);
     if (hex.empty() || hex.size() % 2 != 0) {
         return hex;
     }
@@ -202,7 +202,7 @@ void generate_pem_self_signed_cert(const std::string& path)
 
     auto* name = X509_get_subject_name(cert);
     X509_NAME_add_entry_by_txt(name, "CN", MBSTRING_ASC,
-                               reinterpret_cast<const unsigned char *>("InputLeap"), -1, -1, 0);
+                               reinterpret_cast<const unsigned char *>("SKVM"), -1, -1, 0);
     X509_set_issuer_name(cert, name);
 
     X509_sign(cert, private_key, EVP_sha256());
@@ -327,4 +327,4 @@ std::string create_fingerprint_randomart(const std::vector<std::uint8_t>& dgst_r
     return std::string{retval.data(), retval.size()};
 }
 
-} // namespace inputleap
+} // namespace skvm

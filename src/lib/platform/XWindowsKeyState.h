@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2003 Chris Schoeneman
  *
@@ -21,7 +21,7 @@
 #include "config.h"
 
 #include "base/Fwd.h"
-#include "inputleap/KeyState.h"
+#include "skvm/KeyState.h"
 #include "XWindowsImpl.h"
 
 #include <X11/Xlib.h>
@@ -31,7 +31,7 @@
 #include <map>
 #include <vector>
 
-namespace inputleap {
+namespace skvm {
 
 //! X Windows key state
 /*!
@@ -48,7 +48,7 @@ public:
     XWindowsKeyState(IXWindowsImpl* impl, Display*, bool useXKB,
                      IEventQueue* events);
     XWindowsKeyState(IXWindowsImpl* impl, Display*, bool useXKB,
-                     IEventQueue* events, inputleap::KeyMap& keyMap);
+                     IEventQueue* events, skvm::KeyMap& keyMap);
     ~XWindowsKeyState();
 
     //! @name modifiers
@@ -74,24 +74,24 @@ public:
     //! @name accessors
     //@{
 
-    //! Convert X modifier mask to InputLeap mask
+    //! Convert X modifier mask to SKVM mask
     /*!
-    Returns the InputLeap modifier mask corresponding to the X modifier
+    Returns the SKVM modifier mask corresponding to the X modifier
     mask in \p state.
     */
     KeyModifierMask mapModifiersFromX(unsigned int state) const;
 
-    //! Convert InputLeap modifier mask to X mask
+    //! Convert SKVM modifier mask to X mask
     /*!
-    Converts the InputLeap modifier mask to the corresponding X modifier
+    Converts the SKVM modifier mask to the corresponding X modifier
     mask.  Returns \c true if successful and \c false if any modifier
     could not be converted.
     */
     bool mapModifiersToX(KeyModifierMask, unsigned int&) const;
 
-    //! Convert InputLeap key to all corresponding X keycodes
+    //! Convert SKVM key to all corresponding X keycodes
     /*!
-    Converts the InputLeap key \p key to all of the keycodes that map to
+    Converts the SKVM key \p key to all of the keycodes that map to
     that key.
     */
     void mapKeyToKeycodes(KeyID key,
@@ -107,18 +107,18 @@ public:
 
 protected:
     // KeyState overrides
-    void getKeyMap(inputleap::KeyMap& keyMap) override;
+    void getKeyMap(skvm::KeyMap& keyMap) override;
     void fakeKey(const Keystroke& keystroke) override;
 
 private:
     void init(Display* display, bool useXKB);
-    void updateKeysymMap(inputleap::KeyMap&);
-    void updateKeysymMapXKB(inputleap::KeyMap&);
+    void updateKeysymMap(skvm::KeyMap&);
+    void updateKeysymMapXKB(skvm::KeyMap&);
     bool hasModifiersXKB() const;
     int getEffectiveGroup(KeyCode, int group) const;
     std::uint32_t getGroupFromState(unsigned int state) const;
 
-    static void remapKeyModifiers(KeyID, std::int32_t, inputleap::KeyMap::KeyItem&, void*);
+    static void remapKeyModifiers(KeyID, std::int32_t, skvm::KeyMap::KeyItem&, void*);
 
 private:
     struct XKBModifierInfo {
@@ -128,7 +128,7 @@ private:
         bool m_lock;
     };
 
-#ifdef INPUTLEAP_TEST_ENV
+#ifdef SKVM_TEST_ENV
 public: // yuck
 #endif
     typedef std::vector<KeyModifierMask> KeyModifierMaskList;
@@ -147,10 +147,10 @@ private:
     XKBModifierMap m_lastGoodXKBModifiers;
     NonXKBModifierMap m_lastGoodNonXKBModifiers;
 
-    // X modifier (bit number) to InputLeap modifier (mask) mapping
+    // X modifier (bit number) to SKVM modifier (mask) mapping
     KeyModifierMaskList m_modifierFromX;
 
-    // InputLeap modifier (mask) to X modifier (mask)
+    // SKVM modifier (mask) to X modifier (mask)
     KeyModifierToXMask m_modifierToX;
 
     // map KeyID to all keycodes that can synthesize that KeyID
@@ -159,7 +159,7 @@ private:
     // autorepeat state
     XKeyboardState m_keyboardState;
 
-#ifdef INPUTLEAP_TEST_ENV
+#ifdef SKVM_TEST_ENV
 public:
     std::int32_t group() const { return m_group; }
     void group(const std::int32_t& group) { m_group = group; }
@@ -167,4 +167,4 @@ public:
 #endif
 };
 
-} // namespace inputleap
+} // namespace skvm

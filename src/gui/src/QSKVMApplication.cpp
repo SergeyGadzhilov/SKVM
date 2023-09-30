@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2008 Volker Lanz (vl@fidra.de)
  *
@@ -22,17 +22,17 @@
 #include <QtCore>
 #include <QtGui>
 
-QInputLeapApplication* QInputLeapApplication::s_Instance = nullptr;
+QSKVMApplication* QSKVMApplication::s_Instance = nullptr;
 
-QInputLeapApplication::QInputLeapApplication(int& argc, char** argv) :
+QSKVMApplication::QSKVMApplication(int& argc, char** argv) :
     QApplication(argc, argv)
 {
     s_Instance = this;
 }
 
-QInputLeapApplication::~QInputLeapApplication() = default;
+QSKVMApplication::~QSKVMApplication() = default;
 
-void QInputLeapApplication::commitData(QSessionManager&)
+void QSKVMApplication::commitData(QSessionManager&)
 {
     for (QWidget* widget : topLevelWidgets()) {
         MainWindow* mainWindow = qobject_cast<MainWindow*>(widget);
@@ -41,12 +41,12 @@ void QInputLeapApplication::commitData(QSessionManager&)
     }
 }
 
-QInputLeapApplication* QInputLeapApplication::getInstance()
+QSKVMApplication* QSKVMApplication::getInstance()
 {
     return s_Instance;
 }
 
-void QInputLeapApplication::switchTranslator(QString lang)
+void QSKVMApplication::switchTranslator(QString lang)
 {
     if (translator_) {
         removeTranslator(translator_.get());
@@ -59,7 +59,7 @@ void QInputLeapApplication::switchTranslator(QString lang)
     installTranslator(translator_.get());
 }
 
-void QInputLeapApplication::setTranslator(QTranslator* translator)
+void QSKVMApplication::setTranslator(QTranslator* translator)
 {
     translator_.reset(translator);
     installTranslator(translator_.get());

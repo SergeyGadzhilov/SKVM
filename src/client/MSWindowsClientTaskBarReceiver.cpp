@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2003 Chris Schoeneman
  *
@@ -29,7 +29,7 @@
 #include "base/log_outputters.h"
 #include "base/EventTypes.h"
 
-namespace inputleap {
+namespace skvm {
 
 const UINT MSWindowsClientTaskBarReceiver::s_stateToIconID[kMaxState] =
 {
@@ -359,11 +359,11 @@ createTaskBarReceiver(const BufferedLogOutputter* logBuffer, IEventQueue* events
 {
     ArchMiscWindows::setIcons(
         (HICON)LoadImage(ArchMiscWindows::instanceWin32(),
-        MAKEINTRESOURCE(IDI_INPUTLEAP),
+        MAKEINTRESOURCE(IDI_SKVM),
         IMAGE_ICON,
         32, 32, LR_SHARED),
         (HICON)LoadImage(ArchMiscWindows::instanceWin32(),
-        MAKEINTRESOURCE(IDI_INPUTLEAP),
+        MAKEINTRESOURCE(IDI_SKVM),
         IMAGE_ICON,
         16, 16, LR_SHARED));
 
@@ -371,4 +371,4 @@ createTaskBarReceiver(const BufferedLogOutputter* logBuffer, IEventQueue* events
         MSWindowsScreen::getWindowInstance(), logBuffer, events);
 }
 
-} // namespace inputleap
+} // namespace skvm

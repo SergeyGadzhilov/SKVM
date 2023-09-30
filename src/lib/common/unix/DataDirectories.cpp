@@ -1,5 +1,5 @@
 /*
-* InputLeap -- mouse and keyboard sharing utility
+* SKVM -- mouse and keyboard sharing utility
 * Copyright (C) 2018 Debauchee Open Source Group
 *
 * This package is free software; you can redistribute it and/or
@@ -24,7 +24,7 @@
 #include <sys/types.h> // getpwuid(_r)
 #include <pwd.h>       // getpwuid(_r)
 
-namespace inputleap {
+namespace skvm {
 
 static std::string pw_dir(struct passwd* pwentp)
 {
@@ -79,7 +79,7 @@ static fs::path profile_basedir()
 const fs::path& DataDirectories::profile()
 {
     if (_profile.empty()) {
-        _profile = profile_basedir() / "InputLeap";
+        _profile = profile_basedir() / "SKVM";
         maybe_copy_old_profile(profile_basedir() / "barrier", _profile);
     }
     return _profile;
@@ -117,4 +117,4 @@ const fs::path& DataDirectories::systemconfig(const fs::path& path)
     return _systemconfig;
 }
 
-} // namespace inputleap
+} // namespace skvm

@@ -1,5 +1,5 @@
-/*  InputLeap -- mouse and keyboard sharing utility
-    Copyright (C) InputLeap contributors
+/*  SKVM -- mouse and keyboard sharing utility
+    Copyright (C) SKVM contributors
 
     This package is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License
@@ -24,7 +24,7 @@
 #include <sys/un.h> // for EIS fd hack, remove
 #include <sys/socket.h> // for EIS fd hack, remove
 
-namespace inputleap {
+namespace skvm {
 
 enum signals {
     SESSION_CLOSED,
@@ -388,6 +388,6 @@ void PortalInputCapture::glib_thread()
     LOG((CLOG_DEBUG "Shutting down GLib thread"));
 }
 
-} // namespace inputleap
+} // namespace skvm
 
 #endif

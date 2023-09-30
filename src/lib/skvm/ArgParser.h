@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2014-2016 Symless Ltd.
  *
  * This package is free software; you can redistribute it and/or
@@ -22,7 +22,7 @@
 #include <string>
 #include <vector>
 
-namespace inputleap {
+namespace skvm {
 
 // Thrown whenever the option parsing fails.
 class XArgvParserError {
@@ -103,4 +103,4 @@ private:
     static ArgsBase* m_argsBase;
 };
 
-} // namespace inputleap
+} // namespace skvm

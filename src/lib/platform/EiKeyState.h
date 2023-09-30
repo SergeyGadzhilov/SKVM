@@ -1,5 +1,5 @@
-/*  InputLeap -- mouse and keyboard sharing utility
-    Copyright (C) InputLeap contributors
+/*  SKVM -- mouse and keyboard sharing utility
+    Copyright (C) SKVM contributors
 
     This package is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License
@@ -14,18 +14,18 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef INPUTLEAP_LIB_PLATFORM_EI_KEY_STATE_H
-#define INPUTLEAP_LIB_PLATFORM_EI_KEY_STATE_H
+#ifndef SKVM_LIB_PLATFORM_EI_KEY_STATE_H
+#define SKVM_LIB_PLATFORM_EI_KEY_STATE_H
 
 #include "base/Fwd.h"
 #include "platform/EiScreen.h"
-#include "inputleap/KeyState.h"
+#include "skvm/KeyState.h"
 
 struct xkb_context;
 struct xkb_keymap;
 struct xkb_state;
 
-namespace inputleap {
+namespace skvm {
 
 /// A key state for Ei
 class EiKeyState : public KeyState {
@@ -60,6 +60,6 @@ private:
     xkb_state* xkb_state_ = nullptr;
 };
 
-} // namespace inputleap
+} // namespace skvm
 
-#endif // INPUTLEAP_LIB_PLATFORM_EI_KEY_STATE_H
+#endif // SKVM_LIB_PLATFORM_EI_KEY_STATE_H

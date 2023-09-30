@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2004 Chris Schoeneman
  *
@@ -18,13 +18,13 @@
 
 #pragma once
 
-#include "inputleap/IClipboard.h"
+#include "skvm/IClipboard.h"
 
 #include <Carbon/Carbon.h>
 #include <string>
 #include <vector>
 
-namespace inputleap {
+namespace skvm {
 
 class IOSXClipboardConverter;
 
@@ -94,4 +94,4 @@ public:
     //@}
 };
 
-} // namespace inputleap
+} // namespace skvm

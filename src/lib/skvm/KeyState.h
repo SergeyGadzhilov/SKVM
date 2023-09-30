@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2004 Chris Schoeneman
  *
@@ -21,7 +21,7 @@
 #include "skvm/IKeyState.h"
 #include "skvm/KeyMap.h"
 
-namespace inputleap {
+namespace skvm {
 
 //! Core key state
 /*!
@@ -31,7 +31,7 @@ platform specific methods.
 class KeyState : public IKeyState {
 public:
     KeyState(IEventQueue* events);
-    KeyState(IEventQueue* events, inputleap::KeyMap& keyMap);
+    KeyState(IEventQueue* events, skvm::KeyMap& keyMap);
     virtual ~KeyState();
 
     //! @name manipulators
@@ -79,7 +79,7 @@ public:
     std::int32_t getKeyState(KeyButton keyButton) { return m_keys[keyButton]; }
 
 protected:
-    typedef inputleap::KeyMap::Keystroke Keystroke;
+    typedef skvm::KeyMap::Keystroke Keystroke;
 
     //! @name protected manipulators
     //@{
@@ -88,7 +88,7 @@ protected:
     /*!
     Fills \p keyMap with the current keyboard map.
     */
-    virtual void getKeyMap(inputleap::KeyMap& keyMap) = 0;
+    virtual void getKeyMap(skvm::KeyMap& keyMap) = 0;
 
     //! Fake a key event
     /*!
@@ -131,8 +131,8 @@ protected:
     //@}
 
 private:
-    typedef inputleap::KeyMap::Keystrokes Keystrokes;
-    typedef inputleap::KeyMap::ModifierToKeys ModifierToKeys;
+    typedef skvm::KeyMap::Keystrokes Keystrokes;
+    typedef skvm::KeyMap::ModifierToKeys ModifierToKeys;
 public:
     struct AddActiveModifierContext {
     public:
@@ -153,8 +153,8 @@ private:
 
     class ButtonToKeyLess {
     public:
-        bool operator()(const inputleap::KeyMap::ButtonToKeyMap::value_type& a,
-                        const inputleap::KeyMap::ButtonToKeyMap::value_type b) const
+        bool operator()(const skvm::KeyMap::ButtonToKeyMap::value_type& a,
+                        const skvm::KeyMap::ButtonToKeyMap::value_type b) const
         {
             return (a.first < b.first);
         }
@@ -188,14 +188,14 @@ private:
 
     // active modifiers collection callback
     static void addActiveModifierCB(KeyID id, std::int32_t group,
-                                    inputleap::KeyMap::KeyItem& keyItem, void* vcontext);
+                                    skvm::KeyMap::KeyItem& keyItem, void* vcontext);
 
 private:
     // must be declared before m_keyMap. used when this class owns the key map.
-    inputleap::KeyMap* m_keyMapPtr;
+    skvm::KeyMap* m_keyMapPtr;
 
     // the keyboard map
-    inputleap::KeyMap& m_keyMap;
+    skvm::KeyMap& m_keyMap;
 
     // current modifier state
     KeyModifierMask m_mask;
@@ -224,4 +224,4 @@ private:
     IEventQueue* m_events;
 };
 
-} // namespace inputleap
+} // namespace skvm

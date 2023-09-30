@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2003 Chris Schoeneman
  *
@@ -22,7 +22,7 @@
 #include "arch/Arch.h"
 #include "common/Version.h"
 
-namespace inputleap {
+namespace skvm {
 
 ServerTaskBarReceiver::ServerTaskBarReceiver(IEventQueue* events) :
     m_state(kNotRunning),
@@ -114,21 +114,21 @@ ServerTaskBarReceiver::getToolTip() const
 {
     switch (m_state) {
     case kNotRunning:
-        return inputleap::string::sprintf("%s:  Not running", kAppVersion);
+        return skvm::string::sprintf("%s:  Not running", kAppVersion);
 
     case kNotWorking:
-        return inputleap::string::sprintf("%s:  %s",
+        return skvm::string::sprintf("%s:  %s",
                                 kAppVersion, m_errorMessage.c_str());
 
     case kNotConnected:
-        return inputleap::string::sprintf("%s:  Waiting for clients", kAppVersion);
+        return skvm::string::sprintf("%s:  Waiting for clients", kAppVersion);
 
     case kConnected:
-        return inputleap::string::sprintf("%s:  Connected", kAppVersion);
+        return skvm::string::sprintf("%s:  Connected", kAppVersion);
 
     default:
         return "";
     }
 }
 
-} // namespace inputleap
+} // namespace skvm

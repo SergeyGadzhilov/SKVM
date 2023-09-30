@@ -1,6 +1,6 @@
 /*
-    InputLeap -- mouse and keyboard sharing utility
-    Copyright (C) InputLeap contributors
+    SKVM -- mouse and keyboard sharing utility
+    Copyright (C) SKVM contributors
 
     This package is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License
@@ -15,8 +15,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef INPUTLEAP_LIB_NET_CONNECTION_SECURITY_LEVEL_H
-#define INPUTLEAP_LIB_NET_CONNECTION_SECURITY_LEVEL_H
+#ifndef SKVM_LIB_NET_CONNECTION_SECURITY_LEVEL_H
+#define SKVM_LIB_NET_CONNECTION_SECURITY_LEVEL_H
 
 enum class ConnectionSecurityLevel {
     PLAINTEXT,
@@ -24,4 +24,4 @@ enum class ConnectionSecurityLevel {
     ENCRYPTED_AUTHENTICATED
 };
 
-#endif // INPUTLEAP_LIB_NET_CONNECTION_SECURITY_LEVEL_H
+#endif // SKVM_LIB_NET_CONNECTION_SECURITY_LEVEL_H

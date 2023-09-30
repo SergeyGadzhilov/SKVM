@@ -1,5 +1,5 @@
-/*  InputLeap -- mouse and keyboard sharing utility
-    Copyright (C) InputLeap contributors
+/*  SKVM -- mouse and keyboard sharing utility
+    Copyright (C) SKVM contributors
 
     This package is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License
@@ -20,9 +20,9 @@
 #include "platform/PortalRemoteDesktop.h"
 #include "platform/PortalInputCapture.h"
 #include "platform/EiKeyState.h"
-#include "inputleap/Clipboard.h"
-#include "inputleap/KeyMap.h"
-#include "inputleap/XScreen.h"
+#include "skvm/Clipboard.h"
+#include "skvm/KeyMap.h"
+#include "skvm/XScreen.h"
 #include "arch/XArch.h"
 #include "arch/Arch.h"
 #include "base/Log.h"
@@ -37,7 +37,7 @@
 
 #include <libei.h>
 
-namespace inputleap {
+namespace skvm {
 
 EiScreen::EiScreen(bool is_primary, IEventQueue* events, bool use_portal) :
     is_primary_(is_primary),
@@ -49,7 +49,7 @@ EiScreen::EiScreen(bool is_primary, IEventQueue* events, bool use_portal) :
     else
         ei_ = ei_new_sender(nullptr); // we send to the display server
     ei_log_set_priority(ei_, EI_LOG_PRIORITY_DEBUG);
-    ei_configure_name(ei_, "InputLeap client");
+    ei_configure_name(ei_, "SKVM client");
 
     key_state_ = new EiKeyState(this, events);
     // install event handlers
@@ -216,7 +216,7 @@ void EiScreen::fakeMouseWheel(int32_t xDelta, int32_t yDelta) const
     if (!ei_pointer_)
         return;
 
-    // libEI and InputLeap seem to use opposite directions, so we have
+    // libEI and SKVM seem to use opposite directions, so we have
     // to send EI the opposite of the value received if we want to remain
     // compatible with other platforms (including X11).
     ei_device_scroll_discrete(ei_pointer_, -xDelta, -yDelta);
@@ -499,7 +499,7 @@ void EiScreen::on_pointer_scroll_event(ei_event* event)
 
     LOG((CLOG_DEBUG1 "event: Scroll (%.1f,%.1f)", dx, dy));
 
-    // libEI and InputLeap seem to use opposite directions, so we have
+    // libEI and SKVM seem to use opposite directions, so we have
     // to send the opposite of the value reported by EI if we want to
     // remain compatible with other platforms (including X11).
     send_event(EventType::PRIMARY_SCREEN_WHEEL,
@@ -517,7 +517,7 @@ void EiScreen::on_pointer_scroll_discrete_event(ei_event* event)
 
     LOG((CLOG_DEBUG1 "event: Scroll (%.1f,%.1f)", dx, dy));
 
-    // libEI and InputLeap seem to use opposite directions, so we have
+    // libEI and SKVM seem to use opposite directions, so we have
     // to send the opposite of the value reported by EI if we want to
     // remain compatible with other platforms (including X11).
     send_event(EventType::PRIMARY_SCREEN_WHEEL,
@@ -678,4 +678,4 @@ IKeyState* EiScreen::getKeyState() const
     return key_state_;
 }
 
-} // namespace inputleap
+} // namespace skvm

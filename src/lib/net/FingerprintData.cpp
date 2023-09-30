@@ -1,6 +1,6 @@
 /*
-    InputLeap -- mouse and keyboard sharing utility
-    Copyright (C) InputLeap contributors
+    SKVM -- mouse and keyboard sharing utility
+    Copyright (C) SKVM contributors
 
     This package is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License
@@ -20,7 +20,7 @@
 #include <algorithm>
 #include <fstream>
 
-namespace inputleap {
+namespace skvm {
 
 bool FingerprintData::operator==(const FingerprintData& other) const
 {
@@ -50,4 +50,4 @@ FingerprintType fingerprint_type_from_string(const std::string& type)
     return FingerprintType::INVALID;
 }
 
-} // namespace inputleap
+} // namespace skvm

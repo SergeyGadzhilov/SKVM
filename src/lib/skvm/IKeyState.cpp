@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2004 Chris Schoeneman
  *
@@ -22,7 +22,7 @@
 #include <cstring>
 #include <cstdlib>
 
-namespace inputleap {
+namespace skvm {
 
 IKeyState::KeyInfo IKeyState::KeyInfo::create(KeyID id, KeyModifierMask mask, KeyButton button,
                                               std::int32_t count,
@@ -114,4 +114,4 @@ void IKeyState::KeyInfo::split(const char* screens, std::set<std::string>& dst)
     }
 }
 
-} // namespace inputleap
+} // namespace skvm

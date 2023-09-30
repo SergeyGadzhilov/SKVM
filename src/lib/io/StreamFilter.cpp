@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2004 Chris Schoeneman
  *
@@ -19,7 +19,7 @@
 #include "io/StreamFilter.h"
 #include "base/IEventQueue.h"
 
-namespace inputleap {
+namespace skvm {
 
 StreamFilter::StreamFilter(IEventQueue* events, std::unique_ptr<IStream> stream) :
     stream_(std::move(stream)),
@@ -99,4 +99,4 @@ void StreamFilter::handle_upstream_event(const Event& event)
     filterEvent(event);
 }
 
-} // namespace inputleap
+} // namespace skvm

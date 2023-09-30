@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2004 Chris Schoeneman
  *
@@ -20,7 +20,7 @@
 
 #include <sys/utsname.h>
 
-namespace inputleap {
+namespace skvm {
 
 ArchSystemUnix::ArchSystemUnix()
 {
@@ -43,4 +43,4 @@ ArchSystemUnix::setting(const std::string&, const std::string&) const
 {
 }
 
-} // namespace inputleap
+} // namespace skvm

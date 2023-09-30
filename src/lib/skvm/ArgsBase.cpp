@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2012 Nick Bolton
  *
@@ -18,7 +18,7 @@
 
 #include "skvm/ArgsBase.h"
 
-namespace inputleap {
+namespace skvm {
 
 ArgsBase::ArgsBase() :
 #if SYSAPI_WIN32
@@ -51,4 +51,4 @@ ArgsBase::~ArgsBase()
 {
 }
 
-} // namespace inputleap
+} // namespace skvm

@@ -348,11 +348,6 @@ if (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
     set(SKVM_BUNDLE_BINARY_DIR ${SKVM_BUNDLE_APP_DIR}/Contents/MacOS)
 
     configure_files(${SKVM_BUNDLE_SOURCE_DIR} ${SKVM_BUNDLE_DIR})
-
-    add_custom_target(SKVM_MacOS ALL
-                      bash build_dist.sh
-                      DEPENDS skvm skvms skvmc
-                      WORKING_DIRECTORY ${SKVM_BUNDLE_DIR})
 endif()
 
 #

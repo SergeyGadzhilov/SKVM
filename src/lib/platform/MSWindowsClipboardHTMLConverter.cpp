@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2004 Chris Schoeneman
  *
@@ -20,7 +20,7 @@
 
 #include "base/String.h"
 
-namespace inputleap {
+namespace skvm {
 
 MSWindowsClipboardHTMLConverter::MSWindowsClipboardHTMLConverter()
 {
@@ -60,11 +60,11 @@ std::string MSWindowsClipboardHTMLConverter::doFromIClipboard(const std::string&
     std::uint32_t EndHTML = EndFragment + (std::uint32_t)suffix.size();
 
     prefix.replace(prefix.find("XXXXXXXXXX"), 10,
-                            inputleap::string::sprintf("%010u", StartFragment));
+                            skvm::string::sprintf("%010u", StartFragment));
     prefix.replace(prefix.find("YYYYYYYYYY"), 10,
-                            inputleap::string::sprintf("%010u", EndFragment));
+                            skvm::string::sprintf("%010u", EndFragment));
     prefix.replace(prefix.find("ZZZZZZZZZZ"), 10,
-                            inputleap::string::sprintf("%010u", EndHTML));
+                            skvm::string::sprintf("%010u", EndHTML));
 
     // concatenate
     prefix += data;
@@ -114,4 +114,4 @@ std::string MSWindowsClipboardHTMLConverter::findArg(const std::string& data,
     return data.substr(i, j - i);
 }
 
-} // namespace inputleap
+} // namespace skvm

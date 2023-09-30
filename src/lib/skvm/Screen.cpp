@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2003 Chris Schoeneman
  *
@@ -23,7 +23,7 @@
 #include "base/IEventQueue.h"
 #include "server/ClientProxy.h"
 
-namespace inputleap {
+namespace skvm {
 
 Screen::Screen(std::unique_ptr<IPlatformScreen> platform_screen, IEventQueue* events) :
     m_screen(std::move(platform_screen)),

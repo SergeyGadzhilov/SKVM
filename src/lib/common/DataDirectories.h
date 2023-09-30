@@ -1,5 +1,5 @@
 /*
-* InputLeap -- mouse and keyboard sharing utility
+* SKVM -- mouse and keyboard sharing utility
 * Copyright (C) 2018 Debauchee Open Source Group
 *
 * This package is free software; you can redistribute it and/or
@@ -15,12 +15,12 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef INPUTLEAP_LIB_COMMON_DATA_DIRECTORIES_H
-#define INPUTLEAP_LIB_COMMON_DATA_DIRECTORIES_H
+#ifndef SKVM_LIB_COMMON_DATA_DIRECTORIES_H
+#define SKVM_LIB_COMMON_DATA_DIRECTORIES_H
 
 #include "io/filesystem.h"
 
-namespace inputleap {
+namespace skvm {
 
 class DataDirectories
 {
@@ -48,6 +48,6 @@ private:
     static fs::path _systemconfig;
 };
 
-} // namespace inputleap
+} // namespace skvm
 
 #endif

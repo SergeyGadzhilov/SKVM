@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2012 Nick Bolton
  *
@@ -49,7 +49,7 @@
 #include <iostream>
 #include <sstream>
 
-namespace inputleap {
+namespace skvm {
 
 DaemonApp* DaemonApp::s_instance = nullptr;
 
@@ -137,7 +137,7 @@ DaemonApp::run(int argc, char** argv)
             mainLoop(false);
         }
         else {
-            arch.daemonize("InputLeap", mainLoopStatic);
+            arch.daemonize("SKVM", mainLoopStatic);
         }
 
         return kExitSuccess;
@@ -232,7 +232,7 @@ DaemonApp::mainLoop(bool daemonized)
 void
 DaemonApp::foregroundError(const char* message)
 {
-    MessageBox(nullptr, message, "InputLeap Service", MB_OK | MB_ICONERROR);
+    MessageBox(nullptr, message, "SKVM Service", MB_OK | MB_ICONERROR);
 }
 
 std::string
@@ -240,7 +240,7 @@ DaemonApp::logFilename()
 {
     std::string logFilename = ARCH->setting("LogFilename");
     if (logFilename.empty())
-        logFilename = (inputleap::DataDirectories::global() / LOG_FILENAME).u8string();
+        logFilename = (skvm::DataDirectories::global() / LOG_FILENAME).u8string();
     MSWindowsUtil::createDirectory(logFilename, true);
     return logFilename;
 }
@@ -357,4 +357,4 @@ void DaemonApp::handle_ipc_message(const Event& e)
     }
 }
 
-} // namespace inputleap
+} // namespace skvm

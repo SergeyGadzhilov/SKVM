@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
  *
@@ -22,7 +22,7 @@
 #include <mutex>
 #include <condition_variable>
 
-namespace inputleap {
+namespace skvm {
 
 /*!
 \class ArchThreadImpl
@@ -43,7 +43,7 @@ inline std::chrono::nanoseconds seconds_to_chrono(double seconds)
     return std::chrono::nanoseconds(std::uint64_t(seconds * 1000000000.0));
 }
 
-/** This interface defines the multithreading operations required by InputLeap.
+/** This interface defines the multithreading operations required by SKVM.
     Each architecture must implement this interface.
 */
 class IArchMultithread {
@@ -202,4 +202,4 @@ public:
     //@}
 };
 
-} // namespace inputleap
+} // namespace skvm

@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2004 Chris Schoeneman
  *
@@ -21,7 +21,7 @@
 #include "base/Event.h"
 #include "base/IEventQueue.h"
 
-namespace inputleap {
+namespace skvm {
 
 OSXEventQueueBuffer::OSXEventQueueBuffer(IEventQueue* events) :
     m_event(nullptr),
@@ -120,4 +120,4 @@ OSXEventQueueBuffer::isEmpty() const
     return (status == eventLoopTimedOutErr);
 }
 
-} // namespace inputleap
+} // namespace skvm

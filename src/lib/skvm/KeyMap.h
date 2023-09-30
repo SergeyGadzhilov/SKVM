@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2005 Chris Schoeneman
  *
@@ -21,7 +21,7 @@
 #include "skvm/key_types.h"
 #include "base/String.h"
 
-#ifdef INPUTLEAP_TEST_ENV
+#ifdef SKVM_TEST_ENV
 #include <gtest/gtest_prod.h>
 #endif
 
@@ -29,7 +29,7 @@
 #include <set>
 #include <vector>
 
-namespace inputleap {
+namespace skvm {
 
 //! Key map
 /*!
@@ -323,7 +323,7 @@ public:
     //@}
 
 private:
-#ifdef INPUTLEAP_TEST_ENV
+#ifdef SKVM_TEST_ENV
     FRIEND_TEST(KeyMapTests,
                 findBestKey_requiredDown_matchExactFirstItem);
     FRIEND_TEST(KeyMapTests,
@@ -464,9 +464,9 @@ private:
 
     // Key maps for parsing/formatting
     typedef std::map<std::string, KeyID,
-                            inputleap::string::CaselessCmp> NameToKeyMap;
+                            skvm::string::CaselessCmp> NameToKeyMap;
     typedef std::map<std::string, KeyModifierMask,
-                            inputleap::string::CaselessCmp> NameToModifierMap;
+                            skvm::string::CaselessCmp> NameToModifierMap;
     typedef std::map<KeyID, std::string> KeyToNameMap;
     typedef std::map<KeyModifierMask, std::string> ModifierToNameMap;
 
@@ -479,7 +479,7 @@ private:
     bool m_composeAcrossGroups;
 
     // half-duplex info
-    KeyButtonSet m_halfDuplex; // half-duplex set by InputLeap
+    KeyButtonSet m_halfDuplex; // half-duplex set by SKVM
     KeySet m_halfDuplexMods; // half-duplex set by user
 
     // dummy KeyItem for changing modifiers

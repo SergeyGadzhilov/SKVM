@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
  *
@@ -26,7 +26,7 @@
 #include <string>
 #include <vector>
 
-namespace inputleap {
+namespace skvm {
 
 //! X11 utility functions
 class XWindowsUtil {
@@ -180,4 +180,4 @@ private:
     static KeySymMap    s_keySymToUCS4;
 };
 
-} // namespace inputleap
+} // namespace skvm

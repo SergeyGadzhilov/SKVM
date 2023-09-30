@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
  *
@@ -19,7 +19,7 @@
 #include "platform/XWindowsScreenSaver.h"
 
 #include "platform/XWindowsUtil.h"
-#include "inputleap/IPlatformScreen.h"
+#include "skvm/IPlatformScreen.h"
 #include "base/Log.h"
 #include "base/Event.h"
 #include "base/IEventQueue.h"
@@ -29,7 +29,7 @@
 #include <X11/Xmd.h>
 #include <X11/extensions/dpms.h>
 
-namespace inputleap {
+namespace skvm {
 
 XWindowsScreenSaver::XWindowsScreenSaver(IXWindowsImpl* impl, Display* display,
                                          Window window, const EventTarget* event_target,
@@ -561,4 +561,4 @@ XWindowsScreenSaver::isDPMSActivated() const
     }
 }
 
-} // namespace inputleap
+} // namespace skvm

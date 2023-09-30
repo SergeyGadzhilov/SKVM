@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2004 Chris Schoeneman
  *
@@ -24,7 +24,7 @@
 #include "base/Fwd.h"
 #include <memory>
 
-namespace inputleap {
+namespace skvm {
 
 class ClientProxy;
 class IStream;
@@ -48,7 +48,7 @@ public:
     ClientProxy* orphanClientProxy();
 
     //! Get the stream
-    inputleap::IStream* getStream() { return stream_.get(); }
+    skvm::IStream* getStream() { return stream_.get(); }
 
     //@}
 
@@ -66,7 +66,7 @@ private:
     void handle_ready();
 
 private:
-    std::unique_ptr<inputleap::IStream> stream_;
+    std::unique_ptr<skvm::IStream> stream_;
     EventQueueTimer* m_timer;
     ClientProxy* m_proxy;
     bool m_ready;
@@ -74,4 +74,4 @@ private:
     IEventQueue* m_events;
 };
 
-} // namespace inputleap
+} // namespace skvm

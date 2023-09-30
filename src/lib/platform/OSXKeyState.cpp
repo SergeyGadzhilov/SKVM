@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2004 Chris Schoeneman
  *
@@ -26,7 +26,7 @@
 #include <CoreServices/CoreServices.h>
 #include <IOKit/hidsystem/IOHIDLib.h>
 
-namespace inputleap {
+namespace skvm {
 
 static const std::uint32_t s_brightnessUp = 144;
 static const std::uint32_t s_brightnessDown = 145;
@@ -135,7 +135,7 @@ OSXKeyState::OSXKeyState(IEventQueue* events) :
     init();
 }
 
-OSXKeyState::OSXKeyState(IEventQueue* events, inputleap::KeyMap& keyMap) :
+OSXKeyState::OSXKeyState(IEventQueue* events, skvm::KeyMap& keyMap) :
     KeyState(events, keyMap)
 {
     init();
@@ -423,7 +423,7 @@ OSXKeyState::pollPressedKeys(KeyButtonSet& pressedKeys) const
 }
 
 void
-OSXKeyState::getKeyMap(inputleap::KeyMap& keyMap)
+OSXKeyState::getKeyMap(skvm::KeyMap& keyMap)
 {
     // update keyboard groups
     if (getGroups(m_groups)) {
@@ -618,10 +618,10 @@ OSXKeyState::fakeKey(const Keystroke& keystroke)
     }
 }
 
-void OSXKeyState::getKeyMapForSpecialKeys(inputleap::KeyMap& keyMap, std::int32_t group) const
+void OSXKeyState::getKeyMapForSpecialKeys(skvm::KeyMap& keyMap, std::int32_t group) const
 {
     // special keys are insensitive to modifers and none are dead keys
-    inputleap::KeyMap::KeyItem item;
+    skvm::KeyMap::KeyItem item;
     for (size_t i = 0; i < sizeof(s_controlKeys) /
                                 sizeof(s_controlKeys[0]); ++i) {
         const KeyEntry& entry = s_controlKeys[i];
@@ -632,7 +632,7 @@ void OSXKeyState::getKeyMapForSpecialKeys(inputleap::KeyMap& keyMap, std::int32_
         item.m_sensitive = 0;
         item.m_dead      = false;
         item.m_client    = 0;
-        inputleap::KeyMap::initModifierKey(item);
+        skvm::KeyMap::initModifierKey(item);
         keyMap.addKeyEntry(item);
 
         if (item.m_lock) {
@@ -648,7 +648,7 @@ void OSXKeyState::getKeyMapForSpecialKeys(inputleap::KeyMap& keyMap, std::int32_
     // anyway.
 }
 
-bool OSXKeyState::getKeyMap(inputleap::KeyMap& keyMap, std::int32_t group,
+bool OSXKeyState::getKeyMap(skvm::KeyMap& keyMap, std::int32_t group,
                             const IOSXKeyResource& r) const
 {
     if (!r.isValid()) {
@@ -662,7 +662,7 @@ bool OSXKeyState::getKeyMap(inputleap::KeyMap& keyMap, std::int32_t group,
     std::vector<std::pair<KeyID, bool> > buttonKeys(r.getNumTables());
 
     // iterate over each button
-    inputleap::KeyMap::KeyItem item;
+    skvm::KeyMap::KeyItem item;
     for (std::uint32_t i = 0; i < r.getNumButtons(); ++i) {
         item.m_button = mapVirtualKeyToKeyButton(i);
 
@@ -672,7 +672,7 @@ bool OSXKeyState::getKeyMap(inputleap::KeyMap& keyMap, std::int32_t group,
         // convert the entry in each table for this button to a KeyID
         for (std::uint32_t j = 0; j < r.getNumTables(); ++j) {
             buttonKeys[j].first  = r.getKey(j, i);
-            buttonKeys[j].second = inputleap::KeyMap::isDeadKey(buttonKeys[j].first);
+            buttonKeys[j].second = skvm::KeyMap::isDeadKey(buttonKeys[j].first);
         }
 
         // iterate over each character table
@@ -695,7 +695,7 @@ bool OSXKeyState::getKeyMap(inputleap::KeyMap& keyMap, std::int32_t group,
             item.m_group  = group;
             item.m_dead   = buttonKeys[j].second;
             item.m_client = buttonKeys[j].second ? 1 : 0;
-            inputleap::KeyMap::initModifierKey(item);
+            skvm::KeyMap::initModifierKey(item);
             if (item.m_lock) {
                 // all locking keys are half duplex on OS X
                 keyMap.addHalfDuplexButton(i);
@@ -918,4 +918,4 @@ std::uint32_t OSXKeyState::mapKeyButtonToVirtualKey(KeyButton keyButton)
     return static_cast<std::uint32_t>(keyButton - KeyButtonOffset);
 }
 
-} // namespace inputleap
+} // namespace skvm

@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2003 Chris Schoeneman
  *
@@ -25,9 +25,9 @@
 #include "base/Event.h"
 #include <vector>
 
-namespace inputleap {
+namespace skvm {
 
-//! Implementation of IArchTaskBarReceiver for the InputLeap server
+//! Implementation of IArchTaskBarReceiver for the SKVM server
 class PortableTaskBarReceiver : public IArchTaskBarReceiver {
 public:
     PortableTaskBarReceiver(IEventQueue* events);
@@ -90,4 +90,4 @@ private:
 
 IArchTaskBarReceiver* createTaskBarReceiver(const BufferedLogOutputter* logBuffer, IEventQueue* events);
 
-} // namespace inputleap
+} // namespace skvm

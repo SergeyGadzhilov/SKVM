@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
  *
@@ -23,7 +23,7 @@
 #include "net/ISocketFactory.h"
 #include "arch/IArchNetwork.h"
 
-namespace inputleap {
+namespace skvm {
 
 //! Socket factory for TCP sockets
 class TCPSocketFactory : public ISocketFactory {
@@ -45,4 +45,4 @@ private:
     SocketMultiplexer* m_socketMultiplexer;
 };
 
-} // namespace inputleap
+} // namespace skvm

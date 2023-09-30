@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2014-2016 Symless Ltd.
  *
  * This package is free software; you can redistribute it and/or
@@ -40,8 +40,8 @@ static const QStringList preferedIPAddress(
                 "10." <<
                 "172.");
 
-const char* ZeroconfService:: m_ServerServiceName = "_inputLeapServerZeroconf._tcp";
-const char* ZeroconfService:: m_ClientServiceName = "_inputLeapClientZeroconf._tcp";
+const char* ZeroconfService:: m_ServerServiceName = "_skvmServerZeroconf._tcp";
+const char* ZeroconfService:: m_ClientServiceName = "_skvmClientZeroconf._tcp";
 
 static void silence_avahi_warning()
 {

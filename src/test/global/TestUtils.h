@@ -1,6 +1,6 @@
 /*
-    InputLeap -- mouse and keyboard sharing utility
-    Copyright (C) InputLeap contributors
+    SKVM -- mouse and keyboard sharing utility
+    Copyright (C) SKVM contributors
 
     This package is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License
@@ -15,16 +15,16 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef INPUTLEAP_TEST_GLOBAL_TEST_UTILS_H
-#define INPUTLEAP_TEST_GLOBAL_TEST_UTILS_H
+#ifndef SKVM_TEST_GLOBAL_TEST_UTILS_H
+#define SKVM_TEST_GLOBAL_TEST_UTILS_H
 
 #include <cstdint>
 #include <vector>
 
-namespace inputleap {
+namespace skvm {
 
 std::vector<std::uint8_t> generate_pseudo_random_bytes(std::size_t seed, std::size_t size);
 
-} // namespace inputleap
+} // namespace skvm
 
-#endif // INPUTLEAP_TEST_GLOBAL_TEST_UTILS_H
+#endif // SKVM_TEST_GLOBAL_TEST_UTILS_H

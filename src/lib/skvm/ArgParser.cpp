@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2014-2016 Symless Ltd.
  *
  * This package is free software; you can redistribute it and/or
@@ -30,7 +30,7 @@
 #include <VersionHelpers.h>
 #endif
 
-namespace inputleap {
+namespace skvm {
 
 XArgvParserError::XArgvParserError(const char *fmt, ...) :
     message("Unknown reason")
@@ -46,7 +46,7 @@ XArgvParserError::XArgvParserError(const char *fmt, ...) :
 
 Argv::Argv(int argc, const char* const* argv) :
     // FIXME: we assume UTF-8 encoding, but on Windows this is not correct
-    m_exename(inputleap::fs::u8path(argv[0]).filename().u8string())
+    m_exename(skvm::fs::u8path(argv[0]).filename().u8string())
 {
     for (int i = 1; i < argc; i++)
         m_argv.push_back(argv[i]);
@@ -410,11 +410,11 @@ ArgParser::parseGenericArgs(Argv& argv)
     }
     else if (argv.shift("--server")) {
         // HACK: stop error happening when using portable app.
-        // FIXME: there is no portable InputLeap
+        // FIXME: there is no portable SKVM
     }
     else if (argv.shift("--client")) {
         // HACK: stop error happening when using portable app.
-        // FIXME: there is no portable InputLeap.
+        // FIXME: there is no portable SKVM.
     }
     else if (argv.shift("--enable-drag-drop")) {
         bool useDragDrop = true;
@@ -440,10 +440,10 @@ ArgParser::parseGenericArgs(Argv& argv)
         argsBase().m_enableCrypto = false;
     }
     else if (argv.shift("--profile-dir", nullptr, &optarg)) {
-        argsBase().m_profileDirectory = inputleap::fs::u8path(optarg);
+        argsBase().m_profileDirectory = skvm::fs::u8path(optarg);
     }
     else if (argv.shift("--plugin-dir", nullptr, &optarg)) {
-        argsBase().m_pluginDirectory = inputleap::fs::u8path(optarg);
+        argsBase().m_pluginDirectory = skvm::fs::u8path(optarg);
     }
     else {
         // option not supported here
@@ -587,7 +587,7 @@ ArgParser::updateCommonArgs(Argv &argv)
 std::string ArgParser::parse_exename(const char* arg)
 {
     // FIXME: we assume UTF-8 encoding, but on Windows this is not correct
-    return inputleap::fs::u8path(arg).filename().u8string();
+    return skvm::fs::u8path(arg).filename().u8string();
 }
 
-} // namespace inputleap
+} // namespace skvm

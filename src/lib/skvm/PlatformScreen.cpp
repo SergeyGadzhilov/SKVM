@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2004 Chris Schoeneman
  *
@@ -20,7 +20,7 @@
 #include "skvm/App.h"
 #include "skvm/ArgsBase.h"
 
-namespace inputleap {
+namespace skvm {
 
 PlatformScreen::PlatformScreen() :
     m_draggingStarted(false),
@@ -127,4 +127,4 @@ bool PlatformScreen::fakeMediaKey(KeyID id)
     return false;
 }
 
-} // namespace inputleap
+} // namespace skvm

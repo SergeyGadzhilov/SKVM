@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2004 Chris Schoeneman
  *
@@ -18,7 +18,6 @@
 
 #include "platform/OSXScreen.h"
 
-#include "base/EventQueue.h"
 #include "base/EventQueueTimer.h"
 #include "client/Client.h"
 #include "platform/OSXClipboard.h"
@@ -28,11 +27,10 @@
 #include "platform/OSXDragSimulator.h"
 #include "platform/OSXMediaKeySupport.h"
 #include "platform/OSXPasteboardPeeker.h"
-#include "inputleap/Clipboard.h"
-#include "inputleap/KeyMap.h"
-#include "inputleap/ClientApp.h"
+#include "skvm/Clipboard.h"
+#include "skvm/KeyMap.h"
+#include "skvm/ClientApp.h"
 #include "mt/Thread.h"
-#include "arch/XArch.h"
 #include "base/Log.h"
 #include "base/IEventQueue.h"
 #include "base/Time.h"
@@ -43,7 +41,7 @@
 #include <IOKit/hidsystem/event_status_driver.h>
 #include <AppKit/NSEvent.h>
 
-namespace inputleap {
+namespace skvm {
 
 // This isn't in any Apple SDK that I know of as of yet.
 constexpr int INPUT_LEAP_EVENT_MOUSE_SCROLL = 11;
@@ -286,7 +284,7 @@ void OSXScreen::getCursorCenter(std::int32_t& x, std::int32_t& y) const
 
 std::uint32_t OSXScreen::registerHotKey(KeyID key, KeyModifierMask mask)
 {
-    // get mac virtual key and modifier mask matching InputLeap key and mask
+    // get mac virtual key and modifier mask matching SKVM key and mask
 	std::uint32_t macKey, macMask;
     if (!m_keyState->map_hot_key_to_mac(key, mask, macKey, macMask)) {
 		LOG((CLOG_DEBUG "could not map hotkey id=%04x mask=%04x", key, mask));
@@ -328,13 +326,13 @@ std::uint32_t OSXScreen::registerHotKey(KeyID key, KeyModifierMask mask)
 	if (!okay) {
 		m_oldHotKeyIDs.push_back(id);
 		m_hotKeyToIDMap.erase(HotKeyItem(macKey, macMask));
-		LOG((CLOG_WARN "failed to register hotkey %s (id=%04x mask=%04x)", inputleap::KeyMap::formatKey(key, mask).c_str(), key, mask));
+		LOG((CLOG_WARN "failed to register hotkey %s (id=%04x mask=%04x)", skvm::KeyMap::formatKey(key, mask).c_str(), key, mask));
 		return 0;
 	}
 
 	m_hotKeys.insert(std::make_pair(id, HotKeyItem(ref, macKey, macMask)));
 
-	LOG((CLOG_DEBUG "registered hotkey %s (id=%04x mask=%04x) as id=%d", inputleap::KeyMap::formatKey(key, mask).c_str(), key, mask, id));
+	LOG((CLOG_DEBUG "registered hotkey %s (id=%04x mask=%04x) as id=%d", skvm::KeyMap::formatKey(key, mask).c_str(), key, mask, id));
 	return id;
 }
 
@@ -507,14 +505,14 @@ OSXScreen::fakeMouseButton(ButtonID id, bool press)
     // This will allow for higher than triple click but the quartz documentation
     // does not specify that this should be limited to triple click
     if (press) {
-        if ((inputleap::current_time_seconds() - m_lastClickTime) <= clickTime && diff <= maxDiff) {
+        if ((skvm::current_time_seconds() - m_lastClickTime) <= clickTime && diff <= maxDiff) {
             m_clickState++;
         }
         else {
             m_clickState = 1;
         }
 
-        m_lastClickTime = inputleap::current_time_seconds();
+        m_lastClickTime = skvm::current_time_seconds();
     }
 
     if (m_clickState == 1) {
@@ -557,9 +555,9 @@ void OSXScreen::get_drop_target_thread()
     char* cstr = nullptr;
 
 	// wait for 5 secs for the drop destinaiton string to be filled.
-    std::uint32_t timeout = inputleap::current_time_seconds() + 5;
+    std::uint32_t timeout = skvm::current_time_seconds() + 5;
 
-    while (inputleap::current_time_seconds() < timeout) {
+    while (skvm::current_time_seconds() < timeout) {
 		CFStringRef cfstr = getCocoaDropTarget();
 		cstr = CFStringRefToUTF8String(cfstr);
 		CFRelease(cfstr);
@@ -567,7 +565,7 @@ void OSXScreen::get_drop_target_thread()
         if (cstr != nullptr) {
 			break;
 		}
-		inputleap::this_thread_sleep(.1f);
+		skvm::this_thread_sleep(.1f);
 	}
 
     if (cstr != nullptr) {
@@ -1809,7 +1807,7 @@ OSXScreen::HotKeyItem::operator<(const HotKeyItem& x) const
 }
 
 // Quartz event tap support for the secondary display. This makes sure that we
-// will show the cursor if a local event comes in while InputLeap has the cursor
+// will show the cursor if a local event comes in while SKVM has the cursor
 // off the screen.
 CGEventRef
 OSXScreen::handleCGInputEventSecondary(
@@ -2077,4 +2075,4 @@ avoidHesitatingCursor()
 
 #pragma GCC diagnostic error "-Wdeprecated-declarations"
 
-} // namespace inputleap
+} // namespace skvm

@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2015-2016 Symless Ltd.
  *
  * This package is free software; you can redistribute it and/or
@@ -26,7 +26,7 @@
 #include <condition_variable>
 #include <mutex>
 
-namespace inputleap {
+namespace skvm {
 
 using ::testing::_;
 using ::testing::Invoke;
@@ -61,4 +61,4 @@ private:
     std::mutex send_mutex_;
 };
 
-} // namespace inputleap
+} // namespace skvm

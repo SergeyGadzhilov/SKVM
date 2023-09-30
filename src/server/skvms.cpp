@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
  *
@@ -25,7 +25,7 @@
 #include "MSWindowsServerTaskBarReceiver.h"
 #endif
 
-namespace inputleap {
+namespace skvm {
 
 #if WINAPI_XWINDOWS || WINAPI_LIBEI || WINAPI_CARBON
 CreateTaskBarReceiverFunc createTaskBarReceiver = nullptr;
@@ -62,9 +62,9 @@ int server_main(int argc, char** argv)
     return result;
 }
 
-} // namespace inputleap
+} // namespace skvm
 
 int main(int argc, char** argv)
 {
-    return inputleap::server_main(argc, argv);
+    return skvm::server_main(argc, argv);
 }

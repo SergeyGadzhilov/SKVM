@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
  *
@@ -21,7 +21,7 @@
 #include "base/Log.h"
 #include "base/ELevel.h"
 
-namespace inputleap {
+namespace skvm {
 
 //! Outputter interface
 /*!
@@ -71,4 +71,4 @@ public:
     //@}
 };
 
-} // namespace inputleap
+} // namespace skvm

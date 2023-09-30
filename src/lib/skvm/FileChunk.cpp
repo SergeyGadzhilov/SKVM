@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2015-2016 Symless Ltd.
  *
  * This package is free software; you can redistribute it and/or
@@ -24,7 +24,7 @@
 #include "base/String.h"
 #include "base/Log.h"
 
-namespace inputleap {
+namespace skvm {
 
 static const std::uint16_t kIntervalThreshold = 1;
 
@@ -51,7 +51,7 @@ FileChunk FileChunk::end()
     return chunk;
 }
 
-int FileChunk::assemble(inputleap::IStream* stream, std::string& dataReceived, size_t& expectedSize)
+int FileChunk::assemble(skvm::IStream* stream, std::string& dataReceived, size_t& expectedSize)
 {
     // parse
     std::uint8_t mark = 0;
@@ -67,7 +67,7 @@ int FileChunk::assemble(inputleap::IStream* stream, std::string& dataReceived, s
     switch (mark) {
     case kDataStart:
         dataReceived.clear();
-        expectedSize = inputleap::string::stringToSizeType(content);
+        expectedSize = skvm::string::stringToSizeType(content);
         receivedDataSize = 0;
         elapsedTime = 0;
         stopwatch.reset();
@@ -118,4 +118,4 @@ int FileChunk::assemble(inputleap::IStream* stream, std::string& dataReceived, s
     return kError;
 }
 
-} // namespace inputleap
+} // namespace skvm

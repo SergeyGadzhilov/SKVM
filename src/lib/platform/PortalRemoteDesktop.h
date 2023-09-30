@@ -1,5 +1,5 @@
-/*  InputLeap -- mouse and keyboard sharing utility
-    Copyright (C) InputLeap contributors
+/*  SKVM -- mouse and keyboard sharing utility
+    Copyright (C) SKVM contributors
 
     This package is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License
@@ -14,8 +14,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef INPUTLEAP_LIB_PLATFORM_PORTAL_REMOTE_DESKTOP_H
-#define INPUTLEAP_LIB_PLATFORM_PORTAL_REMOTE_DESKTOP_H
+#ifndef SKVM_LIB_PLATFORM_PORTAL_REMOTE_DESKTOP_H
+#define SKVM_LIB_PLATFORM_PORTAL_REMOTE_DESKTOP_H
 
 #include "config.h"
 
@@ -31,7 +31,7 @@
 #define XDP_OUTPUT_NONE (XdpOutputType)0
 #endif
 
-namespace inputleap {
+namespace skvm {
 
 class PortalRemoteDesktop {
 public:
@@ -67,6 +67,6 @@ private:
     guint session_signal_id_;
 };
 
-} // namespace inputleap
+} // namespace skvm
 
-#endif // INPUTLEAP_LIB_PLATFORM_PORTAL_REMOTE_DESKTOP_H
+#endif // SKVM_LIB_PLATFORM_PORTAL_REMOTE_DESKTOP_H

@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
  *
@@ -25,7 +25,7 @@
 
 #define ARCH_LOG ArchLogWindows
 
-namespace inputleap {
+namespace skvm {
 
 //! Win32 implementation of IArchLog
 class ArchLogWindows : public IArchLog {
@@ -43,4 +43,4 @@ private:
     HANDLE m_eventLog;
 };
 
-} // namespace inputleap
+} // namespace skvm

@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2011 Nick Bolton
  *
@@ -20,7 +20,7 @@
 
 #include <gtest/gtest.h>
 
-namespace inputleap {
+namespace skvm {
 
 TEST(ClipboardTests, empty_openCalled_returnsTrue)
 {
@@ -201,11 +201,11 @@ TEST(ClipboardTests, marshall_withTextSize289_sizeCharsValid)
 {
     // 289 chars
     std::string data;
-    data.append("InputLeap is Free and Open Source Software that lets you ");
+    data.append("SKVM is Free and Open Source Software that lets you ");
     data.append("easily share your mouse and keyboard between multiple ");
     data.append("computers, where each computer has it's own display. No ");
     data.append("special hardware is required, all you need is a local area ");
-    data.append("network. InputLeap is supported on Windows, Mac OS X and Linux.");
+    data.append("network. SKVM is supported on Windows, Mac OS X and Linux.");
 
     Clipboard clipboard;
     clipboard.open(0);
@@ -287,11 +287,11 @@ TEST(ClipboardTests, unmarshall_withTextSize289_getTextIsValid)
 
     // 289 chars
     std::string text;
-    text.append("InputLeap is Free and Open Source Software that lets you ");
+    text.append("SKVM is Free and Open Source Software that lets you ");
     text.append("easily share your mouse and keyboard between multiple ");
     text.append("computers, where each computer has it's own display. No ");
     text.append("special hardware is required, all you need is a local area ");
-    text.append("network. InputLeap is supported on Windows, Mac OS X and Linux.");
+    text.append("network. SKVM is supported on Windows, Mac OS X and Linux.");
 
     std::string data;
     data += static_cast<char>(0);
@@ -398,4 +398,4 @@ TEST(ClipboardTests, copy_withSingleText_clipboardsAreEqual)
     EXPECT_EQ("test string!", actual);
 }
 
-} // namespace inputleap
+} // namespace skvm

@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
  *
@@ -36,7 +36,7 @@
 // can cause busy waiting.
 //
 
-namespace inputleap {
+namespace skvm {
 
 class ArchThreadImpl {
 public:
@@ -528,4 +528,4 @@ ArchMultithreadWindows::doThreadFunc(ArchThread thread)
     closeThread(thread);
 }
 
-} // namespace inputleap
+} // namespace skvm

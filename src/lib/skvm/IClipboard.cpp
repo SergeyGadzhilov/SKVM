@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2004 Chris Schoeneman
  *
@@ -20,7 +20,7 @@
 #include <cassert>
 #include <vector>
 
-namespace inputleap {
+namespace skvm {
 
 void IClipboard::unmarshall(IClipboard* clipboard, const std::string& data, Time time)
 {
@@ -162,4 +162,4 @@ void IClipboard::writeUInt32(std::string* buf, std::uint32_t v)
     *buf += static_cast<std::uint8_t>( v & 0xff);
 }
 
-} // namespace inputleap
+} // namespace skvm

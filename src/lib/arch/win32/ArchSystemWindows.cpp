@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2004 Chris Schoeneman
  *
@@ -30,11 +30,11 @@
 
 static const char* s_settingsKeyNames[] = {
     _T("SOFTWARE"),
-    _T("InputLeap"),
+    _T("SKVM"),
     nullptr
 };
 
-namespace inputleap {
+namespace skvm {
 
 ArchSystemWindows::ArchSystemWindows()
 {
@@ -65,4 +65,4 @@ ArchSystemWindows::setting(const std::string& valueName, const std::string& valu
     ArchMiscWindows::setValue(key, valueName.c_str(), valueString.c_str());
 }
 
-} // namespace inputleap
+} // namespace skvm

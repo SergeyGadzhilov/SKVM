@@ -1,5 +1,5 @@
-/*  InputLeap -- mouse and keyboard sharing utility
-    Copyright (C) InputLeap contributors
+/*  SKVM -- mouse and keyboard sharing utility
+    Copyright (C) SKVM contributors
 
     This package is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License
@@ -14,14 +14,14 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef INPUTLEAP_LIB_BASE_EVENT_TARGET_H
-#define INPUTLEAP_LIB_BASE_EVENT_TARGET_H
+#ifndef SKVM_LIB_BASE_EVENT_TARGET_H
+#define SKVM_LIB_BASE_EVENT_TARGET_H
 
 #include "Fwd.h"
 #include "EventTypes.h"
 #include <vector>
 
-namespace inputleap {
+namespace skvm {
 
 /** EventTarget represents an object to which events are being sent. Event targets can be
     registered to IEventQueue. On destruction of an EventTarget, all such registrations are
@@ -41,6 +41,6 @@ private:
     mutable IEventQueue* event_queue_ = nullptr;
 };
 
-} // namespace inputleap
+} // namespace skvm
 
-#endif // INPUTLEAP_LIB_BASE_EVENT_TARGET_H
+#endif // SKVM_LIB_BASE_EVENT_TARGET_H

@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
  *
@@ -40,7 +40,7 @@
 #include <cstring>
 #include <vector>
 
-namespace inputleap {
+namespace skvm {
 
 XWindowsClipboard::XWindowsClipboard(IXWindowsImpl* impl, Display* display,
                 Window window, ClipboardID id) :
@@ -1398,7 +1398,7 @@ XWindowsClipboard::CICCCMGetClipboard::readClipboard(Display* display,
             }
         }
         else {
-            inputleap::this_thread_sleep(0.01);
+            skvm::this_thread_sleep(0.01);
         }
     }
 
@@ -1571,4 +1571,4 @@ XWindowsClipboard::Reply::Reply(Window requestor, Atom target, ::Time time,
     // do nothing
 }
 
-} // namespace inputleap
+} // namespace skvm

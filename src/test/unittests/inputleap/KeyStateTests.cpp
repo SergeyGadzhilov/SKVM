@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2011 Nick Bolton
  *
@@ -16,14 +16,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "test/mock/inputleap/MockKeyState.h"
-#include "test/mock/inputleap/MockEventQueue.h"
-#include "test/mock/inputleap/MockKeyMap.h"
+#include "test/mock/skvm/MockKeyState.h"
+#include "test/mock/skvm/MockEventQueue.h"
+#include "test/mock/skvm/MockKeyMap.h"
 
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
 
-namespace inputleap {
+namespace skvm {
 
 using ::testing::_;
 using ::testing::NiceMock;
@@ -38,14 +38,14 @@ stubPollPressedKeys(IKeyState::KeyButtonSet& pressedKeys);
 void
 assertMaskIsOne(ForeachKeyCallback cb, void* userData);
 
-const inputleap::KeyMap::KeyItem* stubMapKey(inputleap::KeyMap::Keystrokes& keys, KeyID id,
+const skvm::KeyMap::KeyItem* stubMapKey(skvm::KeyMap::Keystrokes& keys, KeyID id,
                                              std::int32_t group,
-                                             inputleap::KeyMap::ModifierToKeys& activeModifiers,
+                                             skvm::KeyMap::ModifierToKeys& activeModifiers,
                                              KeyModifierMask& currentState,
                                              KeyModifierMask desiredMask, bool isAutoRepeat);
 
-inputleap::KeyMap::Keystroke s_stubKeystroke(1, false, false);
-inputleap::KeyMap::KeyItem s_stubKeyItem;
+skvm::KeyMap::Keystroke s_stubKeystroke(1, false, false);
+skvm::KeyMap::KeyItem s_stubKeyItem;
 
 TEST(CKeyStateTests, onKey_aKeyDown_keyStateOne)
 {
@@ -263,14 +263,14 @@ TEST(KeyStateTests, fakeKeyRepeat_nullKey_returnsFalse)
     KeyStateImpl keyState(eventQueue, keyMap);
 
     // set the key to down (we need to make mapKey return a valid key to do this).
-    inputleap::KeyMap::KeyItem keyItem;
+    skvm::KeyMap::KeyItem keyItem;
     keyItem.m_client = 0;
     keyItem.m_button = 1;
     ON_CALL(keyMap, mapKey(_, _, _, _, _, _, _)).WillByDefault(Return(&keyItem));
     keyState.fakeKeyDown(1, 0, 0);
 
     // change mapKey to return nullptr so that fakeKeyRepeat exits early.
-    inputleap::KeyMap::KeyItem* nullKeyItem = nullptr;
+    skvm::KeyMap::KeyItem* nullKeyItem = nullptr;
     ON_CALL(keyMap, mapKey(_, _, _, _, _, _, _)).WillByDefault(Return(nullKeyItem));
 
     bool actual = keyState.fakeKeyRepeat(1, 0, 0, 0);
@@ -285,7 +285,7 @@ TEST(KeyStateTests, fakeKeyRepeat_invalidButton_returnsFalse)
     KeyStateImpl keyState(eventQueue, keyMap);
 
     // set the key to down (we need to make mapKey return a valid key to do this).
-    inputleap::KeyMap::KeyItem keyItem;
+    skvm::KeyMap::KeyItem keyItem;
     keyItem.m_client = 0;
     keyItem.m_button = 1; // set to 1 to make fakeKeyDown work.
     ON_CALL(keyMap, mapKey(_, _, _, _, _, _, _)).WillByDefault(Return(&keyItem));
@@ -306,7 +306,7 @@ TEST(KeyStateTests, fakeKeyRepeat_validKey_returnsTrue)
     MockEventQueue eventQueue;
     KeyStateImpl keyState(eventQueue, keyMap);
     s_stubKeyItem.m_client = 0;
-    s_stubKeystroke.m_type = inputleap::KeyMap::Keystroke::kButton;
+    s_stubKeystroke.m_type = skvm::KeyMap::Keystroke::kButton;
     s_stubKeystroke.m_data.m_button.m_button = 2;
 
     // set the button to 1 for fakeKeyDown call
@@ -416,9 +416,9 @@ assertMaskIsOne(ForeachKeyCallback cb, void* userData)
     ASSERT_EQ(1u, (static_cast<KeyState::AddActiveModifierContext*>(userData))->m_mask);
 }
 
-const inputleap::KeyMap::KeyItem* stubMapKey(inputleap::KeyMap::Keystrokes& keys, KeyID id,
+const skvm::KeyMap::KeyItem* stubMapKey(skvm::KeyMap::Keystrokes& keys, KeyID id,
                                              std::int32_t group,
-                                             inputleap::KeyMap::ModifierToKeys& activeModifiers,
+                                             skvm::KeyMap::ModifierToKeys& activeModifiers,
                                              KeyModifierMask& currentState,
                                              KeyModifierMask desiredMask, bool isAutoRepeat)
 {
@@ -433,4 +433,4 @@ const inputleap::KeyMap::KeyItem* stubMapKey(inputleap::KeyMap::Keystrokes& keys
     return &s_stubKeyItem;
 }
 
-} // namespace inputleap
+} // namespace skvm

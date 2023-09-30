@@ -3,7 +3,7 @@
 #define WIN32_LEAN_AND_MEAN
 #include <Windows.h>
 
-namespace inputleap {
+namespace skvm {
 
 class WindowsHookResource
 {
@@ -21,4 +21,4 @@ private:
     HHOOK _hook;
 };
 
-} // namespace inputleap
+} // namespace skvm

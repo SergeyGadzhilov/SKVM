@@ -1,6 +1,6 @@
 /*
-    InputLeap -- mouse and keyboard sharing utility
-    Copyright (C) InputLeap contributors
+    SKVM -- mouse and keyboard sharing utility
+    Copyright (C) SKVM contributors
 
     This package is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License
@@ -15,14 +15,14 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef INPUTLEAP_LIB_NET_FINGERPRINT_DATA_H
-#define INPUTLEAP_LIB_NET_FINGERPRINT_DATA_H
+#ifndef SKVM_LIB_NET_FINGERPRINT_DATA_H
+#define SKVM_LIB_NET_FINGERPRINT_DATA_H
 
 #include <cstdint>
 #include <string>
 #include <vector>
 
-namespace inputleap {
+namespace skvm {
 
 enum FingerprintType {
     INVALID,
@@ -42,6 +42,6 @@ struct FingerprintData {
 const char* fingerprint_type_to_string(FingerprintType type);
 FingerprintType fingerprint_type_from_string(const std::string& type);
 
-} // namespace inputleap
+} // namespace skvm
 
-#endif // INPUTLEAP_LIB_NET_FINGERPRINT_DATA_H
+#endif // SKVM_LIB_NET_FINGERPRINT_DATA_H

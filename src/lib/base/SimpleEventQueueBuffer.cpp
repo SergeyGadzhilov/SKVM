@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2004 Chris Schoeneman
  *
@@ -21,7 +21,7 @@
 #include "base/Stopwatch.h"
 #include "arch/Arch.h"
 
-namespace inputleap {
+namespace skvm {
 
 SimpleEventQueueBuffer::SimpleEventQueueBuffer()
 {
@@ -79,4 +79,4 @@ SimpleEventQueueBuffer::isEmpty() const
     return !m_queueReady;
 }
 
-} // namespace inputleap
+} // namespace skvm

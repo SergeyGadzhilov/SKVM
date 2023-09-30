@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
  *
@@ -23,7 +23,7 @@
 #include "net/ConnectionSecurityLevel.h"
 #include <memory>
 
-namespace inputleap {
+namespace skvm {
 
 //! Socket factory
 /*!
@@ -45,4 +45,4 @@ public:
                       ConnectionSecurityLevel security_level) const = 0;
 };
 
-} // namespace inputleap
+} // namespace skvm

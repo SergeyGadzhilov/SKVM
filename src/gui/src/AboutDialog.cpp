@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2008 Volker Lanz (vl@fidra.de)
  *
@@ -30,7 +30,7 @@ AboutDialog::AboutDialog(QWidget* parent, const QString& app_name) :
 
     QString version = kVersion;
     version = version + '-' + SKVM_VERSION_STAGE;
-#ifdef INPUTLEAP_REVISION
+#ifdef SKVM_REVISION
     version +=  '-';
     version += SKVM_REVISION;
 #endif

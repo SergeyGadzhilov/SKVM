@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2005 Chris Schoeneman
  *
@@ -28,7 +28,7 @@
 #include <map>
 #include <set>
 
-namespace inputleap {
+namespace skvm {
 
 class PrimaryClient;
 
@@ -330,7 +330,7 @@ public:
     InputFilter(const InputFilter&);
     virtual ~InputFilter();
 
-#ifdef INPUTLEAP_TEST_ENV
+#ifdef SKVM_TEST_ENV
     InputFilter() : m_primaryClient(nullptr) { }
 #endif
 
@@ -370,4 +370,4 @@ private:
     IEventQueue* m_events;
 };
 
-} // namespace inputleap
+} // namespace skvm

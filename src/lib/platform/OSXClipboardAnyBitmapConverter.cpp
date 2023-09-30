@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2014-2016 Symless Ltd.
  * Patch by Ryan Chapman
  *
@@ -19,7 +19,7 @@
 #include "platform/OSXClipboardAnyBitmapConverter.h"
 #include <algorithm>
 
-namespace inputleap {
+namespace skvm {
 
 OSXClipboardAnyBitmapConverter::OSXClipboardAnyBitmapConverter()
 {
@@ -47,4 +47,4 @@ std::string OSXClipboardAnyBitmapConverter::toIClipboard(const std::string& data
     return doToIClipboard(data);
 }
 
-} // namespace inputleap
+} // namespace skvm

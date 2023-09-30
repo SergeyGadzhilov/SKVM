@@ -1,6 +1,6 @@
 /*
-    InputLeap -- mouse and keyboard sharing utility
-    Copyright (C) InputLeap contributors
+    SKVM -- mouse and keyboard sharing utility
+    Copyright (C) SKVM contributors
 
     This package is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License
@@ -15,8 +15,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef INPUTLEAP_LIB_NET_SECUREUTILS_H
-#define INPUTLEAP_LIB_NET_SECUREUTILS_H
+#ifndef SKVM_LIB_NET_SECUREUTILS_H
+#define SKVM_LIB_NET_SECUREUTILS_H
 
 #include "FingerprintData.h"
 #include <openssl/ossl_typ.h>
@@ -24,7 +24,7 @@
 #include <string>
 #include <vector>
 
-namespace inputleap {
+namespace skvm {
 
 std::string format_ssl_fingerprint(const std::vector<std::uint8_t>& fingerprint,
                                    bool separator = true);
@@ -38,6 +38,6 @@ void generate_pem_self_signed_cert(const std::string& path);
 
 std::string create_fingerprint_randomart(const std::vector<std::uint8_t>& dgst_raw);
 
-} // namespace inputleap
+} // namespace skvm
 
-#endif // INPUTLEAP_LIB_NET_SECUREUTILS_H
+#endif // SKVM_LIB_NET_SECUREUTILS_H

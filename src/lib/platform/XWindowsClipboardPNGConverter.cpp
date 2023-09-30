@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2023 Draekko
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2004 Chris Schoeneman
@@ -19,7 +19,7 @@
 
 #include "platform/XWindowsClipboardPNGConverter.h"
 
-namespace inputleap {
+namespace skvm {
 
 //
 // XWindowsClipboardPNGConverter
@@ -76,4 +76,4 @@ std::string XWindowsClipboardPNGConverter::toIClipboard(const std::string& pngda
     return {};
 }
 
-} // namespace inputleap
+} // namespace skvm

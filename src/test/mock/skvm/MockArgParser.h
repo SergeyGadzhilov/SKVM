@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2014-2016 Symless Ltd.
  *
  * This package is free software; you can redistribute it and/or
@@ -17,13 +17,13 @@
 
 #pragma once
 
-#define INPUTLEAP_TEST_ENV
+#define SKVM_TEST_ENV
 
 #include "skvm/ArgParser.h"
 
 #include <gmock/gmock.h>
 
-namespace inputleap {
+namespace skvm {
 
 class MockArgParser : public ArgParser
 {
@@ -34,4 +34,4 @@ public:
     MOCK_METHOD0(checkUnexpectedArgs, bool());
 };
 
-} // namespace inputleap
+} // namespace skvm

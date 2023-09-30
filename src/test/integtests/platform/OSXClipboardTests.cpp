@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2011 Nick Bolton
  *
@@ -21,7 +21,7 @@
 #include <gtest/gtest.h>
 #include <iostream>
 
-namespace inputleap {
+namespace skvm {
 
 TEST(OSXClipboardTests, empty_openCalled_returnsTrue)
 {
@@ -165,4 +165,4 @@ TEST(OSXClipboardTests, get_withFormatAdded_returnsExpected)
     EXPECT_EQ("test string!", actual);
 }
 
-} // namespace inputleap
+} // namespace skvm

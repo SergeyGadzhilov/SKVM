@@ -1,5 +1,5 @@
 /*
- * InputLeap -- mouse and keyboard sharing utility
+ * SKVM -- mouse and keyboard sharing utility
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2002 Chris Schoeneman
  *
@@ -22,7 +22,7 @@
 
 #include <cstdint>
 
-namespace inputleap {
+namespace skvm {
 
 // protocol version number
 // 1.0:  initial protocol
@@ -33,7 +33,7 @@ namespace inputleap {
 // 1.4:  adds crypto support
 // 1.5:  adds file transfer and removes home brew crypto
 // 1.6:  adds clipboard streaming
-// NOTE: with new version, InputLeap minor version should increment
+// NOTE: with new version, SKVM minor version should increment
 static const std::int16_t kProtocolMajorVersion = 1;
 static const std::int16_t kProtocolMinorVersion = 6;
 
@@ -346,4 +346,4 @@ public:
     std::int32_t m_mx, m_my;
 };
 
-} // namespace inputleap
+} // namespace skvm

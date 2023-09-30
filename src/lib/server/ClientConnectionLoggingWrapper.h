@@ -1,5 +1,5 @@
-/*  InputLeap -- mouse and keyboard sharing utility
-    Copyright (C) InputLeap contributors
+/*  SKVM -- mouse and keyboard sharing utility
+    Copyright (C) SKVM contributors
 
     This package is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License
@@ -15,13 +15,13 @@
 */
 
 
-#ifndef INPUTLEAP_LIB_SERVER_CLIENT_CONNECTION_LOGGING_WRAPPER_H
-#define INPUTLEAP_LIB_SERVER_CLIENT_CONNECTION_LOGGING_WRAPPER_H
+#ifndef SKVM_LIB_SERVER_CLIENT_CONNECTION_LOGGING_WRAPPER_H
+#define SKVM_LIB_SERVER_CLIENT_CONNECTION_LOGGING_WRAPPER_H
 
 #include "IClientConnection.h"
 #include <memory>
 
-namespace inputleap {
+namespace skvm {
 
 class IStream;
 
@@ -69,6 +69,6 @@ private:
     std::unique_ptr<IClientConnection> conn_;
 };
 
-} // namespace inputleap
+} // namespace skvm
 
-#endif // INPUTLEAP_LIB_SERVER_CLIENT_CONNECTION_LOGGING_WRAPPER_H
+#endif // SKVM_LIB_SERVER_CLIENT_CONNECTION_LOGGING_WRAPPER_H
