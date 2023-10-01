@@ -1,9 +1,9 @@
 [Desktop Entry]
 Type=Application
-Name=Input Leap
+Name=SKVM
 Comment=Keyboard and mouse sharing solution
-Exec=input-leap
-Icon=input-leap
+Exec=skvm
+Icon=skvm
 Terminal=false
 Categories=Utility;RemoteAccess;
 Keywords=keyboard;mouse;sharing;network;share;
