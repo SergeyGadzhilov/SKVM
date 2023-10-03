@@ -3,8 +3,8 @@
     <name>AboutDialogBase</name>
     <message>
         <location filename="res/AboutDialogBase.ui" line="38"/>
-        <source>About InputLeap</source>
-        <translation type="finished">Om InputLeap</translation>
+        <source>About SKVM</source>
+        <translation type="finished">Om SKVM</translation>
     </message>
     <message utf8="true">
         <location filename="res/AboutDialogBase.ui" line="53"/>
@@ -12,18 +12,18 @@
 Keyboard and mouse sharing application. Cross platform and open source.&lt;br /&gt;&lt;br /&gt;
 Copyright © 2012-2016 Symless Ltd.&lt;br /&gt;
 Copyright © 2002-2012 Chris Schoeneman, Nick Bolton, Volker Lanz.&lt;br /&gt;&lt;br /&gt;
-InputLeap is released under the GNU General Public License (GPLv2).&lt;br /&gt;&lt;br /&gt;
-InputLeap is based on CosmoSynergy by Richard Lee and Adam Feder.&lt;br /&gt;
-The InputLeap GUI is based on QSynergy by Volker Lanz.&lt;br /&gt;&lt;br /&gt;
+SKVM is released under the GNU General Public License (GPLv2).&lt;br /&gt;&lt;br /&gt;
+SKVM is based on CosmoSynergy by Richard Lee and Adam Feder.&lt;br /&gt;
+The SKVM GUI is based on QSynergy by Volker Lanz.&lt;br /&gt;&lt;br /&gt;
 Visit our website for help and info (symless.com).
 &lt;/p&gt;</source>
         <oldsource>&lt;p&gt;
 Keyboard and mouse sharing application. Cross platform and open source.&lt;br /&gt;&lt;br /&gt;
 Copyright © 2012-2016 Symless Ltd.&lt;br /&gt;
 Copyright © 2002-2012 Chris Schoeneman, Nick Bolton, Volker Lanz.&lt;br /&gt;&lt;br /&gt;
-InputLeap is released under the GNU General Public License (GPLv2).&lt;br /&gt;&lt;br /&gt;
-InputLeap is based on CosmoSynergy by Richard Lee and Adam Feder.&lt;br /&gt;
-The InputLeap GUI is based on QSynergy by Volker Lanz.&lt;br /&gt;&lt;br /&gt;
+SKVM is released under the GNU General Public License (GPLv2).&lt;br /&gt;&lt;br /&gt;
+SKVM is based on CosmoSynergy by Richard Lee and Adam Feder.&lt;br /&gt;
+The SKVM GUI is based on QSynergy by Volker Lanz.&lt;br /&gt;&lt;br /&gt;
 Visit our website for help and info (symless.com).
 &lt;/p&gt;</oldsource>
         <translation type="unfinished"></translation>
@@ -202,9 +202,9 @@ Visit our website for help and info (symless.com).
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="364"/>
-        <source>&lt;p&gt;Your version of InputLeap is out of date. Version &lt;b&gt;%1&lt;/b&gt; is now available to &lt;a href=&quot;%2&quot;&gt;download&lt;/a&gt;.&lt;/p&gt;</source>
+        <source>&lt;p&gt;Your version of SKVM is out of date. Version &lt;b&gt;%1&lt;/b&gt; is now available to &lt;a href=&quot;%2&quot;&gt;download&lt;/a&gt;.&lt;/p&gt;</source>
         <oldsource>&lt;p&gt;Version %1 is now available, &lt;a href=&quot;%2&quot;&gt;visit website&lt;/a&gt;.&lt;/p&gt;</oldsource>
-        <translation type="finished">&lt;p&gt;Din InputLeap-versjon er utdatert. Versjon &lt;b&gt;%1&lt;/b&gt; er nå tilgjengelig for &lt;a href=&quot;%2&quot;&gt;nedlasting&lt;/a&gt;.&lt;/p&gt;</translation>
+        <translation type="finished">&lt;p&gt;Din SKVM-versjon er utdatert. Versjon &lt;b&gt;%1&lt;/b&gt; er nå tilgjengelig for &lt;a href=&quot;%2&quot;&gt;nedlasting&lt;/a&gt;.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="577"/>
@@ -218,13 +218,13 @@ Visit our website for help and info (symless.com).
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="596"/>
-        <source>InputLeap client not found</source>
-        <translation type="finished">Finner ikke InputLeap klient</translation>
+        <source>SKVM client not found</source>
+        <translation type="finished">Finner ikke SKVM klient</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="597"/>
-        <source>The executable for the InputLeap client does not exist.</source>
-        <translation type="finished">Programfilen for InputLeap-klienten finnes ikke</translation>
+        <source>The executable for the SKVM client does not exist.</source>
+        <translation type="finished">Programfilen for SKVM-klienten finnes ikke</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="625"/>
@@ -233,8 +233,8 @@ Visit our website for help and info (symless.com).
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="626"/>
-        <source>Please fill in a hostname for the InputLeap client to connect to.</source>
-        <translation type="finished">Vennligst fyll inn et vertsnavn for InputLeap-klienten å koble til.</translation>
+        <source>Please fill in a hostname for the SKVM client to connect to.</source>
+        <translation type="finished">Vennligst fyll inn et vertsnavn for SKVM-klienten å koble til.</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="646"/>
@@ -243,8 +243,8 @@ Visit our website for help and info (symless.com).
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="646"/>
-        <source>The temporary configuration file required to start InputLeap can not be written.</source>
-        <translation type="finished">Den midlertidige oppsettsfilen, som er nødvendig for å starte InputLeap, kan ikke opprettes.</translation>
+        <source>The temporary configuration file required to start SKVM can not be written.</source>
+        <translation type="finished">Den midlertidige oppsettsfilen, som er nødvendig for å starte SKVM, kan ikke opprettes.</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="659"/>
@@ -253,28 +253,28 @@ Visit our website for help and info (symless.com).
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="660"/>
-        <source>You have not filled in a valid configuration file for the InputLeap server. Do you want to browse for the configuration file now?</source>
-        <translation type="finished">Du har ikke lagt inn en gyldig oppsettsfil for InputLeap-tjeneren. Vil du velge oppsettsfilen nå?</translation>
+        <source>You have not filled in a valid configuration file for the SKVM server. Do you want to browse for the configuration file now?</source>
+        <translation type="finished">Du har ikke lagt inn en gyldig oppsettsfil for SKVM-tjeneren. Vil du velge oppsettsfilen nå?</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="688"/>
-        <source>InputLeap server not found</source>
-        <translation type="finished">Finner ikke InputLeap server</translation>
+        <source>SKVM server not found</source>
+        <translation type="finished">Finner ikke SKVM server</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="689"/>
-        <source>The executable for the InputLeap server does not exist.</source>
-        <translation type="finished">Programfilen for InputLeap-tjeneren finnes ikke.</translation>
+        <source>The executable for the SKVM server does not exist.</source>
+        <translation type="finished">Programfilen for SKVM-tjeneren finnes ikke.</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="764"/>
-        <source>InputLeap terminated with an error</source>
-        <translation type="finished">InputLeap stoppet med en feil</translation>
+        <source>SKVM terminated with an error</source>
+        <translation type="finished">SKVM stoppet med en feil</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="764"/>
-        <source>InputLeap terminated unexpectedly with an exit code of %1.&lt;br&gt;&lt;br&gt;Please see the log output for details.</source>
-        <translation type="finished">InputLeap stoppet uventet med kode %1.&lt;br&gt;&lt;br&gt;Se i loggen for detaljer.</translation>
+        <source>SKVM terminated unexpectedly with an exit code of %1.&lt;br&gt;&lt;br&gt;Please see the log output for details.</source>
+        <translation type="finished">SKVM stoppet uventet med kode %1.&lt;br&gt;&lt;br&gt;Se i loggen for detaljer.</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="783"/>
@@ -322,18 +322,18 @@ Do you want to install Bonjour?</source>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="815"/>
-        <source>InputLeap is starting.</source>
-        <translation type="finished">InputLeap starter</translation>
+        <source>SKVM is starting.</source>
+        <translation type="finished">SKVM starter</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="809"/>
-        <source>InputLeap is running.</source>
-        <translation type="finished">InputLeap kjører</translation>
+        <source>SKVM is running.</source>
+        <translation type="finished">SKVM kjører</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="819"/>
-        <source>InputLeap is not running.</source>
-        <translation type="finished">InputLeap kjører ikke</translation>
+        <source>SKVM is not running.</source>
+        <translation type="finished">SKVM kjører ikke</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="870"/>
@@ -344,17 +344,17 @@ Do you want to install Bonjour?</source>
         <location filename="src/MainWindow.cpp" line="1146"/>
         <location filename="src/MainWindow.cpp" line="1225"/>
         <location filename="src/MainWindow.cpp" line="1269"/>
-        <source>InputLeap</source>
-        <translation type="finished">InputLeap</translation>
+        <source>SKVM</source>
+        <translation type="finished">SKVM</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="987"/>
-        <source>Browse for a InputLeap config file</source>
-        <translation type="finished">Velg en oppsettsfil for InputLeap.</translation>
+        <source>Browse for a SKVM config file</source>
+        <translation type="finished">Velg en oppsettsfil for SKVM.</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="408"/>
-        <source>InputLeap is now connected, You can close the config window. InputLeap will remain connected in the background.</source>
+        <source>SKVM is now connected, You can close the config window. SKVM will remain connected in the background.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -393,8 +393,8 @@ To automatically trust this fingerprint for future connections, click Yes. To re
     <name>MainWindowBase</name>
     <message>
         <location filename="res/MainWindowBase.ui" line="26"/>
-        <source>InputLeap</source>
-        <translation type="finished">InputLeap</translation>
+        <source>SKVM</source>
+        <translation type="finished">SKVM</translation>
     </message>
     <message>
         <location filename="res/MainWindowBase.ui" line="90"/>
@@ -479,8 +479,8 @@ To automatically trust this fingerprint for future connections, click Yes. To re
     </message>
     <message>
         <location filename="res/MainWindowBase.ui" line="390"/>
-        <source>&amp;About InputLeap...</source>
-        <translation type="finished">&amp;Om InputLeap</translation>
+        <source>&amp;About SKVM...</source>
+        <translation type="finished">&amp;Om SKVM</translation>
     </message>
     <message>
         <location filename="res/MainWindowBase.ui" line="398"/>
@@ -599,8 +599,8 @@ To automatically trust this fingerprint for future connections, click Yes. To re
     <name>PluginWizardPage</name>
     <message>
         <location filename="res/PluginWizardPageBase.ui" line="14"/>
-        <source>Setup InputLeap</source>
-        <translation type="finished">Konfigurer InputLeap</translation>
+        <source>Setup SKVM</source>
+        <translation type="finished">Konfigurer SKVM</translation>
     </message>
     <message>
         <location filename="res/PluginWizardPageBase.ui" line="101"/>
@@ -653,13 +653,13 @@ To automatically trust this fingerprint for future connections, click Yes. To re
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="60"/>
-        <source>InputLeap Configurations (*.sgc)</source>
-        <translation type="finished">InputLeap-oppsett (*.sgc)</translation>
+        <source>SKVM Configurations (*.sgc)</source>
+        <translation type="finished">SKVM-oppsett (*.sgc)</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="67"/>
-        <source>InputLeap Configurations (*.conf)</source>
-        <translation type="finished">InputLeap-oppsett (*.conf)</translation>
+        <source>SKVM Configurations (*.conf)</source>
+        <translation type="finished">SKVM-oppsett (*.conf)</translation>
     </message>
     <message>
         <location filename="src/main.cpp" line="119"/>
@@ -892,8 +892,8 @@ To automatically trust this fingerprint for future connections, click Yes. To re
     </message>
     <message>
         <location filename="res/ServerConfigDialogBase.ui" line="60"/>
-        <source>Configure the layout of your InputLeap server configuration.</source>
-        <translation type="finished">Konfigurer oppsettet for din InputLeap tjener-konfigurasjon.</translation>
+        <source>Configure the layout of your SKVM server configuration.</source>
+        <translation type="finished">Konfigurer oppsettet for din SKVM tjener-konfigurasjon.</translation>
     </message>
     <message>
         <location filename="res/ServerConfigDialogBase.ui" line="73"/>
@@ -1051,16 +1051,16 @@ Dobbeltklikk en skjerm for å endre dens innstillinger.</translation>
     </message>
     <message>
         <location filename="src/SettingsDialog.cpp" line="151"/>
-        <source>Elevate InputLeap</source>
-        <translation type="finished">Hev InputLeap</translation>
+        <source>Elevate SKVM</source>
+        <translation type="finished">Hev SKVM</translation>
     </message>
     <message>
         <location filename="src/SettingsDialog.cpp" line="152"/>
-        <source>Are you sure you want to Elevate InputLeap?
+        <source>Are you sure you want to Elevate SKVM?
 
-This allows InputLeap to interact with elevated processes and the UAC dialog, but can cause problems with non-elevated processes. Elevate InputLeap only if you really need to.</source>
-        <translation type="finished">Er du sikker på at du vil gi InputLeap forhøyede rettigheter?
-Dette tillater InputLeap å kommunisere med forhøyede prosesser og UAC dialoger. Dette kan føre til problemer med normale prosesser. Bruk dette kun om du må.</translation>
+This allows SKVM to interact with elevated processes and the UAC dialog, but can cause problems with non-elevated processes. Elevate SKVM only if you really need to.</source>
+        <translation type="finished">Er du sikker på at du vil gi SKVM forhøyede rettigheter?
+Dette tillater SKVM å kommunisere med forhøyede prosesser og UAC dialoger. Dette kan føre til problemer med normale prosesser. Bruk dette kun om du må.</translation>
     </message>
 </context>
 <context>
@@ -1175,8 +1175,8 @@ Dette tillater InputLeap å kommunisere med forhøyede prosesser og UAC dialoger
     <name>SetupWizard</name>
     <message>
         <location filename="src/SetupWizard.cpp" line="72"/>
-        <source>Setup InputLeap</source>
-        <translation type="finished">Konfigurer InputLeap</translation>
+        <source>Setup SKVM</source>
+        <translation type="finished">Konfigurer SKVM</translation>
     </message>
     <message>
         <location filename="src/SetupWizard.cpp" line="113"/>
@@ -1193,8 +1193,8 @@ Dette tillater InputLeap å kommunisere med forhøyede prosesser og UAC dialoger
     <name>SetupWizardBase</name>
     <message>
         <location filename="res/SetupWizardBase.ui" line="26"/>
-        <source>Setup InputLeap</source>
-        <translation type="finished">Konfigurer InputLeap</translation>
+        <source>Setup SKVM</source>
+        <translation type="finished">Konfigurer SKVM</translation>
     </message>
     <message>
         <location filename="res/SetupWizardBase.ui" line="30"/>
@@ -1203,13 +1203,13 @@ Dette tillater InputLeap å kommunisere med forhøyede prosesser og UAC dialoger
     </message>
     <message>
         <location filename="res/SetupWizardBase.ui" line="39"/>
-        <source>Thanks for installing InputLeap!</source>
-        <translation type="finished">Takk for at du installerte InputLeap!</translation>
+        <source>Thanks for installing SKVM!</source>
+        <translation type="finished">Takk for at du installerte SKVM!</translation>
     </message>
     <message>
         <location filename="res/SetupWizardBase.ui" line="114"/>
-        <source>InputLeap lets you easily share your mouse and keyboard between multiple computers on your desk, and it's Free and Open Source. Just move your mouse off the edge of one computer's screen on to another. You can even share all of your clipboards. All you need is a network connection. InputLeap is cross-platform (works on Windows, Mac OS X and Linux).</source>
-        <translation type="finished">InputLeap kan du enkelt dele dine mus og tastatur mellom flere datamaskiner på skrivebordet, og det er gratis og Open Source. Bare flytte musen utenfor kanten av en datamaskin skjerm til en annen. Du kan også dele alle dine oppslagstavler. Alt du trenger er en nettverksforbindelse. InputLeap er cross-platform (fungerer på Windows, Mac OS X og Linux).</translation>
+        <source>SKVM lets you easily share your mouse and keyboard between multiple computers on your desk, and it's Free and Open Source. Just move your mouse off the edge of one computer's screen on to another. You can even share all of your clipboards. All you need is a network connection. SKVM is cross-platform (works on Windows, Mac OS X and Linux).</source>
+        <translation type="finished">SKVM kan du enkelt dele dine mus og tastatur mellom flere datamaskiner på skrivebordet, og det er gratis og Open Source. Bare flytte musen utenfor kanten av en datamaskin skjerm til en annen. Du kan også dele alle dine oppslagstavler. Alt du trenger er en nettverksforbindelse. SKVM er cross-platform (fungerer på Windows, Mac OS X og Linux).</translation>
     </message>
     <message>
         <location filename="res/SetupWizardBase.ui" line="125"/>
@@ -1391,8 +1391,8 @@ Server response:
     </message>
     <message>
         <location filename="src/ZeroconfService.cpp" line="140"/>
-        <source>InputLeap</source>
-        <translation type="finished">InputLeap</translation>
+        <source>SKVM</source>
+        <translation type="finished">SKVM</translation>
     </message>
     <message>
         <location filename="src/ZeroconfService.cpp" line="141"/>

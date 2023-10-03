@@ -5,8 +5,8 @@
     <name>AboutDialogBase</name>
     <message>
         <location filename="res/AboutDialogBase.ui" line="38"/>
-        <source>About InputLeap</source>
-        <translation>O InputLeap</translation>
+        <source>About SKVM</source>
+        <translation>O SKVM</translation>
     </message>
     <message>
         <location filename="res/AboutDialogBase.ui" line="53"/>
@@ -14,27 +14,27 @@
 Keyboard and mouse sharing application. Cross platform and open source.&lt;br /&gt;&lt;br /&gt;
 Copyright © 2012-2016 Symless Ltd.&lt;br /&gt;
 Copyright © 2002-2012 Chris Schoeneman, Nick Bolton, Volker Lanz.&lt;br /&gt;&lt;br /&gt;
-InputLeap is released under the GNU General Public License (GPLv2).&lt;br /&gt;&lt;br /&gt;
-InputLeap is based on CosmoSynergy by Richard Lee and Adam Feder.&lt;br /&gt;
-The InputLeap GUI is based on QSynergy by Volker Lanz.&lt;br /&gt;&lt;br /&gt;
+SKVM is released under the GNU General Public License (GPLv2).&lt;br /&gt;&lt;br /&gt;
+SKVM is based on CosmoSynergy by Richard Lee and Adam Feder.&lt;br /&gt;
+The SKVM GUI is based on QSynergy by Volker Lanz.&lt;br /&gt;&lt;br /&gt;
 Visit our website for help and info (symless.com).
 &lt;/p&gt;</source>
         <oldsource>&lt;p&gt;
 Keyboard and mouse sharing application. Cross platform and open source.&lt;br /&gt;&lt;br /&gt;
 Copyright © 2012-2016 Symless Ltd.&lt;br /&gt;
 Copyright © 2002-2012 Chris Schoeneman, Nick Bolton, Volker Lanz.&lt;br /&gt;&lt;br /&gt;
-InputLeap is released under the GNU General Public License (GPLv2).&lt;br /&gt;&lt;br /&gt;
-InputLeap is based on CosmoSynergy by Richard Lee and Adam Feder.&lt;br /&gt;
-The InputLeap GUI is based on QSynergy by Volker Lanz.&lt;br /&gt;&lt;br /&gt;
+SKVM is released under the GNU General Public License (GPLv2).&lt;br /&gt;&lt;br /&gt;
+SKVM is based on CosmoSynergy by Richard Lee and Adam Feder.&lt;br /&gt;
+The SKVM GUI is based on QSynergy by Volker Lanz.&lt;br /&gt;&lt;br /&gt;
 Visit our website for help and info (symless.com).
 &lt;/p&gt;</oldsource>
         <translation>&lt;p&gt;
 Aplikácia na zdieľanie klávesnice a myši. Podporuje viacero platforiem a má otvorený zdrojový kód.&lt;br /&gt;&lt;br /&gt;
 Autorské práva © 2012-2016 Symless Ltd.&lt;br /&gt;
 Autorské práva © 2002-2012 Chris Schoeneman, Nick Bolton, Volker Lanz.&lt;br /&gt;&lt;br /&gt;
-InputLeap je vydaný pod licenciou GNU General Public License (GPLv2).&lt;br /&gt;&lt;br /&gt;
-Základom pre InputLeap je CosmoSynergy od Richarda Lee-a a Adama Federa.&lt;br /&gt;
-InputLeap GUI je postavené na QSynergy od Volkera Lanza.&lt;br /&gt;&lt;br /&gt;
+SKVM je vydaný pod licenciou GNU General Public License (GPLv2).&lt;br /&gt;&lt;br /&gt;
+Základom pre SKVM je CosmoSynergy od Richarda Lee-a a Adama Federa.&lt;br /&gt;
+SKVM GUI je postavené na QSynergy od Volkera Lanza.&lt;br /&gt;&lt;br /&gt;
 Pre pomoc a ďalšie informácie navštívte našu webovú stránku (symless.com).
 &lt;/p&gt;</translation>
     </message>
@@ -212,9 +212,9 @@ Pre pomoc a ďalšie informácie navštívte našu webovú stránku (symless.com
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="364"/>
-        <source>&lt;p&gt;Your version of InputLeap is out of date. Version &lt;b&gt;%1&lt;/b&gt; is now available to &lt;a href=&quot;%2&quot;&gt;download&lt;/a&gt;.&lt;/p&gt;</source>
+        <source>&lt;p&gt;Your version of SKVM is out of date. Version &lt;b&gt;%1&lt;/b&gt; is now available to &lt;a href=&quot;%2&quot;&gt;download&lt;/a&gt;.&lt;/p&gt;</source>
         <oldsource>&lt;p&gt;Version %1 is now available, &lt;a href=&quot;%2&quot;&gt;visit website&lt;/a&gt;.&lt;/p&gt;</oldsource>
-        <translation>&lt;p&gt;Vaša verzia InputLeap nie je aktuálna. Na &lt;a href=&quot;%2&quot;&gt;stiahnutie&lt;/a&gt; je k dispozícii verzia &lt;b&gt;%1&lt;/b&gt;.&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Vaša verzia SKVM nie je aktuálna. Na &lt;a href=&quot;%2&quot;&gt;stiahnutie&lt;/a&gt; je k dispozícii verzia &lt;b&gt;%1&lt;/b&gt;.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="577"/>
@@ -228,13 +228,13 @@ Pre pomoc a ďalšie informácie navštívte našu webovú stránku (symless.com
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="596"/>
-        <source>InputLeap client not found</source>
-        <translation>Nepodarilo sa nájsť klienta InputLeap</translation>
+        <source>SKVM client not found</source>
+        <translation>Nepodarilo sa nájsť klienta SKVM</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="597"/>
-        <source>The executable for the InputLeap client does not exist.</source>
-        <translation>Spustiteľný súbor klienta InputLeap neexistuje.</translation>
+        <source>The executable for the SKVM client does not exist.</source>
+        <translation>Spustiteľný súbor klienta SKVM neexistuje.</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="625"/>
@@ -243,8 +243,8 @@ Pre pomoc a ďalšie informácie navštívte našu webovú stránku (symless.com
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="626"/>
-        <source>Please fill in a hostname for the InputLeap client to connect to.</source>
-        <translation>Prosím, vyplňte názov hostiteľa, ku ktorému sa klient InputLeap má pripojiť.</translation>
+        <source>Please fill in a hostname for the SKVM client to connect to.</source>
+        <translation>Prosím, vyplňte názov hostiteľa, ku ktorému sa klient SKVM má pripojiť.</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="646"/>
@@ -253,8 +253,8 @@ Pre pomoc a ďalšie informácie navštívte našu webovú stránku (symless.com
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="646"/>
-        <source>The temporary configuration file required to start InputLeap can not be written.</source>
-        <translation>Nepodarilo sa zapísať do dočasného súboru, ktorý je potrebný pre spustenie InputLeap.</translation>
+        <source>The temporary configuration file required to start SKVM can not be written.</source>
+        <translation>Nepodarilo sa zapísať do dočasného súboru, ktorý je potrebný pre spustenie SKVM.</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="659"/>
@@ -263,28 +263,28 @@ Pre pomoc a ďalšie informácie navštívte našu webovú stránku (symless.com
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="660"/>
-        <source>You have not filled in a valid configuration file for the InputLeap server. Do you want to browse for the configuration file now?</source>
-        <translation>Nezadali ste platný konfiguračný súbor pre server InputLeap. Želáte si teraz vybrať súbor s konfiguráciou?</translation>
+        <source>You have not filled in a valid configuration file for the SKVM server. Do you want to browse for the configuration file now?</source>
+        <translation>Nezadali ste platný konfiguračný súbor pre server SKVM. Želáte si teraz vybrať súbor s konfiguráciou?</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="688"/>
-        <source>InputLeap server not found</source>
-        <translation>Server InputLeap nebol nájdený</translation>
+        <source>SKVM server not found</source>
+        <translation>Server SKVM nebol nájdený</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="689"/>
-        <source>The executable for the InputLeap server does not exist.</source>
-        <translation>Spustiteľný súbor servera InputLeap neexistuje.</translation>
+        <source>The executable for the SKVM server does not exist.</source>
+        <translation>Spustiteľný súbor servera SKVM neexistuje.</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="764"/>
-        <source>InputLeap terminated with an error</source>
-        <translation>InputLeap skončil s chybou</translation>
+        <source>SKVM terminated with an error</source>
+        <translation>SKVM skončil s chybou</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="764"/>
-        <source>InputLeap terminated unexpectedly with an exit code of %1.&lt;br&gt;&lt;br&gt;Please see the log output for details.</source>
-        <translation>InputLeap bolo neočakávane ukončený s chybovým kódom %1.&lt;br&gt;&lt;br&gt;Podrobnosti nájdete v súbore s protokolom.</translation>
+        <source>SKVM terminated unexpectedly with an exit code of %1.&lt;br&gt;&lt;br&gt;Please see the log output for details.</source>
+        <translation>SKVM bolo neočakávane ukončený s chybovým kódom %1.&lt;br&gt;&lt;br&gt;Podrobnosti nájdete v súbore s protokolom.</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="783"/>
@@ -336,18 +336,18 @@ Do you want to install Bonjour?</source>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="815"/>
-        <source>InputLeap is starting.</source>
-        <translation>InputLeap sa spúšťa.</translation>
+        <source>SKVM is starting.</source>
+        <translation>SKVM sa spúšťa.</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="809"/>
-        <source>InputLeap is running.</source>
-        <translation>InputLeap je spustený.</translation>
+        <source>SKVM is running.</source>
+        <translation>SKVM je spustený.</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="819"/>
-        <source>InputLeap is not running.</source>
-        <translation>InputLeap nie je spustený.</translation>
+        <source>SKVM is not running.</source>
+        <translation>SKVM nie je spustený.</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="870"/>
@@ -358,18 +358,18 @@ Do you want to install Bonjour?</source>
         <location filename="src/MainWindow.cpp" line="1146"/>
         <location filename="src/MainWindow.cpp" line="1225"/>
         <location filename="src/MainWindow.cpp" line="1269"/>
-        <source>InputLeap</source>
-        <translation>InputLeap</translation>
+        <source>SKVM</source>
+        <translation>SKVM</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="987"/>
-        <source>Browse for a InputLeap config file</source>
-        <translation>Vybrať súbor s konfiguráciou InputLeap</translation>
+        <source>Browse for a SKVM config file</source>
+        <translation>Vybrať súbor s konfiguráciou SKVM</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="408"/>
-        <source>InputLeap is now connected, You can close the config window. InputLeap will remain connected in the background.</source>
-        <translation>InputLeap je pripojený, môžete zavrieť okno s nastaveniami. InputLeap zostane bežať na pozadí.</translation>
+        <source>SKVM is now connected, You can close the config window. SKVM will remain connected in the background.</source>
+        <translation>SKVM je pripojený, môžete zavrieť okno s nastaveniami. SKVM zostane bežať na pozadí.</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="434"/>
@@ -413,8 +413,8 @@ Ak chcete automaticky dôverovať tomuto otlačku pri ďalších spojeniach, kli
     <name>MainWindowBase</name>
     <message>
         <location filename="res/MainWindowBase.ui" line="26"/>
-        <source>InputLeap</source>
-        <translation>InputLeap</translation>
+        <source>SKVM</source>
+        <translation>SKVM</translation>
     </message>
     <message>
         <location filename="res/MainWindowBase.ui" line="90"/>
@@ -499,8 +499,8 @@ Ak chcete automaticky dôverovať tomuto otlačku pri ďalších spojeniach, kli
     </message>
     <message>
         <location filename="res/MainWindowBase.ui" line="390"/>
-        <source>&amp;About InputLeap...</source>
-        <translation>&amp;O InputLeap...</translation>
+        <source>&amp;About SKVM...</source>
+        <translation>&amp;O SKVM...</translation>
     </message>
     <message>
         <location filename="res/MainWindowBase.ui" line="398"/>
@@ -620,8 +620,8 @@ Ak chcete automaticky dôverovať tomuto otlačku pri ďalších spojeniach, kli
     <name>PluginWizardPage</name>
     <message>
         <location filename="res/PluginWizardPageBase.ui" line="14"/>
-        <source>Setup InputLeap</source>
-        <translation>Nastaviť InputLeap</translation>
+        <source>Setup SKVM</source>
+        <translation>Nastaviť SKVM</translation>
     </message>
     <message>
         <location filename="res/PluginWizardPageBase.ui" line="101"/>
@@ -674,13 +674,13 @@ Ak chcete automaticky dôverovať tomuto otlačku pri ďalších spojeniach, kli
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="60"/>
-        <source>InputLeap Configurations (*.sgc)</source>
-        <translation>Konfiguračné súbory InputLeap (*.sgc)</translation>
+        <source>SKVM Configurations (*.sgc)</source>
+        <translation>Konfiguračné súbory SKVM (*.sgc)</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="67"/>
-        <source>InputLeap Configurations (*.conf)</source>
-        <translation>Konfiguračné súbory InputLeap (*.conf)</translation>
+        <source>SKVM Configurations (*.conf)</source>
+        <translation>Konfiguračné súbory SKVM (*.conf)</translation>
     </message>
     <message>
         <location filename="src/main.cpp" line="119"/>
@@ -913,8 +913,8 @@ Ak chcete automaticky dôverovať tomuto otlačku pri ďalších spojeniach, kli
     </message>
     <message>
         <location filename="res/ServerConfigDialogBase.ui" line="60"/>
-        <source>Configure the layout of your InputLeap server configuration.</source>
-        <translation>Nastaviť rozloženie konfigurácie vášho servera InputLeap.</translation>
+        <source>Configure the layout of your SKVM server configuration.</source>
+        <translation>Nastaviť rozloženie konfigurácie vášho servera SKVM.</translation>
     </message>
     <message>
         <location filename="res/ServerConfigDialogBase.ui" line="73"/>
@@ -1072,17 +1072,17 @@ Dvojitým kliknutím na obrazovku upravíte jej nastavenia.</translation>
     </message>
     <message>
         <location filename="src/SettingsDialog.cpp" line="151"/>
-        <source>Elevate InputLeap</source>
-        <translation>Zvýšiť stupeň oprávnení pre InputLeap</translation>
+        <source>Elevate SKVM</source>
+        <translation>Zvýšiť stupeň oprávnení pre SKVM</translation>
     </message>
     <message>
         <location filename="src/SettingsDialog.cpp" line="152"/>
-        <source>Are you sure you want to Elevate InputLeap?
+        <source>Are you sure you want to Elevate SKVM?
 
-This allows InputLeap to interact with elevated processes and the UAC dialog, but can cause problems with non-elevated processes. Elevate InputLeap only if you really need to.</source>
-        <translation>Naozaj chcete zvýšiť stupeň oprávnení pre InputLeap?
+This allows SKVM to interact with elevated processes and the UAC dialog, but can cause problems with non-elevated processes. Elevate SKVM only if you really need to.</source>
+        <translation>Naozaj chcete zvýšiť stupeň oprávnení pre SKVM?
 
-Toto umožní InputLeap pracovať s procesmi, ktoré majú takisto vyšší stupeň oprávnení a s oknom riadenia používateľských účtov (UAC), ale môže to tiež spôsobiť problémy aplikáciam s bežnými oprávneniami. Túto možnosť by ste mali použiť iba, ak ju skutočne potrebujete.</translation>
+Toto umožní SKVM pracovať s procesmi, ktoré majú takisto vyšší stupeň oprávnení a s oknom riadenia používateľských účtov (UAC), ale môže to tiež spôsobiť problémy aplikáciam s bežnými oprávneniami. Túto možnosť by ste mali použiť iba, ak ju skutočne potrebujete.</translation>
     </message>
 </context>
 <context>
@@ -1197,8 +1197,8 @@ Toto umožní InputLeap pracovať s procesmi, ktoré majú takisto vyšší stup
     <name>SetupWizard</name>
     <message>
         <location filename="src/SetupWizard.cpp" line="72"/>
-        <source>Setup InputLeap</source>
-        <translation>Nastaviť InputLeap</translation>
+        <source>Setup SKVM</source>
+        <translation>Nastaviť SKVM</translation>
     </message>
     <message>
         <location filename="src/SetupWizard.cpp" line="113"/>
@@ -1215,8 +1215,8 @@ Toto umožní InputLeap pracovať s procesmi, ktoré majú takisto vyšší stup
     <name>SetupWizardBase</name>
     <message>
         <location filename="res/SetupWizardBase.ui" line="26"/>
-        <source>Setup InputLeap</source>
-        <translation>Nastaviť InputLeap</translation>
+        <source>Setup SKVM</source>
+        <translation>Nastaviť SKVM</translation>
     </message>
     <message>
         <location filename="res/SetupWizardBase.ui" line="30"/>
@@ -1225,13 +1225,13 @@ Toto umožní InputLeap pracovať s procesmi, ktoré majú takisto vyšší stup
     </message>
     <message>
         <location filename="res/SetupWizardBase.ui" line="39"/>
-        <source>Thanks for installing InputLeap!</source>
-        <translation>Ďakujeme, že ste sa rozhodli nainštalovať InputLeap!</translation>
+        <source>Thanks for installing SKVM!</source>
+        <translation>Ďakujeme, že ste sa rozhodli nainštalovať SKVM!</translation>
     </message>
     <message>
         <location filename="res/SetupWizardBase.ui" line="114"/>
-        <source>InputLeap lets you easily share your mouse and keyboard between multiple computers on your desk, and it&apos;s Free and Open Source. Just move your mouse off the edge of one computer&apos;s screen on to another. You can even share all of your clipboards. All you need is a network connection. InputLeap is cross-platform (works on Windows, Mac OS X and Linux).</source>
-        <translation>InputLeap vám umožní ľahko zdieľať myš a klávesnicu medzi viacerými počítačmi, je zadarmo a má otvorený zdrojový kód. Stačí len presunúť kurzor myši mimo okraj obrazovky jedného počítača a presuniete sa na druhý počítač. Môžete dokonca zdieľať všetky vaše schránky. Všetko, čo potrebujete, je pripojenie k sieti. InputLeap podporuje viacero platforiem (funguje vo Windowse, Mac OS X a Linuxe).</translation>
+        <source>SKVM lets you easily share your mouse and keyboard between multiple computers on your desk, and it&apos;s Free and Open Source. Just move your mouse off the edge of one computer&apos;s screen on to another. You can even share all of your clipboards. All you need is a network connection. SKVM is cross-platform (works on Windows, Mac OS X and Linux).</source>
+        <translation>SKVM vám umožní ľahko zdieľať myš a klávesnicu medzi viacerými počítačmi, je zadarmo a má otvorený zdrojový kód. Stačí len presunúť kurzor myši mimo okraj obrazovky jedného počítača a presuniete sa na druhý počítač. Môžete dokonca zdieľať všetky vaše schránky. Všetko, čo potrebujete, je pripojenie k sieti. SKVM podporuje viacero platforiem (funguje vo Windowse, Mac OS X a Linuxe).</translation>
     </message>
     <message>
         <location filename="res/SetupWizardBase.ui" line="125"/>
@@ -1431,8 +1431,8 @@ Odpoveď servera:
     </message>
     <message>
         <location filename="src/ZeroconfService.cpp" line="140"/>
-        <source>InputLeap</source>
-        <translation>InputLeap</translation>
+        <source>SKVM</source>
+        <translation>SKVM</translation>
     </message>
     <message>
         <location filename="src/ZeroconfService.cpp" line="141"/>

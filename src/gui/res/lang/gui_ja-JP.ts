@@ -5,8 +5,8 @@
     <name>AboutDialogBase</name>
     <message>
         <location filename="res/AboutDialogBase.ui" line="38"/>
-        <source>About InputLeap</source>
-        <translation>InputLeap について</translation>
+        <source>About SKVM</source>
+        <translation>SKVM について</translation>
     </message>
     <message utf8="true">
         <location filename="res/AboutDialogBase.ui" line="53"/>
@@ -15,18 +15,18 @@ Keyboard and mouse sharing application. Cross platform and open source.&lt;br /&
 Copyright © 2018 Debauchee Open Source Group&lt;br /&gt;
 Copyright © 2012-2016 Symless Ltd.&lt;br /&gt;
 Copyright © 2002-2012 Chris Schoeneman, Nick Bolton, Volker Lanz.&lt;br /&gt;&lt;br /&gt;
-InputLeap is released under the GNU General Public License (GPLv2).&lt;br /&gt;&lt;br /&gt;
-InputLeap is based on CosmoSynergy by Richard Lee and Adam Feder.&lt;br /&gt;
-The InputLeap GUI is based on QSynergy by Volker Lanz.
+SKVM is released under the GNU General Public License (GPLv2).&lt;br /&gt;&lt;br /&gt;
+SKVM is based on CosmoSynergy by Richard Lee and Adam Feder.&lt;br /&gt;
+The SKVM GUI is based on QSynergy by Volker Lanz.
 &lt;/p&gt;</source>
         <translation>&lt;p&gt;
 キーボードとマウスの共有ソフトウェアです。クロスプラットフォームでオープンソースです。&lt;br /&gt;&lt;br /&gt;
 Copyright © 2018 Debauchee Open Source Group&lt;br /&gt;
 Copyright © 2012-2016 Symless Ltd.&lt;br /&gt;
 Copyright © 2002-2012 Chris Schoeneman, Nick Bolton, Volker Lanz.&lt;br /&gt;&lt;br /&gt;
-InputLeap は GNU General Public (GPLv2) のライセンスで公開されています。&lt;br /&gt;&lt;br /&gt;
-InputLeap のベースは CosmoSynergyで、これは Richard Lee と Adam Feder の開発です。&lt;br /&gt;
-InputLeap の GUI のベースは QSynergy で、これは Volker Lanz 開発です。
+SKVM は GNU General Public (GPLv2) のライセンスで公開されています。&lt;br /&gt;&lt;br /&gt;
+SKVM のベースは CosmoSynergyで、これは Richard Lee と Adam Feder の開発です。&lt;br /&gt;
+SKVM の GUI のベースは QSynergy で、これは Volker Lanz 開発です。
 &lt;/p&gt;</translation>
     </message>
     <message>
@@ -213,9 +213,9 @@ InputLeap の GUI のベースは QSynergy で、これは Volker Lanz 開発で
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="364"/>
-        <source>&lt;p&gt;Your version of InputLeap is out of date. Version &lt;b&gt;%1&lt;/b&gt; is now available to &lt;a href=&quot;%2&quot;&gt;download&lt;/a&gt;.&lt;/p&gt;</source>
+        <source>&lt;p&gt;Your version of SKVM is out of date. Version &lt;b&gt;%1&lt;/b&gt; is now available to &lt;a href=&quot;%2&quot;&gt;download&lt;/a&gt;.&lt;/p&gt;</source>
         <oldsource>&lt;p&gt;Version %1 is now available, &lt;a href=&quot;%2&quot;&gt;visit website&lt;/a&gt;.&lt;/p&gt;</oldsource>
-        <translation type="unfinished">&lt;p&gt;お使いの InputLeap は最新版ではありません。 新しいバージョン &lt;b&gt;%1&lt;/b&gt; が&lt;a href=&quot;%2&quot;&gt;ダウンロード&lt;/a&gt;できます。&lt;/p&gt;</translation>
+        <translation type="unfinished">&lt;p&gt;お使いの SKVM は最新版ではありません。 新しいバージョン &lt;b&gt;%1&lt;/b&gt; が&lt;a href=&quot;%2&quot;&gt;ダウンロード&lt;/a&gt;できます。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="577"/>
@@ -229,13 +229,13 @@ InputLeap の GUI のベースは QSynergy で、これは Volker Lanz 開発で
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="596"/>
-        <source>InputLeap client not found</source>
-        <translation>InputLeap のクライアントが見つかりません</translation>
+        <source>SKVM client not found</source>
+        <translation>SKVM のクライアントが見つかりません</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="597"/>
-        <source>The executable for the InputLeap client does not exist.</source>
-        <translation>InputLeap のクライアントの実行ファイルが存在しません。</translation>
+        <source>The executable for the SKVM client does not exist.</source>
+        <translation>SKVM のクライアントの実行ファイルが存在しません。</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="625"/>
@@ -244,8 +244,8 @@ InputLeap の GUI のベースは QSynergy で、これは Volker Lanz 開発で
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="626"/>
-        <source>Please fill in a hostname for the InputLeap client to connect to.</source>
-        <translation>InputLeap のクライアントが接続するホスト名を入力してください。</translation>
+        <source>Please fill in a hostname for the SKVM client to connect to.</source>
+        <translation>SKVM のクライアントが接続するホスト名を入力してください。</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="646"/>
@@ -254,8 +254,8 @@ InputLeap の GUI のベースは QSynergy で、これは Volker Lanz 開発で
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="646"/>
-        <source>The temporary configuration file required to start InputLeap can not be written.</source>
-        <translation>InputLeap の開始に必要な一時的な構成ファイルに書き込めません。</translation>
+        <source>The temporary configuration file required to start SKVM can not be written.</source>
+        <translation>SKVM の開始に必要な一時的な構成ファイルに書き込めません。</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="659"/>
@@ -264,28 +264,28 @@ InputLeap の GUI のベースは QSynergy で、これは Volker Lanz 開発で
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="660"/>
-        <source>You have not filled in a valid configuration file for the InputLeap server. Do you want to browse for the configuration file now?</source>
-        <translation>InputLeap のサーバー用の正しい構成ファイルではありません。構成ファイルを開きますか?</translation>
+        <source>You have not filled in a valid configuration file for the SKVM server. Do you want to browse for the configuration file now?</source>
+        <translation>SKVM のサーバー用の正しい構成ファイルではありません。構成ファイルを開きますか?</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="688"/>
-        <source>InputLeap server not found</source>
-        <translation>InputLeap のサーバーが見つかりません</translation>
+        <source>SKVM server not found</source>
+        <translation>SKVM のサーバーが見つかりません</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="689"/>
-        <source>The executable for the InputLeap server does not exist.</source>
-        <translation>InputLeap のサーバーの実行ファイルが存在しません。</translation>
+        <source>The executable for the SKVM server does not exist.</source>
+        <translation>SKVM のサーバーの実行ファイルが存在しません。</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="764"/>
-        <source>InputLeap terminated with an error</source>
-        <translation>InputLeap はエラーで終了しました</translation>
+        <source>SKVM terminated with an error</source>
+        <translation>SKVM はエラーで終了しました</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="764"/>
-        <source>InputLeap terminated unexpectedly with an exit code of %1.&lt;br&gt;&lt;br&gt;Please see the log output for details.</source>
-        <translation>InputLeap は予期しない終了コード %1 で終了しました。&lt;br&gt;&lt;br&gt;詳細はログの出力を参照してください。</translation>
+        <source>SKVM terminated unexpectedly with an exit code of %1.&lt;br&gt;&lt;br&gt;Please see the log output for details.</source>
+        <translation>SKVM は予期しない終了コード %1 で終了しました。&lt;br&gt;&lt;br&gt;詳細はログの出力を参照してください。</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="783"/>
@@ -337,18 +337,18 @@ Bonjour をインストールしますか?</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="815"/>
-        <source>InputLeap is starting.</source>
-        <translation>InputLeap 開始中...</translation>
+        <source>SKVM is starting.</source>
+        <translation>SKVM 開始中...</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="809"/>
-        <source>InputLeap is running.</source>
-        <translation>InputLeap 動作中</translation>
+        <source>SKVM is running.</source>
+        <translation>SKVM 動作中</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="819"/>
-        <source>InputLeap is not running.</source>
-        <translation>InputLeap は動作していません。</translation>
+        <source>SKVM is not running.</source>
+        <translation>SKVM は動作していません。</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="870"/>
@@ -359,18 +359,18 @@ Bonjour をインストールしますか?</translation>
         <location filename="src/MainWindow.cpp" line="1146"/>
         <location filename="src/MainWindow.cpp" line="1225"/>
         <location filename="src/MainWindow.cpp" line="1269"/>
-        <source>InputLeap</source>
-        <translation>InputLeap</translation>
+        <source>SKVM</source>
+        <translation>SKVM</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="987"/>
-        <source>Browse for a InputLeap config file</source>
-        <translation type="unfinished">InputLeap の構成ファイルを参照</translation>
+        <source>Browse for a SKVM config file</source>
+        <translation type="unfinished">SKVM の構成ファイルを参照</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="408"/>
-        <source>InputLeap is now connected. You can close the config window and InputLeap will remain connected in the background.</source>
-        <translation>ただいま InputLeap は接続されました。設定ウインドウを閉じることができます。それでもバックグラウンドで接続を維持します。</translation>
+        <source>SKVM is now connected. You can close the config window and SKVM will remain connected in the background.</source>
+        <translation>ただいま SKVM は接続されました。設定ウインドウを閉じることができます。それでもバックグラウンドで接続を維持します。</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="434"/>
@@ -414,8 +414,8 @@ To automatically trust this fingerprint for future connections, click Yes. To re
     <name>MainWindowBase</name>
     <message>
         <location filename="res/MainWindowBase.ui" line="26"/>
-        <source>InputLeap</source>
-        <translation>InputLeap</translation>
+        <source>SKVM</source>
+        <translation>SKVM</translation>
     </message>
     <message>
         <location filename="res/MainWindowBase.ui" line="90"/>
@@ -505,8 +505,8 @@ To automatically trust this fingerprint for future connections, click Yes. To re
     </message>
     <message>
         <location filename="res/MainWindowBase.ui" line="390"/>
-        <source>&amp;About InputLeap...</source>
-        <translation>InputLeap について(&amp;A)...</translation>
+        <source>&amp;About SKVM...</source>
+        <translation>SKVM について(&amp;A)...</translation>
     </message>
     <message>
         <location filename="res/MainWindowBase.ui" line="398"/>
@@ -646,8 +646,8 @@ To automatically trust this fingerprint for future connections, click Yes. To re
     <name>PluginWizardPage</name>
     <message>
         <location filename="res/PluginWizardPageBase.ui" line="14"/>
-        <source>Setup InputLeap</source>
-        <translation>InputLeap のセットアップ</translation>
+        <source>Setup SKVM</source>
+        <translation>SKVM のセットアップ</translation>
     </message>
     <message>
         <location filename="res/PluginWizardPageBase.ui" line="101"/>
@@ -695,13 +695,13 @@ To automatically trust this fingerprint for future connections, click Yes. To re
     <name>QObject</name>
     <message>
         <location filename="src/MainWindow.cpp" line="60"/>
-        <source>InputLeap Configurations (*.sgc);;All files (*.*)</source>
-        <translation>InputLeap 構成設定 (*.sgc);;すべてのファイル(*.*)</translation>
+        <source>SKVM Configurations (*.sgc);;All files (*.*)</source>
+        <translation>SKVM 構成設定 (*.sgc);;すべてのファイル(*.*)</translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="67"/>
-        <source>InputLeap Configurations (*.conf);;All files (*.*)</source>
-        <translation>InputLeap 構成設定 (*.conf);;すべてのファイル(*.*)</translation>
+        <source>SKVM Configurations (*.conf);;All files (*.*)</source>
+        <translation>SKVM 構成設定 (*.conf);;すべてのファイル(*.*)</translation>
     </message>
     <message>
         <location filename="src/main.cpp" line="119"/>
@@ -939,8 +939,8 @@ To automatically trust this fingerprint for future connections, click Yes. To re
     </message>
     <message>
         <location filename="res/ServerConfigDialogBase.ui" line="60"/>
-        <source>Configure the layout of your InputLeap server configuration.</source>
-        <translation type="unfinished">InputLeap のサーバー構成の配置を設定します。</translation>
+        <source>Configure the layout of your SKVM server configuration.</source>
+        <translation type="unfinished">SKVM のサーバー構成の配置を設定します。</translation>
     </message>
     <message>
         <location filename="res/ServerConfigDialogBase.ui" line="73"/>
@@ -1113,16 +1113,16 @@ Double click on a screen to edit its settings.</source>
     </message>
     <message>
         <location filename="src/SettingsDialog.cpp" line="151"/>
-        <source>Elevate InputLeap</source>
-        <translation>InputLeap の権限昇格</translation>
+        <source>Elevate SKVM</source>
+        <translation>SKVM の権限昇格</translation>
     </message>
     <message>
         <location filename="src/SettingsDialog.cpp" line="152"/>
-        <source>Are you sure you want to Elevate InputLeap?
+        <source>Are you sure you want to Elevate SKVM?
 
-This allows InputLeap to interact with elevated processes and the UAC dialog, but can cause problems with non-elevated processes. Elevate InputLeap only if you really need to.</source>
-        <translation type="unfinished">InputLeap の権限を昇格しますか？
-この許可により InputLeap は権限を持つプロセスや UAC ダイアログとやりとりできます。一方で、昇格されていないプロセスとのやり取りに問題が起こることもあります。確かに必要である場合にのみ InputLeap を昇格させてください。</translation>
+This allows SKVM to interact with elevated processes and the UAC dialog, but can cause problems with non-elevated processes. Elevate SKVM only if you really need to.</source>
+        <translation type="unfinished">SKVM の権限を昇格しますか？
+この許可により SKVM は権限を持つプロセスや UAC ダイアログとやりとりできます。一方で、昇格されていないプロセスとのやり取りに問題が起こることもあります。確かに必要である場合にのみ SKVM を昇格させてください。</translation>
     </message>
 </context>
 <context>
@@ -1244,8 +1244,8 @@ This allows InputLeap to interact with elevated processes and the UAC dialog, bu
     </message>
     <message>
         <location filename="res/SettingsDialogBase.ui" line="93"/>
-        <source>Specify when the InputLeap service should run at an elevated privilege level</source>
-        <translation>InputLeap のサービスを昇格した権限で実行するタイミングの指定</translation>
+        <source>Specify when the SKVM service should run at an elevated privilege level</source>
+        <translation>SKVM のサービスを昇格した権限で実行するタイミングの指定</translation>
     </message>
     <message>
         <location filename="res/SettingsDialogBase.ui" line="100"/>
@@ -1284,8 +1284,8 @@ This allows InputLeap to interact with elevated processes and the UAC dialog, bu
     </message>
     <message>
         <location filename="res/SettingsDialogBase.ui" line="132"/>
-        <source>Start &amp;InputLeap on startup</source>
-        <translation>起動時に InputLeap を開始(&amp;B)</translation>
+        <source>Start &amp;SKVM on startup</source>
+        <translation>起動時に SKVM を開始(&amp;B)</translation>
     </message>
     <message>
         <location filename="res/SettingsDialogBase.ui" line="201"/>
@@ -1297,8 +1297,8 @@ This allows InputLeap to interact with elevated processes and the UAC dialog, bu
     <name>LogWindowBase</name>
     <message>
         <location filename="res/LogWindowBase.ui" line="26"/>
-        <source>Log - InputLeap</source>
-        <translation>ログ - InputLeap</translation>
+        <source>Log - SKVM</source>
+        <translation>ログ - SKVM</translation>
     </message>
     <message>
         <location filename="res/LogWindowBase.ui" line="71"/>
@@ -1315,8 +1315,8 @@ This allows InputLeap to interact with elevated processes and the UAC dialog, bu
     <name>SetupWizard</name>
     <message>
         <location filename="src/SetupWizard.cpp" line="72"/>
-        <source>Setup InputLeap</source>
-        <translation>InputLeap のセットアップ</translation>
+        <source>Setup SKVM</source>
+        <translation>SKVM のセットアップ</translation>
     </message>
     <message>
         <location filename="src/SetupWizard.cpp" line="113"/>
@@ -1333,8 +1333,8 @@ This allows InputLeap to interact with elevated processes and the UAC dialog, bu
     <name>SetupWizardBase</name>
     <message>
         <location filename="res/SetupWizardBase.ui" line="26"/>
-        <source>Setup InputLeap</source>
-        <translation>InputLeap のセットアップ</translation>
+        <source>Setup SKVM</source>
+        <translation>SKVM のセットアップ</translation>
     </message>
     <message>
         <location filename="res/SetupWizardBase.ui" line="30"/>
@@ -1343,13 +1343,13 @@ This allows InputLeap to interact with elevated processes and the UAC dialog, bu
     </message>
     <message>
         <location filename="res/SetupWizardBase.ui" line="39"/>
-        <source>Thanks for installing InputLeap!</source>
-        <translation>InputLeap をインストールしていただき、ありがとうございます！</translation>
+        <source>Thanks for installing SKVM!</source>
+        <translation>SKVM をインストールしていただき、ありがとうございます！</translation>
     </message>
     <message>
         <location filename="res/SetupWizardBase.ui" line="114"/>
-        <source>InputLeap lets you easily share your mouse and keyboard between multiple computers on your desk, and it&apos;s Free and Open Source. Just move your mouse off the edge of one computer&apos;s screen on to another. You can even share all of your clipboards. All you need is a network connection. InputLeap is cross-platform (works on Windows, Mac OS X and Linux).</source>
-        <translation>InputLeap によって、複数のデスクトップパソコン間でマウスとキーボードを簡単に共有することができます。そしてこれは無料でオープンソースのソフトウェアです。あるコンピュータの画面の端にマウスを移動するだけで、別のコンピュータの画面に移ることができます。クリップボードを共有することもできます。必要なのはネットワーク接続だけです。 InputLeap はクロスプラットフォームで Windows、Mac OS X、Linux で動作します。</translation>
+        <source>SKVM lets you easily share your mouse and keyboard between multiple computers on your desk, and it&apos;s Free and Open Source. Just move your mouse off the edge of one computer&apos;s screen on to another. You can even share all of your clipboards. All you need is a network connection. SKVM is cross-platform (works on Windows, Mac OS X and Linux).</source>
+        <translation>SKVM によって、複数のデスクトップパソコン間でマウスとキーボードを簡単に共有することができます。そしてこれは無料でオープンソースのソフトウェアです。あるコンピュータの画面の端にマウスを移動するだけで、別のコンピュータの画面に移ることができます。クリップボードを共有することもできます。必要なのはネットワーク接続だけです。 SKVM はクロスプラットフォームで Windows、Mac OS X、Linux で動作します。</translation>
     </message>
     <message>
         <location filename="res/SetupWizardBase.ui" line="125"/>
@@ -1548,8 +1548,8 @@ Server response:
     </message>
     <message>
         <location filename="src/ZeroconfService.cpp" line="140"/>
-        <source>InputLeap</source>
-        <translation>InputLeap</translation>
+        <source>SKVM</source>
+        <translation>SKVM</translation>
     </message>
     <message>
         <location filename="src/ZeroconfService.cpp" line="141"/>

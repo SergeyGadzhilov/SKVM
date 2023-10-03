@@ -35,7 +35,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>About InputLeap</string>
+   <string>About SKVM</string>
   </property>
   <property name="modal">
    <bool>true</bool>
@@ -55,9 +55,9 @@ Keyboard and mouse sharing application. Cross platform and open source.&lt;br /&
 Copyright © 2018 Debauchee Open Source Group&lt;br /&gt;
 Copyright © 2012-2016 Symless Ltd.&lt;br /&gt;
 Copyright © 2002-2012 Chris Schoeneman, Nick Bolton, Volker Lanz.&lt;br /&gt;&lt;br /&gt;
-InputLeap is released under the GNU General Public License (GPLv2).&lt;br /&gt;&lt;br /&gt;
-InputLeap is based on CosmoSynergy by Richard Lee and Adam Feder.&lt;br /&gt;
-The InputLeap GUI is based on QSynergy by Volker Lanz.
+SKVM is released under the GNU General Public License (GPLv2).&lt;br /&gt;&lt;br /&gt;
+SKVM is based on CosmoSynergy by Richard Lee and Adam Feder.&lt;br /&gt;
+The SKVM GUI is based on QSynergy by Volker Lanz.
 &lt;/p&gt;</string>
      </property>
      <property name="margin">
@@ -87,7 +87,7 @@ The InputLeap GUI is based on QSynergy by Volker Lanz.
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap resource="../res/InputLeap.qrc">:/res/image/about.png</pixmap>
+      <pixmap resource="../res/SKVM.qrc">:/res/image/about.png</pixmap>
      </property>
      <property name="margin">
       <number>0</number>
@@ -186,7 +186,7 @@ The InputLeap GUI is based on QSynergy by Volker Lanz.
   </layout>
  </widget>
  <resources>
-  <include location="../res/InputLeap.qrc"/>
+  <include location="../res/SKVM.qrc"/>
  </resources>
  <connections>
   <connection>
