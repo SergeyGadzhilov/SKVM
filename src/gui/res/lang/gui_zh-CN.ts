@@ -5,8 +5,8 @@
     <name>AboutDialogBase</name>
     <message>
         <location filename="../../src/AboutDialogBase.ui" line="38"/>
-        <source>About InputLeap</source>
-        <translation>关于 InputLeap</translation>
+        <source>About SKVM</source>
+        <translation>关于 SKVM</translation>
     </message>
     <message>
         <location filename="../../src/AboutDialogBase.ui" line="140"/>
@@ -31,18 +31,18 @@ Keyboard and mouse sharing application. Cross platform and open source.&lt;br /&
 Copyright © 2018 Debauchee Open Source Group&lt;br /&gt;
 Copyright © 2012-2016 Symless Ltd.&lt;br /&gt;
 Copyright © 2002-2012 Chris Schoeneman, Nick Bolton, Volker Lanz.&lt;br /&gt;&lt;br /&gt;
-InputLeap is released under the GNU General Public License (GPLv2).&lt;br /&gt;&lt;br /&gt;
-InputLeap is based on CosmoSynergy by Richard Lee and Adam Feder.&lt;br /&gt;
-The InputLeap GUI is based on QSynergy by Volker Lanz.
+SKVM is released under the GNU General Public License (GPLv2).&lt;br /&gt;&lt;br /&gt;
+SKVM is based on CosmoSynergy by Richard Lee and Adam Feder.&lt;br /&gt;
+The SKVM GUI is based on QSynergy by Volker Lanz.
 &lt;/p&gt;</source>
         <translation>&lt;p&gt;
 共享键盘和鼠标，跨平台并开源。&lt;br /&gt;&lt;br /&gt;
 Copyright © 2018 Debauchee Open Source Group&lt;br /&gt;
 Copyright © 2012-2016 Symless Ltd.&lt;br /&gt;
 Copyright © 2002-2012 Chris Schoeneman, Nick Bolton, Volker Lanz.&lt;br /&gt;&lt;br /&gt;
-InputLeap 适用 GNU 通用公共许可证（GPLv2）。&lt;br /&gt;&lt;br /&gt;
-InputLeap 基于 Richard Lee 和 Adam Feder 制作的 CosmoSynergy .&lt;br /&gt;
-InputLeap GUI 基于 Volker Lanz 制作的 QSynergy.
+SKVM 适用 GNU 通用公共许可证（GPLv2）。&lt;br /&gt;&lt;br /&gt;
+SKVM 基于 Richard Lee 和 Adam Feder 制作的 CosmoSynergy .&lt;br /&gt;
+SKVM GUI 基于 Volker Lanz 制作的 QSynergy.
 &lt;/p&gt;</translation>
     </message>
     <message>
@@ -189,8 +189,8 @@ InputLeap GUI 基于 Volker Lanz 制作的 QSynergy.
     <name>LogWindowBase</name>
     <message>
         <location filename="../../src/LogWindowBase.ui" line="26"/>
-        <source>Log - InputLeap</source>
-        <translation>日志 - InputLeap</translation>
+        <source>Log - SKVM</source>
+        <translation>日志 - SKVM</translation>
     </message>
     <message>
         <location filename="../../src/LogWindowBase.ui" line="71"/>
@@ -227,13 +227,13 @@ InputLeap GUI 基于 Volker Lanz 制作的 QSynergy.
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="583"/>
-        <source>InputLeap client not found</source>
-        <translation>未找到InputLeap客户端</translation>
+        <source>SKVM client not found</source>
+        <translation>未找到SKVM客户端</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="584"/>
-        <source>The executable for the InputLeap client does not exist.</source>
-        <translation>InputLeap客户端的可执行程序不存在。</translation>
+        <source>The executable for the SKVM client does not exist.</source>
+        <translation>SKVM客户端的可执行程序不存在。</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="610"/>
@@ -242,8 +242,8 @@ InputLeap GUI 基于 Volker Lanz 制作的 QSynergy.
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="611"/>
-        <source>Please fill in a hostname for the InputLeap client to connect to.</source>
-        <translation>请为InputLeap客户端设置一个用于连接的主机名。</translation>
+        <source>Please fill in a hostname for the SKVM client to connect to.</source>
+        <translation>请为SKVM客户端设置一个用于连接的主机名。</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="631"/>
@@ -252,8 +252,8 @@ InputLeap GUI 基于 Volker Lanz 制作的 QSynergy.
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="631"/>
-        <source>The temporary configuration file required to start InputLeap can not be written.</source>
-        <translation>启动InputLeap所需的临时配置文件不可写。</translation>
+        <source>The temporary configuration file required to start SKVM can not be written.</source>
+        <translation>启动SKVM所需的临时配置文件不可写。</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="644"/>
@@ -262,18 +262,18 @@ InputLeap GUI 基于 Volker Lanz 制作的 QSynergy.
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="645"/>
-        <source>You have not filled in a valid configuration file for the InputLeap server. Do you want to browse for the configuration file now?</source>
-        <translation>InputLeap服务端缺少有效的配置文件。需要现在浏览配置文件吗？</translation>
+        <source>You have not filled in a valid configuration file for the SKVM server. Do you want to browse for the configuration file now?</source>
+        <translation>SKVM服务端缺少有效的配置文件。需要现在浏览配置文件吗？</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="675"/>
-        <source>InputLeap server not found</source>
-        <translation>未找到InputLeap服务端</translation>
+        <source>SKVM server not found</source>
+        <translation>未找到SKVM服务端</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="676"/>
-        <source>The executable for the InputLeap server does not exist.</source>
-        <translation>InputLeap服务端可执行程序不存在。</translation>
+        <source>The executable for the SKVM server does not exist.</source>
+        <translation>SKVM服务端可执行程序不存在。</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="783"/>
@@ -325,18 +325,18 @@ Do you want to install Bonjour?</source>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="818"/>
-        <source>InputLeap is starting.</source>
-        <translation>InputLeap正在启动</translation>
+        <source>SKVM is starting.</source>
+        <translation>SKVM正在启动</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="812"/>
-        <source>InputLeap is running.</source>
-        <translation>InputLeap正在运行</translation>
+        <source>SKVM is running.</source>
+        <translation>SKVM正在运行</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="822"/>
-        <source>InputLeap is not running.</source>
-        <translation>InputLeap没有运行</translation>
+        <source>SKVM is not running.</source>
+        <translation>SKVM没有运行</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="878"/>
@@ -347,13 +347,13 @@ Do you want to install Bonjour?</source>
         <location filename="../../src/MainWindow.cpp" line="1134"/>
         <location filename="../../src/MainWindow.cpp" line="1217"/>
         <location filename="../../src/MainWindow.cpp" line="1247"/>
-        <source>InputLeap</source>
-        <translation>InputLeap</translation>
+        <source>SKVM</source>
+        <translation>SKVM</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="993"/>
-        <source>Browse for a InputLeap config file</source>
-        <translation>浏览InputLeap配置文件</translation>
+        <source>Browse for a SKVM config file</source>
+        <translation>浏览SKVM配置文件</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="432"/>
@@ -394,21 +394,21 @@ To automatically trust this fingerprint for future connections, click Yes. To re
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="244"/>
-        <source>&amp;InputLeap</source>
-        <translation>&amp;InputLeap</translation>
+        <source>&amp;SKVM</source>
+        <translation>&amp;SKVM</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="402"/>
-        <source>InputLeap is now connected. You can close the config window and InputLeap will remain connected in the background.</source>
-        <translation>InputLeap已连接。现在可以关闭窗口，InputLeap会在后台保持连接。</translation>
+        <source>SKVM is now connected. You can close the config window and SKVM will remain connected in the background.</source>
+        <translation>SKVM已连接。现在可以关闭窗口，SKVM会在后台保持连接。</translation>
     </message>
 </context>
 <context>
     <name>MainWindowBase</name>
     <message>
         <location filename="../../src/MainWindowBase.ui" line="26"/>
-        <source>InputLeap</source>
-        <translation>InputLeap</translation>
+        <source>SKVM</source>
+        <translation>SKVM</translation>
     </message>
     <message>
         <location filename="../../src/MainWindowBase.ui" line="39"/>
@@ -483,8 +483,8 @@ To automatically trust this fingerprint for future connections, click Yes. To re
     </message>
     <message>
         <location filename="../../src/MainWindowBase.ui" line="303"/>
-        <source>&amp;About InputLeap...</source>
-        <translation>关于InputLeap(&amp;A)…</translation>
+        <source>&amp;About SKVM...</source>
+        <translation>关于SKVM(&amp;A)…</translation>
     </message>
     <message>
         <location filename="../../src/MainWindowBase.ui" line="311"/>
@@ -584,13 +584,13 @@ To automatically trust this fingerprint for future connections, click Yes. To re
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="58"/>
-        <source>InputLeap Configurations (*.sgc)</source>
-        <translation>InputLeap配置文件 (*.sgc)</translation>
+        <source>SKVM Configurations (*.sgc)</source>
+        <translation>SKVM配置文件 (*.sgc)</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="65"/>
-        <source>InputLeap Configurations (*.conf)</source>
-        <translation>InputLeap配置文件 (*.conf)</translation>
+        <source>SKVM Configurations (*.conf)</source>
+        <translation>SKVM配置文件 (*.conf)</translation>
     </message>
 </context>
 <context>
@@ -831,8 +831,8 @@ To automatically trust this fingerprint for future connections, click Yes. To re
     </message>
     <message>
         <location filename="../../src/ServerConfigDialogBase.ui" line="60"/>
-        <source>Configure the layout of your InputLeap server configuration.</source>
-        <translation>配置InputLeap服务端的屏幕布局。</translation>
+        <source>Configure the layout of your SKVM server configuration.</source>
+        <translation>配置SKVM服务端的屏幕布局。</translation>
     </message>
     <message>
         <location filename="../../src/ServerConfigDialogBase.ui" line="73"/>
@@ -1098,8 +1098,8 @@ Double click on a screen to edit its settings.</source>
     </message>
     <message>
         <location filename="../../src/SettingsDialogBase.ui" line="93"/>
-        <source>Specify when the InputLeap service should run at an elevated privilege level</source>
-        <translation>设置InputLeap服务何时应该提权运行</translation>
+        <source>Specify when the SKVM service should run at an elevated privilege level</source>
+        <translation>设置SKVM服务何时应该提权运行</translation>
     </message>
     <message>
         <location filename="../../src/SettingsDialogBase.ui" line="100"/>
@@ -1123,7 +1123,7 @@ Double click on a screen to edit its settings.</source>
     </message>
     <message>
         <location filename="../../src/SettingsDialogBase.ui" line="132"/>
-        <source>Start &amp;InputLeap on startup</source>
+        <source>Start &amp;SKVM on startup</source>
         <translation>自动启动</translation>
     </message>
     <message>
@@ -1146,8 +1146,8 @@ Double click on a screen to edit its settings.</source>
     <name>SetupWizard</name>
     <message>
         <location filename="../../src/SetupWizard.cpp" line="63"/>
-        <source>Setup InputLeap</source>
-        <translation>设置InputLeap</translation>
+        <source>Setup SKVM</source>
+        <translation>设置SKVM</translation>
     </message>
     <message>
         <location filename="../../src/SetupWizard.cpp" line="73"/>
@@ -1159,8 +1159,8 @@ Double click on a screen to edit its settings.</source>
     <name>SetupWizardBase</name>
     <message>
         <location filename="../../src/SetupWizardBase.ui" line="26"/>
-        <source>Setup InputLeap</source>
-        <translation>设置InputLeap</translation>
+        <source>Setup SKVM</source>
+        <translation>设置SKVM</translation>
     </message>
     <message>
         <location filename="../../src/SetupWizardBase.ui" line="30"/>
@@ -1169,13 +1169,13 @@ Double click on a screen to edit its settings.</source>
     </message>
     <message>
         <location filename="../../src/SetupWizardBase.ui" line="39"/>
-        <source>Thanks for installing InputLeap!</source>
-        <translation>感谢您安装InputLeap！</translation>
+        <source>Thanks for installing SKVM!</source>
+        <translation>感谢您安装SKVM！</translation>
     </message>
     <message>
         <location filename="../../src/SetupWizardBase.ui" line="114"/>
-        <source>InputLeap lets you easily share your mouse and keyboard between multiple computers on your desk, and it&apos;s Free and Open Source. Just move your mouse off the edge of one computer&apos;s screen on to another. You can even share all of your clipboards. All you need is a network connection. InputLeap is cross-platform (works on Windows, Mac OS X and Linux).</source>
-        <translation>InputLeap可以在多台计算机间轻松共享你的鼠标和键盘，它还是自由开源软件。将鼠标指针从计算机的屏幕边缘移出到另一个屏幕，并同时共享剪贴板，只要你有一个网络连接。InputLeap是跨平台的（可以运行于Windows，Mac OS X和Linux）。</translation>
+        <source>SKVM lets you easily share your mouse and keyboard between multiple computers on your desk, and it&apos;s Free and Open Source. Just move your mouse off the edge of one computer&apos;s screen on to another. You can even share all of your clipboards. All you need is a network connection. SKVM is cross-platform (works on Windows, Mac OS X and Linux).</source>
+        <translation>SKVM可以在多台计算机间轻松共享你的鼠标和键盘，它还是自由开源软件。将鼠标指针从计算机的屏幕边缘移出到另一个屏幕，并同时共享剪贴板，只要你有一个网络连接。SKVM是跨平台的（可以运行于Windows，Mac OS X和Linux）。</translation>
     </message>
     <message>
         <location filename="../../src/SetupWizardBase.ui" line="146"/>
@@ -1297,8 +1297,8 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../../src/ZeroconfService.cpp" line="164"/>
-        <source>InputLeap</source>
-        <translation>InputLeap</translation>
+        <source>SKVM</source>
+        <translation>SKVM</translation>
     </message>
     <message>
         <location filename="../../src/ZeroconfService.cpp" line="165"/>
