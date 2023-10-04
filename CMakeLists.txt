@@ -20,7 +20,6 @@ cmake_minimum_required(VERSION 3.12)
 project(SKVM C CXX)
 
 option(SKVM_BUILD_GUI "Build the GUI" ON)
-option(SKVM_BUILD_INSTALLER "Build the installer" ON)
 option(SKVM_BUILD_TESTS "Build the tests" ON)
 option(SKVM_USE_EXTERNAL_GTEST "Use external installation of Google Test framework" OFF)
 option(SKVM_BUILD_X11 "Build with XWindows support" ON)
@@ -169,10 +168,6 @@ if (UNIX)
             " HAVE_LIBPORTAL_OUTPUT_NONE)
             cmake_pop_check_state()
 
-            # Flatpak bits
-            install(FILES "dist/flatpak/skvm-flatpak"
-                    DESTINATION bin
-                    PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE)
         endif()
 
         check_include_files ("dns_sd.h" HAVE_DNSSD)
@@ -336,8 +331,7 @@ macro (configure_files srcDir destDir)
     endforeach (templateFile)
 endmacro (configure_files)
 
-include(dist/installer.cmake)
-
 enable_testing()
 
 add_subdirectory (src)
+include(dist/installer.cmake)

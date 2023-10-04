@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=SKVM
-Comment=Keyboard and mouse sharing solution
-Exec=skvm
-Icon=skvm
-Terminal=false
-Categories=Utility;RemoteAccess;
-Keywords=keyboard;mouse;sharing;network;share;
