@@ -242,6 +242,10 @@ if (${CMAKE_SYSTEM_NAME} MATCHES "Windows")
         ${OPENSSL_ROOT}/lib/libeay32.lib
         ${OPENSSL_ROOT}/lib/ssleay32.lib
     )
+    set (OPENSSL_COMPONENTS
+        ${OPENSSL_ROOT}/bin/libeay32.dll
+       ${OPENSSL_ROOT}/bin/ssleay32.dll
+    )
 elseif (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
     find_program(APT_PROGRAM "apt")
     find_program(BREW_PROGRAM "brew")
@@ -300,6 +304,7 @@ else()
     endif()
     set (OPENSSL_LIBS ${lib_ssl} ${lib_crypto})
 endif()
+
 
 #
 # Configure_file... but for directories, recursively.
