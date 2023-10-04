@@ -336,53 +336,7 @@ macro (configure_files srcDir destDir)
     endforeach (templateFile)
 endmacro (configure_files)
 
-if (${SKVM_BUILD_INSTALLER})
-#
-# macOS app Bundle
-#
-if (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
-    set (CMAKE_INSTALL_RPATH "@loader_path/../Libraries;@loader_path/../Frameworks")
-    set(SKVM_BUNDLE_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/dist/macos/bundle)
-    set(SKVM_BUNDLE_DIR ${CMAKE_BINARY_DIR}/bundle)
-    set(SKVM_BUNDLE_APP_DIR ${SKVM_BUNDLE_DIR}/SKVM.app)
-    set(SKVM_BUNDLE_BINARY_DIR ${SKVM_BUNDLE_APP_DIR}/Contents/MacOS)
-
-    configure_files(${SKVM_BUNDLE_SOURCE_DIR} ${SKVM_BUNDLE_DIR})
-endif()
-
-#
-# Windows installer
-#
-if (${CMAKE_SYSTEM_NAME} MATCHES "Windows")
-        set(SKVM_WIX_VERSION "${SKVM_VERSION_MAJOR}.${SKVM_VERSION_MINOR}.${SKVM_VERSION_PATCH}")
-        message (STATUS "Configuring the wix installer")
-        configure_files (${CMAKE_CURRENT_SOURCE_DIR}/dist/wix ${CMAKE_BINARY_DIR}/installer-wix)
-        message (STATUS "Configuring the inno installer")
-        configure_files (${CMAKE_CURRENT_SOURCE_DIR}/dist/inno ${CMAKE_BINARY_DIR}/installer-inno)
-endif()
-
-#
-# Linux installation
-#
-if (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
-    install(FILES doc/skvmc.1 doc/skvms.1 DESTINATION share/man/man1)
-
-    configure_file(res/skvm.appdata.xml.in
-                   ${CMAKE_CURRENT_BINARY_DIR}/res/skvm.appdata.xml)
-    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/res/skvm.appdata.xml DESTINATION share/metainfo)
-
-    configure_files (${CMAKE_CURRENT_SOURCE_DIR}/dist/rpm ${CMAKE_BINARY_DIR}/rpm)
-    install(FILES res/skvm.svg DESTINATION share/icons/hicolor/scalable/apps)
-    if("${VERSION_MAJOR}" STREQUAL "2")
-        install(FILES res/skvm2.desktop DESTINATION share/applications)
-    else()
-        install(FILES res/skvm.desktop DESTINATION share/applications)
-    endif()
-endif()
-
-else()
-    message (STATUS "NOT configuring the installer")
-endif()
+include(dist/installer.cmake)
 
 enable_testing()
 
