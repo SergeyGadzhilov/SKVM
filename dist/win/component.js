@@ -11,8 +11,6 @@ Component.prototype.createOperations = function () {
     );
     addFirewallRules();
     installService();
-  } else if (installer.isUninstaller()) {
-    uninstallService();
   }
 };
 
@@ -58,45 +56,9 @@ function addFirewallRules() {
   });
 }
 
-function removeFirewalRule(name) {
-  component.addElevatedOperation(
-    "Execute",
-    "netsh",
-    "advfirewall",
-    "firewall",
-    "delete",
-    "rule",
-    "name=" + name
-  );
-}
-
-function removeFirewallRules() {
-  const programs = [getProgrammPath("skvms.exe"), getProgrammPath("skvmc.exe")];
-
-  programs.forEach((program) => {
-    removeFirewalRule(program, "@ProductName@", "TCP", "in", "allow");
-    removeFirewalRule(program, "@ProductName@", "TCP", "out", "allow");
-    removeFirewalRule(program, "@ProductName@", "UDP", "in", "allow");
-    removeFirewalRule(program, "@ProductName@", "UDP", "out", "allow");
-  });
-}
-
-function removeService() {
-  component.addElevatedOperation("Execute", "sc", "delete", "skvmd");
-}
-
 function installService() {
   registerService();
-  startService;
-}
-
-function uninstallService() {
-  stopService();
-  removeService();
-}
-
-function stopService() {
-  component.addElevatedOperation("Execute", "sc", "stop", "skvmd");
+  startService();
 }
 
 function registerService() {
@@ -106,10 +68,23 @@ function registerService() {
     "create",
     "skvmd",
     "binPath=@TargetDir@/bin/skvmd.exe",
-    "start=auto"
+    "start=auto",
+    "UNDOEXECUTE",
+    "sc",
+    "delete",
+    "skvmd"
   );
 }
 
 function startService() {
-  component.addElevatedOperation("Execute", "sc", "start", "skvmd");
+  component.addElevatedOperation(
+    "Execute",
+    "sc",
+    "start",
+    "skvmd",
+    "UNDOEXECUTE",
+    "sc",
+    "stop",
+    "skvmd"
+  );
 }
