@@ -23,7 +23,7 @@ function createShortcut(target, location) {
   );
 }
 
-function addFirewallRule(programm, name, protocol, direction, action) {
+function addFirewallRule(programm, name, protocol, direction) {
   component.addElevatedOperation(
     "Execute",
     "netsh",
@@ -34,7 +34,17 @@ function addFirewallRule(programm, name, protocol, direction, action) {
     "name=" + name,
     "protocol=" + protocol,
     "dir=" + direction,
-    "action=" + action,
+    "action=allow",
+    "program=" + programm,
+    "UNDOEXECUTE",
+    "netsh",
+    "advfirewall",
+    "firewall",
+    "delete",
+    "rule",
+    "name=" + name,
+    "protocol=" + protocol,
+    "dir=" + direction,
     "program=" + programm
   );
 }
@@ -49,10 +59,10 @@ function addFirewallRules() {
   const programs = [getProgrammPath("skvms.exe"), getProgrammPath("skvmc.exe")];
 
   programs.forEach((program) => {
-    addFirewallRule(program, "@ProductName@", "TCP", "in", "allow");
-    addFirewallRule(program, "@ProductName@", "TCP", "out", "allow");
-    addFirewallRule(program, "@ProductName@", "UDP", "in", "allow");
-    addFirewallRule(program, "@ProductName@", "UDP", "out", "allow");
+    addFirewallRule(program, "@ProductName@", "TCP", "in");
+    addFirewallRule(program, "@ProductName@", "TCP", "out");
+    addFirewallRule(program, "@ProductName@", "UDP", "in");
+    addFirewallRule(program, "@ProductName@", "UDP", "out");
   });
 }
 
