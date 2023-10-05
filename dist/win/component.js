@@ -50,13 +50,17 @@ function addFirewallRule(programm, name, protocol, direction) {
 }
 
 function getProgrammPath(name) {
-  return `program=${installer.value("TargetDir")}/bin/${name}.exe`
+  return `${installer.value("TargetDir")}/bin/${name}.exe`
     .split("/")
     .join("\\");
 }
 
 function addFirewallRules() {
-  const programs = [getProgrammPath("skvms.exe"), getProgrammPath("skvmc.exe")];
+  const programs = [
+    getProgrammPath("skvm"),
+    getProgrammPath("skvms"),
+    getProgrammPath("skvmc"),
+  ];
 
   programs.forEach((program) => {
     addFirewallRule(program, "@ProductName@", "TCP", "in");
