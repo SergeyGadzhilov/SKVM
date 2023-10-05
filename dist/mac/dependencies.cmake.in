@@ -1,0 +1,5 @@
+set(DEPLOYQT "@DEPLOYQT@")
+set(CMAKE_CURRENT_SOURCE_DIR "@CMAKE_CURRENT_SOURCE_DIR@")
+set(BUNDLE "${CPACK_TEMPORARY_INSTALL_DIRECTORY}/SHShare.app")
+
+execute_process(COMMAND ${DEPLOYQT} ${BUNDLE} -qmldir=${CMAKE_CURRENT_SOURCE_DIR} -codesign=gadzhilov.sergey@gmail.com)
