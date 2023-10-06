@@ -1,0 +1,21 @@
+set(SKVM_NAME "SKVM")
+set(SKVM_DESCRIPTION "SKVM  is software that mimics the functionality of a KVM switch")
+set(SKVM_PACKAGE_TYPE "deb" CACHE STRING "Linux package rpm or deb")
+
+install(FILES install/linux/skvm.desktop DESTINATION share/applications)
+install(FILES install/linux/skvm.svg DESTINATION share/icons/hicolor/scalable/apps)
+
+if(${SHSH_PACKAGE_TYPE} MATCHES "rpm")
+    set(CPACK_GENERATOR "RPM")
+    set(CPACK_PACKAGE_DESCRIPTION_SUMMARY ${SKVM_NAME})
+    set(CPACK_RPM_PACKAGE_NAME ${SKVM_NAME})
+    set(CPACK_RPM_PACKAGE_DESCRIPTION ${SKVM_DESCRIPTION})
+else()
+    set(CPACK_GENERATOR "DEB")
+    set(CPACK_PACKAGE_DESCRIPTION_SUMMARY ${SKVM_NAME})
+    set(CPACK_DEBIAN_PACKAGE_DESCRIPTION ${SKVM_DESCRIPTION})
+    set(CPACK_DEBIAN_PACKAGE_MAINTAINER "gadzhilov.sergey@gmail.com")
+    set(CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON)
+endif()
+
+include(CPack)
