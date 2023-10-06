@@ -5,6 +5,10 @@ set(SKVM_PACKAGE_TYPE "deb" CACHE STRING "Linux package rpm or deb")
 install(FILES install/linux/skvm.desktop DESTINATION share/applications)
 install(FILES install/linux/skvm.svg DESTINATION share/icons/hicolor/scalable/apps)
 
+SET(CPACK_PACKAGE_VERSION_MAJOR ${SKVM_VERSION_MAJOR})
+SET(CPACK_PACKAGE_VERSION_MINOR ${SKVM_VERSION_MINOR})
+SET(CPACK_PACKAGE_VERSION_PATCH ${SKVM_VERSION_PATCH})
+
 if(${SHSH_PACKAGE_TYPE} MATCHES "rpm")
     set(CPACK_GENERATOR "RPM")
     set(CPACK_PACKAGE_DESCRIPTION_SUMMARY ${SKVM_NAME})
