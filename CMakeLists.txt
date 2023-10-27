@@ -37,7 +37,6 @@ if (NOT CMAKE_BUILD_TYPE STREQUAL "Debug")
 endif()
 
 include (cmake/Version.cmake)
-include (cmake/Package.cmake)
 
 # TODO: Find out why we need these, and remove them
 if (COMMAND cmake_policy)

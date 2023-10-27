@@ -1,7 +1,7 @@
 #
 # Installers
 #
-install(TARGETS skvm skvmc skvms skvmd
+install(TARGETS skvm skvmc skvms
     BUNDLE DESTINATION . COMPONENT "SKVM"
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT "SKVM"
     RUNTIME DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT "SKVM")
@@ -13,7 +13,8 @@ if(APPLE)
 endif()
 
 if(WIN32)
-    include(dist/win/win.cmake)
+   install(TARGETS skvmd COMPONENT "SKVM")
+   include(dist/win/win.cmake)
 endif()
 
 if(UNIX AND NOT APPLE)

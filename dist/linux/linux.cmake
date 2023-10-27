@@ -2,8 +2,8 @@ set(SKVM_NAME "SKVM")
 set(SKVM_DESCRIPTION "SKVM  is software that mimics the functionality of a KVM switch")
 set(SKVM_PACKAGE_TYPE "deb" CACHE STRING "Linux package rpm or deb")
 
-install(FILES install/linux/skvm.desktop DESTINATION share/applications)
-install(FILES install/linux/skvm.svg DESTINATION share/icons/hicolor/scalable/apps)
+install(FILES dist/linux/skvm.desktop DESTINATION share/applications)
+install(FILES dist/linux/skvm.svg DESTINATION share/icons/hicolor/scalable/apps)
 
 SET(CPACK_PACKAGE_VERSION_MAJOR ${SKVM_VERSION_MAJOR})
 SET(CPACK_PACKAGE_VERSION_MINOR ${SKVM_VERSION_MINOR})
