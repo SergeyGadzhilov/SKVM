@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=SKVM
+Comment=Open-source KVM software
+Path=/usr/bin
+Exec=/usr/bin/skvm
+Icon=skvm
+Terminal=false
+Categories=Utility
+Keywords=kvm;mouse;keyboard;share;network;lan;
