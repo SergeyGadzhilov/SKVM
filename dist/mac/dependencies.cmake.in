@@ -1,15 +1,5 @@
 set(DEPLOYQT "@DEPLOYQT@")
 set(CMAKE_CURRENT_SOURCE_DIR "@CMAKE_CURRENT_SOURCE_DIR@")
 set(BUNDLE "${CPACK_TEMPORARY_INSTALL_DIRECTORY}/skvm.app")
-set(BINARIES "skvmc;skvms")
-set(BINARIES_DESTINATION "${BUNDLE}/Contents/MacOS")
-set(RESOURCES_DESTINATION "${BUNDLE}/Contents/Resources")
-
-foreach(binary ${BINARIES})
-    file(COPY "${CPACK_TEMPORARY_INSTALL_DIRECTORY}/${binary}" DESTINATION "${BINARIES_DESTINATION}")
-    file(REMOVE "${CPACK_TEMPORARY_INSTALL_DIRECTORY}/${binary}")
-endforeach()
-
-file(COPY "@CMAKE_CURRENT_SOURCE_DIR@/dist/mac/skvm.icns" DESTINATION ${RESOURCES_DESTINATION})
 
 execute_process(COMMAND ${DEPLOYQT} ${BUNDLE} -qmldir=${CMAKE_CURRENT_SOURCE_DIR} -codesign=gadzhilov.sergey@gmail.com)
