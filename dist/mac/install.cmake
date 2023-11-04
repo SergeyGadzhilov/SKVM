@@ -12,5 +12,3 @@ install(TARGETS skvm
 
 install(TARGETS skvmc skvms DESTINATION ./skvm.app/Contents/MacOS COMPONENT "SKVM")
 install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/dist/mac/skvm.icns" DESTINATION ./skvm.app/Contents/Resources COMPONENT "SKVM")
-
-include(dist/mac/pack.cmake)

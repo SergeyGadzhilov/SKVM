@@ -339,3 +339,4 @@ enable_testing()
 
 add_subdirectory (src)
 include(dist/install.cmake)
+include(dist/pack.cmake)
