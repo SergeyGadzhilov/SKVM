@@ -338,4 +338,4 @@ endmacro (configure_files)
 enable_testing()
 
 add_subdirectory (src)
-include(dist/installer.cmake)
+include(dist/install.cmake)
