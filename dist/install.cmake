@@ -10,6 +10,5 @@ if(WIN32)
 endif()
 
 if(UNIX AND NOT APPLE)
-
     include(dist/linux/install.cmake)
 endif()
