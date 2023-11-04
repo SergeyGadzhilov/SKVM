@@ -235,12 +235,6 @@ endif()
 
 target_link_libraries (skvm common)
 
-if (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
-    install(TARGETS skvm DESTINATION ${SKVM_BUNDLE_BINARY_DIR})
-elseif (${CMAKE_SYSTEM_NAME} MATCHES "Linux" OR ${CMAKE_SYSTEM_NAME} MATCHES "BSD")
-    install (TARGETS skvm DESTINATION bin)
-endif()
-
 if(SKVM_BUILD_TESTS)
     set(GUI_TEST_SOURCE_FILES
         test/KeySequenceTests.cpp

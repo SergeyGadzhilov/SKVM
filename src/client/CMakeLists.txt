@@ -51,9 +51,3 @@ endif()
 add_executable(skvmc ${sources})
 target_link_libraries(skvmc
     arch base client common io mt net ipc platform server synlib ${libs} ${OPENSSL_LIBS})
-
-if (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
-    install(TARGETS skvmc DESTINATION ${SKVM_BUNDLE_BINARY_DIR})
-elseif (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
-    install (TARGETS skvmc DESTINATION bin)
-endif()
