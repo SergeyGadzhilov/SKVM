@@ -13,7 +13,7 @@
     <x>0</x>
     <y>0</y>
     <width>450</width>
-    <height>314</height>
+    <height>400</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -57,8 +57,9 @@ Copyright © 2022 Hadzhilov Serhii.&lt;br /&gt;
 Copyright © 2018 Debauchee Open Source Group.&lt;br /&gt;
 Copyright © 2012-2016 Symless Ltd.&lt;br /&gt;
 Copyright © 2002-2012 Chris Schoeneman, Nick Bolton,&lt;br&gt; Volker Lanz.&lt;br /&gt;&lt;br /&gt;
-SKVM is released under the GNU General Public License (GPLv2).&lt;br /&gt;&lt;br /&gt;
-SKVM is based on CosmoSynergy by Richard Lee and Adam Feder.&lt;br /&gt;
+SKVM is released under the GNU General Public License &lt;br&gt;(GPLv2).&lt;br /&gt;&lt;br /&gt;
+SKVM is based on CosmoSynergy by &lt;br&gt;
+Richard Lee and Adam Feder.&lt;br /&gt;
 The SKVM GUI is based on QSynergy by Volker Lanz.
 &lt;/p&gt;</string>
      </property>

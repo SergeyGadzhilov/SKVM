@@ -33,12 +33,4 @@ AboutDialog::AboutDialog(QWidget* parent) :
     version = version + '-' + SKVM_VERSION_STAGE;
     version = version + '-' + SKVM_REVISION;
     m_pLabelAppVersion->setText(version);
-
-// change default size based on os
-#if defined(Q_OS_LINUX)
-    QSize size(600, 330);
-    setMaximumSize(size);
-    setMinimumSize(size);
-    resize(size);
-#endif
 }
