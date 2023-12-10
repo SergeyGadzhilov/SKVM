@@ -1,5 +1,6 @@
 /*
  * SKVM -- mouse and keyboard sharing utility
+ * Copyright (C) 2022 Hadzhilov Serhii
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2008 Volker Lanz (vl@fidra.de)
  *
@@ -16,23 +17,20 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#if !defined(ABOUTDIALOG__H)
-
+#ifndef ABOUTDIALOG__H
 #define ABOUTDIALOG__H
 
 #include <QDialog>
-
 #include "ui_AboutDialogBase.h"
 
 class QWidget;
-class QString;
 
 class AboutDialog : public QDialog, public Ui::AboutDialogBase
 {
     Q_OBJECT
 
-    public:
-        AboutDialog(QWidget* parent, const QString& app_name);
+public:
+    AboutDialog(QWidget* parent);
 };
 
-#endif
+#endif //ABOUTDIALOG__H

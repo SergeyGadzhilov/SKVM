@@ -1,5 +1,6 @@
 /*
  * SKVM -- mouse and keyboard sharing utility
+ * Copyright (C) 2022 Serhii Hadzhilov.
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2008 Volker Lanz (vl@fidra.de)
  *
@@ -41,10 +42,10 @@
 class QThreadImpl : public QThread
 {
 public:
-	static void msleep(unsigned long msecs)
-	{
-		QThread::msleep(msecs);
-	}
+    static void msleep(unsigned long msecs)
+    {
+        QThread::msleep(msecs);
+    }
 };
 
 int waitForTray();
@@ -56,7 +57,7 @@ bool checkMacAssistiveDevices();
 void copy_qsettings(const QSettings &src, QSettings &dst)
 {
     auto keys = src.allKeys();
-    for (const auto& key : keys) {
+    for (const auto& key : qAsConst(keys)) {
         dst.setValue(key, src.value(key));
     }
 }
@@ -75,14 +76,14 @@ int main(int argc, char* argv[])
     /* Workaround for QTBUG-40332 - "High ping when QNetworkAccessManager is instantiated" */
     ::setenv ("QT_BEARER_POLL_TIMEOUT", "-1", 1);
 #endif
-    QCoreApplication::setOrganizationName("SKVM");
-	QCoreApplication::setOrganizationDomain("github.com");
+    QCoreApplication::setOrganizationName("skvm");
+    QCoreApplication::setOrganizationDomain("github.com");
     QCoreApplication::setApplicationName("SKVM");
 
-	QSKVMApplication app(argc, argv);
+    QSKVMApplication app(argc, argv);
 
 #if defined(Q_OS_MAC)
-	if (app.applicationDirPath().startsWith("/Volumes/")) {
+    if (app.applicationDirPath().startsWith("/Volumes/")) {
         // macOS preferences track applications allowed assistive access by path
         // Unfortunately, there's no user-friendly way to allow assistive access
         // to applications that are not in default paths (/Applications),
@@ -92,18 +93,18 @@ int main(int argc, char* argv[])
         QMessageBox::information(nullptr, "SKVM",
                                  "Please drag SKVM to the Applications folder, "
                                  "and open it from there.");
-		return 1;
-	}
+        return 1;
+    }
 
-	if (!checkMacAssistiveDevices())
-	{
-		return 1;
-	}
+    if (!checkMacAssistiveDevices())
+    {
+        return 1;
+    }
 #endif
 
-	int trayAvailable = waitForTray();
+    int trayAvailable = waitForTray();
 
-	QApplication::setQuitOnLastWindowClosed(false);
+    QApplication::setQuitOnLastWindowClosed(false);
 
     // TODO: Remove once Wayland support is stabilised.
     if (QGuiApplication::platformName() == "wayland") {
@@ -112,60 +113,60 @@ int main(int argc, char* argv[])
         "You are using wayland session, which is currently not fully supported by SKVM.");
     }
 
-	QSettings settings;
+    QSettings settings;
     if (settings.allKeys().empty()) {
         // if there are no settings, attempt to copy from old Barrier settings location
         QSettings fallback_settings{"Debauchee", "Barrier"};
         copy_qsettings(fallback_settings, settings);
     }
 
-	AppConfig appConfig (&settings);
+    AppConfig appConfig (&settings);
 
-	if (appConfig.getAutoHide() && !trayAvailable)
-	{
-		// force auto hide to false - otherwise there is no way to get the GUI back
-		fprintf(stdout, "System tray not available, force disabling auto hide!\n");
-		appConfig.setAutoHide(false);
-	}
+    if (appConfig.getAutoHide() && !trayAvailable)
+    {
+        // force auto hide to false - otherwise there is no way to get the GUI back
+        fprintf(stdout, "System tray not available, force disabling auto hide!\n");
+        appConfig.setAutoHide(false);
+    }
 
-	app.switchTranslator(appConfig.language());
+    app.switchTranslator(appConfig.language());
 
-	MainWindow mainWindow(settings, appConfig);
-	SetupWizard setupWizard(mainWindow, true);
+    MainWindow mainWindow(settings, appConfig);
+    SetupWizard setupWizard(mainWindow, true);
 
-	if (appConfig.wizardShouldRun())
-	{
-		setupWizard.show();
-	}
-	else
-	{
-		mainWindow.open();
-	}
+    if (appConfig.wizardShouldRun())
+    {
+        setupWizard.show();
+    }
+    else
+    {
+        mainWindow.open();
+    }
 
-	return app.exec();
+    return app.exec();
 }
 
 int waitForTray()
 {
-	// on linux, the system tray may not be available immediately after logging in,
-	// so keep retrying but give up after a short time.
-	int trayAttempts = 0;
-	while (true)
-	{
-		if (QSystemTrayIcon::isSystemTrayAvailable())
-		{
-			break;
-		}
+    // on linux, the system tray may not be available immediately after logging in,
+    // so keep retrying but give up after a short time.
+    int trayAttempts = 0;
+    while (true)
+    {
+        if (QSystemTrayIcon::isSystemTrayAvailable())
+        {
+            break;
+        }
 
-		if (++trayAttempts > TRAY_RETRY_COUNT)
-		{
-			fprintf(stdout, "System tray is unavailable.\n");
-			return false;
-		}
+        if (++trayAttempts > TRAY_RETRY_COUNT)
+        {
+            fprintf(stdout, "System tray is unavailable.\n");
+            return false;
+        }
 
-		QThreadImpl::msleep(TRAY_RETRY_WAIT);
-	}
-	return true;
+        QThreadImpl::msleep(TRAY_RETRY_WAIT);
+    }
+    return true;
 }
 
 #if defined(Q_OS_MAC)
@@ -173,36 +174,36 @@ bool checkMacAssistiveDevices()
 {
 #if __MAC_OS_X_VERSION_MIN_REQUIRED >= 1090 // mavericks
 
-	// new in mavericks, applications are trusted individually
-	// with use of the accessibility api. this call will show a
-	// prompt which can show the security/privacy/accessibility
+    // new in mavericks, applications are trusted individually
+    // with use of the accessibility api. this call will show a
+    // prompt which can show the security/privacy/accessibility
     // tab, with a list of allowed applications. SKVM should
-	// show up there automatically, but will be unchecked.
+    // show up there automatically, but will be unchecked.
 
-	if (AXIsProcessTrusted()) {
-		return true;
-	}
+    if (AXIsProcessTrusted()) {
+        return true;
+    }
 
-	const void* keys[] = { kAXTrustedCheckOptionPrompt };
-	const void* trueValue[] = { kCFBooleanTrue };
-	CFDictionaryRef options = CFDictionaryCreate(nullptr, keys, trueValue, 1, nullptr, nullptr);
+    const void* keys[] = { kAXTrustedCheckOptionPrompt };
+    const void* trueValue[] = { kCFBooleanTrue };
+    CFDictionaryRef options = CFDictionaryCreate(nullptr, keys, trueValue, 1, nullptr, nullptr);
 
-	bool result = AXIsProcessTrustedWithOptions(options);
-	CFRelease(options);
-	return result;
+    bool result = AXIsProcessTrustedWithOptions(options);
+    CFRelease(options);
+    return result;
 
 #else
 
-	// now deprecated in mavericks.
-	bool result = AXAPIEnabled();
-	if (!result) {
-		QMessageBox::information(
+    // now deprecated in mavericks.
+    bool result = AXAPIEnabled();
+    if (!result) {
+        QMessageBox::information(
             nullptr, "SKVM",
-			"Please enable access to assistive devices "
-			"System Preferences -> Security & Privacy -> "
+            "Please enable access to assistive devices "
+            "System Preferences -> Security & Privacy -> "
             "Privacy -> Accessibility, then re-open SKVM.");
-	}
-	return result;
+    }
+    return result;
 
 #endif
 }

@@ -1,5 +1,6 @@
 /*
  * SKVM -- mouse and keyboard sharing utility
+ * Copyright (C) 2022 Serhii Hadzhilov.
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2008 Volker Lanz (vl@fidra.de)
  *
@@ -27,17 +28,18 @@ QSKVMApplication* QSKVMApplication::s_Instance = nullptr;
 QSKVMApplication::QSKVMApplication(int& argc, char** argv) :
     QApplication(argc, argv)
 {
+    registerFonts();
     s_Instance = this;
 }
 
-QSKVMApplication::~QSKVMApplication() = default;
-
 void QSKVMApplication::commitData(QSessionManager&)
 {
-    for (QWidget* widget : topLevelWidgets()) {
-        MainWindow* mainWindow = qobject_cast<MainWindow*>(widget);
-        if (mainWindow)
+    auto widgets = topLevelWidgets();
+    for (auto widget : qAsConst(widgets)) {
+        auto mainWindow = qobject_cast<MainWindow*>(widget);
+        if (mainWindow) {
             mainWindow->saveSettings();
+        }
     }
 }
 
@@ -46,21 +48,31 @@ QSKVMApplication* QSKVMApplication::getInstance()
     return s_Instance;
 }
 
+void QSKVMApplication::registerFonts()
+{
+    QFontDatabase::addApplicationFont(":/fonts/Roboto-Regular.ttf");
+    QFontDatabase::addApplicationFont(":/fonts/Roboto-Bold.ttf");
+
+    QFont defaultFront;
+    defaultFront.setFamily("Roboto-Regular");
+    setFont(defaultFront);
+}
+
 void QSKVMApplication::switchTranslator(QString lang)
 {
-    if (translator_) {
-        removeTranslator(translator_.get());
-        translator_.reset();
+    if (_translator) {
+        removeTranslator(_translator.get());
+        _translator.reset();
     }
 
     QResource locale(":/res/lang/gui_" + lang + ".qm");
-    translator_ = std::make_unique<QTranslator>();
-    translator_->load(locale.data(), locale.size());
-    installTranslator(translator_.get());
+    _translator = std::make_unique<QTranslator>();
+    _translator->load(locale.data(), locale.size());
+    installTranslator(_translator.get());
 }
 
 void QSKVMApplication::setTranslator(QTranslator* translator)
 {
-    translator_.reset(translator);
-    installTranslator(translator_.get());
+    _translator.reset(translator);
+    installTranslator(_translator.get());
 }

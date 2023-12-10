@@ -1,5 +1,6 @@
 /*
  * SKVM -- mouse and keyboard sharing utility
+ * Copyright (C) 2022 Serhii Hadzhilov.
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2008 Volker Lanz (vl@fidra.de)
  *
@@ -16,8 +17,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#if !defined(QSKVMApplication__H)
-
+#ifndef QSKVMApplication__H
 #define QSKVMApplication__H
 
 #include <QApplication>
@@ -27,22 +27,21 @@ class QSessionManager;
 
 class QSKVMApplication : public QApplication
 {
-    public:
-        QSKVMApplication(int& argc, char** argv);
-        ~QSKVMApplication();
+public:
+    QSKVMApplication(int& argc, char** argv);
+    ~QSKVMApplication() = default;
 
-    public:
-        void commitData(QSessionManager& manager);
-        void switchTranslator(QString lang);
-        // takes ownership
-        void setTranslator(QTranslator* translator);
+    void commitData(QSessionManager& manager);
+    void switchTranslator(QString lang);
+    void setTranslator(QTranslator* translator);
 
-        static QSKVMApplication* getInstance();
+    static QSKVMApplication* getInstance();
 
-    private:
-        std::unique_ptr<QTranslator> translator_;
+private:
+    void registerFonts();
 
-        static QSKVMApplication* s_Instance;
+    std::unique_ptr<QTranslator> _translator;
+    static QSKVMApplication* s_Instance;
 };
 
-#endif
+#endif //QSKVMApplication__H

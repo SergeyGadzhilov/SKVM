@@ -1,5 +1,6 @@
 /*
  * SKVM -- mouse and keyboard sharing utility
+ * Copyright (C) 2022 Hadzhilov Serhii
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2008 Volker Lanz (vl@fidra.de)
  *
@@ -22,30 +23,14 @@
 #include <QtGui>
 #include "common/Version.h"
 
-AboutDialog::AboutDialog(QWidget* parent, const QString& app_name) :
-	QDialog(parent, Qt::WindowTitleHint | Qt::WindowSystemMenuHint),
-	Ui::AboutDialogBase()
+AboutDialog::AboutDialog(QWidget* parent) :
+    QDialog(parent, Qt::WindowTitleHint | Qt::WindowSystemMenuHint),
+    Ui::AboutDialogBase()
 {
-	setupUi(this);
+    setupUi(this);
 
     QString version = kVersion;
     version = version + '-' + SKVM_VERSION_STAGE;
-#ifdef SKVM_REVISION
-    version +=  '-';
-    version += SKVM_REVISION;
-#endif
+    version = version + '-' + SKVM_REVISION;
     m_pLabelAppVersion->setText(version);
-
-	// change default size based on os
-#if defined(Q_OS_MAC)
-	QSize size(600, 380);
-	setMaximumSize(size);
-	setMinimumSize(size);
-	resize(size);
-#elif defined(Q_OS_LINUX)
-	QSize size(600, 330);
-	setMaximumSize(size);
-	setMinimumSize(size);
-	resize(size);
-#endif
 }

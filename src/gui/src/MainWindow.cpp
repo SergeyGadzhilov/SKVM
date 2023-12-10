@@ -1143,7 +1143,7 @@ bool MainWindow::on_m_pActionSave_triggered()
 
 void MainWindow::on_m_pActionAbout_triggered()
 {
-    AboutDialog(this, appPath(appConfig().client_name())).exec();
+    AboutDialog(this).exec();
 }
 
 void MainWindow::on_m_pActionSettings_triggered()
