@@ -56,6 +56,9 @@ void QSKVMApplication::registerFonts()
     QFont defaultFront;
     defaultFront.setFamily("Roboto-Regular");
     defaultFront.setPointSize(8);
+#ifdef Q_OS_MAC
+    defaultFront.setPointSize(12);
+#endif
     setFont(defaultFront);
 }
 
