@@ -422,84 +422,30 @@ Double click on a screen to edit its settings.</string>
           <string>&amp;Options</string>
          </property>
          <layout class="QGridLayout">
-          <item row="7" column="0">
-           <widget class="QGroupBox" name="groupBox_3">
-            <property name="title">
-             <string/>
+          <item row="12" column="0">
+           <spacer>
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
             </property>
-            <widget class="QLabel" name="m_pLabelSharingSize">
-             <property name="geometry">
-              <rect>
-               <x>0</x>
-               <y>0</y>
-               <width>201</width>
-               <height>21</height>
-              </rect>
-             </property>
-             <property name="text">
-              <string>Max Clipboard sharing size</string>
-             </property>
-            </widget>
-            <widget class="QSpinBox" name="m_pSpinBoxClipboardSizeLimit">
-             <property name="geometry">
-              <rect>
-               <x>250</x>
-               <y>0</y>
-               <width>131</width>
-               <height>20</height>
-              </rect>
-             </property>
-             <property name="toolTip">
-              <string>Clipboard sharing size in bytes</string>
-             </property>
-             <property name="toolTipDuration">
-              <number>-3</number>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-             </property>
-             <property name="minimum">
-              <number>1000000</number>
-             </property>
-             <property name="maximum">
-              <number>100000000</number>
-             </property>
-             <property name="singleStep">
-              <number>1000</number>
-             </property>
-             <property name="value">
-              <number>3000000</number>
-             </property>
-            </widget>
-           </widget>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>16</height>
+             </size>
+            </property>
+           </spacer>
           </item>
-          <item row="3" column="0">
-           <widget class="QCheckBox" name="m_pCheckBoxWin32KeepForeground">
-            <property name="enabled">
-             <bool>true</bool>
-            </property>
+          <item row="5" column="0">
+           <widget class="QCheckBox" name="m_pCheckBoxEnableDragAndDrop">
             <property name="text">
-             <string>Don't take &amp;foreground window on Windows servers</string>
+             <string>Enable drag and drop file transfers</string>
             </property>
            </widget>
           </item>
-          <item row="1" column="0">
-           <widget class="QCheckBox" name="m_pCheckBoxRelativeMouseMoves">
-            <property name="enabled">
-             <bool>true</bool>
-            </property>
+          <item row="4" column="0">
+           <widget class="QCheckBox" name="m_pCheckBoxIgnoreAutoConfigClient">
             <property name="text">
-             <string>Use &amp;relative mouse moves</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0">
-           <widget class="QCheckBox" name="m_pCheckBoxScreenSaverSync">
-            <property name="enabled">
-             <bool>true</bool>
-            </property>
-            <property name="text">
-             <string>S&amp;ynchronize screen savers</string>
+             <string>Ignore auto config clients</string>
             </property>
            </widget>
           </item>
@@ -556,30 +502,69 @@ Double click on a screen to edit its settings.</string>
             </item>
            </layout>
           </item>
-          <item row="9" column="0">
-           <spacer>
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>16</height>
-             </size>
-            </property>
-           </spacer>
+          <item row="7" column="0">
+           <layout class="QHBoxLayout" name="hLayoutClipboardSize">
+            <item>
+             <widget class="QLabel" name="m_pLabelSharingSize">
+              <property name="text">
+               <string>Clipboard size</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QSpinBox" name="m_pSpinBoxClipboardSizeLimit">
+              <property name="toolTip">
+               <string>Clipboard sharing size in bytes</string>
+              </property>
+              <property name="toolTipDuration">
+               <number>-3</number>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+              </property>
+              <property name="minimum">
+               <number>1000000</number>
+              </property>
+              <property name="maximum">
+               <number>100000000</number>
+              </property>
+              <property name="singleStep">
+               <number>1000</number>
+              </property>
+              <property name="value">
+               <number>3000000</number>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelClipboardSizeMb">
+              <property name="text">
+               <string>mb</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </item>
-          <item row="5" column="0">
-           <widget class="QCheckBox" name="m_pCheckBoxEnableDragAndDrop">
-            <property name="text">
-             <string>Enable drag and drop file transfers</string>
+          <item row="3" column="0">
+           <widget class="QCheckBox" name="m_pCheckBoxWin32KeepForeground">
+            <property name="enabled">
+             <bool>true</bool>
             </property>
-           </widget>
-          </item>
-          <item row="4" column="0">
-           <widget class="QCheckBox" name="m_pCheckBoxIgnoreAutoConfigClient">
             <property name="text">
-             <string>Ignore auto config clients</string>
+             <string>Don't take &amp;foreground window on Windows servers</string>
             </property>
            </widget>
           </item>
@@ -590,6 +575,26 @@ Double click on a screen to edit its settings.</string>
             </property>
             <property name="checked">
              <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QCheckBox" name="m_pCheckBoxScreenSaverSync">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="text">
+             <string>S&amp;ynchronize screen savers</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QCheckBox" name="m_pCheckBoxRelativeMouseMoves">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="text">
+             <string>Use &amp;relative mouse moves</string>
             </property>
            </widget>
           </item>
