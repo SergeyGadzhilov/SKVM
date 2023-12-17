@@ -2,6 +2,14 @@
 <ui version="4.0">
  <class>MainWindowBase</class>
  <widget class="QMainWindow" name="MainWindowBase">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>442</width>
+    <height>598</height>
+   </rect>
+  </property>
   <property name="sizePolicy">
    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
     <horstretch>0</horstretch>
@@ -461,6 +469,14 @@
    </property>
    <property name="shortcut">
     <string notr="true">F2</string>
+   </property>
+  </action>
+  <action name="m_pActionHelp">
+   <property name="text">
+    <string>Docs...</string>
+   </property>
+   <property name="toolTip">
+    <string>Docs</string>
    </property>
   </action>
  </widget>

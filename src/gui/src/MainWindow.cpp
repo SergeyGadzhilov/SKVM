@@ -292,6 +292,7 @@ void MainWindow::createMenuBar()
     main_menu_->addAction(m_pActionSave);
     main_menu_->addSeparator();
     main_menu_->addAction(m_pActionQuit);
+    m_pMenuHelp->addAction(m_pActionHelp);
     m_pMenuHelp->addAction(m_pActionAbout);
 
     setMenuBar(m_pMenuBar);
@@ -1414,3 +1415,10 @@ void MainWindow::showLogWindow()
 {
     m_pLogWindow->show();
 }
+
+void MainWindow::on_m_pActionHelp_triggered()
+{
+    const QUrl documentation("https://github.com/SergeyGadzhilov/SKVM/wiki");
+    QDesktopServices::openUrl(documentation);
+}
+
