@@ -30,7 +30,6 @@ AboutDialog::AboutDialog(QWidget* parent) :
     setupUi(this);
 
     QString version = kVersion;
-    version = version + '-' + SKVM_VERSION_STAGE;
     version = version + '-' + SKVM_REVISION;
     m_pLabelAppVersion->setText(version);
 }

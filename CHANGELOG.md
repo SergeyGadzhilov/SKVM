@@ -16,6 +16,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.2] - Unreleased
 
+### Removed
+
+- Remove stage from the version [#46](https://github.com/SergeyGadzhilov/SKVM/issues/46)
+
 ## [0.0.1](https://github.com/SergeyGadzhilov/SKVM/releases/tag/0.0.1) - 2023-12-17
 
 ### Added
