@@ -20,7 +20,7 @@ cmake_minimum_required(VERSION 3.12)
 project(SKVM C CXX)
 
 option(SKVM_BUILD_GUI "Build the GUI" ON)
-option(SKVM_BUILD_TESTS "Build the tests" ON)
+option(SKVM_BUILD_TESTS "Build the tests" OFF)
 option(SKVM_USE_EXTERNAL_GTEST "Use external installation of Google Test framework" OFF)
 option(SKVM_BUILD_X11 "Build with XWindows support" ON)
 option(SKVM_BUILD_LIBEI "Build with libei support" OFF)

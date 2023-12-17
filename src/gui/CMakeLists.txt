@@ -214,7 +214,6 @@ if (Qt6_FOUND)
 endif()
 target_link_libraries(skvm ${OPENSSL_LIBS})
 
-target_compile_definitions (skvm PRIVATE -DSKVM_VERSION_STAGE="${SKVM_VERSION_STAGE}")
 target_compile_definitions (skvm PRIVATE -DSKVM_REVISION="${SKVM_REVISION}")
 
 if (BUILD_MSWINDOWS)
