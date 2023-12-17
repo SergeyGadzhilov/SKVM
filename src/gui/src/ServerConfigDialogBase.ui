@@ -10,6 +10,11 @@
     <height>545</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <family>Roboto</family>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>Server Configuration</string>
   </property>
@@ -546,13 +551,6 @@ Double click on a screen to edit its settings.</string>
               </property>
               <property name="value">
                <number>3000000</number>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="labelClipboardSizeMb">
-              <property name="text">
-               <string>mb</string>
               </property>
              </widget>
             </item>
