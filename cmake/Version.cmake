@@ -2,7 +2,7 @@ cmake_minimum_required (VERSION 3.4)
 
 set(SKVM_VERSION_MAJOR 0)
 set(SKVM_VERSION_MINOR 0)
-set(SKVM_VERSION_PATCH 1)
+set(SKVM_VERSION_PATCH 2)
 set(SKVM_VERSION_STAGE "snapshot")
 
 # SKVM Version
