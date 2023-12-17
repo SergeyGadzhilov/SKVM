@@ -8,4 +8,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.0.1] - Unreleased
 
 ### Fixed
-- Wrong tab is opened in the server configuration (#17) 
+- Wrong tab is opened in the server configuration [#17](https://github.com/SergeyGadzhilov/SKVM/issues/17)
