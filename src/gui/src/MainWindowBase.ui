@@ -473,10 +473,10 @@
   </action>
   <action name="m_pActionHelp">
    <property name="text">
-    <string>Docs...</string>
+    <string>Online docs...</string>
    </property>
    <property name="toolTip">
-    <string>Docs</string>
+    <string>Online docs</string>
    </property>
   </action>
  </widget>
