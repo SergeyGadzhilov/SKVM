@@ -422,13 +422,6 @@ size_t ServerConfig::defaultClipboardSharingSize() {
     return 100 * 1000 * 1000; // 100 MB
 }
 
-size_t ServerConfig::setClipboardSharingSize(size_t size) {
-    if (size) {
-        setClipboardSharing(true);
-    } else {
-        setClipboardSharing(false);
-    }
-    using std::swap;
-    swap (size, m_ClipboardSharingSize);
-    return size;
+void ServerConfig::setClipboardSharingSize(size_t size) {
+    m_ClipboardSharingSize = size;
 }

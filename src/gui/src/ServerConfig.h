@@ -94,7 +94,7 @@ class ServerConfig : public BaseConfig
         void setIgnoreAutoConfigClient(bool on) { m_IgnoreAutoConfigClient = on; }
         void setEnableDragAndDrop(bool on) { m_EnableDragAndDrop = on; }
         void setClipboardSharing(bool on) { m_ClipboardSharing = on; }
-        size_t setClipboardSharingSize(size_t size);
+        void setClipboardSharingSize(size_t size);
         QList<bool>& switchCorners() { return m_SwitchCorners; }
         std::vector<Hotkey>& hotkeys() { return m_Hotkeys; }
 
