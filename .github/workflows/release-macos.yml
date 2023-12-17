@@ -7,7 +7,9 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
 
       - name: Install the Apple certificate
         env:
@@ -43,7 +45,8 @@ jobs:
             -DCMAKE_INSTALL_PREFIX="./../install" \
             -DCMAKE_OSX_DEPLOYMENT_TARGET=11 \
             -DCMAKE_BUILD_TYPE=Release \
-            -DCMAKE_PREFIX_PATH="$(brew --prefix qt5)" ../src
+            -DCMAKE_PREFIX_PATH="$(brew --prefix qt5)" ./..
+
           make -j package
 
       - name: Upload artifacts
