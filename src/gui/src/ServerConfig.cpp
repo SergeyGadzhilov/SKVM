@@ -259,6 +259,10 @@ QTextStream& operator<<(QTextStream& outStream, const ServerConfig& config)
     outStream << "\t" << "screenSaverSync = " << (config.screenSaverSync() ? "true" : "false") << "\n";
     outStream << "\t" << "win32KeepForeground = " << (config.win32KeepForeground() ? "true" : "false") << "\n";
     outStream << "\t" << "clipboardSharing = " << (config.clipboardSharing() ? "true" : "false") << "\n";
+    if (config.clipboardSharing()) {
+        const auto sizeInBytes = config.clipboardSharingSize() * 1024 * 1024;
+        outStream << "\t" << "clipboardSharingSize = " << sizeInBytes <<"\n";
+    }
 
     if (config.hasSwitchDelay())
         outStream << "\t" << "switchDelay = " << config.switchDelay() << "\n";
@@ -419,7 +423,7 @@ void::ServerConfig::addToFirstEmptyGrid(const QString &clientName)
 }
 
 size_t ServerConfig::defaultClipboardSharingSize() {
-    return 100 * 1000 * 1000; // 100 MB
+    return 100;
 }
 
 void ServerConfig::setClipboardSharingSize(size_t size) {
