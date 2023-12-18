@@ -540,17 +540,20 @@ Double click on a screen to edit its settings.</string>
               <property name="alignment">
                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
               </property>
+              <property name="suffix">
+               <string> mb</string>
+              </property>
               <property name="minimum">
-               <number>1000000</number>
+               <number>1</number>
               </property>
               <property name="maximum">
-               <number>100000000</number>
+               <number>100</number>
               </property>
               <property name="singleStep">
-               <number>1000</number>
+               <number>1</number>
               </property>
               <property name="value">
-               <number>3000000</number>
+               <number>100</number>
               </property>
              </widget>
             </item>
