@@ -1,5 +1,6 @@
 /*
  * SKVM -- mouse and keyboard sharing utility
+ * Copyright (C) 2023 Hadzhilov Serhii.
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2008 Volker Lanz (vl@fidra.de)
  *
@@ -16,8 +17,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#if !defined(SERVERCONFIGDIALOG__H)
-
+#ifndef SERVERCONFIGDIALOG__H
 #define SERVERCONFIGDIALOG__H
 
 #include "ScreenSetupModel.h"
@@ -31,35 +31,36 @@ class ServerConfigDialog : public QDialog, public Ui::ServerConfigDialogBase
 {
     Q_OBJECT
 
-    public:
-        ServerConfigDialog(QWidget* parent, ServerConfig& config, const QString& defaultScreenName);
+public:
+    ServerConfigDialog(QWidget* parent, ServerConfig& config, const QString& defaultScreenName);
 
-    public slots:
-        void accept() override;
-        void showEvent(QShowEvent* event) override;
-        void message(const QString& message) { m_Message = message; }
+public slots:
+    void accept() override;
+    void showEvent(QShowEvent* event) override;
+    void message(const QString& message) { m_Message = message; }
 
-    protected slots:
-        void on_m_pButtonNewHotkey_clicked();
-        void on_m_pListHotkeys_itemSelectionChanged();
-        void on_m_pButtonEditHotkey_clicked();
-        void on_m_pButtonRemoveHotkey_clicked();
+protected slots:
+    void on_m_pButtonNewHotkey_clicked();
+    void on_m_pListHotkeys_itemSelectionChanged();
+    void on_m_pButtonEditHotkey_clicked();
+    void on_m_pButtonRemoveHotkey_clicked();
 
-        void on_m_pButtonNewAction_clicked();
-        void on_m_pListActions_itemSelectionChanged();
-        void on_m_pButtonEditAction_clicked();
-        void on_m_pButtonRemoveAction_clicked();
+    void on_m_pButtonNewAction_clicked();
+    void on_m_pListActions_itemSelectionChanged();
+    void on_m_pButtonEditAction_clicked();
+    void on_m_pButtonRemoveAction_clicked();
+    void on_m_pCheckBoxEnableClipboard_toggled(bool checked);
 
-    protected:
-        ServerConfig& serverConfig() { return m_ServerConfig; }
-        void setOrigServerConfig(const ServerConfig& s) { m_OrigServerConfig = s; }
-        ScreenSetupModel& model() { return m_ScreenSetupModel; }
+protected:
+    ServerConfig& serverConfig() { return m_ServerConfig; }
+    void setOrigServerConfig(const ServerConfig& s) { m_OrigServerConfig = s; }
+    ScreenSetupModel& model() { return m_ScreenSetupModel; }
 
-    private:
-        ServerConfig& m_OrigServerConfig;
-        ServerConfig m_ServerConfig;
-        ScreenSetupModel m_ScreenSetupModel;
-        QString m_Message;
+private:
+    ServerConfig& m_OrigServerConfig;
+    ServerConfig m_ServerConfig;
+    ScreenSetupModel m_ScreenSetupModel;
+    QString m_Message;
 };
 
 #endif
