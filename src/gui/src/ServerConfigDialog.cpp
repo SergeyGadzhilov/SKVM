@@ -1,5 +1,6 @@
 /*
  * SKVM -- mouse and keyboard sharing utility
+ * Copyright (C) 2023 Hadzhilov Serhii.
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2008 Volker Lanz (vl@fidra.de)
  *
@@ -230,3 +231,10 @@ void ServerConfigDialog::on_m_pListActions_itemSelectionChanged()
     m_pButtonEditAction->setEnabled(!m_pListActions->selectedItems().isEmpty());
     m_pButtonRemoveAction->setEnabled(!m_pListActions->selectedItems().isEmpty());
 }
+
+void ServerConfigDialog::on_m_pCheckBoxEnableClipboard_toggled(bool checked)
+{
+    m_pLabelSharingSize->setEnabled(checked);
+    m_pSpinBoxClipboardSizeLimit->setEnabled(checked);
+}
+
