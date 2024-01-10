@@ -30,9 +30,10 @@ jobs:
 
           make package
           ls -l
+          pwd
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
           name: skvm-linux.${{matrix.distro}}
-          path: SKVM*.${{matrix.distro}}
+          path: ./SKVM*.${{matrix.distro}}
