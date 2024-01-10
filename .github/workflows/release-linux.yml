@@ -3,7 +3,6 @@ on: workflow_dispatch
 
 jobs:
   release-linux:
-    name: ${{ matrix.distro }}
     runs-on: ubuntu-latest
     container: sgad/skvm:ubuntu
 
@@ -11,6 +10,7 @@ jobs:
       matrix:
         distro:
           - deb
+          - rpm
 
     steps:
       - name: Checkout repo
@@ -21,8 +21,6 @@ jobs:
       - name: Make release
         id: run-linux-build
         run: |
-          ls -l
-          pwd
           mkdir build_${{matrix.distro}}
           cd build_${{matrix.distro}}
           cmake \
@@ -31,8 +29,6 @@ jobs:
             -DSKVM_PACKAGE_TYPE=${{matrix.distro}} ./..
 
           make package
-          ls -l
-          pwd
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
