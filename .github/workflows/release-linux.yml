@@ -11,7 +11,6 @@ jobs:
       matrix:
         distro:
           - deb
-          - rpm
 
     steps:
       - name: Checkout repo
@@ -30,6 +29,7 @@ jobs:
             -DSKVM_PACKAGE_TYPE=${{matrix.distro}} ./..
 
           make package
+          ls -l
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
