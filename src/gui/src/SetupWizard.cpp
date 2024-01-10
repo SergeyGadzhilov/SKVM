@@ -101,12 +101,6 @@ void SetupWizard::changeEvent(QEvent* event)
 
 void SetupWizard::accept()
 {
-    AppConfig& appConfig = m_MainWindow.appConfig();
-
-    appConfig.setLanguage(m_pComboLanguage->itemData(m_pComboLanguage->currentIndex()).toString());
-
-    appConfig.saveSettings();
-
     QSettings& settings = m_MainWindow.settings();
     if (m_pServerRadioButton->isChecked())
     {
