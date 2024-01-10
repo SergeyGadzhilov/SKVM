@@ -20,7 +20,7 @@ jobs:
           submodules: recursive
 
       - name: Make release
-        id: run-macos-build
+        id: run-linux-build
         run: |
           mkdir build_${{matrix.distro}}
           cd build_${{matrix.distro}}
@@ -35,4 +35,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: skvm-linux.${{matrix.distro}}
-          path: install/pack/SKVM*.${{matrix.distro}}
+          path: SKVM*.${{matrix.distro}}
