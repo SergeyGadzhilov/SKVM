@@ -134,7 +134,7 @@ int main(int argc, char* argv[])
     MainWindow mainWindow(settings, appConfig);
     SetupWizard setupWizard(mainWindow, true);
 
-    if (appConfig.wizardShouldRun())
+    if (true)
     {
         setupWizard.show();
     }

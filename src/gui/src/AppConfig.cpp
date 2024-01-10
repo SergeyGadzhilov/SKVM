@@ -1,5 +1,6 @@
 /*
  * SKVM -- mouse and keyboard sharing utility
+ * Copyright (C) 2024 Serhii Hadzhilov.
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2008 Volker Lanz (vl@fidra.de)
  *
@@ -53,7 +54,6 @@ AppConfig::AppConfig(QSettings* settings) :
     m_Port(24800),
     m_Interface(),
     m_LogLevel(0),
-    m_WizardLastRun(0),
     m_ProcessMode(DEFAULT_PROCESS_MODE),
     m_AutoConfig(true),
     m_ElevateMode(defaultElevateMode),
@@ -130,8 +130,6 @@ QString AppConfig::logLevelText() const
 
 ProcessMode AppConfig::processMode() const { return m_ProcessMode; }
 
-bool AppConfig::wizardShouldRun() const { return m_WizardLastRun < kWizardVersion; }
-
 const QString &AppConfig::language() const { return m_Language; }
 
 bool AppConfig::startedBefore() const { return m_StartedBefore; }
@@ -146,7 +144,6 @@ void AppConfig::loadSettings()
     m_LogLevel = settings().value("logLevel", 3).toInt(); // level 3: INFO
     m_LogToFile = settings().value("logToFile", false).toBool();
     m_LogFilename = settings().value("logFilename", log_dir() + "skvm.log").toString();
-    m_WizardLastRun = settings().value("wizardLastRun", 0).toInt();
     m_Language = settings().value("language", QLocale::system().name()).toString();
     m_StartedBefore = settings().value("startedBefore", false).toBool();
     m_AutoConfig = settings().value("autoConfig", true).toBool();
@@ -172,7 +169,6 @@ void AppConfig::saveSettings()
     settings().setValue("logLevel", m_LogLevel);
     settings().setValue("logToFile", m_LogToFile);
     settings().setValue("logFilename", m_LogFilename);
-    settings().setValue("wizardLastRun", kWizardVersion);
     settings().setValue("language", m_Language);
     settings().setValue("startedBefore", m_StartedBefore);
     settings().setValue("autoConfig", m_AutoConfig);
@@ -202,8 +198,6 @@ void AppConfig::setLogLevel(int i) { m_LogLevel = i; }
 void AppConfig::setLogToFile(bool b) { m_LogToFile = b; }
 
 void AppConfig::setLogFilename(const QString &s) { m_LogFilename = s; }
-
-void AppConfig::setWizardHasRun() { m_WizardLastRun = kWizardVersion; }
 
 void AppConfig::setLanguage(const QString language) { m_Language = language; }
 

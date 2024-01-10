@@ -105,7 +105,6 @@ void SetupWizard::accept()
 
     appConfig.setLanguage(m_pComboLanguage->itemData(m_pComboLanguage->currentIndex()).toString());
 
-    appConfig.setWizardHasRun();
     appConfig.saveSettings();
 
     QSettings& settings = m_MainWindow.settings();

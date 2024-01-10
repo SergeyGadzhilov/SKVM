@@ -1022,15 +1022,13 @@ void MainWindow::updateZeroconfService()
     QMutexLocker locker(&m_UpdateZeroconfMutex);
 
     if (isBonjourRunning()) {
-        if (!m_AppConfig->wizardShouldRun()) {
-            if (m_pZeroconfService) {
-                delete m_pZeroconfService;
-                m_pZeroconfService = nullptr;
-            }
+        if (m_pZeroconfService) {
+            delete m_pZeroconfService;
+            m_pZeroconfService = nullptr;
+        }
 
-            if (m_AppConfig->autoConfig() || app_role() == AppRole::Server) {
-                m_pZeroconfService = new ZeroconfService(this);
-            }
+        if (m_AppConfig->autoConfig() || app_role() == AppRole::Server) {
+            m_pZeroconfService = new ZeroconfService(this);
         }
     }
 }
