@@ -21,6 +21,8 @@ jobs:
       - name: Make release
         id: run-linux-build
         run: |
+          ls -l
+          pwd
           mkdir build_${{matrix.distro}}
           cd build_${{matrix.distro}}
           cmake \
@@ -36,4 +38,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: skvm-linux.${{matrix.distro}}
-          path: SKVM/build_${{matrix.distro}}/SKVM*.${{matrix.distro}}
+          path: build_${{matrix.distro}}/SKVM*.${{matrix.distro}}
