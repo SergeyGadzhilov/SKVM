@@ -23,7 +23,6 @@
 #include "QSKVMApplication.h"
 #include "MainWindow.h"
 #include "AppConfig.h"
-#include "SetupWizard.h"
 #include "DisplayIsValid.h"
 
 #include <QtCore>
@@ -132,16 +131,7 @@ int main(int argc, char* argv[])
     app.switchTranslator(appConfig.language());
 
     MainWindow mainWindow(settings, appConfig);
-    SetupWizard setupWizard(mainWindow, true);
-
-    if (appConfig.wizardShouldRun())
-    {
-        setupWizard.show();
-    }
-    else
-    {
-        mainWindow.open();
-    }
+    mainWindow.open();
 
     return app.exec();
 }

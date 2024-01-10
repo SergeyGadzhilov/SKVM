@@ -16,31 +16,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#if !defined(APPCONFIG_H)
-
+#ifndef APPCONFIG_H
 #define APPCONFIG_H
 
 #include <QObject>
 #include <QString>
 #include "ElevateMode.h"
-
-// this should be incremented each time a new page is added. this is
-// saved to settings when the user finishes running the wizard. if
-// the saved wizard version is lower than this number, the wizard
-// will be displayed. each version incrememnt should be described
-// here...
-//
-//   1: first version
-//   2: added language page
-//   3: added premium page and removed
-//   4: ssl plugin 'ns' v1.0
-//   5: ssl plugin 'ns' v1.1
-//   6: ssl plugin 'ns' v1.2
-//   7: serial key activation
-//   8: Visual Studio 2015 support
-//   9: synergy->barrier and de-commercialized
-//
-const int kWizardVersion = 9;
 
 class QSettings;
 class SettingsDialog;
@@ -56,7 +37,6 @@ class AppConfig: public QObject
 
     friend class SettingsDialog;
     friend class MainWindow;
-    friend class SetupWizard;
 
     public:
         AppConfig(QSettings* settings);
@@ -72,7 +52,6 @@ class AppConfig: public QObject
         const QString logFilenameCmd() const;
         QString logLevelText() const;
         ProcessMode processMode() const;
-        bool wizardShouldRun() const;
         const QString& language() const;
         bool startedBefore() const;
         bool autoConfig() const;
@@ -113,7 +92,6 @@ protected:
         void setLogLevel(int i);
         void setLogToFile(bool b);
         void setLogFilename(const QString& s);
-        void setWizardHasRun();
         void setLanguage(const QString language);
         void setStartedBefore(bool b);
         void setElevateMode(ElevateMode em);
@@ -127,7 +105,6 @@ protected:
         int m_LogLevel;
         bool m_LogToFile;
         QString m_LogFilename;
-        int m_WizardLastRun;
         ProcessMode m_ProcessMode;
         QString m_Language;
         bool m_StartedBefore;
