@@ -6,32 +6,32 @@ jobs:
     runs-on: ubuntu-latest
     container: sgad/skvm:ubuntu
 
+    strategy:
+      matrix:
+        distro:
+          - deb
+          - rpm
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
           submodules: recursive
 
-      - name: Build deb
-        id: run-build
+      - name: Make release
+        id: run-linux-build
         run: |
-          mkdir deb; cd deb
-          cmake -DCMAKE_BUILD_TYPE=Release -DSKVM_PACKAGE_TYPE=deb ./..
+          mkdir build_${{matrix.distro}}
+          cd build_${{matrix.distro}}
+          cmake \
+            -DCMAKE_INSTALL_PREFIX="./../install" \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DSKVM_PACKAGE_TYPE=${{matrix.distro}} ./..
+
           make package
 
-      - name: Upload deb
+      - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
-          path: deb/SKVM*.deb
-
-      - name: Build rpm
-        id: run-build
-        run: |
-          cd ..; mkdir rpm; cd rpm
-          cmake -DCMAKE_BUILD_TYPE=Release -DSKVM_PACKAGE_TYPE=rpm ./..
-          make package
-
-      - name: Upload rpm
-        uses: actions/upload-artifact@v3
-        with:
-          path: rpm/SKVM*.rpm
+          name: skvm-linux.${{matrix.distro}}
+          path: build_${{matrix.distro}}/SKVM*.${{matrix.distro}}
