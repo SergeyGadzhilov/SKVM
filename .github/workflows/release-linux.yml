@@ -1,0 +1,38 @@
+name: Release Linux
+on: workflow_dispatch
+
+jobs:
+  release-linux:
+    name: ${{ matrix.distro }}
+    runs-on: ubuntu-latest
+    container: sgad/skvm:ubuntu
+
+    strategy:
+      matrix:
+        distro:
+          - deb
+          - rpm
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Make release
+        id: run-macos-build
+        run: |
+          mkdir build_${{matrix.distro}}
+          cd build_${{matrix.distro}}
+          cmake \
+            -DCMAKE_INSTALL_PREFIX="./../install" \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DSKVM_PACKAGE_TYPE=${{matrix.distro}} ./..
+
+          make package
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: skvm-linux.${{matrix.distro}}
+          path: install/pack/SKVM*.${{matrix.distro}}
