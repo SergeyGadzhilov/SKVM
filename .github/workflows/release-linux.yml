@@ -36,4 +36,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: skvm-linux.${{matrix.distro}}
-          path: SKVM/SKVM/build_${{matrix.distro}}/SKVM*.${{matrix.distro}}
+          path: SKVM/build_${{matrix.distro}}/SKVM*.${{matrix.distro}}
