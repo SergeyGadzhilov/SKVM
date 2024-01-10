@@ -55,7 +55,6 @@ class QAbstractButton;
 
 class LogDialog;
 class QSKVMApplication;
-class SetupWizard;
 class ZeroconfService;
 class DataDownloader;
 class CommandProcess;
@@ -66,7 +65,6 @@ class MainWindow : public QMainWindow, public Ui::MainWindowBase
     Q_OBJECT
 
     friend class QSKVMApplication;
-    friend class SetupWizard;
     friend class SettingsDialog;
 
     public:
