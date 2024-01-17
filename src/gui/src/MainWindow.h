@@ -1,5 +1,6 @@
 /*
  * SKVM -- mouse and keyboard sharing utility
+ * Copyright (C) 2022 Hadzhilov Serhii
  * Copyright (C) 2012-2016 Symless Ltd.
  * Copyright (C) 2008 Volker Lanz (vl@fidra.de)
  *
@@ -52,13 +53,15 @@ class QRadioButton;
 class QTemporaryFile;
 class QMessageBox;
 class QAbstractButton;
-
 class LogDialog;
 class QSKVMApplication;
-class ZeroconfService;
 class DataDownloader;
 class CommandProcess;
 class SslCertificate;
+
+#ifdef SKVM_USE_BONJOUR
+    class ZeroconfService;
+#endif
 
 class MainWindow : public QMainWindow, public Ui::MainWindowBase
 {
@@ -170,8 +173,7 @@ public slots:
         IpcClient m_IpcClient;
         QMenuBar* m_pMenuBar;
         QMenu* main_menu_;
-        QMenu* m_pMenuHelp;
-        ZeroconfService* m_pZeroconfService;
+        QMenu* m_pMenuHelp;  
         DataDownloader* m_pDataDownloader;
         QMessageBox* m_DownloadMessageBox;
         QAbstractButton* m_pCancelButton;
@@ -186,6 +188,10 @@ public slots:
         LogWindow *m_pLogWindow;
 
         bool m_fingerprint_expanded = false;
+
+#ifdef SKVM_USE_BONJOUR
+    ZeroconfService* m_pZeroconfService;
+#endif
 
 private slots:
     void on_m_pCheckBoxAutoConfig_toggled(bool checked);

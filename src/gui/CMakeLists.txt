@@ -59,11 +59,6 @@ set(GUI_SOURCE_FILES
     src/SettingsDialog.cpp
     src/SslCertificate.cpp
     src/TrashScreenWidget.cpp
-    src/ZeroconfBrowser.cpp
-    src/ZeroconfRegister.cpp
-    src/ZeroconfServer.cpp
-    src/ZeroconfService.cpp
-    src/ZeroconfThread.cpp
 )
 
 set(GUI_HEADER_FILES
@@ -98,12 +93,6 @@ set(GUI_HEADER_FILES
     src/SettingsDialog.h
     src/SslCertificate.h
     src/TrashScreenWidget.h
-    src/ZeroconfBrowser.h
-    src/ZeroconfRecord.h
-    src/ZeroconfRegister.h
-    src/ZeroconfServer.h
-    src/ZeroconfService.h
-    src/ZeroconfThread.h
 )
 
 set(GUI_UI_FILES
@@ -184,6 +173,26 @@ if (WIN32)
     set_property(SOURCE res/win/SKVM.rc PROPERTY COMPILE_FLAGS /nologo)
 endif()
 
+if (SKVM_USE_BONJOUR)
+    add_definitions(-DSKVN_USE_BONJOUR=1)
+    list (APPEND GUI_HEADER_FILES
+        src/ZeroconfBrowser.h
+        src/ZeroconfRecord.h
+        src/ZeroconfRegister.h
+        src/ZeroconfServer.h
+        src/ZeroconfService.h
+        src/ZeroconfThread.h
+    )
+    list (APPEND GUI_SOURCE_FILES
+        src/ZeroconfBrowser.cpp
+        src/ZeroconfRegister.cpp
+        src/ZeroconfServer.cpp
+        src/ZeroconfService.cpp
+        src/ZeroconfThread.cpp
+    )
+
+endif()
+
 add_executable (skvm WIN32
     ${GUI_COMMON_SOURCE_FILES}
     ${GUI_COMMON_HEADER_FILES}
@@ -210,26 +219,26 @@ if (Qt6_FOUND)
     target_link_libraries(skvm Qt6::Core5Compat)
 endif()
 target_link_libraries(skvm ${OPENSSL_LIBS})
-
 target_compile_definitions (skvm PRIVATE -DSKVM_REVISION="${SKVM_REVISION}")
-
-if (BUILD_MSWINDOWS)
-    include_directories ($ENV{BONJOUR_SDK_HOME}/Include)
-    find_library (DNSSD_LIB dnssd.lib
-                  HINTS ENV BONJOUR_SDK_HOME
-                  PATH_SUFFIXES "Lib/x64")
-    set_target_properties (skvm PROPERTIES LINK_FLAGS "/NODEFAULTLIB:LIBCMT")
-    target_link_libraries (skvm ${DNSSD_LIB})
-endif()
-if (BUILD_CARBON)
-    find_library(APPSERVICES_LIB ApplicationServices)
-    target_link_libraries(skvm ${APPSERVICES_LIB})
-endif()
-if (BUILD_XWINDOWS)
-    target_link_libraries (skvm dns_sd X11 Threads::Threads)
-endif()
-
 target_link_libraries (skvm common)
+
+if (SKVM_USE_BONJOUR)
+    if (BUILD_MSWINDOWS)
+        include_directories ($ENV{BONJOUR_SDK_HOME}/Include)
+        find_library (DNSSD_LIB dnssd.lib
+                      HINTS ENV BONJOUR_SDK_HOME
+                      PATH_SUFFIXES "Lib/x64")
+        set_target_properties (skvm PROPERTIES LINK_FLAGS "/NODEFAULTLIB:LIBCMT")
+        target_link_libraries (skvm ${DNSSD_LIB})
+    endif()
+    if (BUILD_CARBON AND SKVN_USE_BONJOUR)
+        find_library(APPSERVICES_LIB ApplicationServices)
+        target_link_libraries(skvm ${APPSERVICES_LIB})
+    endif()
+    if (BUILD_XWINDOWS AND SKVN_USE_BONJOUR)
+        target_link_libraries (skvm dns_sd X11 Threads::Threads)
+    endif()
+endif()
 
 if(SKVM_BUILD_TESTS)
     set(GUI_TEST_SOURCE_FILES
