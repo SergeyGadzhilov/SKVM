@@ -422,10 +422,10 @@ void::ServerConfig::addToFirstEmptyGrid(const QString &clientName)
     }
 }
 
-size_t ServerConfig::defaultClipboardSharingSize() {
+int ServerConfig::defaultClipboardSharingSize() {
     return 100;
 }
 
-void ServerConfig::setClipboardSharingSize(size_t size) {
+void ServerConfig::setClipboardSharingSize(int size) {
     m_ClipboardSharingSize = size;
 }
