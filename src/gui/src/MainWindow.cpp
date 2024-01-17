@@ -1210,8 +1210,8 @@ bool MainWindow::isServiceRunning(QString name)
     SC_HANDLE hSCManager;
     hSCManager = OpenSCManager(nullptr, nullptr, SC_MANAGER_CONNECT);
     if (hSCManager == nullptr) {
-        appendLogError("failed to open a service controller manager, error: " +
-            GetLastError());
+        appendLogError(QString("failed to open a service controller manager, error: %1")
+                        .arg(GetLastError()));
         return false;
     }
 
@@ -1284,7 +1284,6 @@ void MainWindow::downloadBonjour()
         m_DownloadMessageBox->setWindowTitle("SKVM");
         m_DownloadMessageBox->setIcon(QMessageBox::Information);
         m_DownloadMessageBox->setText("Installing Bonjour, please wait...");
-        m_DownloadMessageBox->setStandardButtons(0);
         m_pCancelButton = m_DownloadMessageBox->addButton(
             tr("Cancel"), QMessageBox::RejectRole);
     }
