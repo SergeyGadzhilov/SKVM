@@ -16,14 +16,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <iostream>
-
 #include "MainWindow.h"
 
 #include "AboutDialog.h"
 #include "ServerConfigDialog.h"
 #include "SettingsDialog.h"
+#ifdef SKVM_USE_BONJOUR
 #include "ZeroconfService.h"
+#endif
 #include "DataDownloader.h"
 #include "CommandProcess.h"
 #include "FingerprintAcceptDialog.h"
@@ -120,7 +120,9 @@ MainWindow::MainWindow(QSettings& settings, AppConfig& appConfig) :
     m_pMenuBar(nullptr),
     main_menu_(nullptr),
     m_pMenuHelp(nullptr),
+#ifdef SKVM_USE_BONJOUR
     m_pZeroconfService(nullptr),
+#endif
     m_pDataDownloader(nullptr),
     m_DownloadMessageBox(nullptr),
     m_pCancelButton(nullptr),
@@ -167,7 +169,9 @@ MainWindow::MainWindow(QSettings& settings, AppConfig& appConfig) :
     m_SuppressAutoConfigWarning = true;
     m_pCheckBoxAutoConfig->setChecked(appConfig.autoConfig());
     m_SuppressAutoConfigWarning = false;
-
+#ifndef SKVM_USE_BONJOUR
+    m_pCheckBoxAutoConfig->hide();
+#endif
     m_pComboServerList->hide();
     m_pLabelPadlock->hide();
     frame_fingerprint_details->hide();
@@ -200,8 +204,9 @@ MainWindow::~MainWindow()
     }
 
     saveSettings();
-
+#ifdef SKVM_USE_BONJOUR
     delete m_pZeroconfService;
+#endif
     delete m_DownloadMessageBox;
     delete m_BonjourInstall;
     delete m_pSslCertificate;
@@ -1019,6 +1024,8 @@ bool MainWindow::event(QEvent* event)
 
 void MainWindow::updateZeroconfService()
 {
+#ifdef SKVM_USE_BONJOUR
+
     QMutexLocker locker(&m_UpdateZeroconfMutex);
 
     if (isBonjourRunning()) {
@@ -1031,6 +1038,7 @@ void MainWindow::updateZeroconfService()
             m_pZeroconfService = new ZeroconfService(this);
         }
     }
+#endif
 }
 
 void MainWindow::serverDetected(const QString name)
@@ -1235,7 +1243,7 @@ bool MainWindow::isBonjourRunning()
 {
     bool result = false;
 
-#if defined(Q_OS_WIN)
+#ifdef Q_OS_WIN
     result = isServiceRunning("Bonjour Service");
 #else
     result = true;
@@ -1340,6 +1348,7 @@ void MainWindow::installBonjour()
 
 void MainWindow::promptAutoConfig()
 {
+    #ifdef SKVM_USE_BONJOUR
     if (!isBonjourRunning()) {
         int r = QMessageBox::question(
             this, tr("SKVM"),
@@ -1358,6 +1367,7 @@ void MainWindow::promptAutoConfig()
     }
 
     m_AppConfig->setAutoConfigPrompted(true);
+#endif
 }
 
 void MainWindow::on_m_pComboServerList_currentIndexChanged(QString )
@@ -1369,6 +1379,7 @@ void MainWindow::on_m_pComboServerList_currentIndexChanged(QString )
 
 void MainWindow::on_m_pCheckBoxAutoConfig_toggled(bool checked)
 {
+    #ifdef SKVM_USE_BONJOUR
     if (!isBonjourRunning() && checked) {
         if (!m_SuppressAutoConfigWarning) {
             int r = QMessageBox::information(
@@ -1394,6 +1405,7 @@ void MainWindow::on_m_pCheckBoxAutoConfig_toggled(bool checked)
         m_pComboServerList->clear();
         m_pComboServerList->hide();
     }
+    #endif
 }
 
 void MainWindow::bonjourInstallFinished()
