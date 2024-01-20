@@ -143,7 +143,6 @@ public slots:
         void stopService();
         void stopDesktop();
         void changeEvent(QEvent* event) override;
-        bool event(QEvent* event) override;
         void retranslateMenuBar();
 #if defined(Q_OS_WIN)
         bool isServiceRunning(QString name);
@@ -198,8 +197,6 @@ private slots:
     void on_m_pComboServerList_currentIndexChanged(QString );
     void on_m_pButtonReload_clicked();
     void installBonjour();
-
-    void on_m_pActionHelp_triggered();
 };
 
 #endif

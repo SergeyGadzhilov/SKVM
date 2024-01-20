@@ -157,15 +157,6 @@ MainWindow::MainWindow(QSettings& settings, AppConfig& appConfig) :
     m_IpcClient.connectToHost();
 #endif
 
-    // change default size based on os
-#if defined(Q_OS_MAC)
-    resize(720, 550);
-    setMinimumSize(720, 0);
-#elif defined(Q_OS_LINUX)
-    resize(700, 530);
-    setMinimumSize(700, 0);
-#endif
-
     m_SuppressAutoConfigWarning = true;
     m_pCheckBoxAutoConfig->setChecked(appConfig.autoConfig());
     m_SuppressAutoConfigWarning = false;
@@ -178,10 +169,9 @@ MainWindow::MainWindow(QSettings& settings, AppConfig& appConfig) :
 
     updateSSLFingerprint();
 
-    connect(toolbutton_show_fingerprint, &QToolButton::clicked, [this](bool checked)
+    connect(toolbutton_show_fingerprint, &QToolButton::clicked, this, [this](bool checked)
     {
         (void) checked;
-
         m_fingerprint_expanded = !m_fingerprint_expanded;
         if (m_fingerprint_expanded) {
             frame_fingerprint_details->show();
@@ -191,9 +181,6 @@ MainWindow::MainWindow(QSettings& settings, AppConfig& appConfig) :
             toolbutton_show_fingerprint->setArrowType(Qt::ArrowType::DownArrow);
         }
     });
-
-    // resize window to smallest reasonable size
-    resize(0, 0);
 }
 
 MainWindow::~MainWindow()
@@ -297,7 +284,6 @@ void MainWindow::createMenuBar()
     main_menu_->addAction(m_pActionSave);
     main_menu_->addSeparator();
     main_menu_->addAction(m_pActionQuit);
-    m_pMenuHelp->addAction(m_pActionHelp);
     m_pMenuHelp->addAction(m_pActionAbout);
 
     setMenuBar(m_pMenuBar);
@@ -1014,14 +1000,6 @@ void MainWindow::changeEvent(QEvent* event)
     QMainWindow::changeEvent(event);
 }
 
-bool MainWindow::event(QEvent* event)
-{
-    if (event->type() == QEvent::LayoutRequest) {
-        setFixedSize(sizeHint());
-    }
-    return QMainWindow::event(event);
-}
-
 void MainWindow::updateZeroconfService()
 {
 #ifdef SKVM_USE_BONJOUR
@@ -1424,10 +1402,3 @@ void MainWindow::showLogWindow()
 {
     m_pLogWindow->show();
 }
-
-void MainWindow::on_m_pActionHelp_triggered()
-{
-    const QUrl documentation("https://github.com/SergeyGadzhilov/SKVM/wiki");
-    QDesktopServices::openUrl(documentation);
-}
-

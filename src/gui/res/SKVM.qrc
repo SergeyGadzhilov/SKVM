@@ -59,5 +59,6 @@
         <file>icons/32x32/skvm-transfering-mask.png</file>
         <file>fonts/Roboto-Bold.ttf</file>
         <file>fonts/Roboto-Regular.ttf</file>
+        <file>icons/sidebar/help.svg</file>
     </qresource>
 </RCC>
