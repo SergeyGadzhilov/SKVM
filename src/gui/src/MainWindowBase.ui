@@ -60,7 +60,7 @@
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
+       <string notr="true">background-color: rgba(105, 145, 214, 0.2);</string>
       </property>
      </widget>
     </item>
