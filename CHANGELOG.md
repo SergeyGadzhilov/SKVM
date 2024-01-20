@@ -14,11 +14,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Security: in case of vulnerabilities
 
 ## [0.0.2] - Unreleased
+### Added
+- Adde sidebar with help button [#39](https://github.com/SergeyGadzhilov/SKVM/issues/39)
 ### Fixed
 - Issues with clipboard buffer size [#32](https://github.com/SergeyGadzhilov/SKVM/issues/32)
 ### Removed
 - Remove stage from the version [#46](https://github.com/SergeyGadzhilov/SKVM/issues/46)
-- Remove SetupWizard [#16] (https://github.com/SergeyGadzhilov/SKVM/issues/16)
+- Remove SetupWizard [#16](https://github.com/SergeyGadzhilov/SKVM/issues/16)
 
 ## [0.0.1](https://github.com/SergeyGadzhilov/SKVM/releases/tag/0.0.1) - 2023-12-17
 ### Added
