@@ -80,6 +80,7 @@ int main(int argc, char* argv[])
     QCoreApplication::setApplicationName("SKVM");
 
     QSKVMApplication app(argc, argv);
+    app.setAttribute(Qt::AA_UseHighDpiPixmaps);
 
 #if defined(Q_OS_MAC)
     if (app.applicationDirPath().startsWith("/Volumes/")) {
