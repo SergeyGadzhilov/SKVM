@@ -7,11 +7,11 @@
     <x>0</x>
     <y>0</y>
     <width>442</width>
-    <height>598</height>
+    <height>645</height>
    </rect>
   </property>
   <property name="sizePolicy">
-   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
     <horstretch>0</horstretch>
     <verstretch>0</verstretch>
    </sizepolicy>
@@ -20,14 +20,23 @@
    <string>SKVM</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
    <layout class="QVBoxLayout" name="verticalLayout_2">
     <property name="sizeConstraint">
-     <enum>QLayout::SetFixedSize</enum>
+     <enum>QLayout::SetDefaultConstraint</enum>
     </property>
     <item>
      <widget class="QGroupBox" name="m_pGroupServer">
       <property name="sizePolicy">
-       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+       <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
@@ -141,7 +150,7 @@
     <item>
      <widget class="QGroupBox" name="m_pGroupClient">
       <property name="sizePolicy">
-       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
@@ -229,6 +238,12 @@
       </item>
       <item>
        <widget class="QLabel" name="m_pLabelLocalFingerprint">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="text">
          <string/>
         </property>
@@ -251,6 +266,12 @@
     </item>
     <item>
      <widget class="QFrame" name="frame_fingerprint_details">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
       </property>
@@ -259,7 +280,7 @@
       </property>
       <layout class="QGridLayout" name="gridLayout">
        <property name="sizeConstraint">
-        <enum>QLayout::SetMinimumSize</enum>
+        <enum>QLayout::SetDefaultConstraint</enum>
        </property>
        <item row="1" column="1">
         <widget class="QLabel" name="label_sha256_randomart">
@@ -312,6 +333,19 @@
        </item>
       </layout>
      </widget>
+    </item>
+    <item>
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
     </item>
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout">

@@ -181,7 +181,6 @@ MainWindow::MainWindow(QSettings& settings, AppConfig& appConfig) :
     connect(toolbutton_show_fingerprint, &QToolButton::clicked, [this](bool checked)
     {
         (void) checked;
-
         m_fingerprint_expanded = !m_fingerprint_expanded;
         if (m_fingerprint_expanded) {
             frame_fingerprint_details->show();
@@ -192,8 +191,7 @@ MainWindow::MainWindow(QSettings& settings, AppConfig& appConfig) :
         }
     });
 
-    // resize window to smallest reasonable size
-    resize(0, 0);
+    adjustSize();
 }
 
 MainWindow::~MainWindow()
@@ -1012,14 +1010,6 @@ void MainWindow::changeEvent(QEvent* event)
     }
     // all that do not return are allowing the event to propagate
     QMainWindow::changeEvent(event);
-}
-
-bool MainWindow::event(QEvent* event)
-{
-    if (event->type() == QEvent::LayoutRequest) {
-        setFixedSize(sizeHint());
-    }
-    return QMainWindow::event(event);
 }
 
 void MainWindow::updateZeroconfService()
