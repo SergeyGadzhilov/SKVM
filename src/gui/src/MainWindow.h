@@ -197,8 +197,6 @@ private slots:
     void on_m_pComboServerList_currentIndexChanged(QString );
     void on_m_pButtonReload_clicked();
     void installBonjour();
-
-    void on_m_pActionHelp_triggered();
 };
 
 #endif

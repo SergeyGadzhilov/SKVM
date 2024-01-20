@@ -59,6 +59,7 @@ set(GUI_SOURCE_FILES
     src/SettingsDialog.cpp
     src/SslCertificate.cpp
     src/TrashScreenWidget.cpp
+    src/widgets/Sidebar.cpp
 )
 
 set(GUI_HEADER_FILES
@@ -93,6 +94,7 @@ set(GUI_HEADER_FILES
     src/SettingsDialog.h
     src/SslCertificate.h
     src/TrashScreenWidget.h
+    src/widgets/Sidebar.h
 )
 
 set(GUI_UI_FILES
@@ -204,6 +206,7 @@ add_executable (skvm WIN32
 )
 
 include_directories (./src)
+include_directories (./src/widgets)
 
 target_link_libraries(skvm
     net
