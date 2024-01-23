@@ -1,9 +1,9 @@
-option(SKVM_BUILD_BUNDLE "Build macos bundle" TRUE)
+
 
 set_target_properties(skvm PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER com.github.skvm
     MACOSX_BUNDLE_ICON_FILE skvm.icns
-    MACOSX_BUNDLE SKVM_BUILD_BUNDLE
+    MACOSX_BUNDLE TRUE
 )
 
 install(TARGETS skvm
