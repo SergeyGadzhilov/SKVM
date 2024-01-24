@@ -25,12 +25,17 @@ namespace skvm_widgets
 
 class Sidebar : public QWidget
 {
+    Q_OBJECT
 public:
     Sidebar(QWidget *parent = nullptr);
+
+signals:
+    void OpenLogs();
 
 private:
     void initLayout();
     void addBottomControls();
+    void addButtonLogs();
     void addButtonHelp();
 
     QVBoxLayout* m_layout = nullptr;

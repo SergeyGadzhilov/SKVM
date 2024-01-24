@@ -31,15 +31,35 @@ Sidebar::Sidebar(QWidget *parent) :
 
 void Sidebar::initLayout()
 {
+    setAttribute(Qt::WA_StyledBackground, true);
+    setStyleSheet(QString::fromUtf8(
+        "background-color: rgba(105, 145, 214, 0.2);"
+    ));
+
     m_layout = new QVBoxLayout(this);
-    m_layout->setSpacing(5);
+    m_layout->setSpacing(12);
     m_layout->setContentsMargins(-1, 15, -1, 15);
 }
 
 void Sidebar::addBottomControls()
 {
     m_layout->addItem(new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding));
+    addButtonLogs();
     addButtonHelp();
+}
+
+void Sidebar::addButtonLogs()
+{
+    QIcon icon(QString::fromUtf8(":/res/icons/sidebar/logs.svg"));
+    auto button = new QPushButton(this);
+    button->setFlat(true);
+    button->setIcon(icon);
+    button->setIconSize(QSize(30, 30));
+    button->setCursor(Qt::PointingHandCursor);
+    connect(button, &QPushButton::clicked, this, [this]() {
+        emit OpenLogs();
+    });
+    m_layout->addWidget(button);
 }
 
 void Sidebar::addButtonHelp()
