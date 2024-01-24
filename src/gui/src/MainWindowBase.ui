@@ -46,7 +46,7 @@
      <number>0</number>
     </property>
     <item>
-     <widget class="skvm_widgets::Sidebar" name="Sidebar" native="true">
+     <widget class="skvm_widgets::Sidebar" name="m_pSidebar" native="true">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
         <horstretch>0</horstretch>

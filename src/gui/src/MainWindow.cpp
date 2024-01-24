@@ -277,7 +277,6 @@ void MainWindow::createMenuBar()
     m_pMenuBar->addAction(main_menu_->menuAction());
     m_pMenuBar->addAction(m_pMenuHelp->menuAction());
 
-    main_menu_->addAction(m_pActionShowLog);
     main_menu_->addAction(m_pActionSettings);
     main_menu_->addAction(m_pActionMinimize);
     main_menu_->addSeparator();
@@ -311,6 +310,7 @@ void MainWindow::initConnections()
     connect(m_pActionStopCmdApp, SIGNAL(triggered()), this, SLOT(stop_cmd_app()));
     connect(m_pActionShowLog, SIGNAL(triggered()), this, SLOT(showLogWindow()));
     connect(m_pActionQuit, SIGNAL(triggered()), qApp, SLOT(quit()));
+    connect(m_pSidebar, &skvm_widgets::Sidebar::OpenLogs, this, &MainWindow::showLogWindow);
 }
 
 void MainWindow::saveSettings()

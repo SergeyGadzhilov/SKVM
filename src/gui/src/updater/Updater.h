@@ -34,7 +34,7 @@ public:
     void CheckForUpdate();
 
 signals:
-    void NewVersionAvailable(Version version) const;
+    void NewVersionAvailable(Version version);
 
 private:
     Version m_current;
