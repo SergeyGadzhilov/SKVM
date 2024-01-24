@@ -14,6 +14,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Security: in case of vulnerabilities
 
 ## [0.1.0] - Unreleased
+### Added
+- Logs to the sidebar [#63](https://github.com/SergeyGadzhilov/SKVM/issues/63)
+### Removed
+- Logs from the main menu [#63](https://github.com/SergeyGadzhilov/SKVM/issues/63)
 
 ## [0.0.2](https://github.com/SergeyGadzhilov/SKVM/releases/tag/0.0.2) - 2024-01-23
 ### Added
