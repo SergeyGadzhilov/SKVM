@@ -60,6 +60,8 @@ set(GUI_SOURCE_FILES
     src/SslCertificate.cpp
     src/TrashScreenWidget.cpp
     src/widgets/Sidebar.cpp
+    src/updater/Version.cpp
+    src/updater/Updater.cpp
 )
 
 set(GUI_HEADER_FILES
@@ -95,6 +97,8 @@ set(GUI_HEADER_FILES
     src/SslCertificate.h
     src/TrashScreenWidget.h
     src/widgets/Sidebar.h
+    src/updater/Version.h
+    src/updater/Updater.h
 )
 
 set(GUI_UI_FILES
