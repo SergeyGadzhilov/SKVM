@@ -61,5 +61,6 @@
         <file>fonts/Roboto-Regular.ttf</file>
         <file>icons/sidebar/help.svg</file>
         <file>icons/sidebar/logs.svg</file>
+        <file>icons/sidebar/settings.svg</file>
     </qresource>
 </RCC>

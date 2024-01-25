@@ -19,6 +19,7 @@
 
 #include <QWidget>
 #include <QVBoxLayout>
+#include <QPushButton>
 
 namespace skvm_widgets
 {
@@ -31,17 +32,19 @@ public:
 
 signals:
     void OpenLogs();
+    void OpenSettings();
 
 private:
     void initLayout();
     void addBottomControls();
+    void addButtonSettings();
     void addButtonLogs();
     void addButtonHelp();
+    QPushButton* addButton(QIcon icon);
 
     QVBoxLayout* m_layout = nullptr;
 };
 
 } //namespace skvm_widgets
-
 
 #endif // SKVM_SIDEBAR_H
