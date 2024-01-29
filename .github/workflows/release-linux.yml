@@ -27,7 +27,7 @@ jobs:
           make package
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: skvm-linux.${{matrix.distro}}
           path: build/SKVM*.${{matrix.distro}}
