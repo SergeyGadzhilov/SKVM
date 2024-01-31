@@ -14,6 +14,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Security: in case of vulnerabilities
 
 ## [0.1.0] - Unreleased
+### Added
+- Status bar into the MainWindow [#76](https://github.com/SergeyGadzhilov/SKVM/issues/76)
 
 ## [0.0.3] - (https://github.com/SergeyGadzhilov/SKVM/releases/tag/0.0.3) - 2024-01-29
 ### Added

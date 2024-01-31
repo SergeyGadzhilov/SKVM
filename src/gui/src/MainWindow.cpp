@@ -164,7 +164,6 @@ MainWindow::MainWindow(QSettings& settings, AppConfig& appConfig) :
     m_pCheckBoxAutoConfig->hide();
 #endif
     m_pComboServerList->hide();
-    m_pLabelPadlock->hide();
     frame_fingerprint_details->hide();
 
     updateSSLFingerprint();
@@ -232,7 +231,7 @@ void MainWindow::open()
 
 void MainWindow::setStatus(const QString &status)
 {
-    m_pStatusLabel->setText(status);
+    m_pStatusBar->SetStatus(status);
 }
 
 void MainWindow::createTrayIcon()
@@ -872,15 +871,14 @@ void MainWindow::set_connection_state(AppConnectionState state)
 
     m_pActionStartCmdApp->setEnabled(!connected);
     m_pActionStopCmdApp->setEnabled(connected);
-
     switch (state)
     {
     case AppConnectionState::CONNECTED: {
         if (m_AppConfig->getCryptoEnabled()) {
-            m_pLabelPadlock->show();
+            m_pStatusBar->ShowPadlock();
         }
         else {
-            m_pLabelPadlock->hide();
+            m_pStatusBar->HidePadlock();
         }
 
         setStatus(tr("SKVM is running."));
@@ -888,11 +886,11 @@ void MainWindow::set_connection_state(AppConnectionState state)
         break;
     }
     case AppConnectionState::CONNECTING:
-        m_pLabelPadlock->hide();
+        m_pStatusBar->HidePadlock();
         setStatus(tr("SKVM is starting."));
         break;
     case AppConnectionState::DISCONNECTED:
-        m_pLabelPadlock->hide();
+        m_pStatusBar->HidePadlock();
         setStatus(tr("SKVM is not running."));
         break;
     case AppConnectionState::TRANSFERRING:
