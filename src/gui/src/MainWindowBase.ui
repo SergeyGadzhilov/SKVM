@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>616</height>
+    <height>625</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -30,6 +30,9 @@
     <string notr="true"/>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout_5">
+    <property name="spacing">
+     <number>0</number>
+    </property>
     <property name="sizeConstraint">
      <enum>QLayout::SetDefaultConstraint</enum>
     </property>
@@ -66,17 +69,20 @@
     </item>
     <item>
      <layout class="QVBoxLayout" name="contentLayout">
+      <property name="spacing">
+       <number>11</number>
+      </property>
       <property name="leftMargin">
-       <number>10</number>
+       <number>0</number>
       </property>
       <property name="topMargin">
        <number>10</number>
       </property>
       <property name="rightMargin">
-       <number>10</number>
+       <number>0</number>
       </property>
       <property name="bottomMargin">
-       <number>10</number>
+       <number>0</number>
       </property>
       <item>
        <widget class="QGroupBox" name="m_pGroupServer">
@@ -268,6 +274,12 @@
       </item>
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <property name="leftMargin">
+         <number>11</number>
+        </property>
+        <property name="rightMargin">
+         <number>11</number>
+        </property>
         <item>
          <widget class="QLabel" name="m_pLabelFingerprint">
           <property name="sizePolicy">
@@ -397,26 +409,12 @@
         <property name="sizeConstraint">
          <enum>QLayout::SetDefaultConstraint</enum>
         </property>
-        <item>
-         <widget class="QLabel" name="m_pLabelPadlock">
-          <property name="enabled">
-           <bool>true</bool>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="pixmap">
-           <pixmap resource="../res/SKVM.qrc">:/res/icons/16x16/padlock.png</pixmap>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="m_pStatusLabel">
-          <property name="text">
-           <string>Ready</string>
-          </property>
-         </widget>
-        </item>
+        <property name="leftMargin">
+         <number>11</number>
+        </property>
+        <property name="rightMargin">
+         <number>11</number>
+        </property>
         <item>
          <spacer name="spacer">
           <property name="orientation">
@@ -448,6 +446,9 @@
          </widget>
         </item>
        </layout>
+      </item>
+      <item>
+       <widget class="skvm_widgets::StatusBar" name="m_pStatusBar" native="true"/>
       </item>
      </layout>
     </item>
@@ -560,10 +561,14 @@
    <header>widgets/Sidebar.h</header>
    <container>1</container>
   </customwidget>
+  <customwidget>
+   <class>skvm_widgets::StatusBar</class>
+   <extends>QWidget</extends>
+   <header>widgets/StatusBar.h</header>
+   <container>1</container>
+  </customwidget>
  </customwidgets>
- <resources>
-  <include location="../res/SKVM.qrc"/>
- </resources>
+ <resources/>
  <connections>
   <connection>
    <sender>m_pRadioExternalConfig</sender>

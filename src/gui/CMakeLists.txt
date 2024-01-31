@@ -62,6 +62,7 @@ set(GUI_SOURCE_FILES
     src/widgets/Sidebar.cpp
     src/updater/Version.cpp
     src/updater/Updater.cpp
+    src/widgets/StatusBar.cpp
 )
 
 set(GUI_HEADER_FILES
@@ -99,6 +100,7 @@ set(GUI_HEADER_FILES
     src/widgets/Sidebar.h
     src/updater/Version.h
     src/updater/Updater.h
+    src/widgets/StatusBar.h
 )
 
 set(GUI_UI_FILES
