@@ -25,6 +25,7 @@ StatusBar::StatusBar(QWidget *parent)
     addPadlockLabel();
     addStatusLabel();
     m_layout->addItem(new QSpacerItem(5, 5, QSizePolicy::Expanding, QSizePolicy::Maximum));
+    addNotificationIcon();
 }
 
 void StatusBar::SetStatus(const QString &status)
@@ -50,11 +51,11 @@ void StatusBar::initLayout()
     setAttribute(Qt::WA_StyledBackground, true);
     setStyleSheet(QString::fromUtf8(
         "background-color: rgba(105, 145, 214, 0.2);"
-        ));
+    ));
 
     m_layout = new QHBoxLayout(this);
     m_layout->setSpacing(12);
-    m_layout->setContentsMargins(-1, 10, -1, 10);
+    m_layout->setContentsMargins(0, 5, 25, 5);
 }
 
 void StatusBar::addStatusLabel()
@@ -77,6 +78,17 @@ void StatusBar::addPadlockLabel()
     m_padlock->setPixmap(QPixmap(QString::fromUtf8(":/res/icons/16x16/padlock.png")));
     m_layout->addWidget(m_padlock);
     m_padlock->hide();
+}
+
+void StatusBar::addNotificationIcon()
+{
+    m_notification = new QLabel(this);
+    m_notification->setStyleSheet(QString::fromUtf8(
+        "background-color: transparent;"
+    ));
+    m_notification->setCursor(Qt::PointingHandCursor);
+    m_notification->setPixmap(QPixmap(QString::fromUtf8(":/res/icons/statusbar/notification.svg")));
+    m_layout->addWidget(m_notification);
 }
 
 } //namespace skvm_widgets

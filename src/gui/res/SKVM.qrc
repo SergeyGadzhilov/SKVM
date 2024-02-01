@@ -62,5 +62,6 @@
         <file>icons/sidebar/help.svg</file>
         <file>icons/sidebar/logs.svg</file>
         <file>icons/sidebar/settings.svg</file>
+        <file>icons/statusbar/notification.svg</file>
     </qresource>
 </RCC>

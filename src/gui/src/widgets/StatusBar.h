@@ -37,9 +37,11 @@ private:
     void initLayout();
     void addStatusLabel();
     void addPadlockLabel();
+    void addNotificationIcon();
 
-    QLabel* m_padlock = nullptr;
     QLabel* m_status = nullptr;
+    QLabel* m_padlock = nullptr;
+    QLabel* m_notification = nullptr;
     QHBoxLayout* m_layout = nullptr;
 };
 
