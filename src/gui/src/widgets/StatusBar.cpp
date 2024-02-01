@@ -25,7 +25,7 @@ StatusBar::StatusBar(QWidget *parent)
     addPadlockLabel();
     addStatusLabel();
     m_layout->addItem(new QSpacerItem(5, 5, QSizePolicy::Expanding, QSizePolicy::Maximum));
-    addNotificationIcon();
+    addNotificationButton();
 }
 
 void StatusBar::SetStatus(const QString &status)
@@ -80,14 +80,19 @@ void StatusBar::addPadlockLabel()
     m_padlock->hide();
 }
 
-void StatusBar::addNotificationIcon()
+void StatusBar::addNotificationButton()
 {
-    m_notification = new QLabel(this);
-    m_notification->setStyleSheet(QString::fromUtf8(
-        "background-color: transparent;"
-    ));
+    QIcon icon(QString::fromUtf8(":/res/icons/statusbar/notification.svg"));
+
+    m_notification = new QPushButton(this);
+    m_notification->setFlat(true);
+    m_notification->setIcon(icon);
     m_notification->setCursor(Qt::PointingHandCursor);
-    m_notification->setPixmap(QPixmap(QString::fromUtf8(":/res/icons/statusbar/notification.svg")));
+
+    connect(m_notification, &QPushButton::clicked, this, [this]() {
+        emit ShowNotifications();
+    });
+
     m_layout->addWidget(m_notification);
 }
 

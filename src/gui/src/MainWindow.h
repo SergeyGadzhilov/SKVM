@@ -124,6 +124,7 @@ public slots:
         void logError();
         void bonjourInstallFinished();
         void showLogWindow();
+        void showNotifications();
 
     protected:
         QSettings& settings() { return m_Settings; }
