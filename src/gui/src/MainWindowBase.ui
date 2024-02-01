@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
+    <width>817</width>
     <height>625</height>
    </rect>
   </property>
@@ -452,6 +452,16 @@
       </item>
      </layout>
     </item>
+    <item>
+     <widget class="skvm_widgets::Notifications" name="m_pNotifications" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <action name="m_pActionAbout">
@@ -565,6 +575,12 @@
    <class>skvm_widgets::StatusBar</class>
    <extends>QWidget</extends>
    <header>widgets/StatusBar.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>skvm_widgets::Notifications</class>
+   <extends>QWidget</extends>
+   <header>widgets/Notifications.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

@@ -310,6 +310,7 @@ void MainWindow::initConnections()
     connect(m_pActionQuit, SIGNAL(triggered()), qApp, SLOT(quit()));
     connect(m_pSidebar, &skvm_widgets::Sidebar::OpenLogs, this, &MainWindow::showLogWindow);
     connect(m_pSidebar, &skvm_widgets::Sidebar::OpenSettings, this, &MainWindow::on_m_pActionSettings_triggered);
+    connect(m_pStatusBar, &skvm_widgets::StatusBar::ShowNotifications, this, &MainWindow::showNotifications);
 }
 
 void MainWindow::saveSettings()
@@ -1399,4 +1400,16 @@ void MainWindow::windowStateChanged()
 void MainWindow::showLogWindow()
 {
     m_pLogWindow->show();
+}
+
+void MainWindow::showNotifications()
+{
+    if (m_pNotifications->isHidden())
+    {
+        m_pNotifications->show();
+    }
+    else
+    {
+        m_pNotifications->hide();
+    }
 }

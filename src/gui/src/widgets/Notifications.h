@@ -14,41 +14,28 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef STATUSBAR_H
-#define STATUSBAR_H
+#ifndef NOTIFICATIONS_H
+#define NOTIFICATIONS_H
 
-#include <QLabel>
 #include <QWidget>
-#include <QHBoxLayout>
-#include <QPushButton>
+#include <QVBoxLayout>
 
 namespace skvm_widgets
 {
 
-class StatusBar : public QWidget
+class Notifications : public QWidget
 {
     Q_OBJECT
 public:
-    explicit StatusBar(QWidget *parent = nullptr);
-    void SetStatus(const QString& status);
-    void ShowPadlock();
-    void HidePadlock();
-
-signals:
-    void ShowNotifications();
+    explicit Notifications(QWidget *parent = nullptr);
 
 private:
     void initLayout();
-    void addStatusLabel();
-    void addPadlockLabel();
-    void addNotificationButton();
+    void addTitle();
 
-    QLabel* m_status = nullptr;
-    QLabel* m_padlock = nullptr;
-    QHBoxLayout* m_layout = nullptr;
-    QPushButton* m_notification = nullptr;
+    QVBoxLayout* m_layout = nullptr;
 };
 
 } //namespace skvm_widgets
 
-#endif // STATUSBAR_H
+#endif // NOTIFICATIONS_H
