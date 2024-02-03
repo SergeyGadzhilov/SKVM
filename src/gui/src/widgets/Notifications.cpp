@@ -37,6 +37,7 @@ void Notifications::initLayout()
     setStyleSheet(QString::fromUtf8(
         "background-color: rgba(255, 255, 255, 1);"
     ));
+    setFixedWidth(300);
     m_layout = new QVBoxLayout(this);
 }
 
@@ -49,7 +50,7 @@ void Notifications::addTitle()
     title->setFont(font);
     titleLayout->addWidget(title);
 
-    titleLayout->addItem(new QSpacerItem(0, 0, QSizePolicy::Expanding, QSizePolicy::Minimum));
+    titleLayout->addItem(new QSpacerItem(150, 0, QSizePolicy::Fixed, QSizePolicy::Fixed));
 
     QIcon icon(QString::fromUtf8(":/res/icons/notifications/close.svg"));
     auto close = new QPushButton(this);
