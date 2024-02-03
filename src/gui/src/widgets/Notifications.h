@@ -31,7 +31,6 @@ public:
 
 private:
     void initLayout();
-    void addTitle();
 
     QVBoxLayout* m_layout = nullptr;
 };
