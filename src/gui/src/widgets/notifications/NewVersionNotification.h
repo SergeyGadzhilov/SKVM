@@ -14,42 +14,37 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef STATUSBAR_H
-#define STATUSBAR_H
+#ifndef SKVM_WIDGETS_NOTIFICATIONS_NEWVERSIONNOTIFICATION_H
+#define SKVM_WIDGETS_NOTIFICATIONS_NEWVERSIONNOTIFICATION_H
 
-#include <QLabel>
 #include <QWidget>
-#include <QHBoxLayout>
-#include <QPushButton>
+#include <QVBoxLayout>
+#include "updater/Version.h"
 
 namespace skvm_widgets
 {
 
-class StatusBar : public QWidget
+namespace notifications
+{
+
+class NewVersionNotification : public QWidget
 {
     Q_OBJECT
 public:
-    explicit StatusBar(QWidget *parent = nullptr);
-    void SetStatus(const QString& status);
-    void ShowPadlock();
-    void HidePadlock();
-    void NewNotification();
-
-signals:
-    void ShowNotifications();
+    explicit NewVersionNotification(const skvm::updater::Version& version);
 
 private:
     void initLayout();
-    void addStatusLabel();
-    void addPadlockLabel();
-    void addNotificationButton();
+    void addTitle();
+    void addDescription();
+    void addButtons();
 
-    QLabel* m_status = nullptr;
-    QLabel* m_padlock = nullptr;
-    QHBoxLayout* m_layout = nullptr;
-    QPushButton* m_notification = nullptr;
+    skvm::updater::Version m_version;
+    QVBoxLayout* m_layout = nullptr;
 };
+
+} //namespace notifications
 
 } //namespace skvm_widgets
 
-#endif // STATUSBAR_H
+#endif // SKVM_WIDGETS_NOTIFICATIONS_NEWVERSIONNOTIFICATION_H

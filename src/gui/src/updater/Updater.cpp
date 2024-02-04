@@ -24,7 +24,7 @@
 namespace skvm {
 namespace updater {
 
-Updater::Updater(const std::string& version) :
+Updater::Updater(std::string version) :
     m_current(version)
 {
 }

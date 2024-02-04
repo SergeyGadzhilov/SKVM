@@ -18,6 +18,7 @@
 #include <QLabel>
 #include <QHBoxLayout>
 #include <QPushButton>
+#include "notifications/Title.h"
 
 namespace skvm_widgets
 {
@@ -26,9 +27,20 @@ Notifications::Notifications(QWidget *parent)
     : QWidget{parent}
 {
     initLayout();
-    addTitle();
+    m_layout->addWidget(new notifications::Title(this));
+    addContainer();
     m_layout->addItem(new QSpacerItem(20, 40, QSizePolicy::Expanding, QSizePolicy::Expanding));
     hide();
+}
+
+void Notifications::Add(QWidget *notification)
+{
+    if (!notification || !m_container)
+    {
+        return;
+    }
+    m_container->addWidget(notification);
+    emit NewNotification();
 }
 
 void Notifications::initLayout()
@@ -37,31 +49,16 @@ void Notifications::initLayout()
     setStyleSheet(QString::fromUtf8(
         "background-color: rgba(255, 255, 255, 1);"
     ));
+    setFixedWidth(400);
     m_layout = new QVBoxLayout(this);
 }
 
-void Notifications::addTitle()
+void Notifications::addContainer()
 {
-    auto titleLayout = new QHBoxLayout();
-    QFont font("Roboto", 11);
-    auto title = new QLabel(this);
-    title->setText("Notifications");
-    title->setFont(font);
-    titleLayout->addWidget(title);
-
-    titleLayout->addItem(new QSpacerItem(0, 0, QSizePolicy::Expanding, QSizePolicy::Minimum));
-
-    QIcon icon(QString::fromUtf8(":/res/icons/notifications/close.svg"));
-    auto close = new QPushButton(this);
-    close->setFlat(true);
-    close->setIcon(icon);
-    close->setCursor(Qt::PointingHandCursor);
-    connect(close, &QPushButton::clicked, this, [this](){
-        hide();
-    });
-    titleLayout->addWidget(close);
-
-    m_layout->addLayout(titleLayout);
+    m_container = new QVBoxLayout();
+    m_container->setMargin(0);
+    m_container->setSpacing(20);
+    m_layout->addLayout(m_container);
 }
 
 }//namespace skvm_widgets

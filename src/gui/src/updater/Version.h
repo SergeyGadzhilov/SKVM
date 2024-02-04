@@ -31,6 +31,9 @@ public:
     bool operator >(const Version& version) const;
     friend std::ostream& operator <<(std::ostream& stream, const Version& version);
 
+    const std::string GetVersion() const;
+    const std::string GetLink() const;
+
 private:
     void parse(const std::string& version);
 
