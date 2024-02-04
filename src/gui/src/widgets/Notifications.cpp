@@ -28,8 +28,19 @@ Notifications::Notifications(QWidget *parent)
 {
     initLayout();
     m_layout->addWidget(new notifications::Title(this));
+    addContainer();
     m_layout->addItem(new QSpacerItem(20, 40, QSizePolicy::Expanding, QSizePolicy::Expanding));
     hide();
+}
+
+void Notifications::Add(QWidget *notification)
+{
+    if (!notification || !m_container)
+    {
+        return;
+    }
+    m_container->addWidget(notification);
+    emit NewNotification();
 }
 
 void Notifications::initLayout()
@@ -38,8 +49,16 @@ void Notifications::initLayout()
     setStyleSheet(QString::fromUtf8(
         "background-color: rgba(255, 255, 255, 1);"
     ));
-    setFixedWidth(300);
+    setFixedWidth(400);
     m_layout = new QVBoxLayout(this);
+}
+
+void Notifications::addContainer()
+{
+    m_container = new QVBoxLayout();
+    m_container->setMargin(0);
+    m_container->setSpacing(20);
+    m_layout->addLayout(m_container);
 }
 
 }//namespace skvm_widgets

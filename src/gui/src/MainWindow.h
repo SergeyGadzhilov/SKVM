@@ -37,6 +37,7 @@
 #include "IpcClient.h"
 #include "Ipc.h"
 #include "LogWindow.h"
+#include "updater/Updater.h"
 
 #include <QMutex>
 
@@ -125,6 +126,7 @@ public slots:
         void bonjourInstallFinished();
         void showLogWindow();
         void showNotifications();
+        void newVersion(skvm::updater::Version version);
 
     protected:
         QSettings& settings() { return m_Settings; }
@@ -161,6 +163,7 @@ public slots:
         void updateSSLFingerprint();
 
     private:
+
         QSettings& m_Settings;
         AppConfig* m_AppConfig;
         QProcess* cmd_app_process_;
@@ -192,6 +195,7 @@ public slots:
 #ifdef SKVM_USE_BONJOUR
     ZeroconfService* m_pZeroconfService;
 #endif
+        skvm::updater::Updater m_updater;
 
 private slots:
     void on_m_pCheckBoxAutoConfig_toggled(bool checked);

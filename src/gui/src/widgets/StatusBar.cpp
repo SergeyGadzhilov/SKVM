@@ -46,6 +46,12 @@ void StatusBar::HidePadlock()
     }
 }
 
+void StatusBar::NewNotification()
+{
+    QIcon icon(QString::fromUtf8(":/res/icons/statusbar/notification_unread.svg"));
+    m_notification->setIcon(icon);
+}
+
 void StatusBar::initLayout()
 {
     setAttribute(Qt::WA_StyledBackground, true);
@@ -89,7 +95,8 @@ void StatusBar::addNotificationButton()
     m_notification->setIcon(icon);
     m_notification->setCursor(Qt::PointingHandCursor);
 
-    connect(m_notification, &QPushButton::clicked, this, [this]() {
+    connect(m_notification, &QPushButton::clicked, this, [this, icon]() {
+        m_notification->setIcon(icon);
         emit ShowNotifications();
     });
 

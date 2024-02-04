@@ -15,6 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include <iostream>
+#include <sstream>
 #include "Version.h"
 #include <base/String.h>
 
@@ -41,9 +42,24 @@ bool Version::operator >(const Version& version) const
     return false;
 }
 
+const std::string Version::GetVersion() const
+{
+    std::stringstream stream;
+    stream <<"v" << m_major<<"."<<m_minor<<"."<<m_patch;
+    return stream.str();
+}
+
+const std::string Version::GetLink() const
+{
+    std::stringstream stream;
+    stream << "https://github.com/SergeyGadzhilov/SKVM/releases/tag/";
+    stream <<m_major<<"."<<m_minor<<"."<<m_patch;
+    return stream.str();
+}
+
 std::ostream& operator<<(std::ostream &stream, const Version& version)
 {
-    stream<<"v"<<version.m_major<<"."<<version.m_minor<<"."<<version.m_patch;
+    stream<<version.GetVersion();
     return stream;
 }
 

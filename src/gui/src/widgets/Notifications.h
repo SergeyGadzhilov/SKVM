@@ -28,11 +28,17 @@ class Notifications : public QWidget
     Q_OBJECT
 public:
     explicit Notifications(QWidget *parent = nullptr);
+    void Add(QWidget* notification = nullptr);
+
+signals:
+    void NewNotification();
 
 private:
     void initLayout();
+    void addContainer();
 
     QVBoxLayout* m_layout = nullptr;
+    QVBoxLayout* m_container = nullptr;
 };
 
 } //namespace skvm_widgets

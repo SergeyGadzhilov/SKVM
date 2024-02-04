@@ -41,7 +41,7 @@ void Title::addText()
     label->setFont(font);
 
     m_layout->addWidget(label);
-    m_layout->addItem(new QSpacerItem(150, 0, QSizePolicy::Fixed, QSizePolicy::Fixed));
+    m_layout->addItem(new QSpacerItem(200, 0, QSizePolicy::Expanding, QSizePolicy::Fixed));
 }
 
 void Title::addCloseButton()

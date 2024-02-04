@@ -30,7 +30,7 @@ class Updater : public QObject
 {
     Q_OBJECT
 public:
-    Updater(const std::string& version);
+    Updater(std::string version);
     void CheckForUpdate();
 
 signals:

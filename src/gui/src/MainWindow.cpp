@@ -34,6 +34,8 @@
 #include "common/DataDirectories.h"
 #include "net/FingerprintDatabase.h"
 #include "net/SecureUtils.h"
+#include "updater/Version.h"
+#include "widgets/notifications/NewVersionNotification.h"
 
 #include <QtCore>
 #include <QtGui>
@@ -56,7 +58,8 @@
 #endif
 
 namespace {
-
+using namespace skvm_widgets;
+using namespace skvm::updater;
 static const QString allFilesFilter(QObject::tr("All files (*.*)"));
 #if defined(Q_OS_WIN)
 static const char APP_CONFIG_NAME[] = "skvm.sgc";
@@ -131,7 +134,8 @@ MainWindow::MainWindow(QSettings& settings, AppConfig& appConfig) :
     m_SuppressEmptyServerWarning(false),
     m_ExpectedRunningState(kStopped),
     m_pSslCertificate(nullptr),
-    m_pLogWindow(new LogWindow(nullptr))
+    m_pLogWindow(new LogWindow(nullptr)),
+    m_updater(SKVM_VERSION)
 {
     // explicitly unset DeleteOnClose so the window can be show and hidden
     // repeatedly until SKVM is finished
@@ -180,6 +184,7 @@ MainWindow::MainWindow(QSettings& settings, AppConfig& appConfig) :
             toolbutton_show_fingerprint->setArrowType(Qt::ArrowType::DownArrow);
         }
     });
+    m_updater.CheckForUpdate();
 }
 
 MainWindow::~MainWindow()
@@ -308,9 +313,11 @@ void MainWindow::initConnections()
     connect(m_pActionStopCmdApp, SIGNAL(triggered()), this, SLOT(stop_cmd_app()));
     connect(m_pActionShowLog, SIGNAL(triggered()), this, SLOT(showLogWindow()));
     connect(m_pActionQuit, SIGNAL(triggered()), qApp, SLOT(quit()));
-    connect(m_pSidebar, &skvm_widgets::Sidebar::OpenLogs, this, &MainWindow::showLogWindow);
-    connect(m_pSidebar, &skvm_widgets::Sidebar::OpenSettings, this, &MainWindow::on_m_pActionSettings_triggered);
-    connect(m_pStatusBar, &skvm_widgets::StatusBar::ShowNotifications, this, &MainWindow::showNotifications);
+    connect(m_pSidebar, &Sidebar::OpenLogs, this, &MainWindow::showLogWindow);
+    connect(m_pSidebar, &Sidebar::OpenSettings, this, &MainWindow::on_m_pActionSettings_triggered);
+    connect(m_pStatusBar, &StatusBar::ShowNotifications, this, &MainWindow::showNotifications);
+    connect(m_pNotifications, &Notifications::NewNotification, m_pStatusBar, &StatusBar::NewNotification);
+    connect(&m_updater, &Updater::NewVersionAvailable, this, &MainWindow::newVersion);
 }
 
 void MainWindow::saveSettings()
@@ -1412,4 +1419,9 @@ void MainWindow::showNotifications()
     {
         m_pNotifications->hide();
     }
+}
+
+void MainWindow::newVersion(Version version)
+{
+    m_pNotifications->Add(new notifications::NewVersionNotification(version));
 }
