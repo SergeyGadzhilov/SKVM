@@ -101,7 +101,6 @@ class MainWindow : public QMainWindow, public Ui::MainWindowBase
         void showConfigureServer() { showConfigureServer(""); }
         void autoAddScreen(const QString name);
         void updateZeroconfService();
-        void serverDetected(const QString name);
 
 public slots:
         void appendLogRaw(const QString& text);
@@ -196,7 +195,6 @@ public slots:
         skvm::updater::Updater m_updater;
 
 private slots:
-    void on_m_pComboServerList_currentIndexChanged(QString );
     void on_m_pButtonReload_clicked();
     void installBonjour();
 };

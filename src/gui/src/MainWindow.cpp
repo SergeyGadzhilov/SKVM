@@ -160,7 +160,6 @@ MainWindow::MainWindow(QSettings& settings, AppConfig& appConfig) :
     m_IpcClient.connectToHost();
 #endif
 
-    m_pComboServerList->hide();
     frame_fingerprint_details->hide();
 
     updateSSLFingerprint();
@@ -1010,18 +1009,6 @@ void MainWindow::updateZeroconfService()
 #endif
 }
 
-void MainWindow::serverDetected(const QString name)
-{
-    if (m_pComboServerList->findText(name) == -1) {
-        // Note: the first added item triggers startSKVM
-        m_pComboServerList->addItem(name);
-    }
-
-    if (m_pComboServerList->count() > 1) {
-        m_pComboServerList->show();
-    }
-}
-
 void MainWindow::updateSSLFingerprint()
 {
     if (m_AppConfig->getCryptoEnabled() && m_pSslCertificate == nullptr) {
@@ -1335,13 +1322,6 @@ void MainWindow::promptAutoConfig()
 
     m_AppConfig->setAutoConfigPrompted(true);
 #endif
-}
-
-void MainWindow::on_m_pComboServerList_currentIndexChanged(QString )
-{
-    if (m_pComboServerList->count() != 0) {
-        restart_cmd_app();
-    }
 }
 
 void MainWindow::windowStateChanged()

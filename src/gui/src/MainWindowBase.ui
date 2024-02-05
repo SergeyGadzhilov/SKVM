@@ -246,22 +246,6 @@
          <item row="2" column="1">
           <widget class="QLineEdit" name="m_pLineEditHostname"/>
          </item>
-         <item row="3" column="1">
-          <widget class="QComboBox" name="m_pComboServerList">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>120</width>
-             <height>0</height>
-            </size>
-           </property>
-          </widget>
-         </item>
         </layout>
        </widget>
       </item>
