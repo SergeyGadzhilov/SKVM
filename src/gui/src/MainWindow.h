@@ -123,7 +123,6 @@ public slots:
         void stop_cmd_app();
         void logOutput();
         void logError();
-        void bonjourInstallFinished();
         void showLogWindow();
         void showNotifications();
         void newVersion(skvm::updater::Version version);
@@ -181,7 +180,6 @@ public slots:
         QMessageBox* m_DownloadMessageBox;
         QAbstractButton* m_pCancelButton;
         QMutex m_UpdateZeroconfMutex;
-        bool m_SuppressAutoConfigWarning;
         CommandProcess* m_BonjourInstall;
         bool m_SuppressEmptyServerWarning;
         qRuningState m_ExpectedRunningState;
@@ -198,7 +196,6 @@ public slots:
         skvm::updater::Updater m_updater;
 
 private slots:
-    void on_m_pCheckBoxAutoConfig_toggled(bool checked);
     void on_m_pComboServerList_currentIndexChanged(QString );
     void on_m_pButtonReload_clicked();
     void installBonjour();

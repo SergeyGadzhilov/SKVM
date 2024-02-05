@@ -129,7 +129,6 @@ MainWindow::MainWindow(QSettings& settings, AppConfig& appConfig) :
     m_pDataDownloader(nullptr),
     m_DownloadMessageBox(nullptr),
     m_pCancelButton(nullptr),
-    m_SuppressAutoConfigWarning(false),
     m_BonjourInstall(nullptr),
     m_SuppressEmptyServerWarning(false),
     m_ExpectedRunningState(kStopped),
@@ -161,12 +160,6 @@ MainWindow::MainWindow(QSettings& settings, AppConfig& appConfig) :
     m_IpcClient.connectToHost();
 #endif
 
-    m_SuppressAutoConfigWarning = true;
-    m_pCheckBoxAutoConfig->setChecked(appConfig.autoConfig());
-    m_SuppressAutoConfigWarning = false;
-#ifndef SKVM_USE_BONJOUR
-    m_pCheckBoxAutoConfig->hide();
-#endif
     m_pComboServerList->hide();
     frame_fingerprint_details->hide();
 
@@ -666,15 +659,7 @@ bool MainWindow::clientArgs(QStringList& args, QString& app)
         args << "--log" << appConfig().logFilenameCmd();
     }
 
-    // check auto config first, if it is disabled or no server detected,
-    // use line edit host name if it is not empty
-    if (m_pCheckBoxAutoConfig->isChecked()) {
-        if (m_pComboServerList->count() != 0) {
-            QString serverIp = m_pComboServerList->currentText();
-            args << "[" + serverIp + "]:" + QString::number(appConfig().port());
-            return true;
-        }
-    } else if (m_pLineEditHostname->text().isEmpty()) {
+    if (m_pLineEditHostname->text().isEmpty()) {
         show();
         if (!m_SuppressEmptyServerWarning) {
             QMessageBox::warning(this, tr("Hostname is empty"),
@@ -1345,7 +1330,6 @@ void MainWindow::promptAutoConfig()
         }
         else {
             m_AppConfig->setAutoConfig(false);
-            m_pCheckBoxAutoConfig->setChecked(false);
         }
     }
 
@@ -1358,44 +1342,6 @@ void MainWindow::on_m_pComboServerList_currentIndexChanged(QString )
     if (m_pComboServerList->count() != 0) {
         restart_cmd_app();
     }
-}
-
-void MainWindow::on_m_pCheckBoxAutoConfig_toggled(bool checked)
-{
-    #ifdef SKVM_USE_BONJOUR
-    if (!isBonjourRunning() && checked) {
-        if (!m_SuppressAutoConfigWarning) {
-            int r = QMessageBox::information(
-                this, tr("SKVM"),
-                tr("Auto config feature requires Bonjour.\n\n"
-                   "Do you want to install Bonjour?"),
-                QMessageBox::Yes | QMessageBox::No);
-
-            if (r == QMessageBox::Yes) {
-                downloadBonjour();
-            }
-        }
-
-        m_pCheckBoxAutoConfig->setChecked(false);
-        return;
-    }
-
-    m_pLineEditHostname->setDisabled(checked);
-    appConfig().setAutoConfig(checked);
-    updateZeroconfService();
-
-    if (!checked) {
-        m_pComboServerList->clear();
-        m_pComboServerList->hide();
-    }
-    #endif
-}
-
-void MainWindow::bonjourInstallFinished()
-{
-    appendLogInfo("Bonjour install finished");
-
-    m_pCheckBoxAutoConfig->setChecked(true);
 }
 
 void MainWindow::windowStateChanged()

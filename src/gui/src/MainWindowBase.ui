@@ -246,13 +246,6 @@
          <item row="2" column="1">
           <widget class="QLineEdit" name="m_pLineEditHostname"/>
          </item>
-         <item row="3" column="0">
-          <widget class="QCheckBox" name="m_pCheckBoxAutoConfig">
-           <property name="text">
-            <string>Auto config</string>
-           </property>
-          </widget>
-         </item>
          <item row="3" column="1">
           <widget class="QComboBox" name="m_pComboServerList">
            <property name="sizePolicy">
