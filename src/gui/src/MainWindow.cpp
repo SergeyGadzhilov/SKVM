@@ -116,7 +116,6 @@ MainWindow::MainWindow(QSettings& settings, AppConfig& appConfig) :
     m_pMenuHelp(nullptr),
     m_pDataDownloader(nullptr),
     m_DownloadMessageBox(nullptr),
-    m_pCancelButton(nullptr),
     m_BonjourInstall(nullptr),
     m_SuppressEmptyServerWarning(false),
     m_ExpectedRunningState(kStopped),
