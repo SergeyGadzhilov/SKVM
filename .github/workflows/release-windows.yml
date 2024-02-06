@@ -16,12 +16,12 @@ jobs:
         with:
           version: 5.15
           tools: 'tools_ifw'
-          add-tools-to-path: true
           cache: true
 
       - name: Make release
         id: run-windows-build
         run: |
+          echo %IQTA_TOOLS%
           mkdir build; cd build
           cmake -DCMAKE_BUILD_TYPE=Release ./..
           cmake --build . --target PACKAGE --config Release
