@@ -21,9 +21,9 @@ jobs:
       - name: Make release
         id: run-windows-build
         run: |
-          dir $env:IQTA_TOOLS
+          dir $env:IQTA_TOOLS\QtInstallerFramework
           mkdir build; cd build
-          cmake -DCMAKE_BUILD_TYPE=Release ./..
+          cmake -DCMAKE_BUILD_TYPE=Release -DCPACK_IFW_ROOT=$env:IQTA_TOOLS\QtInstallerFramework ./..
           cmake --build . --target PACKAGE --config Release
 
       - name: Upload artifacts
