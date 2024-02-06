@@ -140,12 +140,6 @@ public slots:
         void stopDesktop();
         void changeEvent(QEvent* event) override;
         void retranslateMenuBar();
-#if defined(Q_OS_WIN)
-        bool isServiceRunning(QString name);
-#else
-        bool isServiceRunning();
-#endif
-        bool isBonjourRunning();
         void downloadBonjour();
         void checkConnected(const QString& line);
         void checkFingerprint(const QString& line);

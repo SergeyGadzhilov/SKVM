@@ -1122,54 +1122,6 @@ void MainWindow::on_m_pButtonReload_clicked()
     restart_cmd_app();
 }
 
-#if defined(Q_OS_WIN)
-bool MainWindow::isServiceRunning(QString name)
-{
-    SC_HANDLE hSCManager;
-    hSCManager = OpenSCManager(nullptr, nullptr, SC_MANAGER_CONNECT);
-    if (hSCManager == nullptr) {
-        appendLogError(QString("failed to open a service controller manager, error: %1")
-                        .arg(GetLastError()));
-        return false;
-    }
-
-    auto array = name.toLocal8Bit();
-    SC_HANDLE hService = OpenService(hSCManager, array.data(), SERVICE_QUERY_STATUS);
-
-    if (hService == nullptr) {
-        appendLogDebug("failed to open service: " + name);
-        return false;
-    }
-
-    SERVICE_STATUS status;
-    if (QueryServiceStatus(hService, &status)) {
-        if (status.dwCurrentState == SERVICE_RUNNING) {
-            return true;
-        }
-    }
-
-    return false;
-}
-#else
-bool MainWindow::isServiceRunning()
-{
-    return false;
-}
-#endif
-
-bool MainWindow::isBonjourRunning()
-{
-    bool result = false;
-
-#ifdef Q_OS_WIN
-    result = isServiceRunning("Bonjour Service");
-#else
-    result = true;
-#endif
-
-    return result;
-}
-
 void MainWindow::downloadBonjour()
 {
 #if defined(Q_OS_WIN)
