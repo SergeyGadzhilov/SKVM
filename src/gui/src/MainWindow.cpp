@@ -1108,38 +1108,6 @@ void MainWindow::on_m_pButtonReload_clicked()
     restart_cmd_app();
 }
 
-void MainWindow::installBonjour()
-{
-#if defined(Q_OS_WIN)
-#if QT_VERSION >= 0x050000
-    QString tempLocation = QStandardPaths::writableLocation(QStandardPaths::TempLocation);
-#else
-    QString tempLocation = QDesktopServices::storageLocation(
-                                QDesktopServices::TempLocation);
-#endif
-    QString filename = tempLocation;
-    QFile file(filename);
-    if (!file.open(QIODevice::WriteOnly)) {
-        QMessageBox::warning(
-            this, "SKVM",
-            tr("Failed to download Bonjour installer to location: %1")
-            .arg(tempLocation));
-        return;
-    }
-    file.close();
-
-    QStringList arguments;
-    arguments.append("/i");
-    QString winFilename = QDir::toNativeSeparators(filename);
-    arguments.append(winFilename);
-    arguments.append("/passive");
-
-    QThread* thread = new QThread;
-    connect(thread, SIGNAL(finished()), thread, SLOT(deleteLater()));
-    thread->start();
-#endif
-}
-
 void MainWindow::windowStateChanged()
 {
     if (windowState() == Qt::WindowMinimized && appConfig().getMinimizeToTray())

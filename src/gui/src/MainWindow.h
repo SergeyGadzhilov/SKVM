@@ -173,7 +173,6 @@ public slots:
 
 private slots:
     void on_m_pButtonReload_clicked();
-    void installBonjour();
 };
 
 #endif
