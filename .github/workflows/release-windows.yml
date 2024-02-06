@@ -19,9 +19,9 @@ jobs:
       - name: Make release
         id: run-windows-build
         run: |
-          mkdir build
-          cmake --build ./build --target PACKAGE --config Release
-
+          mkdir build; cd build
+          cmake -DCMAKE_BUILD_TYPE=Release ./..
+          cmake --build . --target PACKAGE --config Release
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
