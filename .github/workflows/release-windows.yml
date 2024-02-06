@@ -21,7 +21,7 @@ jobs:
       - name: Make release
         id: run-windows-build
         run: |
-          echo %IQTA_TOOLS%
+          dir "C:/Qt/Tools/QtInstallerFramework"
           mkdir build; cd build
           cmake -DCMAKE_BUILD_TYPE=Release ./..
           cmake --build . --target PACKAGE --config Release
