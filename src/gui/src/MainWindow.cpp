@@ -21,8 +21,6 @@
 #include "AboutDialog.h"
 #include "ServerConfigDialog.h"
 #include "SettingsDialog.h"
-#include "DataDownloader.h"
-#include "CommandProcess.h"
 #include "FingerprintAcceptDialog.h"
 #include "SslCertificate.h"
 #include "base/String.h"
@@ -114,7 +112,6 @@ MainWindow::MainWindow(QSettings& settings, AppConfig& appConfig) :
     m_pMenuBar(nullptr),
     main_menu_(nullptr),
     m_pMenuHelp(nullptr),
-    m_pDataDownloader(nullptr),
     m_SuppressEmptyServerWarning(false),
     m_ExpectedRunningState(kStopped),
     m_pSslCertificate(nullptr),
@@ -1129,8 +1126,6 @@ void MainWindow::installBonjour()
             .arg(tempLocation));
         return;
     }
-
-    file.write(m_pDataDownloader->data());
     file.close();
 
     QStringList arguments;

@@ -56,7 +56,6 @@ class QMessageBox;
 class QAbstractButton;
 class LogDialog;
 class QSKVMApplication;
-class DataDownloader;
 class CommandProcess;
 class SslCertificate;
 
@@ -161,8 +160,7 @@ public slots:
         IpcClient m_IpcClient;
         QMenuBar* m_pMenuBar;
         QMenu* main_menu_;
-        QMenu* m_pMenuHelp;  
-        DataDownloader* m_pDataDownloader;
+        QMenu* m_pMenuHelp;
         bool m_SuppressEmptyServerWarning;
         qRuningState m_ExpectedRunningState;
         QMutex m_StopDesktopMutex;
