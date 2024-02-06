@@ -23,7 +23,7 @@ jobs:
         run: |
           dir $env:IQTA_TOOLS\QtInstallerFramework\4.6
           mkdir build; cd build
-          cmake -DCMAKE_BUILD_TYPE=Release -DCPACK_IFW_ROOT=$env:IQTA_TOOLS\\QtInstallerFramework\\4.6 ./..
+          cmake -DCMAKE_BUILD_TYPE=Release -DCPACK_IFW_ROOT="D:\\a\\SKVM\\Qt\\Tools\\QtInstallerFramework\\4.6" ./..
           cmake --build . --target PACKAGE --config Release
 
       - name: Upload artifacts
