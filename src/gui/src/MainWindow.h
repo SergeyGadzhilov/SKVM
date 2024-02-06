@@ -147,7 +147,6 @@ public slots:
 #endif
         bool isBonjourRunning();
         void downloadBonjour();
-        void promptAutoConfig();
         void checkConnected(const QString& line);
         void checkFingerprint(const QString& line);
         void restart_cmd_app();

@@ -1263,29 +1263,6 @@ void MainWindow::installBonjour()
 #endif
 }
 
-void MainWindow::promptAutoConfig()
-{
-    #ifdef SKVM_USE_BONJOUR
-    if (!isBonjourRunning()) {
-        int r = QMessageBox::question(
-            this, tr("SKVM"),
-            tr("Do you want to enable auto config and install Bonjour?\n\n"
-               "This feature helps you establish the connection."),
-            QMessageBox::Yes | QMessageBox::No);
-
-        if (r == QMessageBox::Yes) {
-            m_AppConfig->setAutoConfig(true);
-            downloadBonjour();
-        }
-        else {
-            m_AppConfig->setAutoConfig(false);
-        }
-    }
-
-    m_AppConfig->setAutoConfigPrompted(true);
-#endif
-}
-
 void MainWindow::windowStateChanged()
 {
     if (windowState() == Qt::WindowMinimized && appConfig().getMinimizeToTray())
