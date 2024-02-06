@@ -203,10 +203,6 @@ void MainWindow::open()
         showNormal();
     }
 
-    if (!appConfig().autoConfigPrompted()) {
-        promptAutoConfig();
-    }
-
     // only start if user has previously started. this stops the gui from
     // auto hiding before the user has configured SKVM (which of course
     // confuses first time users, who think SKVM has crashed).

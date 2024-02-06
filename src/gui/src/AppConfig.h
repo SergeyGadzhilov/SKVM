@@ -56,8 +56,6 @@ class AppConfig: public QObject
         bool startedBefore() const;
         bool autoConfig() const;
         void setAutoConfig(bool autoConfig);
-        bool autoConfigPrompted();
-        void setAutoConfigPrompted(bool prompted);
 
         QString server_name() const;
         QString client_name() const;
@@ -110,7 +108,6 @@ protected:
         bool m_StartedBefore;
         bool m_AutoConfig;
         ElevateMode m_ElevateMode;
-        bool m_AutoConfigPrompted;
         bool m_CryptoEnabled;
         bool m_RequireClientCertificate = false;
         bool m_AutoHide;

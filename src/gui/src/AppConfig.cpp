@@ -57,7 +57,6 @@ AppConfig::AppConfig(QSettings* settings) :
     m_ProcessMode(DEFAULT_PROCESS_MODE),
     m_AutoConfig(true),
     m_ElevateMode(defaultElevateMode),
-    m_AutoConfigPrompted(false),
     m_CryptoEnabled(false),
     m_AutoHide(false),
     m_AutoStart(false),
@@ -153,7 +152,6 @@ void AppConfig::loadSettings()
                                         QVariant(static_cast<int>(defaultElevateMode)));
     }
     m_ElevateMode = static_cast<ElevateMode>(elevateMode.toInt());
-    m_AutoConfigPrompted = settings().value("autoConfigPrompted", false).toBool();
     m_CryptoEnabled = settings().value("cryptoEnabled", true).toBool();
     m_RequireClientCertificate = settings().value("requireClientCertificate", false).toBool();
     m_AutoHide = settings().value("autoHide", false).toBool();
@@ -176,7 +174,6 @@ void AppConfig::saveSettings()
     // flag is mapped this way
     settings().setValue("elevateMode", m_ElevateMode == ElevateAlways);
     settings().setValue("elevateModeEnum", static_cast<int>(m_ElevateMode));
-    settings().setValue("autoConfigPrompted", m_AutoConfigPrompted);
     settings().setValue("cryptoEnabled", m_CryptoEnabled);
     settings().setValue("requireClientCertificate", m_RequireClientCertificate);
     settings().setValue("autoHide", m_AutoHide);
@@ -206,10 +203,6 @@ void AppConfig::setStartedBefore(bool b) { m_StartedBefore = b; }
 void AppConfig::setElevateMode(ElevateMode em) { m_ElevateMode = em; }
 
 void AppConfig::setAutoConfig(bool autoConfig) { m_AutoConfig = autoConfig; }
-
-bool AppConfig::autoConfigPrompted() { return m_AutoConfigPrompted; }
-
-void AppConfig::setAutoConfigPrompted(bool prompted) { m_AutoConfigPrompted = prompted; }
 
 QString AppConfig::server_name() const { return server_name_; }
 
