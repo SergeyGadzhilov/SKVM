@@ -164,7 +164,6 @@ public slots:
         QMenu* m_pMenuHelp;  
         DataDownloader* m_pDataDownloader;
         QMessageBox* m_DownloadMessageBox;
-        CommandProcess* m_BonjourInstall;
         bool m_SuppressEmptyServerWarning;
         qRuningState m_ExpectedRunningState;
         QMutex m_StopDesktopMutex;

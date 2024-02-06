@@ -116,7 +116,6 @@ MainWindow::MainWindow(QSettings& settings, AppConfig& appConfig) :
     m_pMenuHelp(nullptr),
     m_pDataDownloader(nullptr),
     m_DownloadMessageBox(nullptr),
-    m_BonjourInstall(nullptr),
     m_SuppressEmptyServerWarning(false),
     m_ExpectedRunningState(kStopped),
     m_pSslCertificate(nullptr),
@@ -175,7 +174,6 @@ MainWindow::~MainWindow()
 
     saveSettings();
     delete m_DownloadMessageBox;
-    delete m_BonjourInstall;
     delete m_pSslCertificate;
 
     // LogWindow is created as a sibling of the MainWindow rather than a child
@@ -1144,20 +1142,10 @@ void MainWindow::installBonjour()
     QString winFilename = QDir::toNativeSeparators(filename);
     arguments.append(winFilename);
     arguments.append("/passive");
-    if (m_BonjourInstall == nullptr) {
-        m_BonjourInstall = new CommandProcess("msiexec", arguments);
-    }
 
     QThread* thread = new QThread;
-    connect(m_BonjourInstall, SIGNAL(finished()), this,
-        SLOT(bonjourInstallFinished()));
-    connect(m_BonjourInstall, SIGNAL(finished()), thread, SLOT(quit()));
     connect(thread, SIGNAL(finished()), thread, SLOT(deleteLater()));
-
-    m_BonjourInstall->moveToThread(thread);
     thread->start();
-
-    QMetaObject::invokeMethod(m_BonjourInstall, "run", Qt::QueuedConnection);
 
     m_DownloadMessageBox->hide();
 #endif
