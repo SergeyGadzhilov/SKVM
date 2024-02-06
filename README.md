@@ -23,8 +23,7 @@ mouse.
 4. Ensure the "screen name" matches exactly (case-sensitive) for each configured
    screen -- the clients' SKVM windows will tell you their screen names
    (just above the server IP).
-5. On the client(s), put in the server machine's IP address (or use Bonjour/auto
-   configuration when prompted) and "start"t hem.
+5. On the client(s), put in the server machine's IP address and "start" them.
 
 You should see `SKVM is running` on both server and clients.
 

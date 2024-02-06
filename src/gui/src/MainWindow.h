@@ -56,13 +56,8 @@ class QMessageBox;
 class QAbstractButton;
 class LogDialog;
 class QSKVMApplication;
-class DataDownloader;
 class CommandProcess;
 class SslCertificate;
-
-#ifdef SKVM_USE_BONJOUR
-    class ZeroconfService;
-#endif
 
 class MainWindow : public QMainWindow, public Ui::MainWindowBase
 {
@@ -100,8 +95,6 @@ class MainWindow : public QMainWindow, public Ui::MainWindowBase
         void showConfigureServer(const QString& message);
         void showConfigureServer() { showConfigureServer(""); }
         void autoAddScreen(const QString name);
-        void updateZeroconfService();
-        void serverDetected(const QString name);
 
 public slots:
         void appendLogRaw(const QString& text);
@@ -123,7 +116,6 @@ public slots:
         void stop_cmd_app();
         void logOutput();
         void logError();
-        void bonjourInstallFinished();
         void showLogWindow();
         void showNotifications();
         void newVersion(skvm::updater::Version version);
@@ -147,14 +139,6 @@ public slots:
         void stopDesktop();
         void changeEvent(QEvent* event) override;
         void retranslateMenuBar();
-#if defined(Q_OS_WIN)
-        bool isServiceRunning(QString name);
-#else
-        bool isServiceRunning();
-#endif
-        bool isBonjourRunning();
-        void downloadBonjour();
-        void promptAutoConfig();
         void checkConnected(const QString& line);
         void checkFingerprint(const QString& line);
         void restart_cmd_app();
@@ -176,13 +160,7 @@ public slots:
         IpcClient m_IpcClient;
         QMenuBar* m_pMenuBar;
         QMenu* main_menu_;
-        QMenu* m_pMenuHelp;  
-        DataDownloader* m_pDataDownloader;
-        QMessageBox* m_DownloadMessageBox;
-        QAbstractButton* m_pCancelButton;
-        QMutex m_UpdateZeroconfMutex;
-        bool m_SuppressAutoConfigWarning;
-        CommandProcess* m_BonjourInstall;
+        QMenu* m_pMenuHelp;
         bool m_SuppressEmptyServerWarning;
         qRuningState m_ExpectedRunningState;
         QMutex m_StopDesktopMutex;
@@ -191,17 +169,10 @@ public slots:
         LogWindow *m_pLogWindow;
 
         bool m_fingerprint_expanded = false;
-
-#ifdef SKVM_USE_BONJOUR
-    ZeroconfService* m_pZeroconfService;
-#endif
         skvm::updater::Updater m_updater;
 
 private slots:
-    void on_m_pCheckBoxAutoConfig_toggled(bool checked);
-    void on_m_pComboServerList_currentIndexChanged(QString );
     void on_m_pButtonReload_clicked();
-    void installBonjour();
 };
 
 #endif

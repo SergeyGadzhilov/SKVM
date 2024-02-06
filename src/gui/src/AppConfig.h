@@ -54,10 +54,6 @@ class AppConfig: public QObject
         ProcessMode processMode() const;
         const QString& language() const;
         bool startedBefore() const;
-        bool autoConfig() const;
-        void setAutoConfig(bool autoConfig);
-        bool autoConfigPrompted();
-        void setAutoConfigPrompted(bool prompted);
 
         QString server_name() const;
         QString client_name() const;
@@ -108,9 +104,7 @@ protected:
         ProcessMode m_ProcessMode;
         QString m_Language;
         bool m_StartedBefore;
-        bool m_AutoConfig;
         ElevateMode m_ElevateMode;
-        bool m_AutoConfigPrompted;
         bool m_CryptoEnabled;
         bool m_RequireClientCertificate = false;
         bool m_AutoHide;

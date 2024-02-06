@@ -21,14 +21,7 @@
 #include "AboutDialog.h"
 #include "ServerConfigDialog.h"
 #include "SettingsDialog.h"
-#ifdef SKVM_USE_BONJOUR
-#include "ZeroconfService.h"
-#endif
-#include "DataDownloader.h"
-#include "CommandProcess.h"
 #include "FingerprintAcceptDialog.h"
-#include "QUtility.h"
-#include "ProcessorArch.h"
 #include "SslCertificate.h"
 #include "base/String.h"
 #include "common/DataDirectories.h"
@@ -64,10 +57,6 @@ static const QString allFilesFilter(QObject::tr("All files (*.*)"));
 #if defined(Q_OS_WIN)
 static const char APP_CONFIG_NAME[] = "skvm.sgc";
 static const QString APP_CONFIG_FILTER(QObject::tr("SKVM Configurations (*.sgc)"));
-static QString bonjourBaseUrl = "http://binaries.symless.com/bonjour/";
-static const char bonjourFilename32[] = "Bonjour.msi";
-static const char bonjourFilename64[] = "Bonjour64.msi";
-static const char bonjourTargetFilename[] = "Bonjour.msi";
 #else
 static const char APP_CONFIG_NAME[] = "skvm.conf";
 static const QString APP_CONFIG_FILTER(QObject::tr("SKVM Configurations (*.conf)"));
@@ -123,14 +112,6 @@ MainWindow::MainWindow(QSettings& settings, AppConfig& appConfig) :
     m_pMenuBar(nullptr),
     main_menu_(nullptr),
     m_pMenuHelp(nullptr),
-#ifdef SKVM_USE_BONJOUR
-    m_pZeroconfService(nullptr),
-#endif
-    m_pDataDownloader(nullptr),
-    m_DownloadMessageBox(nullptr),
-    m_pCancelButton(nullptr),
-    m_SuppressAutoConfigWarning(false),
-    m_BonjourInstall(nullptr),
     m_SuppressEmptyServerWarning(false),
     m_ExpectedRunningState(kStopped),
     m_pSslCertificate(nullptr),
@@ -161,13 +142,6 @@ MainWindow::MainWindow(QSettings& settings, AppConfig& appConfig) :
     m_IpcClient.connectToHost();
 #endif
 
-    m_SuppressAutoConfigWarning = true;
-    m_pCheckBoxAutoConfig->setChecked(appConfig.autoConfig());
-    m_SuppressAutoConfigWarning = false;
-#ifndef SKVM_USE_BONJOUR
-    m_pCheckBoxAutoConfig->hide();
-#endif
-    m_pComboServerList->hide();
     frame_fingerprint_details->hide();
 
     updateSSLFingerprint();
@@ -195,11 +169,6 @@ MainWindow::~MainWindow()
     }
 
     saveSettings();
-#ifdef SKVM_USE_BONJOUR
-    delete m_pZeroconfService;
-#endif
-    delete m_DownloadMessageBox;
-    delete m_BonjourInstall;
     delete m_pSslCertificate;
 
     // LogWindow is created as a sibling of the MainWindow rather than a child
@@ -218,10 +187,6 @@ void MainWindow::open()
         hide();
     } else {
         showNormal();
-    }
-
-    if (!appConfig().autoConfigPrompted()) {
-        promptAutoConfig();
     }
 
     // only start if user has previously started. this stops the gui from
@@ -666,15 +631,7 @@ bool MainWindow::clientArgs(QStringList& args, QString& app)
         args << "--log" << appConfig().logFilenameCmd();
     }
 
-    // check auto config first, if it is disabled or no server detected,
-    // use line edit host name if it is not empty
-    if (m_pCheckBoxAutoConfig->isChecked()) {
-        if (m_pComboServerList->count() != 0) {
-            QString serverIp = m_pComboServerList->currentText();
-            args << "[" + serverIp + "]:" + QString::number(appConfig().port());
-            return true;
-        }
-    } else if (m_pLineEditHostname->text().isEmpty()) {
+    if (m_pLineEditHostname->text().isEmpty()) {
         show();
         if (!m_SuppressEmptyServerWarning) {
             QMessageBox::warning(this, tr("Hostname is empty"),
@@ -1006,37 +963,6 @@ void MainWindow::changeEvent(QEvent* event)
     QMainWindow::changeEvent(event);
 }
 
-void MainWindow::updateZeroconfService()
-{
-#ifdef SKVM_USE_BONJOUR
-
-    QMutexLocker locker(&m_UpdateZeroconfMutex);
-
-    if (isBonjourRunning()) {
-        if (m_pZeroconfService) {
-            delete m_pZeroconfService;
-            m_pZeroconfService = nullptr;
-        }
-
-        if (m_AppConfig->autoConfig() || app_role() == AppRole::Server) {
-            m_pZeroconfService = new ZeroconfService(this);
-        }
-    }
-#endif
-}
-
-void MainWindow::serverDetected(const QString name)
-{
-    if (m_pComboServerList->findText(name) == -1) {
-        // Note: the first added item triggers startSKVM
-        m_pComboServerList->addItem(name);
-    }
-
-    if (m_pComboServerList->count() > 1) {
-        m_pComboServerList->show();
-    }
-}
-
 void MainWindow::updateSSLFingerprint()
 {
     if (m_AppConfig->getCryptoEnabled() && m_pSslCertificate == nullptr) {
@@ -1093,17 +1019,11 @@ void MainWindow::updateSSLFingerprint()
 void MainWindow::on_m_pGroupClient_toggled(bool on)
 {
     m_pGroupServer->setChecked(!on);
-    if (on) {
-        updateZeroconfService();
-    }
 }
 
 void MainWindow::on_m_pGroupServer_toggled(bool on)
 {
     m_pGroupClient->setChecked(!on);
-    if (on) {
-        updateZeroconfService();
-    }
 }
 
 bool MainWindow::on_m_pButtonBrowseConfigFile_clicked()
@@ -1186,216 +1106,6 @@ void MainWindow::on_m_pButtonConfigureServer_clicked()
 void MainWindow::on_m_pButtonReload_clicked()
 {
     restart_cmd_app();
-}
-
-#if defined(Q_OS_WIN)
-bool MainWindow::isServiceRunning(QString name)
-{
-    SC_HANDLE hSCManager;
-    hSCManager = OpenSCManager(nullptr, nullptr, SC_MANAGER_CONNECT);
-    if (hSCManager == nullptr) {
-        appendLogError(QString("failed to open a service controller manager, error: %1")
-                        .arg(GetLastError()));
-        return false;
-    }
-
-    auto array = name.toLocal8Bit();
-    SC_HANDLE hService = OpenService(hSCManager, array.data(), SERVICE_QUERY_STATUS);
-
-    if (hService == nullptr) {
-        appendLogDebug("failed to open service: " + name);
-        return false;
-    }
-
-    SERVICE_STATUS status;
-    if (QueryServiceStatus(hService, &status)) {
-        if (status.dwCurrentState == SERVICE_RUNNING) {
-            return true;
-        }
-    }
-
-    return false;
-}
-#else
-bool MainWindow::isServiceRunning()
-{
-    return false;
-}
-#endif
-
-bool MainWindow::isBonjourRunning()
-{
-    bool result = false;
-
-#ifdef Q_OS_WIN
-    result = isServiceRunning("Bonjour Service");
-#else
-    result = true;
-#endif
-
-    return result;
-}
-
-void MainWindow::downloadBonjour()
-{
-#if defined(Q_OS_WIN)
-    QUrl url;
-    int arch = getProcessorArch();
-    if (arch == kProcessorArchWin32) {
-        url.setUrl(bonjourBaseUrl + bonjourFilename32);
-        appendLogInfo("downloading 32-bit Bonjour");
-    }
-    else if (arch == kProcessorArchWin64) {
-        url.setUrl(bonjourBaseUrl + bonjourFilename64);
-        appendLogInfo("downloading 64-bit Bonjour");
-    }
-    else {
-        QMessageBox::critical(
-            this, tr("SKVM"),
-            tr("Failed to detect system architecture."));
-        return;
-    }
-
-    if (m_pDataDownloader == nullptr) {
-        m_pDataDownloader = new DataDownloader(this);
-        connect(m_pDataDownloader, SIGNAL(isComplete()), SLOT(installBonjour()));
-    }
-
-    m_pDataDownloader->download(url);
-
-    if (m_DownloadMessageBox == nullptr) {
-        m_DownloadMessageBox = new QMessageBox(this);
-        m_DownloadMessageBox->setWindowTitle("SKVM");
-        m_DownloadMessageBox->setIcon(QMessageBox::Information);
-        m_DownloadMessageBox->setText("Installing Bonjour, please wait...");
-        m_pCancelButton = m_DownloadMessageBox->addButton(
-            tr("Cancel"), QMessageBox::RejectRole);
-    }
-
-    m_DownloadMessageBox->exec();
-
-    if (m_DownloadMessageBox->clickedButton() == m_pCancelButton) {
-        m_pDataDownloader->cancel();
-    }
-#endif
-}
-
-void MainWindow::installBonjour()
-{
-#if defined(Q_OS_WIN)
-#if QT_VERSION >= 0x050000
-    QString tempLocation = QStandardPaths::writableLocation(QStandardPaths::TempLocation);
-#else
-    QString tempLocation = QDesktopServices::storageLocation(
-                                QDesktopServices::TempLocation);
-#endif
-    QString filename = tempLocation;
-    filename.append("\\").append(bonjourTargetFilename);
-    QFile file(filename);
-    if (!file.open(QIODevice::WriteOnly)) {
-        m_DownloadMessageBox->hide();
-
-        QMessageBox::warning(
-            this, "SKVM",
-            tr("Failed to download Bonjour installer to location: %1")
-            .arg(tempLocation));
-        return;
-    }
-
-    file.write(m_pDataDownloader->data());
-    file.close();
-
-    QStringList arguments;
-    arguments.append("/i");
-    QString winFilename = QDir::toNativeSeparators(filename);
-    arguments.append(winFilename);
-    arguments.append("/passive");
-    if (m_BonjourInstall == nullptr) {
-        m_BonjourInstall = new CommandProcess("msiexec", arguments);
-    }
-
-    QThread* thread = new QThread;
-    connect(m_BonjourInstall, SIGNAL(finished()), this,
-        SLOT(bonjourInstallFinished()));
-    connect(m_BonjourInstall, SIGNAL(finished()), thread, SLOT(quit()));
-    connect(thread, SIGNAL(finished()), thread, SLOT(deleteLater()));
-
-    m_BonjourInstall->moveToThread(thread);
-    thread->start();
-
-    QMetaObject::invokeMethod(m_BonjourInstall, "run", Qt::QueuedConnection);
-
-    m_DownloadMessageBox->hide();
-#endif
-}
-
-void MainWindow::promptAutoConfig()
-{
-    #ifdef SKVM_USE_BONJOUR
-    if (!isBonjourRunning()) {
-        int r = QMessageBox::question(
-            this, tr("SKVM"),
-            tr("Do you want to enable auto config and install Bonjour?\n\n"
-               "This feature helps you establish the connection."),
-            QMessageBox::Yes | QMessageBox::No);
-
-        if (r == QMessageBox::Yes) {
-            m_AppConfig->setAutoConfig(true);
-            downloadBonjour();
-        }
-        else {
-            m_AppConfig->setAutoConfig(false);
-            m_pCheckBoxAutoConfig->setChecked(false);
-        }
-    }
-
-    m_AppConfig->setAutoConfigPrompted(true);
-#endif
-}
-
-void MainWindow::on_m_pComboServerList_currentIndexChanged(QString )
-{
-    if (m_pComboServerList->count() != 0) {
-        restart_cmd_app();
-    }
-}
-
-void MainWindow::on_m_pCheckBoxAutoConfig_toggled(bool checked)
-{
-    #ifdef SKVM_USE_BONJOUR
-    if (!isBonjourRunning() && checked) {
-        if (!m_SuppressAutoConfigWarning) {
-            int r = QMessageBox::information(
-                this, tr("SKVM"),
-                tr("Auto config feature requires Bonjour.\n\n"
-                   "Do you want to install Bonjour?"),
-                QMessageBox::Yes | QMessageBox::No);
-
-            if (r == QMessageBox::Yes) {
-                downloadBonjour();
-            }
-        }
-
-        m_pCheckBoxAutoConfig->setChecked(false);
-        return;
-    }
-
-    m_pLineEditHostname->setDisabled(checked);
-    appConfig().setAutoConfig(checked);
-    updateZeroconfService();
-
-    if (!checked) {
-        m_pComboServerList->clear();
-        m_pComboServerList->hide();
-    }
-    #endif
-}
-
-void MainWindow::bonjourInstallFinished()
-{
-    appendLogInfo("Bonjour install finished");
-
-    m_pCheckBoxAutoConfig->setChecked(true);
 }
 
 void MainWindow::windowStateChanged()

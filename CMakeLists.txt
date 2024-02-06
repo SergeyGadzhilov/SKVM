@@ -24,7 +24,6 @@ option(SKVM_BUILD_TESTS "Build the tests" OFF)
 option(SKVM_USE_EXTERNAL_GTEST "Use external installation of Google Test framework" OFF)
 option(SKVM_BUILD_X11 "Build with XWindows support" ON)
 option(SKVM_BUILD_LIBEI "Build with libei support" OFF)
-option(SKVM_USE_BONJOUR "Include bonjour into the build" OFF)
 
 set (CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set (CMAKE_CXX_STANDARD 14)
