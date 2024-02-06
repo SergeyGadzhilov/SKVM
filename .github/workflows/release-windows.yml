@@ -15,6 +15,8 @@ jobs:
         uses: jurplel/install-qt-action@v3
         with:
           version: 5.15
+          tools: 'tools_ifw'
+          cache: true
 
       - name: Make release
         id: run-windows-build
