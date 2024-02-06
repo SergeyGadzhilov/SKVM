@@ -990,22 +990,6 @@ void MainWindow::changeEvent(QEvent* event)
     QMainWindow::changeEvent(event);
 }
 
-void MainWindow::updateZeroconfService()
-{
-#ifdef SKVM_USE_BONJOUR
-    if (isBonjourRunning()) {
-        if (m_pZeroconfService) {
-            delete m_pZeroconfService;
-            m_pZeroconfService = nullptr;
-        }
-
-        if (m_AppConfig->autoConfig() || app_role() == AppRole::Server) {
-            m_pZeroconfService = new ZeroconfService(this);
-        }
-    }
-#endif
-}
-
 void MainWindow::updateSSLFingerprint()
 {
     if (m_AppConfig->getCryptoEnabled() && m_pSslCertificate == nullptr) {
@@ -1062,17 +1046,11 @@ void MainWindow::updateSSLFingerprint()
 void MainWindow::on_m_pGroupClient_toggled(bool on)
 {
     m_pGroupServer->setChecked(!on);
-    if (on) {
-        updateZeroconfService();
-    }
 }
 
 void MainWindow::on_m_pGroupServer_toggled(bool on)
 {
     m_pGroupClient->setChecked(!on);
-    if (on) {
-        updateZeroconfService();
-    }
 }
 
 bool MainWindow::on_m_pButtonBrowseConfigFile_clicked()
