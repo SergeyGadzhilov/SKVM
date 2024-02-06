@@ -192,14 +192,12 @@ if (SKVM_USE_BONJOUR)
         src/ZeroconfRecord.h
         src/ZeroconfRegister.h
         src/ZeroconfServer.h
-        src/ZeroconfService.h
         src/ZeroconfThread.h
     )
     list (APPEND GUI_SOURCE_FILES
         src/ZeroconfBrowser.cpp
         src/ZeroconfRegister.cpp
         src/ZeroconfServer.cpp
-        src/ZeroconfService.cpp
         src/ZeroconfThread.cpp
     )
 
