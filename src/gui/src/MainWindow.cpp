@@ -24,8 +24,6 @@
 #include "DataDownloader.h"
 #include "CommandProcess.h"
 #include "FingerprintAcceptDialog.h"
-#include "QUtility.h"
-#include "ProcessorArch.h"
 #include "SslCertificate.h"
 #include "base/String.h"
 #include "common/DataDirectories.h"
@@ -61,10 +59,6 @@ static const QString allFilesFilter(QObject::tr("All files (*.*)"));
 #if defined(Q_OS_WIN)
 static const char APP_CONFIG_NAME[] = "skvm.sgc";
 static const QString APP_CONFIG_FILTER(QObject::tr("SKVM Configurations (*.sgc)"));
-static QString bonjourBaseUrl = "http://binaries.symless.com/bonjour/";
-static const char bonjourFilename32[] = "Bonjour.msi";
-static const char bonjourFilename64[] = "Bonjour64.msi";
-static const char bonjourTargetFilename[] = "Bonjour.msi";
 #else
 static const char APP_CONFIG_NAME[] = "skvm.conf";
 static const QString APP_CONFIG_FILTER(QObject::tr("SKVM Configurations (*.conf)"));
@@ -1132,7 +1126,6 @@ void MainWindow::installBonjour()
                                 QDesktopServices::TempLocation);
 #endif
     QString filename = tempLocation;
-    filename.append("\\").append(bonjourTargetFilename);
     QFile file(filename);
     if (!file.open(QIODevice::WriteOnly)) {
         m_DownloadMessageBox->hide();
