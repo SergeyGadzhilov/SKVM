@@ -993,9 +993,6 @@ void MainWindow::changeEvent(QEvent* event)
 void MainWindow::updateZeroconfService()
 {
 #ifdef SKVM_USE_BONJOUR
-
-    QMutexLocker locker(&m_UpdateZeroconfMutex);
-
     if (isBonjourRunning()) {
         if (m_pZeroconfService) {
             delete m_pZeroconfService;

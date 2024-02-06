@@ -178,7 +178,6 @@ public slots:
         DataDownloader* m_pDataDownloader;
         QMessageBox* m_DownloadMessageBox;
         QAbstractButton* m_pCancelButton;
-        QMutex m_UpdateZeroconfMutex;
         CommandProcess* m_BonjourInstall;
         bool m_SuppressEmptyServerWarning;
         qRuningState m_ExpectedRunningState;
