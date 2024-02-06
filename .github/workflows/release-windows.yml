@@ -21,11 +21,8 @@ jobs:
       - name: Make release
         id: run-windows-build
         run: |
-          dir
-          echo $IQTA_TOOLS
-          echo %IQTA_TOOLS%
-          echo {IQTA_TOOLS}
-          echo ${IQTA_TOOLS}
+          dir "./.."
+          dir "./../.."
           mkdir build; cd build
           cmake -DCMAKE_BUILD_TYPE=Release ./..
           cmake --build . --target PACKAGE --config Release
