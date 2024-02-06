@@ -55,7 +55,6 @@ AppConfig::AppConfig(QSettings* settings) :
     m_Interface(),
     m_LogLevel(0),
     m_ProcessMode(DEFAULT_PROCESS_MODE),
-    m_AutoConfig(true),
     m_ElevateMode(defaultElevateMode),
     m_CryptoEnabled(false),
     m_AutoHide(false),
@@ -133,8 +132,6 @@ const QString &AppConfig::language() const { return m_Language; }
 
 bool AppConfig::startedBefore() const { return m_StartedBefore; }
 
-bool AppConfig::autoConfig() const { return m_AutoConfig; }
-
 void AppConfig::loadSettings()
 {
     m_ScreenName = settings().value("screenName", QHostInfo::localHostName()).toString();
@@ -145,7 +142,6 @@ void AppConfig::loadSettings()
     m_LogFilename = settings().value("logFilename", log_dir() + "skvm.log").toString();
     m_Language = settings().value("language", QLocale::system().name()).toString();
     m_StartedBefore = settings().value("startedBefore", false).toBool();
-    m_AutoConfig = settings().value("autoConfig", true).toBool();
     QVariant elevateMode = settings().value("elevateModeEnum");
     if (!elevateMode.isValid()) {
         elevateMode = settings().value ("elevateMode",
@@ -169,7 +165,6 @@ void AppConfig::saveSettings()
     settings().setValue("logFilename", m_LogFilename);
     settings().setValue("language", m_Language);
     settings().setValue("startedBefore", m_StartedBefore);
-    settings().setValue("autoConfig", m_AutoConfig);
     // Refer to enum ElevateMode declaration for insight in to why this
     // flag is mapped this way
     settings().setValue("elevateMode", m_ElevateMode == ElevateAlways);
@@ -201,8 +196,6 @@ void AppConfig::setLanguage(const QString language) { m_Language = language; }
 void AppConfig::setStartedBefore(bool b) { m_StartedBefore = b; }
 
 void AppConfig::setElevateMode(ElevateMode em) { m_ElevateMode = em; }
-
-void AppConfig::setAutoConfig(bool autoConfig) { m_AutoConfig = autoConfig; }
 
 QString AppConfig::server_name() const { return server_name_; }
 
