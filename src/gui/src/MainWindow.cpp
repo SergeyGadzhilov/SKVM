@@ -1122,50 +1122,6 @@ void MainWindow::on_m_pButtonReload_clicked()
     restart_cmd_app();
 }
 
-void MainWindow::downloadBonjour()
-{
-#if defined(Q_OS_WIN)
-    QUrl url;
-    int arch = getProcessorArch();
-    if (arch == kProcessorArchWin32) {
-        url.setUrl(bonjourBaseUrl + bonjourFilename32);
-        appendLogInfo("downloading 32-bit Bonjour");
-    }
-    else if (arch == kProcessorArchWin64) {
-        url.setUrl(bonjourBaseUrl + bonjourFilename64);
-        appendLogInfo("downloading 64-bit Bonjour");
-    }
-    else {
-        QMessageBox::critical(
-            this, tr("SKVM"),
-            tr("Failed to detect system architecture."));
-        return;
-    }
-
-    if (m_pDataDownloader == nullptr) {
-        m_pDataDownloader = new DataDownloader(this);
-        connect(m_pDataDownloader, SIGNAL(isComplete()), SLOT(installBonjour()));
-    }
-
-    m_pDataDownloader->download(url);
-
-    if (m_DownloadMessageBox == nullptr) {
-        m_DownloadMessageBox = new QMessageBox(this);
-        m_DownloadMessageBox->setWindowTitle("SKVM");
-        m_DownloadMessageBox->setIcon(QMessageBox::Information);
-        m_DownloadMessageBox->setText("Installing Bonjour, please wait...");
-        m_pCancelButton = m_DownloadMessageBox->addButton(
-            tr("Cancel"), QMessageBox::RejectRole);
-    }
-
-    m_DownloadMessageBox->exec();
-
-    if (m_DownloadMessageBox->clickedButton() == m_pCancelButton) {
-        m_pDataDownloader->cancel();
-    }
-#endif
-}
-
 void MainWindow::installBonjour()
 {
 #if defined(Q_OS_WIN)
