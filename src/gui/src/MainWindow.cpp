@@ -21,9 +21,6 @@
 #include "AboutDialog.h"
 #include "ServerConfigDialog.h"
 #include "SettingsDialog.h"
-#ifdef SKVM_USE_BONJOUR
-#include "ZeroconfService.h"
-#endif
 #include "DataDownloader.h"
 #include "CommandProcess.h"
 #include "FingerprintAcceptDialog.h"
@@ -123,9 +120,6 @@ MainWindow::MainWindow(QSettings& settings, AppConfig& appConfig) :
     m_pMenuBar(nullptr),
     main_menu_(nullptr),
     m_pMenuHelp(nullptr),
-#ifdef SKVM_USE_BONJOUR
-    m_pZeroconfService(nullptr),
-#endif
     m_pDataDownloader(nullptr),
     m_DownloadMessageBox(nullptr),
     m_pCancelButton(nullptr),
@@ -187,9 +181,6 @@ MainWindow::~MainWindow()
     }
 
     saveSettings();
-#ifdef SKVM_USE_BONJOUR
-    delete m_pZeroconfService;
-#endif
     delete m_DownloadMessageBox;
     delete m_BonjourInstall;
     delete m_pSslCertificate;

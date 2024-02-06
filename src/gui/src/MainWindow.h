@@ -60,10 +60,6 @@ class DataDownloader;
 class CommandProcess;
 class SslCertificate;
 
-#ifdef SKVM_USE_BONJOUR
-    class ZeroconfService;
-#endif
-
 class MainWindow : public QMainWindow, public Ui::MainWindowBase
 {
     Q_OBJECT
@@ -186,10 +182,6 @@ public slots:
         LogWindow *m_pLogWindow;
 
         bool m_fingerprint_expanded = false;
-
-#ifdef SKVM_USE_BONJOUR
-    ZeroconfService* m_pZeroconfService;
-#endif
         skvm::updater::Updater m_updater;
 
 private slots:
