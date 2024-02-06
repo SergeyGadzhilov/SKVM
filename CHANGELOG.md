@@ -13,6 +13,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed: for any bug fixes.
 - Security: in case of vulnerabilities
 
+## [0.2.0] - Unreleased
+### Removed
+- Zeroconf (bonjour) autodetection [#30](https://github.com/SergeyGadzhilov/SKVM/issues/30)
+
 ## [0.1.0](https://github.com/SergeyGadzhilov/SKVM/releases/tag/0.1.0) - 2024-02-04
 ### Added
 - Status bar into the MainWindow [#76](https://github.com/SergeyGadzhilov/SKVM/issues/76)
