@@ -115,7 +115,6 @@ MainWindow::MainWindow(QSettings& settings, AppConfig& appConfig) :
     main_menu_(nullptr),
     m_pMenuHelp(nullptr),
     m_pDataDownloader(nullptr),
-    m_DownloadMessageBox(nullptr),
     m_SuppressEmptyServerWarning(false),
     m_ExpectedRunningState(kStopped),
     m_pSslCertificate(nullptr),
@@ -173,7 +172,6 @@ MainWindow::~MainWindow()
     }
 
     saveSettings();
-    delete m_DownloadMessageBox;
     delete m_pSslCertificate;
 
     // LogWindow is created as a sibling of the MainWindow rather than a child
@@ -1125,8 +1123,6 @@ void MainWindow::installBonjour()
     QString filename = tempLocation;
     QFile file(filename);
     if (!file.open(QIODevice::WriteOnly)) {
-        m_DownloadMessageBox->hide();
-
         QMessageBox::warning(
             this, "SKVM",
             tr("Failed to download Bonjour installer to location: %1")
@@ -1146,8 +1142,6 @@ void MainWindow::installBonjour()
     QThread* thread = new QThread;
     connect(thread, SIGNAL(finished()), thread, SLOT(deleteLater()));
     thread->start();
-
-    m_DownloadMessageBox->hide();
 #endif
 }
 
