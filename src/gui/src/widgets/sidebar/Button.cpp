@@ -14,35 +14,31 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef SKVM_SIDEBAR_H
-#define SKVM_SIDEBAR_H
-
-#include <QWidget>
-#include <QVBoxLayout>
+#include "Button.h"
+#include <QIcon>
 
 namespace skvm_widgets
 {
 
-class Sidebar : public QWidget
+namespace sidebar
 {
-    Q_OBJECT
-public:
-    Sidebar(QWidget *parent = nullptr);
 
-signals:
-    void OpenLogs();
-    void OpenSettings();
+Button::Button(QWidget *parent, const QString& iconName)
+    : QPushButton{parent}
+{
+    setFlat(true);
+    setCursor(Qt::PointingHandCursor);
+    setIcon(iconName);
+}
 
-private:
-    void initLayout();
-    void addBottomControls();
-    void addButtonSettings();
-    void addButtonLogs();
-    void addButtonHelp();
+void Button::setIcon(const QString& name)
+{
+    QIcon icon(QString(":/res/icons/sidebar/%1.svg").arg(name));
+    QPushButton::setIcon(icon);
+    setIconSize(QSize(30,30));
+}
 
-    QVBoxLayout* m_layout = nullptr;
-};
+} //naspace sidebar
 
 } //namespace skvm_widgets
 
-#endif // SKVM_SIDEBAR_H

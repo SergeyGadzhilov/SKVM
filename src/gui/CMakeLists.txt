@@ -65,6 +65,7 @@ set(GUI_SOURCE_FILES
     src/widgets/Notifications.cpp
     src/widgets/notifications/Title.cpp
     src/widgets/notifications/NewVersionNotification.cpp
+    src/widgets/sidebar/Button.cpp
 )
 
 set(GUI_HEADER_FILES
@@ -105,6 +106,7 @@ set(GUI_HEADER_FILES
     src/widgets/Notifications.h
     src/widgets/notifications/Title.h
     src/widgets/notifications/NewVersionNotification.h
+    src/widgets/sidebar/Button.h
 )
 
 set(GUI_UI_FILES

@@ -16,8 +16,8 @@
  */
 #include "Sidebar.h"
 #include <QUrl>
-#include <QPushButton>
 #include <QDesktopServices>
+#include "sidebar/Button.h"
 
 namespace skvm_widgets
 {
@@ -51,42 +51,30 @@ void Sidebar::addBottomControls()
 
 void Sidebar::addButtonSettings()
 {
-    QIcon icon(QString::fromUtf8(":/res/icons/sidebar/settings.svg"));
-    auto button = addButton(icon);
+    auto button = new sidebar::Button(this, "settings");
     connect(button, &QPushButton::clicked, this, [this]() {
         emit OpenSettings();
     });
+    m_layout->addWidget(button);
 }
 
 void Sidebar::addButtonLogs()
 {
-    QIcon icon(QString::fromUtf8(":/res/icons/sidebar/logs.svg"));
-    auto button = addButton(icon);
+    auto button = new sidebar::Button(this, "logs");
     connect(button, &QPushButton::clicked, this, [this]() {
         emit OpenLogs();
     });
+    m_layout->addWidget(button);
 }
 
 void Sidebar::addButtonHelp()
 {
-    QIcon icon(QString::fromUtf8(":/res/icons/sidebar/help.svg"));
-    auto button = addButton(icon);
+    auto button = new sidebar::Button(this, "help");
     connect(button, &QPushButton::clicked, []() {
         const QUrl documentation("https://github.com/SergeyGadzhilov/SKVM/wiki");
         QDesktopServices::openUrl(documentation);
     });
-}
-
-QPushButton* Sidebar::addButton(QIcon icon)
-{
-    auto button = new QPushButton(this);
-    button->setFlat(true);
-    button->setIcon(icon);
-    button->setIconSize(QSize(30, 30));
-    button->setCursor(Qt::PointingHandCursor);
     m_layout->addWidget(button);
-
-    return button;
 }
 
 } //namespace skvm_widgets
