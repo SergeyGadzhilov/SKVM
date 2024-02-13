@@ -65,5 +65,6 @@
         <file>icons/statusbar/notification.svg</file>
         <file>icons/notifications/close.svg</file>
         <file>icons/statusbar/notification_unread.svg</file>
+        <file>icons/sidebar/home.svg</file>
     </qresource>
 </RCC>

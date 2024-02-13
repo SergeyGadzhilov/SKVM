@@ -44,9 +44,20 @@ void Sidebar::initLayout()
 void Sidebar::addBottomControls()
 {
     m_layout->addItem(new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding));
+    addButtonHome();
     addButtonSettings();
     addButtonLogs();
     addButtonHelp();
+}
+
+void Sidebar::addButtonHome()
+{
+    auto button = new sidebar::Button(this, "home");
+    connect(button, &QPushButton::clicked, this, [this]() {
+        emit OpenHome();
+    });
+    button->SetActive(true);
+    m_layout->addWidget(button);
 }
 
 void Sidebar::addButtonSettings()

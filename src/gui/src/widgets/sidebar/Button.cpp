@@ -31,6 +31,23 @@ Button::Button(QWidget *parent, const QString& iconName)
     setIcon(iconName);
 }
 
+void Button::SetActive(bool isActive)
+{
+    if (isActive)
+    {
+        setStyleSheet(QString::fromUtf8(
+            "border-radius: 15;"
+            "background-color: #E0F7FA;"
+        ));
+    }
+    else
+    {
+        setStyleSheet(QString::fromUtf8(
+            "border: none;"
+        ));
+    }
+}
+
 void Button::setIcon(const QString& name)
 {
     QIcon icon(QString(":/res/icons/sidebar/%1.svg").arg(name));

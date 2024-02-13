@@ -30,12 +30,14 @@ public:
     Sidebar(QWidget *parent = nullptr);
 
 signals:
+    void OpenHome();
     void OpenLogs();
     void OpenSettings();
 
 private:
     void initLayout();
     void addBottomControls();
+    void addButtonHome();
     void addButtonSettings();
     void addButtonLogs();
     void addButtonHelp();

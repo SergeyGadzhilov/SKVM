@@ -29,7 +29,8 @@ class Button : public QPushButton
 {
     Q_OBJECT
 public:
-    explicit Button(QWidget *parent, const QString& icon);
+    Button(QWidget *parent, const QString& icon);
+    void SetActive(bool isActive);
 
 private:
     void setIcon(const QString& name);
