@@ -19,6 +19,7 @@
 
 #include <QWidget>
 #include <QVBoxLayout>
+#include "sidebar/Button.h"
 
 namespace skvm_widgets
 {
@@ -41,8 +42,10 @@ private:
     void addButtonSettings();
     void addButtonLogs();
     void addButtonHelp();
+    void activate(sidebar::Button* button);
 
     QVBoxLayout* m_layout = nullptr;
+    sidebar::Button* m_activeButton = nullptr;
 };
 
 } //namespace skvm_widgets

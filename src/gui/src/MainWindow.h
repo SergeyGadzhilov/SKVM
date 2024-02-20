@@ -111,6 +111,7 @@ public slots:
         bool on_m_pActionSave_triggered();
         void on_m_pActionAbout_triggered();
         void on_m_pActionSettings_triggered();
+        void openHomePage();
         void cmd_app_finished(int exitCode, QProcess::ExitStatus);
         void trayActivated(QSystemTrayIcon::ActivationReason reason);
         void stop_cmd_app();

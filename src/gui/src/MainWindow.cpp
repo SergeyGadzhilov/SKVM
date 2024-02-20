@@ -280,6 +280,7 @@ void MainWindow::initConnections()
     connect(m_pActionQuit, SIGNAL(triggered()), qApp, SLOT(quit()));
     connect(m_pSidebar, &Sidebar::OpenLogs, this, &MainWindow::showLogWindow);
     connect(m_pSidebar, &Sidebar::OpenSettings, this, &MainWindow::on_m_pActionSettings_triggered);
+    connect(m_pSidebar, &Sidebar::OpenHome, this, &MainWindow::openHomePage);
     connect(m_pStatusBar, &StatusBar::ShowNotifications, this, &MainWindow::showNotifications);
     connect(m_pNotifications, &Notifications::NewNotification, m_pStatusBar, &StatusBar::NewNotification);
     connect(&m_updater, &Updater::NewVersionAvailable, this, &MainWindow::newVersion);
@@ -1059,8 +1060,14 @@ void MainWindow::on_m_pActionAbout_triggered()
 
 void MainWindow::on_m_pActionSettings_triggered()
 {
-    if (SettingsDialog(this, appConfig()).exec() == QDialog::Accepted)
-        updateSSLFingerprint();
+    m_pContent->setCurrentWidget(m_pSettings);
+    //if (SettingsDialog(this, appConfig()).exec() == QDialog::Accepted)
+    //    updateSSLFingerprint();
+}
+
+void MainWindow::openHomePage()
+{
+    m_pContent->setCurrentWidget(m_pMain);
 }
 
 void MainWindow::autoAddScreen(const QString name)

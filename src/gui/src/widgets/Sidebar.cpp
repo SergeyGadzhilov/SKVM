@@ -17,7 +17,6 @@
 #include "Sidebar.h"
 #include <QUrl>
 #include <QDesktopServices>
-#include "sidebar/Button.h"
 
 namespace skvm_widgets
 {
@@ -53,17 +52,19 @@ void Sidebar::addBottomControls()
 void Sidebar::addButtonHome()
 {
     auto button = new sidebar::Button(this, "home");
-    connect(button, &QPushButton::clicked, this, [this]() {
+    connect(button, &QPushButton::clicked, this, [this, button]() {
+        activate(button);
         emit OpenHome();
     });
-    button->Activate();
+    activate(button);
     m_layout->addWidget(button);
 }
 
 void Sidebar::addButtonSettings()
 {
     auto button = new sidebar::Button(this, "settings");
-    connect(button, &QPushButton::clicked, this, [this]() {
+    connect(button, &QPushButton::clicked, this, [this, button]() {
+        activate(button);
         emit OpenSettings();
     });
     m_layout->addWidget(button);
@@ -86,6 +87,19 @@ void Sidebar::addButtonHelp()
         QDesktopServices::openUrl(documentation);
     });
     m_layout->addWidget(button);
+}
+
+void Sidebar::activate(sidebar::Button* button)
+{
+    if (button)
+    {
+        if (m_activeButton)
+        {
+            m_activeButton->Deactivate();
+        }
+        m_activeButton = button;
+        m_activeButton->Activate();
+    }
 }
 
 } //namespace skvm_widgets

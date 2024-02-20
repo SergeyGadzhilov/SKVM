@@ -29,6 +29,7 @@ Button::Button(QWidget *parent, const QString& iconName)
     setFlat(true);
     setCursor(Qt::PointingHandCursor);
     setIcon(iconName);
+    Deactivate();
 }
 
 void Button::Activate()
@@ -42,6 +43,7 @@ void Button::Activate()
 void Button::Deactivate()
 {
     setStyleSheet(QString::fromUtf8(
+        "border-radius: 15;"
         "background-color: transparent;"
     ));
 }
