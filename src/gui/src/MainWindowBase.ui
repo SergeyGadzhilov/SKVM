@@ -71,7 +71,7 @@
      <widget class="QWidget" name="container" native="true">
       <layout class="QVBoxLayout" name="verticalLayout">
        <property name="spacing">
-        <number>7</number>
+        <number>0</number>
        </property>
        <property name="leftMargin">
         <number>0</number>
@@ -440,7 +440,7 @@
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="m_pSettings"/>
+         <widget class="skvm_widgets::SettingsPage" name="m_pSettings"/>
         </widget>
        </item>
        <item>
@@ -585,6 +585,12 @@
    <class>skvm_widgets::Notifications</class>
    <extends>QWidget</extends>
    <header>widgets/Notifications.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>skvm_widgets::SettingsPage</class>
+   <extends>QWidget</extends>
+   <header>widgets/SettingsPage.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

@@ -66,6 +66,9 @@ set(GUI_SOURCE_FILES
     src/widgets/notifications/Title.cpp
     src/widgets/notifications/NewVersionNotification.cpp
     src/widgets/sidebar/Button.cpp
+    src/widgets/SettingsPage.cpp
+    src/widgets/pages/settings/SettingsTabs.cpp
+    src/widgets/pages/settings/Tab.cpp
 )
 
 set(GUI_HEADER_FILES
@@ -107,6 +110,9 @@ set(GUI_HEADER_FILES
     src/widgets/notifications/Title.h
     src/widgets/notifications/NewVersionNotification.h
     src/widgets/sidebar/Button.h
+    src/widgets/SettingsPage.h
+    src/widgets/pages/settings/SettingsTabs.h
+    src/widgets/pages/settings/Tab.h
 )
 
 set(GUI_UI_FILES
