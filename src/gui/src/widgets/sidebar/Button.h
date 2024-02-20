@@ -14,8 +14,8 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef BUTTON_H
-#define BUTTON_H
+#ifndef SKVM_WIDGETS_SIDEBAR_BUTTON_H
+#define SKVM_WIDGETS_SIDEBAR_BUTTON_H
 
 #include <QPushButton>
 
@@ -30,7 +30,8 @@ class Button : public QPushButton
     Q_OBJECT
 public:
     Button(QWidget *parent, const QString& icon);
-    void SetActive(bool isActive);
+    void Activate();
+    void Deactivate();
 
 private:
     void setIcon(const QString& name);
@@ -40,4 +41,4 @@ private:
 
 } //namespace skvm_widgets
 
-#endif // BUTTON_H
+#endif // SKVM_WIDGETS_SIDEBAR_BUTTON_H

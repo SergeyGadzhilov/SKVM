@@ -31,21 +31,19 @@ Button::Button(QWidget *parent, const QString& iconName)
     setIcon(iconName);
 }
 
-void Button::SetActive(bool isActive)
+void Button::Activate()
 {
-    if (isActive)
-    {
-        setStyleSheet(QString::fromUtf8(
-            "border-radius: 15;"
-            "background-color: #E0F7FA;"
-        ));
-    }
-    else
-    {
-        setStyleSheet(QString::fromUtf8(
-            "border: none;"
-        ));
-    }
+    setStyleSheet(QString::fromUtf8(
+        "border-radius: 15;"
+        "background-color: #a8c7fa;"
+    ));
+}
+
+void Button::Deactivate()
+{
+    setStyleSheet(QString::fromUtf8(
+        "background-color: transparent;"
+    ));
 }
 
 void Button::setIcon(const QString& name)

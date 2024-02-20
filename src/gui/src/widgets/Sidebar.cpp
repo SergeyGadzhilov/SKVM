@@ -56,7 +56,7 @@ void Sidebar::addButtonHome()
     connect(button, &QPushButton::clicked, this, [this]() {
         emit OpenHome();
     });
-    button->SetActive(true);
+    button->Activate();
     m_layout->addWidget(button);
 }
 
