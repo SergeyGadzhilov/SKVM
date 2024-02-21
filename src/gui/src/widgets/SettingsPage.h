@@ -19,9 +19,12 @@
 
 #include <QWidget>
 #include <QVBoxLayout>
+#include <QStackedWidget>
+#include "pages/settings/SettingsTabs.h"
 
 namespace skvm_widgets
 {
+using namespace pages::settings;
 
 class SettingsPage : public QWidget
 {
@@ -32,8 +35,10 @@ public:
 private:
     void initLayout();
     void initTabs();
+    void initTabsContent(Tabs* tabs);
 
     QVBoxLayout* m_layout = nullptr;
+    QStackedWidget* m_content = nullptr;
 };
 
 }

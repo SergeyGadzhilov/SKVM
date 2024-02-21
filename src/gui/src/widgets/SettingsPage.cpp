@@ -15,10 +15,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "SettingsPage.h"
-#include "pages/settings/SettingsTabs.h"
+
+#include "pages/settings/GeneralTabContent.h"
+#include "pages/settings/NetworkTabContent.h"
 
 namespace skvm_widgets
 {
+
+using namespace pages::settings;
 
 SettingsPage::SettingsPage(QWidget *parent)
     : QWidget{parent}
@@ -40,9 +44,38 @@ void SettingsPage::initLayout()
 
 void SettingsPage::initTabs()
 {
-    auto tabs = new pages::settings::Tabs(this);
+    auto tabs = new Tabs(this);
+    connect(tabs, &Tabs::SwitchTab, this, [this](QWidget* content) {
+        if (m_content)
+        {
+            m_content->setCurrentWidget(content);
+        }
+    });
     m_layout->addWidget(tabs);
+
+    initTabsContent(tabs);
+
     m_layout->addItem(new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding));
+}
+
+void SettingsPage::initTabsContent(Tabs* tabs)
+{
+    if (!tabs)
+    {
+        return;
+    }
+
+    m_content = new QStackedWidget(this);
+
+    auto general = new GeneralTabContent();
+    m_content->addWidget(general);
+    tabs->AddTab(general, "General");
+
+    auto network = new NetworkTabContent();
+    m_content->addWidget(network);
+    tabs->AddTab(network, "Network");
+
+    m_layout->addWidget(m_content);
 }
 
 }

@@ -32,9 +32,13 @@ class Tab : public QPushButton
 {
     Q_OBJECT
 public:
-    Tab(QWidget *parent = nullptr, const QString& name = "");
+    Tab(QWidget *parent = nullptr, QWidget* content = nullptr, const QString& name = "");
     void Activate();
     void Deactivate();
+    QWidget* GetContent() const;
+
+private:
+    QWidget* m_content = nullptr;
 };
 
 } //namespace settings

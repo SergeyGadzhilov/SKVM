@@ -19,7 +19,6 @@
 
 #include <QWidget>
 #include <QHBoxLayout>
-#include <QStackedWidget>
 #include "Tab.h"
 
 namespace skvm_widgets
@@ -34,16 +33,17 @@ class Tabs : public QWidget
     Q_OBJECT
 public:
     explicit Tabs(QWidget *parent = nullptr);
+    void AddTab(QWidget* content, QString name);
+
+signals:
+    void SwitchTab(QWidget* tab);
+
 private:
     void initLayout();
-    void initTabs();
-    void initPages();
-    void addTab(QString name);
     void activate(Tab* tab);
 
     QHBoxLayout* m_layout = nullptr;
     Tab* m_activeTab = nullptr;
-    QStackedWidget* m_container = nullptr;
 };
 
 }

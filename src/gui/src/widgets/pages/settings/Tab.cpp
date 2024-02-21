@@ -26,8 +26,9 @@ namespace pages
 namespace settings
 {
 
-Tab::Tab(QWidget *parent, const QString& name) :
-    QPushButton(parent)
+Tab::Tab(QWidget *parent, QWidget* content, const QString& name) :
+    QPushButton(parent),
+    m_content(content)
 {
     setObjectName(QString("SettingsTab%1").arg(name));
     setFixedHeight(49);
@@ -65,7 +66,12 @@ void Tab::Deactivate()
         "font-size: 14px;"
         "margin-left: 5px; }"
         "QPushButton#%1:hover { background-color: #f2f2f2; }"
-    ).arg(objectName()));
+                      ).arg(objectName()));
+}
+
+QWidget* Tab::GetContent() const
+{
+    return m_content;
 }
 
 } //namespace settings
