@@ -17,6 +17,8 @@
 #include "SettingsTabs.h"
 
 #include <QPushButton>
+#include "GeneralTabContent.h"
+#include "NetworkTabContent.h"
 
 namespace skvm_widgets
 {
@@ -32,6 +34,8 @@ Tabs::Tabs(QWidget *parent)
 {
     initLayout();
     initTabs();
+    initPages();
+    m_layout->addItem(new QSpacerItem(5, 5, QSizePolicy::Expanding, QSizePolicy::Maximum));
 }
 
 void Tabs::initLayout()
@@ -47,19 +51,31 @@ void Tabs::initLayout()
 
 void Tabs::initTabs()
 {
-    auto general = new Tab(this, "General");
-    connect(general, &QPushButton::clicked, this, [this, general]() {
-        activate(general);
-    });
-    m_layout->addWidget(general);
-    activate(general);
+    addTab("General");
+    addTab("Network");
+}
 
-    auto network = new Tab(this, "Network");
-    connect(network, &QPushButton::clicked, this, [this, network]() {
-        activate(network);
+void Tabs::initPages()
+{
+    m_container = new QStackedWidget(this);
+    m_container->addWidget(new GeneralTabContent());
+    m_container->addWidget(new NetworkTabContent());
+    m_layout->addWidget(m_container);
+}
+
+void Tabs::addTab(QString name)
+{
+    auto tab = new Tab(this, name);
+    connect(tab, &QPushButton::clicked, this, [this, tab]() {
+        activate(tab);
     });
-    m_layout->addWidget(network);
-    m_layout->addItem(new QSpacerItem(5, 5, QSizePolicy::Expanding, QSizePolicy::Maximum));
+
+    if (!m_activeTab)
+    {
+        activate(tab);
+    }
+
+    m_layout->addWidget(tab);
 }
 
 void Tabs::activate(Tab* tab)

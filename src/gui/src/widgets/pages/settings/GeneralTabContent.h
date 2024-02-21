@@ -14,40 +14,31 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef SKVM_WIDGETS_PAGES_SETTINGS_TABS_H
-#define SKVM_WIDGETS_PAGES_SETTINGS_TABS_H
+#ifndef GENERALTABCONTENT_H
+#define GENERALTABCONTENT_H
 
 #include <QWidget>
-#include <QHBoxLayout>
-#include <QStackedWidget>
-#include "Tab.h"
+
 
 namespace skvm_widgets
 {
+
 namespace pages
 {
+
 namespace settings
 {
 
-class Tabs : public QWidget
+class GeneralTabContent : public QWidget
 {
     Q_OBJECT
 public:
-    explicit Tabs(QWidget *parent = nullptr);
-private:
-    void initLayout();
-    void initTabs();
-    void initPages();
-    void addTab(QString name);
-    void activate(Tab* tab);
-
-    QHBoxLayout* m_layout = nullptr;
-    Tab* m_activeTab = nullptr;
-    QStackedWidget* m_container = nullptr;
+    explicit GeneralTabContent(QWidget *parent = nullptr);
 };
 
-}
-}
-}
+} //namespace settings
+} //namespace pages
+} //namespace skvm_widgets
 
-#endif // SKVM_WIDGETS_PAGES_SETTINGS_TABS_H
+
+#endif // GENERALTABCONTENT_H

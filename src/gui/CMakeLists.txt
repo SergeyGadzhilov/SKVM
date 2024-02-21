@@ -69,6 +69,8 @@ set(GUI_SOURCE_FILES
     src/widgets/SettingsPage.cpp
     src/widgets/pages/settings/SettingsTabs.cpp
     src/widgets/pages/settings/Tab.cpp
+    src/widgets/pages/settings/GeneralTabContent.cpp
+    src/widgets/pages/settings/NetworkTabContent.cpp
 )
 
 set(GUI_HEADER_FILES
@@ -113,6 +115,8 @@ set(GUI_HEADER_FILES
     src/widgets/SettingsPage.h
     src/widgets/pages/settings/SettingsTabs.h
     src/widgets/pages/settings/Tab.h
+    src/widgets/pages/settings/GeneralTabContent.h
+    src/widgets/pages/settings/NetworkTabContent.h
 )
 
 set(GUI_UI_FILES
