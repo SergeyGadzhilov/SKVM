@@ -48,8 +48,8 @@ static const char* logLevelNames[] =
     "DEBUG2"
 };
 
-AppConfig::AppConfig(QSettings* settings) :
-    m_pSettings(settings),
+AppConfig::AppConfig() :
+    m_settings(),
     m_ScreenName(),
     m_Port(24800),
     m_Interface(),
@@ -61,14 +61,18 @@ AppConfig::AppConfig(QSettings* settings) :
     m_AutoStart(false),
     m_MinimizeToTray(false)
 {
-    Q_ASSERT(m_pSettings);
-
     loadSettings();
 }
 
 AppConfig::~AppConfig()
 {
     saveSettings();
+}
+
+AppConfig& AppConfig::GetInstance()
+{
+    static AppConfig instance;
+    return instance;
 }
 
 const QString &AppConfig::screenName() const { return m_ScreenName; }
@@ -177,7 +181,7 @@ void AppConfig::saveSettings()
     settings().sync();
 }
 
-QSettings &AppConfig::settings() { return *m_pSettings; }
+QSettings &AppConfig::settings() { return m_settings; }
 
 void AppConfig::setScreenName(const QString &s) { m_ScreenName = s; }
 

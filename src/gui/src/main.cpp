@@ -120,7 +120,7 @@ int main(int argc, char* argv[])
         copy_qsettings(fallback_settings, settings);
     }
 
-    AppConfig appConfig (&settings);
+    auto& appConfig = AppConfig::GetInstance();
 
     if (appConfig.getAutoHide() && !trayAvailable)
     {

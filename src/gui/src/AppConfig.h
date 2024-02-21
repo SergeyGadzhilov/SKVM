@@ -21,9 +21,9 @@
 
 #include <QObject>
 #include <QString>
+#include <QSettings>
 #include "ElevateMode.h"
 
-class QSettings;
 class SettingsDialog;
 
 enum ProcessMode {
@@ -38,11 +38,13 @@ class AppConfig: public QObject
     friend class SettingsDialog;
     friend class MainWindow;
 
-    public:
-        AppConfig(QSettings* settings);
+    private:
+        AppConfig();
         ~AppConfig();
 
     public:
+        static AppConfig& GetInstance();
+
         const QString& screenName() const;
         int port() const;
         const QString& networkInterface() const;
@@ -94,7 +96,7 @@ protected:
         void loadSettings();
 
     private:
-        QSettings* m_pSettings;
+        QSettings m_settings;
         QString m_ScreenName;
         int m_Port;
         QString m_Interface;

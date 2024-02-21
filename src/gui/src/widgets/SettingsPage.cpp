@@ -54,7 +54,6 @@ void SettingsPage::initTabs()
     m_layout->addWidget(tabs);
 
     initTabsContent(tabs);
-
     m_layout->addItem(new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding));
 }
 
