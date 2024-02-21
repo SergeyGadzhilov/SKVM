@@ -29,6 +29,7 @@ namespace settings
 Tab::Tab(QWidget *parent, const QString& name) :
     QPushButton(parent)
 {
+    setObjectName(QString("SettingsTab%1").arg(name));
     setFixedHeight(49);
     setFixedWidth(150);
     setText(name);
@@ -38,7 +39,9 @@ Tab::Tab(QWidget *parent, const QString& name) :
 
 void Tab::Activate()
 {
+
     setStyleSheet(QString::fromUtf8(
+        "QPushButton#%1 {"
         "color: #0b57d0;"
         "background-color: #FFFFFF;"
         "border: none;"
@@ -47,19 +50,22 @@ void Tab::Activate()
         "font-weight: bold;"
         "font-family: Roboto;"
         "font-size: 14px;"
-        "margin-left: 5px;"
-    ));
+        "margin-left: 5px; }"
+        "QPushButton#%1:hover { background-color: #f2f2f2; }"
+    ).arg(objectName()));
 }
 
 void Tab::Deactivate()
 {
     setStyleSheet(QString::fromUtf8(
+        "QPushButton#%1 {"
         "background-color: #FFFFFF;"
         "border: none;"
         "font-family: Roboto;"
         "font-size: 14px;"
-        "margin-left: 5px;"
-    ));
+        "margin-left: 5px; }"
+        "QPushButton#%1:hover { background-color: #f2f2f2; }"
+    ).arg(objectName()));
 }
 
 } //namespace settings
