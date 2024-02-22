@@ -18,6 +18,8 @@
 #define SKVM_WIDGETS_TEXTEDIT_H
 
 #include <QWidget>
+#include <QLabel>
+#include <QTextEdit>
 #include <QHBoxLayout>
 
 namespace skvm_widgets
@@ -27,12 +29,15 @@ class TextEdit : public QWidget
 {
     Q_OBJECT
 public:
-    explicit TextEdit(QWidget *parent = nullptr);
+    TextEdit(QWidget *parent, const QString& label, const QString& value);
 
 private:
     void initLayout();
 
+    QLabel* m_label = nullptr;
+    QTextEdit* m_value = nullptr;
     QHBoxLayout* m_layout = nullptr;
+
 };
 
 } //namespace skvm_widgets

@@ -19,13 +19,31 @@
 namespace skvm_widgets
 {
 
-TextEdit::TextEdit(QWidget *parent)
+TextEdit::TextEdit(QWidget *parent, const QString& label, const QString& value)
     : QWidget{parent}
-{}
+{
+    m_label = new QLabel(label, this);
+    m_label->setStyleSheet(QString::fromUtf8(
+        "font-family: Roboto;"
+        "font-size: 18px;"
+    ));
+    m_label->setFixedWidth(200);
+
+    m_value = new QTextEdit(value, this);
+    m_value->setStyleSheet(QString::fromUtf8(
+        "font-family: Roboto;"
+        "font-size: 18px;"
+    ));
+
+    initLayout();
+}
 
 void TextEdit::initLayout()
 {
     m_layout = new QHBoxLayout(this);
+    m_layout->addWidget(m_label);
+    m_layout->addItem(new QSpacerItem(50, 40, QSizePolicy::Fixed, QSizePolicy::Fixed));
+    m_layout->addWidget(m_value);
 }
 
 } //namespace skvm_widgets

@@ -36,7 +36,7 @@ void Sidebar::initLayout()
     ));
 
     m_layout = new QVBoxLayout(this);
-    m_layout->setSpacing(12);
+    m_layout->setSpacing(25);
     m_layout->setContentsMargins(-1, 15, -1, 30);
 }
 

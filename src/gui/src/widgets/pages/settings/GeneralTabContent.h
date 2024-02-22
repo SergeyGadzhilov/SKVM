@@ -18,7 +18,7 @@
 #define GENERALTABCONTENT_H
 
 #include <QWidget>
-#include <QHBoxLayout>
+#include <QVBoxLayout>
 
 namespace skvm_widgets
 {
@@ -39,7 +39,7 @@ public:
 private:
     void initLayout();
 
-    QHBoxLayout* m_layout = nullptr;
+    QVBoxLayout* m_layout = nullptr;
 };
 
 } //namespace settings

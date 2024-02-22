@@ -15,6 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "GeneralTabContent.h"
+#include "widgets/TextEdit.h"
 
 namespace skvm_widgets
 {
@@ -33,7 +34,9 @@ GeneralTabContent::GeneralTabContent(QWidget *parent)
 
 void GeneralTabContent::initLayout()
 {
-    m_layout = new QHBoxLayout(this);
+    m_layout = new QVBoxLayout(this);
+    m_layout->addWidget(new TextEdit(this, "Test", "TestValue"));
+    m_layout->addItem(new QSpacerItem(20, 40, QSizePolicy::Expanding, QSizePolicy::Maximum));
 }
 
 } //namespace settings
