@@ -14,37 +14,18 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef GENERALTABCONTENT_H
-#define GENERALTABCONTENT_H
-
-#include <QWidget>
-#include <QHBoxLayout>
+#include "TextEdit.h"
 
 namespace skvm_widgets
 {
 
-namespace pages
+TextEdit::TextEdit(QWidget *parent)
+    : QWidget{parent}
+{}
+
+void TextEdit::initLayout()
 {
+    m_layout = new QHBoxLayout(this);
+}
 
-namespace settings
-{
-
-class GeneralTabContent : public QWidget
-{
-    Q_OBJECT
-public:
-    explicit GeneralTabContent(QWidget *parent = nullptr);
-
-
-private:
-    void initLayout();
-
-    QHBoxLayout* m_layout = nullptr;
-};
-
-} //namespace settings
-} //namespace pages
 } //namespace skvm_widgets
-
-
-#endif // GENERALTABCONTENT_H

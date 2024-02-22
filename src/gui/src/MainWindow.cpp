@@ -1060,9 +1060,9 @@ void MainWindow::on_m_pActionAbout_triggered()
 
 void MainWindow::on_m_pActionSettings_triggered()
 {
-    //m_pContent->setCurrentWidget(m_pSettings);
-    if (SettingsDialog(this, appConfig()).exec() == QDialog::Accepted)
-        updateSSLFingerprint();
+    m_pContent->setCurrentWidget(m_pSettings);
+    //if (SettingsDialog(this, appConfig()).exec() == QDialog::Accepted)
+    //    updateSSLFingerprint();
 }
 
 void MainWindow::openHomePage()

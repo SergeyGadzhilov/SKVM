@@ -50,7 +50,7 @@ void Tab::Activate()
         "border-radius: 1px;"
         "font-weight: bold;"
         "font-family: Roboto;"
-        "font-size: 14px;"
+        "font-size: 18px;"
         "margin-left: 5px; }"
         "QPushButton#%1:hover { background-color: #f2f2f2; }"
     ).arg(objectName()));
@@ -63,10 +63,10 @@ void Tab::Deactivate()
         "background-color: #FFFFFF;"
         "border: none;"
         "font-family: Roboto;"
-        "font-size: 14px;"
+        "font-size: 18px;"
         "margin-left: 5px; }"
         "QPushButton#%1:hover { background-color: #f2f2f2; }"
-                      ).arg(objectName()));
+    ).arg(objectName()));
 }
 
 QWidget* Tab::GetContent() const

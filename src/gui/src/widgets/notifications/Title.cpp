@@ -39,6 +39,11 @@ void Title::addText()
     auto label = new QLabel(this);
     label->setText("Notifications");
     label->setFont(font);
+    label->setStyleSheet(QString::fromUtf8(
+        "font-family: Roboto;"
+        "font-size: 18px;"
+        "border: none"
+    ));
 
     m_layout->addWidget(label);
     m_layout->addItem(new QSpacerItem(200, 0, QSizePolicy::Expanding, QSizePolicy::Fixed));
@@ -48,6 +53,7 @@ void Title::addCloseButton()
 {
     QIcon icon(QString::fromUtf8(":/res/icons/notifications/close.svg"));
     auto button = new QPushButton(this);
+    button->setStyleSheet(QString::fromUtf8("border: none"));
     button->setFlat(true);
     button->setIcon(icon);
     button->setCursor(Qt::PointingHandCursor);

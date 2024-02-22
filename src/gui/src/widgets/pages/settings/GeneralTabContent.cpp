@@ -27,7 +27,14 @@ namespace settings
 
 GeneralTabContent::GeneralTabContent(QWidget *parent)
     : QWidget{parent}
-{}
+{
+    initLayout();
+}
+
+void GeneralTabContent::initLayout()
+{
+    m_layout = new QHBoxLayout(this);
+}
 
 } //namespace settings
 } //namespace pages

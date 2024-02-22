@@ -67,6 +67,7 @@ set(GUI_SOURCE_FILES
     src/widgets/notifications/NewVersionNotification.cpp
     src/widgets/sidebar/Button.cpp
     src/widgets/SettingsPage.cpp
+    src/widgets/TextEdit.cpp
     src/widgets/pages/settings/SettingsTabs.cpp
     src/widgets/pages/settings/Tab.cpp
     src/widgets/pages/settings/GeneralTabContent.cpp
@@ -113,6 +114,7 @@ set(GUI_HEADER_FILES
     src/widgets/notifications/NewVersionNotification.h
     src/widgets/sidebar/Button.h
     src/widgets/SettingsPage.h
+    src/widgets/TextEdit.h
     src/widgets/pages/settings/SettingsTabs.h
     src/widgets/pages/settings/Tab.h
     src/widgets/pages/settings/GeneralTabContent.h

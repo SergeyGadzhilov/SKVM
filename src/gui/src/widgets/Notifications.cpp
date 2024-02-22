@@ -47,6 +47,7 @@ void Notifications::initLayout()
 {
     setAttribute(Qt::WA_StyledBackground, true);
     setStyleSheet(QString::fromUtf8(
+        "border-left: 1px solid #c4c7c5;"
         "background-color: rgba(255, 255, 255, 1);"
     ));
     setFixedWidth(400);
